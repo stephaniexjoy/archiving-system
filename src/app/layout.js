@@ -6,6 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Archiving System',
   description: '',
+  icon:'/favicon.ico'
 }
 
 export default function RootLayout({ children }) {
