@@ -15,21 +15,21 @@ const Login = () => {
             <div className="absolute top-[0px] left-[-550px] rounded-[50%] bg-[#DABB9C] shadow-[30px_0px_30px_rgba(0,_0,_0,_0.35)] w-[1130px] h-[1135px] [transform:_rotate(-0.3deg)] [transform-origin:0_0]" />
             <div
                 className="absolute top-[797px] left-[921px] bg-gainsboro w-[247px] h-12 cursor-pointer"
-                onClick={onRectangle3Click}
+            // onClick={onRectangle3Click}
             />
-            
+
             <b className="absolute top-[860px] left-[903px] inline-block text-white w-[304px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]">
                 Doesn’t have an account?
             </b>
             <b
                 className="absolute top-[860px] left-[1115px] [text-decoration:underline] inline-block text-royalblue text-right w-[71px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] cursor-pointer"
-                onClick={onSignUpTextClick}
+            // onClick={onSignUpTextClick}
             >
                 Sign Up
             </b>
             <b
                 className="absolute top-[742px] left-[893px] text-[21px] [text-decoration:underline] inline-block text-[#FF7E7E] text-center w-[304px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] cursor-pointer"
-                onClick={onForgotPasswordTextClick}
+            // onClick={onForgotPasswordTextClick}
             >
                 Forgot Password?
             </b>
@@ -41,7 +41,7 @@ const Login = () => {
             <div className=''>
                 <h1 ><FaLock size='50' color='#000000' opacity='26%' style={{ position: 'absolute', top: '675px', left: '800px' }} /></h1>
                 <input type="password" name='password' placeholder="PASSWORD" className="absolute top-[680px] left-[865px] text-3xl text-[#A89F9F] inline-block w-[300px] h-[37px] text-shadow-inner" />
-                <h1 ><IoMdEyeOff size='50' color='black' style={{ position: 'absolute', top: '675px', right: '500px' }}/></h1> 
+                <h1 ><IoMdEyeOff size='50' color='black' style={{ position: 'absolute', top: '675px', right: '500px' }} /></h1>
                 {/* onClick={handleUserIconClick} */}
             </div>
             <div className='flex justify-center'>
@@ -52,7 +52,7 @@ const Login = () => {
                 className="absolute top-[5px] left-[0px] w-[1120px] h-[1120px] object-cover"
                 alt=""
                 src="../photos/ccs.png"
-                style={{ marginLeft: "-550px", opacity:'20%'}}
+                style={{ marginLeft: "-550px", opacity: '20%' }}
             />
             <img
                 className="absolute top-[110px] left-[35%] w-[918px] h-[215px] object-cover"
