@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation"
 import React from 'react'
 import { useCallback } from "react";
 import { FaLock } from "react-icons/fa";
@@ -6,9 +7,18 @@ import { IoMdEyeOff } from "react-icons/io";
 
 const Login = () => {
 
+    const router = useRouter();
+
+    const handleSubmit = () => {
+        router.push('/dashboard')
+    }
+
+
+
 
     return (
-        <div >
+
+        <div>
             <div className="absolute top-[415px] left-[1px] bg-[#AD5606] [backdrop-filter:blur(4px)] w-[1800px] h-[532px]" />
             <div className="absolute top-[512px] left-[788px] bg-white w-[514px] h-[77px]" />
             <div className="absolute top-[661px] left-[788px] bg-white w-[514px] h-[77px]" />
@@ -45,7 +55,9 @@ const Login = () => {
                 {/* onClick={handleUserIconClick} */}
             </div>
             <div className='flex justify-center'>
-                <button type='submit' className="absolute top-[807px] left-[921px] bg-[#D9D9D9] text-[20px] text-black text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]">LOGIN</button>
+                <button type='submit' className="absolute top-[807px] left-[921px] bg-[#D9D9D9] text-[20px] text-black text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]" onClick={handleSubmit}>
+                    LOGIN
+                </button>
             </div>
 
             <img
@@ -61,7 +73,9 @@ const Login = () => {
             />
         </div>
 
+
     )
 }
+
 
 export default Login
