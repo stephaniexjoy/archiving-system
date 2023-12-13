@@ -16,7 +16,7 @@ const Sidebar = () => {
             <nav>
                 <div className="h-10 text-center mt-4 py-2 text-base">
                     <>
-                        <img class="h-20 w-20 rounded-full ml-24 mb-3" src="../photos/ccs.png" />
+                        <img className="h-20 w-20 rounded-full ml-24 mb-3" src="../photos/ccs.png" />
                         {/* src="{person.imageUrl}" --> ito yung code dapat sa photo ginamit ko lang muna yung logo ng ccs */}
                         <p>USER'S NAME</p>
                     </>
