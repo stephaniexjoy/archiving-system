@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+//import { useRouter } from 'next/router';
 //import { useSession, signOut } from 'next-auth/react';
 import { FaRegUser } from 'react-icons/fa';
 
