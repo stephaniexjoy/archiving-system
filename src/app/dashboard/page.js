@@ -1,9 +1,11 @@
 "use client"
-
+import Sidebar from "../components/Sidebar"
 
 export default function dashboard() {
   return (
+    
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <Sidebar/>
      <div>
             <div className="absolute top-[415px] left-[1px] bg-[#AD5606] [backdrop-filter:blur(4px)] w-[1800px] h-[532px]" />
             <img
@@ -29,5 +31,6 @@ export default function dashboard() {
       
       
     </main>
+    
   )  
 }
