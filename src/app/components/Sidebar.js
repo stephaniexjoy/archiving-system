@@ -2,7 +2,10 @@ import React from 'react'
 import Link from 'next/link';
 //import { useRouter } from 'next/router';
 //import { useSession, signOut } from 'next-auth/react';
-import { FaRegUser } from 'react-icons/fa';
+import { FaHome } from "react-icons/fa";
+import { IoMdPerson } from "react-icons/io";
+import { FaBook } from "react-icons/fa6";
+import { FaSignOutAlt } from "react-icons/fa";
 
 
 
@@ -19,17 +22,32 @@ const Sidebar = () => {
                     </>
                 </div>
                 <ul>
-                    <li className="mb-2 hover:bg-[#9D9494] h-10 text-center mt-24 py-2" onClick={() => handleItemClick('Dashboard')}>
-                        <Link href="#">HOME</Link>
+                    <li className="relative flex items-center mb-2 hover:bg-[#9D9494] h-10 mt-24 py-2" onClick={() => handleItemClick('Dashboard')}>
+                        <span className='absolute left-0'>
+                            <FaHome className='text-black text-2xl ml-5' />
+                        </span>
+                        <Link href="#" className="ml-14 mt-1 font-medium">HOME</Link>
                     </li>
-                    <li className="mb-2 hover:bg-[#9D9494] h-10 text-center mt-4 py-2" onClick={() => handleItemClick('Profile')}>
-                        <Link href="#">PROFILE</Link>
+
+                    <li className="mb-2 hover:bg-[#9D9494] h-10 mt-4 py-2" onClick={() => handleItemClick('Profile')}>
+                        <span className='absolute left-0'>
+                            <IoMdPerson className='text-black text-2xl ml-5' />
+                        </span>
+                        <Link href="#" className="ml-14 mt-1 font-medium">PROFILE</Link>
                     </li>
-                    <li className="mb-2 hover:bg-[#9D9494] h-10 text-center mt-4 py-2" onClick={() => handleItemClick('Archiving')}>
-                        <Link href="#">ARCHIVING</Link>
+
+                    <li className="mb-2 hover:bg-[#9D9494] h-10 mt-4 py-2" onClick={() => handleItemClick('Archiving')}>
+                        <span className='absolute left-0'>
+                            <FaBook className='text-black text-2xl ml-5' />
+                        </span>
+                        <Link href="#" className="ml-14 mt-1 font-medium">ARCHIVING</Link>
                     </li>
-                    <li className="mb-2 hover:bg-[#9D9494] h-10 text-center mt-4 py-2" onClick={() => signOut()}>
-                        <Link href="#">SIGN OUT</Link>
+                    
+                    <li className="mb-2 hover:bg-[#9D9494] h-10 mt-4 py-2" onClick={() => signOut()}>
+                        <span className='absolute left-0'>
+                            <FaSignOutAlt className='text-black text-2xl ml-5' />
+                        </span>
+                        <Link href="#" className="ml-14 mt-1 font-medium">SIGN OUT</Link>
                     </li>
                 </ul>
             </nav>
