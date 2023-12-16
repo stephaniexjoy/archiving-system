@@ -1,3 +1,4 @@
+import { db } from '@/app/lib/prisma_db';
 import bcrypt from 'bcrypt'
 
 export async function POST(req) {
@@ -10,7 +11,29 @@ export async function POST(req) {
             return new Response('Missing Info', { status: 400 });
         }
 
+        // Checks whether the email is already exisiting
+
+        const existingUser = await db.user.findUnique({
+            where: { email: email }
+        });
+
+        if (existingUser) {
+            return new Response('Email is already registered', { status: 409 })
+        }
+
         const hashedPassword = await bcrypt.hash(password, 12);
+
+        const newUser = await db.user.create({
+            data: {
+                name,
+                email,
+                password,
+                position,
+                designation,
+                specialization,
+                license
+            }
+        })
 
         // Declare User for storing the data fetched from database
         let user;
