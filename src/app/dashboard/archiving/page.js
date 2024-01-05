@@ -1,8 +1,17 @@
 "use client"
 
+import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { FaUpload } from "react-icons/fa";
+
 export default function archiving() {
+    const[popup,setPop]=useState(false);
+    const handleClickOpen=()=>{
+        setPop(!popup);
+    } 
+    const closePopup=()=>{
+        setPop(false)
+    }
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>
@@ -48,12 +57,13 @@ export default function archiving() {
                 <option value="extension conducted">Extension Conducted</option>
                 <option value="educational qualification">Educational Qualification</option>
                 <option value="faculty profile">Faculty Profile</option>
+                
             </select>
            
-            <div className="absolute top-[193px] left-[35px] bg-[#AD5606] backdrop-filter-blur-[4px] shadow-lg rounded-md w-[145px] h-[35px] "></div>
+            <div className="absolute top-[193px] left-[35px] bg-[#675454] backdrop-filter-blur-[4px] shadow-lg rounded-md w-[145px] h-[35px] "></div>
              <div className="button"> 
                 <div className="absolute top-[200px] left-[40px] text-center outline-color rounded w-[130px]">
-                    <button>ADD CATEGORY</button>
+                <button onClick={handleClickOpen}>ADD CATEGORY</button>
                 </div>
             </div>
           
@@ -66,13 +76,13 @@ export default function archiving() {
                 <option value="docx">DOCX</option>
             </select>
            
-            <div className="absolute top-[193px] left-[20px] bg-[#AD5606] backdrop-filter-blur-[4px] shadow-lg rounded-md w-[145px] h-[35px] "></div>
-            <div className="button">
-                <div className="absolute top-[200px] left-[28px] text-center outline-color rounded shadow-lg w-[130px]">
-                    <button>ADD CATEGORY</button>
-                </div>
+            <div className="absolute top-[193px] left-[20px] bg-[#675454] backdrop-filter-blur-[4px] shadow-lg rounded-md w-[145px] h-[35px] "></div>
+        <div className="button">
+            <div className="absolute top-[200px] left-[28px] text-center outline-color rounded shadow-lg w-[130px]">
+                <button onClick={handleClickOpen}>ADD CATEGORY</button>
+                   
             </div>
-           
+         </div>
         </div>
             <div className="absolute top-[210px] left-[740px] bg-[#D9BA9C] backdrop-filter-blur-[4px] w-[210px] h-[50px] cursor-pointer">
                 <select className="absolute top-[15px] left-[1px] bg-[#D9BA9C] text-black font-semibold w-[185px] cursor-pointer border-gray-300 rounded-md px-2 py-1  focus:outline-none " name="program" id="program">
@@ -82,10 +92,10 @@ export default function archiving() {
                 <option value="Platform Technologie">Platform Technologies</option>
             </select>
            
-            <div className="absolute top-[193px] left-[35px] bg-[#AD5606] backdrop-filter-blur-[4px] shadow-lg rounded-md w-[145px] h-[35px] "></div>
+            <div className="absolute top-[193px] left-[35px] bg-[#675454] backdrop-filter-blur-[4px] shadow-lg rounded-md w-[145px] h-[35px] "></div>
             <div className="button">
                 <div className="absolute top-[200px] left-[40px] text-center outline-color rounded shadow-lg w-[130px]">
-                    <button>ADD CATEGORY</button>
+                <button onClick={handleClickOpen}>ADD CATEGORY</button>
                 </div>
             </div>
             
@@ -98,10 +108,20 @@ export default function archiving() {
                 <option value="Marco Del Rosario">Marco Del Rosario</option>
             </select>
             
-            <div className="absolute top-[193px] left-[35px] bg-[#AD5606] backdrop-filter-blur-[4px] shadow-lg rounded-md w-[145px] h-[35px] "></div>
+            <div className="absolute top-[193px] left-[35px] bg-[#675454] backdrop-filter-blur-[4px] shadow-lg rounded-md w-[145px] h-[35px] "></div>
             <div className="button">
                 <div className="absolute top-[200px] left-[40px] text-center outline-color rounded shadow-lg w-[130px]">
-                    <button>ADD CATEGORY</button>
+                <button onClick={handleClickOpen}>ADD CATEGORY</button>
+                {popup?
+                        <div>
+                            <div className="popup">
+                            <div className="absolute top-[-40px] left-[-355px] bg-[#D9D9D9] [backdrop-filter:blur(4px)] w-[400px] h-[170px] rounded-3xl" />
+                            <input type="add" name='find' placeholder="" className="absolute top-[1px] left-[-330px] text-xl text-center text-[#242323] bg-[#B5B5B5] inline-block w-[350px] h-[37px] text-shadow-inner" /> 
+                            <div className="absolute top-[65px] left-[-230px] bg-[#474543] outline-color shadow-2xl rounded w-[150px] ">
+                            <button onClick={closePopup}>ADD CATEGORY</button>
+                        </div>
+                    </div>
+                </div>:""}
                 </div>
             </div>
         </div>
