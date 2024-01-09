@@ -1,4 +1,4 @@
-"use client"
+
 import { FaUserLock } from "react-icons/fa";
 
 export default function profile() {
