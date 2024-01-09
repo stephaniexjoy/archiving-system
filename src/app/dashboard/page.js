@@ -4,7 +4,7 @@ import Sidebar from "../components/Sidebar"
 export default function dashboard() {
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col w-auto h-screen">
 
         <img
           className=" w-[870px] h-[200px] object-cover"
@@ -19,7 +19,7 @@ export default function dashboard() {
           USER'S NAME!
         </h1>
 
-        <div className="bg-[#AD5606] w-[1800px] h-[590px]">
+        <div className="bg-[#AD5606] w-[1600px] h-[590px]">
           <div>
 
 

@@ -16,7 +16,7 @@ const Sidebar = () => {
   return (
     <aside
       className={`flex bg-[#D9D9D9] text-black ${isMinimized ? "w-[10vh]" : "w-[24vh]"
-        } h-full top-0 left-0 z-40 transition-all`}
+        } h-full transition-all`}
     >
       <nav>
         <div>
