@@ -15,39 +15,35 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`absolute bg-[#D9D9D9] text-black w-${
-        isMinimized ? "20" : "64"
-      } h-[925px] top-0 left-0 z-40 transition-all`}
+      className={`absolute bg-[#D9D9D9] text-black w-${isMinimized ? "20" : "64"
+        } h-full top-0 left-0 z-40 transition-all`}
     >
       <nav>
         <div>
-            <div
-          className={`className=" mb-2 h-10 py-2 cursor-pointer" cursor-pointer ${
-            isMinimized ? "rotate-180" : ""
-          }`}
-          onClick={handleToggleMinimize}
-        >
-          <IoMdMenu className="text-black text-2xl ml-5" />
-        </div>
-        <div
-          className={`h-10 text-center mt-4 py-2 text-base ${
-            isMinimized ? "hidden" : ""
-          }`}
-        >
-          <img
-            className="h-20 w-20 rounded-full ml-24 mb-3"
-            src="../photos/ccs.png"
-            alt="User"
-          />
-          <p>USER'S NAME</p>
-        </div>
+          <div
+            className={`className=" mb-2 h-10 py-2 cursor-pointer" cursor-pointer ${isMinimized ? "rotate-180" : ""
+              }`}
+            onClick={handleToggleMinimize}
+          >
+            <IoMdMenu className="text-black text-2xl ml-5" />
+          </div>
+          <div
+            className={`h-10 text-center mt-4 py-2 text-base ${isMinimized ? "hidden" : ""
+              }`}
+          >
+            <img
+              className="h-20 w-20 rounded-full ml-24 mb-3"
+              src="../photos/ccs.png"
+              alt="User"
+            />
+            <p>USER'S NAME</p>
+          </div>
         </div>
 
         <ul>
           <li
-            className={`relative flex items-center mb-2 hover:bg-[#9D9494] h-10 py-2 ${
-              isMinimized ? "mt-4" : "mt-24"
-            }`}
+            className={`relative flex items-center mb-2 hover:bg-[#9D9494] h-10 py-2 ${isMinimized ? "mt-4" : "mt-24"
+              }`}
             onClick={() => handleItemClick("Dashboard")}
           >
             <span className="absolute left-0">
@@ -61,9 +57,8 @@ const Sidebar = () => {
           </li>
 
           <li
-            className={`mb-2 hover:bg-[#9D9494] h-10 py-2 ${
-              isMinimized ? "mt-4" : "mt-4"
-            }`}
+            className={`mb-2 hover:bg-[#9D9494] h-10 py-2 ${isMinimized ? "mt-4" : "mt-4"
+              }`}
             onClick={() => handleItemClick("Profile")}
           >
             <span className="absolute left-0">
@@ -77,9 +72,8 @@ const Sidebar = () => {
           </li>
 
           <li
-            className={`mb-2 hover:bg-[#9D9494] h-10 py-2 ${
-              isMinimized ? "mt-4" : "mt-4"
-            }`}
+            className={`mb-2 hover:bg-[#9D9494] h-10 py-2 ${isMinimized ? "mt-4" : "mt-4"
+              }`}
             onClick={() => handleItemClick("Archiving")}
           >
             <span className="absolute left-0">
@@ -93,9 +87,8 @@ const Sidebar = () => {
           </li>
 
           <li
-            className={`mb-2 hover:bg-[#9D9494] h-10 py-2 ${
-              isMinimized ? "mt-4" : "mt-4"
-            }`}
+            className={`mb-2 hover:bg-[#9D9494] h-10 py-2 ${isMinimized ? "mt-4" : "mt-4"
+              }`}
             onClick={() => signOut()}
           >
             <span className="absolute left-0">
