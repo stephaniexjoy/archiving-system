@@ -23,7 +23,7 @@ export default function dashboard() {
           <div>
 
 
-            <h1 className=" text-[35px]">
+            <h1 className="mt-10 mb-10 text-[35px]">
               ABOUT
             </h1>
             <div>

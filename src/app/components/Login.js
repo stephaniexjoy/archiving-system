@@ -9,7 +9,9 @@ const Login = () => {
 
     return (
         <div className='container mx-auto'>
-            <div className="absolute top-[415px] left-[1px] bg-[#AD5606] [backdrop-filter:blur(4px)] w-[1800px] h-[532px]" />
+            <div className="absolute top-[415px] left-[1px] bg-[#AD5606] [backdrop-filter:blur(4px)] w-[1200px] h-[532px]">
+
+            </div>
             <div className="absolute top-[512px] left-[788px] bg-white w-[514px] h-[77px]" />
             <div className="absolute top-[661px] left-[788px] bg-white w-[514px] h-[77px]" />
             <div className="absolute top-[0px] left-[-550px] rounded-[50%] bg-[#DABB9C] shadow-[30px_0px_30px_rgba(0,_0,_0,_0.35)] w-[1130px] h-[1135px] [transform:_rotate(-0.3deg)] [transform-origin:0_0]" />
