@@ -4,11 +4,21 @@ export default function DashboardLayout({
   children // will be a page or nested layout
 }) {
   return (
-    <section>
-      {/* Include shared UI here e.g. a header or sidebar */}
-      <Sidebar />
 
-      {children}
-    </section>
+    <>
+      {/* Include shared UI here e.g. a header or sidebar */}
+      < div className="flex" >
+
+        <div className="flex-1">
+          <Sidebar />
+        </div>
+
+        <div className="flex p-6 w-full">
+          {children}
+        </div>
+
+      </div >
+
+    </>
   );
 }
