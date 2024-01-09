@@ -44,13 +44,15 @@ const Sidebar = () => {
           <li
             className={`relative flex items-center mb-2 hover:bg-[#9D9494] h-10 py-2 ${isMinimized ? "mt-4" : "mt-24"
               }`}
-            onClick={() => handleItemClick("Dashboard")}
+
           >
             <span className="absolute left-0">
-              <FaHome className="text-black text-2xl ml-5" />
+              <Link href="/dashboard" >
+                <FaHome className="text-black text-2xl ml-5" />
+              </Link>
             </span>
             {!isMinimized && (
-              <Link href="#" className="ml-14 mt-1 font-medium">
+              <Link href="/dashboard" className="ml-14 mt-1 font-medium">
                 HOME
               </Link>
             )}
@@ -59,13 +61,15 @@ const Sidebar = () => {
           <li
             className={`mb-2 hover:bg-[#9D9494] h-10 py-2 ${isMinimized ? "mt-4" : "mt-4"
               }`}
-            onClick={() => handleItemClick("Profile")}
+
           >
             <span className="absolute left-0">
-              <IoMdPerson className="text-black text-2xl ml-5" />
+              <Link href="/dashboard/profile" >
+                <IoMdPerson className="text-black text-2xl ml-5" />
+              </Link>
             </span>
             {!isMinimized && (
-              <Link href="#" className="ml-14 mt-1 font-medium">
+              <Link href="/dashboard/profile" className="ml-14 mt-1 font-medium">
                 PROFILE
               </Link>
             )}
@@ -74,13 +78,15 @@ const Sidebar = () => {
           <li
             className={`mb-2 hover:bg-[#9D9494] h-10 py-2 ${isMinimized ? "mt-4" : "mt-4"
               }`}
-            onClick={() => handleItemClick("Archiving")}
+
           >
             <span className="absolute left-0">
-              <FaBook className="text-black text-2xl ml-5" />
+              <Link href="/dashboard/archiving">
+                <FaBook className="text-black text-2xl ml-5" />
+              </Link>
             </span>
             {!isMinimized && (
-              <Link href="#" className="ml-14 mt-1 font-medium">
+              <Link href="/dashboard/archiving" className="ml-14 mt-1 font-medium">
                 ARCHIVING
               </Link>
             )}
