@@ -1,19 +1,15 @@
 "use client"
-
-import Modal from "@/app/components/Modal";
-import { useState } from "react";
+import TypeModal from "@/app/components/TypeModal";
+import ProgramModal from "@/app/components/ProgramModal";
+import MaterialModal from "@/app/components/MaterialModal";
+import InstructorModal from "@/app/components/InstructorModal";
 import { FaSearch } from "react-icons/fa";
 import { FaUpload } from "react-icons/fa";
+import UploadModal from "@/app/components/UploadModal";
+
 
 export default function archiving() {
-    const [popup, setPop] = useState(false);
-    const handleClickOpen = () => {
-        setPop(!popup);
-    }
-    const closePopup = () => {
-        setPop(false)
-    }
-
+   
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <div>
@@ -33,8 +29,8 @@ export default function archiving() {
                 <h1 ><FaSearch size='30' style={{ position: 'absolute', top: '130px', left: '1255px' }} /></h1>
 
                 <div className="absolute top-[125px] left-[1300px] bg-[#6A6A6A]  w-[40px] h-[40px] shadow-lg cursor-pointer" />
-                <FaUpload onClick={handleClickOpen} size='30' style={{ position: 'absolute', top: '130px', left: '1305px', cursor: 'pointer' }} />
-
+               
+                <UploadModal/>
                 <div className="absolute top-[170px] left-[370px] inline-block text-[18px] text-orange-200 ">
                     MATERIAL
                 </div>
@@ -62,8 +58,8 @@ export default function archiving() {
                             <option value="faculty profile">Faculty Profile</option>
                         </select>
                         <div className="button">
-                            <div className="absolute top-[65px] left-[10px] text-center bg-[#675454] text-orange-200 outline-color rounded w-[130px] ">
-                                <button onClick={handleClickOpen}>ADD CATEGORY</button>
+                            <div className="absolute top-[65px] left-[10px] text-center bg-[#675454] text-orange-200 outline-color rounded shadow-lg w-[130px]">
+                            <MaterialModal/>     
                             </div>
                         </div>
                     </div>
@@ -76,7 +72,7 @@ export default function archiving() {
                         </select>
                         <div className="button">
                             <div className="absolute top-[65px] left-[10px] text-center bg-[#675454]  outline-color text-orange-200 rounded w-[130px] ">
-                                <button onClick={handleClickOpen}>ADD CATEGORY</button>
+                            <TypeModal/>
                             </div>
                         </div>
                     </div>
@@ -89,7 +85,7 @@ export default function archiving() {
                         </select>
                         <div className="button">
                             <div className="absolute top-[65px] left-[10px] text-center  bg-[#675454] outline-color text-orange-200 rounded shadow-lg w-[130px]">
-                                <button onClick={handleClickOpen}>ADD CATEGORY</button>
+                            <ProgramModal/>   
                             </div>
                         </div>
                     </div>
@@ -102,18 +98,7 @@ export default function archiving() {
                         </select>
                         <div className="button">
                             <div className="absolute top-[65px] left-[10px] text-center bg-[#675454] text-orange-200 outline-color rounded shadow-lg w-[130px]">
-                                <button onClick={handleClickOpen}>ADD CATEGORY</button>
-                                {popup ?
-                                    <div>
-                                        <div className="popup">
-                                            <Modal />
-                                            <div className="absolute top-[-40px] left-[-355px] bg-[#D9D9D9] [backdrop-filter:blur(4px)] w-[400px] h-[170px] rounded-3xl" />
-                                            <input type="add" name='find' placeholder="" className="absolute top-[1px] left-[-330px] text-xl text-center text-[#242323] bg-[#B5B5B5] inline-block w-[350px] h-[37px] text-shadow-inner" />
-                                            <div className="absolute top-[65px] left-[-230px]  hover:bg-zinc-400  bg-[#474543] outline-color shadow-2xl rounded w-[150px] ">
-                                                <button onClick={closePopup}>ADD CATEGORY</button>
-                                            </div>
-                                        </div>
-                                    </div> : ""}
+                            <InstructorModal/>   
                             </div>
                         </div>
                     </div>
