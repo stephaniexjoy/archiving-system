@@ -48,47 +48,41 @@ function page() {
             </div>
           </div>
 
-          <div className='flex flex-col w-auto h-screen items-center place-content-stretch justify-center md:h-20 font-[Times New Roman]'>
-            <table className="mt-80 table table-auto ">
-              <thead className='bg-[#5B0505]'>
+          <div className='flex flex-col w-auto h-screen items-center md:h-20 font-[Times New Roman]'>
+            <table className="mt-40 table table-fixed md:table-fixed w-[1800px] text-center">
+              <thead className='bg-[#5B0505] text-2xl'>
                 <tr>
-                  <th>NAME</th>
+                  <th className='py-2'>NAME</th>
                   <th>POSITION</th>
                   <th>LAST ACTIVITY</th>
                   <th>DATE AND TIME</th>
                 </tr>
               </thead>
-              <tbody className='bg-[#D9D9D9] text-black'>
+              <tbody className='bg-[#D9D9D9] text-black text-xl'>
                 <tr>
-                  <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                  <td>Malcolm Lockyer</td>
-                  <td>1961</td>
-                  <td>1961</td>
+                  <td className='py-2'>PRINCE ANDRES</td>
+                  <td>PART-TIME INSTRUCTOR</td>
+                  <td>UPLOADED A FILE</td>
+                  <td>December 13, 2023 (9:45)</td>
                 </tr>
                 <tr>
-                  <td>Witchy Woman</td>
-                  <td>The Eagles</td>
-                  <td>1972</td>
-                  <td>1961</td>
+                  <td className='py-2'>AL JOHN VILLAREAL</td>
+                  <td>REGULAR INSTRUCTOR</td>
+                  <td>DELETED A FILE</td>
+                  <td>December 10, 2023 (16:30)</td>
                 </tr>
                 <tr>
-                  <td>Shining Star</td>
-                  <td>Earth, Wind, and Fire</td>
-                  <td>1975</td>
-                  <td>1961</td>
+                  <td className='py-2'>CATHERINE CASTILLO</td>
+                  <td>REGULAR INSTRUCTOR</td>
+                  <td>EDITED A FILE</td>
+                  <td>December 7, 2023 (7:30)</td>
                 </tr>
               </tbody>
             </table>
           </div>
-
-
-
-
-
-
+          
         </div>
       </div>
-
     </div>
 
   )
