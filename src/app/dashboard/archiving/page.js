@@ -51,15 +51,15 @@ export default function archiving() {
         //                 </div>
         //             </div>
 
-        <div className="flex flex-auto w-auto h-screen">
-            <div className='flex flex-col mt-20 md:mr-10 lg:mr-20 items-center h-screen'>
+        <div className="flex flex-auto w-3/4 h-screen">
+            <div className='flex flex-col p-8 md:mr-10 lg:mr-20 items-center h-screen'>
                 <img
                     className="mr-20 w-full md:w-[870px] h-[200px] object-cover"
                     alt=""
                     src="../photos/E-Archiving System.png"
                 />
 
-                <div className="bg-[#AD5606] w-screen h-screen mt-10">
+                <div className="bg-[#AD5606] w-auto h-screen mt-5 p-8">
                     <div className="flex flex-row gap-x-5 items-center ml-4 md:ml-48 mb-5 mt-3 md:h-20">
                         <h1 className="inline-block text-[20px] md:text-[35px] opacity-60 font-semibold md:shadow-zinc-400">
                             FIND
@@ -68,8 +68,10 @@ export default function archiving() {
                         <div className="top-[125px] left-[10px] md:left-[1250px] bg-[#6A6A6A] w-[40px] h-[40px] shadow-lg">
                             <h1 ><FaSearch size='30' style={{ top: '130px', left: '15px' }} /></h1>
                         </div>
-                        <div className="top-[125px] left-[10px] md:left-[1300px] bg-[#6A6A6A] w-[40px] h-[40px] shadow-lg cursor-pointer" />
-                        <UploadModal />
+                        <div className="top-[125px] left-[10px] md:left-[1300px] bg-[#6A6A6A] w-[40px] h-[40px] shadow-lg cursor-pointer" >
+                            <UploadModal />
+                        </div>
+
                     </div>
 
                     <div className="flex flex-row gap-x-8 ml-4 md:ml-20 font-semibold mb-5 md:h-20">
