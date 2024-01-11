@@ -4,8 +4,19 @@ import { FaLock } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdEyeOff } from "react-icons/io";
 
-const Login = () => {
+const Login = async () => {
 
+    const loginUser = async (formData) => {
+        "use server";
+        console.log('hi')
+        const email = formData.get("email")
+        const password = formData.get("password")
+      
+        const responseData = await fetch('http://localhost:3000/api/users/sign-in-user',
+        {
+            method: 'POST'
+        })
+    }
 
     return (
         <div className='flex flex-auto flex-col columns-1 place-items-center mx-0'>
