@@ -9,7 +9,7 @@ export default function DashboardLayout({
       {/* Include shared UI here e.g. a header or sidebar */}
       < div className="flex" >
 
-        <div className="flex-1">
+        <div className="flex">
           <Sidebar />
         </div>
 
