@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import { FaUpload } from "react-icons/fa";
+import { useEdgeStore } from "@/app/lib/edgestore";
+
 
 const UploadModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dialogType, setDialogType] = useState("");
+
+  const [file, setFile] = useState(null);
+  const [progress, setProgress] = useState(0);
+  const [urls, setUrls] = useState();
+  const { edgestore } = useEdgeStore();
 
   const openUploadModal = (material) => {
     setIsOpen(true);
@@ -88,16 +95,39 @@ const UploadModal = () => {
                 </div>
 
                 <div>
-                  <form class="flex items-center space-x-6 ml-44 mt-60">
-                    <label class="block">
-                      <span class="sr-only">Choose file</span>
-                      <input type="file" class="block w-full text-lg text-slate-500 file:mr-4 file:py-2 file:px-4 
-                      file:border-0 file:text-sm file:font-semibold file:bg-[#6A6A6A] file:text-white hover:file:bg-slate-400"/>
+                  <form className="flex items-center space-x-6 ml-44 mt-60">
+                    <label className="block">
+                      <span className="sr-only">Choose file</span>
+                      <input type="file" className="block w-full text-lg text-slate-500 file:mr-4 file:py-2 file:px-4 
+                      file:border-0 file:text-sm file:font-semibold file:bg-[#6A6A6A] file:text-white hover:file:bg-slate-400"
+                        onChange={(e) => {
+                          setFile(e.target.files?.[0] ?? null);
+                        }} />
                     </label>
                   </form>
                 </div>
 
-                <button class="ml-52 mt-10 bg-[#8F8F8F] hover:bg-[#6A6A6A]focus:outline-none h-10 w-48 font-bold">
+                <button className="ml-52 mt-10 bg-[#8F8F8F] hover:bg-[#6A6A6A]focus:outline-none h-10 w-48 font-bold"
+                  onClick={async () => {
+                    if (file) {
+                      console.log("edgestore: ", edgestore);
+                      console.log("2edgestore: ", edgestore.publicFiles);
+                      console.log("file: ", file)
+                      const res = await edgestore.publicFiles.upload({
+                        file,
+
+                        onProgressChange: (progress) => {
+                          setProgress(progress);
+                        },
+                      }
+
+                      )
+
+                      console.log(res.url);
+                      // save your data here
+
+                    }
+                  }}>
                   UPLOAD
                 </button>
 
