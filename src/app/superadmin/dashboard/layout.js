@@ -1,6 +1,6 @@
 import Sidebar from "@/app/components/Sidebar";
 
-export default function DashboardLayout({
+export default function SuperadminDashboardLayout({
   children // will be a page or nested layout
 }) {
   return (
