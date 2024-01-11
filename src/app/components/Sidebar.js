@@ -16,12 +16,11 @@ const Sidebar = () => {
   return (
     <aside
       className={`flex bg-[#D9D9D9] text-black ${isMinimized ? "w-[10vh]" : "w-[24vh]"
-        } h-full transition-all`}
-    >
+        } h-full transition-all`}>
       <nav>
         <div>
           <div
-            className={`className=" mb-2 h-10 py-2 cursor-pointer" cursor-pointer ${isMinimized ? "rotate-180" : ""
+            className={`mb-2 h-10 py-2 cursor-pointer" cursor-pointer ${isMinimized ? "rotate-180" : ""
               }`}
             onClick={handleToggleMinimize}
           >
