@@ -27,7 +27,7 @@ export async function POST(req) {
             data: {
                 name,
                 email,
-                password,
+                password: hashedPassword,
                 position,
                 designation,
                 specialization,
@@ -36,33 +36,15 @@ export async function POST(req) {
         })
 
         // Declare User for storing the data fetched from database
-        let user;
-
-        // Use position to find the user in database 
-        switch (position) {
-            case 'faculty':
-                // Prisma Functions to find the user in database 
-                break;
-            case 'secretary':
-                // Prisma Functions to find the user in database 
-                break;
-            case 'superadmin':
-                // Prisma Functions to find the user in database 
-                break;
-            default:
-                break;
-        }
-
-        if (user && (await bcrypt.compare(reqBody.password, user.hashedPassword))) {
+        
+        if (newUser) {
             console.log("Good");
-            return new Response(JSON.stringify(user), { status: 200, statusText: "User Successfully Created" })
-        } else {
-            return new Response('Invalid Email or Password', { status: 401 })
-        }
+            return new Response(JSON.stringify(newUser), { status: 200, statusText: "User Successfully Created" })
+        } 
     }
     catch (error) {
         console.log(error)
-        return new Response('Invalid Email or Password', { status: 200 })
+        return new Response('Invalid Email or Password', { status: 400 })
     }
 
 
