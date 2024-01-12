@@ -34,6 +34,8 @@ const Sidebar = () => {
             <Image
               className="h-20 w-20 rounded-full ml-24 mb-3"
               src="/photos/ccs.png"
+              width={200}
+              height={200}
               alt="User"
             />
             <p>USER'S NAME</p>

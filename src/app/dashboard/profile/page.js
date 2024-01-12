@@ -10,6 +10,8 @@ export default function profile() {
         <Image
           className="absolute top-[10px] left-[670px] w-[400px] h-[100px] object-cover"
           alt=""
+          width={400}
+          height={400}
           src="../photos/E-Archiving System.png"
         />
         <div className="absolute top-[30px] left-[1950px] w-[60px] h-[60px] shadow-lg" />
