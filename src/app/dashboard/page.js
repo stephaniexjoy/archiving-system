@@ -16,7 +16,7 @@ export default function dashboard() {
             WELCOME
           </h1>
           <h1 className=" text-[40px]">
-            USER'S NAME
+            USER&apos;S NAME
           </h1>
 
           <div className="bg-[#AD5606] w-screen h-auto mt-10 py-20">
