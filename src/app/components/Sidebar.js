@@ -5,6 +5,7 @@ import { FaHome } from "react-icons/fa";
 import { IoMdPerson, IoMdMenu } from "react-icons/io";
 import { FaBook } from "react-icons/fa6";
 import { FaSignOutAlt } from "react-icons/fa";
+import Image from "next/image";
 
 const Sidebar = () => {
   const [isMinimized, setIsMinimized] = useState(false);
@@ -30,7 +31,7 @@ const Sidebar = () => {
             className={`h-10 text-center mt-4 py-2 text-base ${isMinimized ? "hidden" : ""
               }`}
           >
-            <img
+            <Image
               className="h-20 w-20 rounded-full ml-24 mb-3"
               src="/photos/ccs.png"
               alt="User"

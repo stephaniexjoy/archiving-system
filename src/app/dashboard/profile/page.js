@@ -1,4 +1,5 @@
 
+import Image from "next/image";
 import { FaUserLock } from "react-icons/fa";
 
 export default function profile() {
@@ -6,13 +7,13 @@ export default function profile() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>
         <div className="absolute top-[125px] left-[1px] bg-[#AD5606] [backdrop-filter:blur(4px)] w-[1800px] h-[1800px]" />
-        <img
+        <Image
           className="absolute top-[10px] left-[670px] w-[400px] h-[100px] object-cover"
           alt=""
           src="../photos/E-Archiving System.png"
         />
         <div className="absolute top-[30px] left-[1950px] w-[60px] h-[60px] shadow-lg" />
-        <h1><FaUserLock size="60" style={{ position: "absolute", top: "40px", left: "1660px" }}/></h1>
+        <h1><FaUserLock size="60" style={{ position: "absolute", top: "40px", left: "1660px" }} /></h1>
 
         <div className="absolute left-[250px] top-[140px] rounded-[50%] bg-[#DABB9C] shadow-[30px_0px_30px_rgba(0,_0,_0,_0.35)] w-[130px] h-[135px] [transform:_rotate(-0.3deg)] [transform-origin:0_0]" />
         <div
@@ -116,7 +117,7 @@ export default function profile() {
         <button
           type="submit"
           className="absolute top-[950px] left-[500px] bg-[#8F8F8F] text-[20px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
-          // onClick={handleSubmit}
+        // onClick={handleSubmit}
         >
           EDIT
         </button>
@@ -125,7 +126,7 @@ export default function profile() {
         <button
           type="submit"
           className="absolute top-[950px] left-[770px] bg-[#8F8F8F] text-[20px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
-          //onClick={handleSubmit}
+        //onClick={handleSubmit}
         >
           DOWNLOAD
         </button>
@@ -134,12 +135,12 @@ export default function profile() {
         <button
           type="submit"
           className="absolute top-[950px] left-[1040px] bg-[#8F8F8F] text-[20px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
-          //onClick={handleSubmit}
+        //onClick={handleSubmit}
         >
           PRINT
         </button>
       </div>
     </main>
-  ); 
-   
+  );
+
 }
