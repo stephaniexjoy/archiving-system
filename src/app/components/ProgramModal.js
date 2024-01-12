@@ -53,7 +53,15 @@ const ProgramModal = () => {
                   value={addProgram}
                   onChange={(e) => { setAddProgram(e.target.value) }}
                 />
-                <div className="absolute top-[65px] left-[-230px]  hover:bg-zinc-400  bg-[#474543] outline-color shadow-2xl rounded w-[150px] " />
+                <div className="absolute top-[65px] left-[-230px]  hover:bg-zinc-400  bg-[#474543] outline-color shadow-2xl rounded w-[150px] ">
+                  <button
+                    className="absolute top-[160px] left-[495px] text-center bg-[#675454]  outline-color text-orange-200 rounded w-[130px] "
+                    onClick={handleSubmit}
+                  >
+                    {" "}
+                    ADD CATEGORY
+                  </button>
+                </div>
               </div>
             )}
           </div>
