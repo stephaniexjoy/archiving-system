@@ -10,6 +10,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+//Options for filtering
+
+model Materials {
+  id    Int    @id @default(autoincrement())
+  value String
+  label String
+}
+
+model Filetype {
+  id    Int    @id @default(autoincrement())
+  value String
+  label String
+}
+
+model Programs {
+  id    Int    @id @default(autoincrement())
+  value String
+  label String
+}
+
 model User {
   id             Int    @id @default(autoincrement())
   email          String @unique
@@ -32,8 +52,10 @@ model File {
 
   id          Int      @id @default(autoincrement())
   filename    String
+  fileType    String
   // For file directory, will be updated soon
   filePath    String   @unique
+  fileRole    String?
   //
   uploadDate  DateTime @default(now())
   description String?
