@@ -15,7 +15,7 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`flex bg-[#D9D9D9] text-black ${isMinimized ? "w-[10vh]" : "w-[24vh]"
+      className={`flex place-content-center bg-[#D9D9D9] text-black ${isMinimized ? "w-[10vh]" : "w-[24vh]"
         } h-full transition-all`}>
       <nav>
         <div>
@@ -31,11 +31,11 @@ const Sidebar = () => {
               }`}
           >
             <img
-              className="h-20 w-20 rounded-full ml-24 mb-3"
-              src="/photos/ccs.png"
+              className="h-20 w-20 rounded-full mb-3 ml-5"
+              src="/profile.jpg"
               alt="User"
             />
-            <p>USER'S NAME</p>
+            <p className="-ml-7">USER'S NAME</p>
           </div>
         </div>
 
@@ -45,20 +45,20 @@ const Sidebar = () => {
               }`}
 
           >
-            <span className="absolute left-0">
+            <span className="absolute">
               <Link href="/dashboard" >
-                <FaHome className="text-black text-2xl ml-5" />
+                <FaHome className="text-black text-2xl -ml-12" />
               </Link>
             </span>
             {!isMinimized && (
-              <Link href="/dashboard" className="ml-14 mt-1 font-medium">
+              <Link href="/dashboard" className="ml-5 mt-1 font-medium">
                 HOME
               </Link>
             )}
           </li>
 
           <li
-            className={`mb-2 hover:bg-[#9D9494] h-10 py-2 ${isMinimized ? "mt-4" : "mt-4"
+            className={` mb-2 hover:bg-[#9D9494] h-10 py-2 ${isMinimized ? "mt-4" : "mt-4"
               }`}
 
           >
@@ -68,7 +68,7 @@ const Sidebar = () => {
               </Link>
             </span>
             {!isMinimized && (
-              <Link href="/dashboard/profile" className="ml-14 mt-1 font-medium">
+              <Link href="/dashboard/profile" className="ml-5 mt-1 font-medium">
                 PROFILE
               </Link>
             )}
@@ -85,7 +85,7 @@ const Sidebar = () => {
               </Link>
             </span>
             {!isMinimized && (
-              <Link href="/dashboard/archiving" className="ml-14 mt-1 font-medium">
+              <Link href="/dashboard/archiving" className="ml-5 mt-1 font-medium">
                 ARCHIVING
               </Link>
             )}
@@ -100,7 +100,7 @@ const Sidebar = () => {
               <FaSignOutAlt className="text-black text-2xl ml-5" />
             </span>
             {!isMinimized && (
-              <Link href="#" className="ml-14 mt-1 font-medium">
+              <Link href="#" className="ml-5 mt-1 font-medium">
                 SIGN OUT
               </Link>
             )}
