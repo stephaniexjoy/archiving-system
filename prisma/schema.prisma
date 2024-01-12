@@ -13,21 +13,21 @@ datasource db {
 //Options for filtering
 
 model Materials {
-  id    Int    @id @default(autoincrement())
-  value String
-  label String
+  id     Int    @id @default(autoincrement())
+  values String @unique
+  labels String
 }
 
 model Filetype {
-  id    Int    @id @default(autoincrement())
-  value String
-  label String
+  id     Int    @id @default(autoincrement())
+  values String @unique
+  labels String
 }
 
 model Programs {
-  id    Int    @id @default(autoincrement())
-  value String
-  label String
+  id     Int    @id @default(autoincrement())
+  values String @unique
+  labels String
 }
 
 model User {
