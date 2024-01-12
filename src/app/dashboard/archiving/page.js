@@ -150,10 +150,10 @@ export default function archiving() {
                     </div>
                   </div>
                 </div>
-                <div className=" top-[210px] left-[1190px] mt-5 bg-[#D9BA9C] [backdrop-filter:blur(4px)] w-[270px] h-[50px] ">
+                <div className=" top-[210px] left-[970px] mt-5 bg-[#D9BA9C] backdrop-filter-blur-[4px] w-[200px] h-[50px] cursor-pointer">
                   <input
                     type="date"
-                    className="top-[13px] left-[10px] text-2xl  text-orange-200 font-bold w-[270px] cursor-pointer md:left-[1250px] bg-[#bd8551]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
+                    className="text-orange-200 text-2xl font-bold w-[270px] cursor-pointer md:left-[1250px] bg-[#bd8551]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
                     name="type"
                     id="type "
                   />
