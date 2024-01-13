@@ -45,3 +45,19 @@ export async function POST(req) {
 
 
 }
+
+
+export async function GET(req) {
+    try {
+        const getMaterials = await db.materials.findMany()
+
+        if (!getMaterials) {
+            return new Response('No data has been fetched', { status: 400 });
+        }
+
+        console.log(getMaterials)
+        return new Response(JSON.stringify(getMaterials), { status: 200, statusText: "Materials Successfully Fetched" })
+    } catch (error) {
+        return new Response('Invalid ', { status: 400 })
+    }
+}
