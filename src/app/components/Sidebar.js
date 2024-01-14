@@ -1,11 +1,13 @@
 "use client"
 import React, { useState } from "react";
+import { Modal } from 'flowbite-react';
 import Link from "next/link";
 import { FaHome } from "react-icons/fa";
 import { IoMdPerson, IoMdMenu } from "react-icons/io";
 import { FaBook } from "react-icons/fa6";
 import { FaSignOutAlt } from "react-icons/fa";
 import Image from "next/image";
+import LogoutModal from "./LogoutModal";
 
 const Sidebar = () => {
   const [isMinimized, setIsMinimized] = useState(false);
@@ -102,9 +104,10 @@ const Sidebar = () => {
               <FaSignOutAlt className="text-black text-2xl ml-5" />
             </span>
             {!isMinimized && (
-              <Link href="#" className="ml-5 mt-1 font-medium">
+              <div className="ml-5 mt-1 font-medium">
                 SIGN OUT
-              </Link>
+                <LogoutModal/>
+              </div>
             )}
           </li>
         </ul>
