@@ -1,12 +1,14 @@
-import React from 'react'
+"use client"
+import { signIn } from 'next-auth/react';
+import React, { useState } from 'react'
 import { useCallback } from "react";
 import { FaLock } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdEyeOff } from "react-icons/io";
 
-const Login = async () => {
+const Login = () => {
 
-    const loginUser = async (formData) => {
+    /* const loginUser = async (formData) => {
         "use server";
         console.log('hi')
         const email = formData.get("email")
@@ -15,6 +17,21 @@ const Login = async () => {
         const responseData = await fetch('http://localhost:3000/api/users/sign-in-user',
         {
             method: 'POST'
+        })
+    } */
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        console.log(email,password)
+        const result = await signIn('credentials', {
+            email: email,
+            password: password,
+
+
+            callbackUrl: '/dashboard'
         })
     }
 
@@ -31,15 +48,16 @@ const Login = async () => {
                 src="../photos/ccs.png"
                 style={{ marginLeft: "-550px", opacity: '80%' }}
             />
-            <div className="absolute -top-2 left-[-10px] w-[1110px] h-[1110px] rounded-[50%] bg-[#DABB9C] shadow-[30px_0px_30px_rgba(0,_0,_0,_0.35)]" 
-            style={{ marginLeft: "-550px", opacity: '70%' }}/>
+            <div className="absolute -top-2 left-[-10px] w-[1110px] h-[1110px] rounded-[50%] bg-[#DABB9C] shadow-[30px_0px_30px_rgba(0,_0,_0,_0.35)]"
+                style={{ marginLeft: "-550px", opacity: '70%' }} />
 
             <div className="flex flex-auto flex-col columns-1 bg-[#AD5606] w-screen h-[600px] place-items-center">
                 <div className="ml-96 mb-20 mt-20 bg-white w-[600px] h-[77px] md:md:h-20">
                     <div className='flex justify-center'>
-                        <h1 ><FaUserAlt className="mt-3 -ml-20" size='50' color='#000000' opacity='26%'/></h1>
+                        <h1 ><FaUserAlt className="mt-3 -ml-20" size='50' color='#000000' opacity='26%' /></h1>
                         <input type="text" name='email' placeholder="USERNAME" className="mt-5 text-3xl 
-                    text-[#A89F9F] inline-block w-[400px] h-[37px] text-shadow-inner" />
+                    text-[#A89F9F] inline-block w-[400px] h-[37px] text-shadow-inner"
+                    onChange={(e) => { setEmail(e.target.value) }} />
                     </div>
                 </div>
 
@@ -47,7 +65,8 @@ const Login = async () => {
                     <div className='mt-4 flex justify-center'>
                         <h1 ><FaLock className="mt-0 -ml-5" size='50' color='#000000' opacity='26%' style={{ top: '675px', left: '870px' }} /></h1>
                         <input type="password" name='password' placeholder="PASSWORD" className="mt-2 ml-8 text-3xl 
-                    text-[#A89F9F] inline-block w-[400px] h-[37px] text-shadow-inner" />
+                    text-[#A89F9F] inline-block w-[400px] h-[37px] text-shadow-inner"
+                    onChange={(e) => { setPassword(e.target.value) }} />
                         <h1 ><IoMdEyeOff className="ml-1" size='50' color='black' /></h1>
                     </div>
                 </div>
@@ -58,12 +77,13 @@ const Login = async () => {
                     Forgot Password?
                 </b>
                 <div className='flex justify-center'>
-                    <button type='submit' className="ml-96 mt-4 bg-[#D9D9D9] text-[20px] font-bold text-black text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]">LOGIN</button>
+                    <button type='submit' className="ml-96 mt-4 bg-[#D9D9D9] text-[20px] font-bold text-black text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
+                        onClick={handleSubmit}>LOGIN</button>
                 </div>
 
             </div>
 
-            
+
             <div
                 className=" top-[797px] left-[921px] bg-gainsboro w-[247px] h-12 cursor-pointer"
 
