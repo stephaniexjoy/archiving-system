@@ -7,7 +7,7 @@ import { IoMdPerson, IoMdMenu } from "react-icons/io";
 import { FaBook } from "react-icons/fa6";
 import { FaSignOutAlt } from "react-icons/fa";
 import Image from "next/image";
-import LogoutModal from "./LogoutModal";
+import LogoutModal from "./Modal/LogoutModal";
 
 const Sidebar = () => {
   const [isMinimized, setIsMinimized] = useState(false);

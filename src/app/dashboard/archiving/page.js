@@ -1,11 +1,11 @@
 "use client"
-import TypeModal from "@/app/components/TypeModal";
-import ProgramModal from "@/app/components/ProgramModal";
-import MaterialModal from "@/app/components/MaterialModal";
-import InstructorModal from "@/app/components/InstructorModal";
+import TypeModal from "@/app/components/Modal/TypeModal";
+import ProgramModal from "@/app/components/Modal/ProgramModal";
+import MaterialModal from "@/app/components/Modal/MaterialModal";
+import InstructorModal from "@/app/components/Modal/InstructorModal";
 import { FaSearch } from "react-icons/fa";
 import { FaUpload } from "react-icons/fa";
-import UploadModal from "@/app/components/UploadModal";
+import UploadModal from "@/app/components/Modal/UploadModal";
 
 
 export default function archiving() {

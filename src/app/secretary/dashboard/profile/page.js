@@ -1,4 +1,4 @@
-import PrivacyModal from '@/app/components/PrivacyModal'
+import PrivacyModal from '@/app/components/Modal/PrivacyModal'
 import React from 'react'
 
 
