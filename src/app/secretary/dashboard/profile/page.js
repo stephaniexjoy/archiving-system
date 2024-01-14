@@ -1,4 +1,6 @@
+import PrivacyModal from '@/app/components/PrivacyModal'
 import React from 'react'
+
 
 function page() {
     return (
@@ -83,6 +85,7 @@ function page() {
                             </button>
                             <button class="mt-5 bg-[#D9D9D9] text-[#6A6A6A] text-xl font-bold h-10 w-52 hover:bg-[#6A6A6A] hover:text-white">
                                 EDIT PRIVACY
+                                <PrivacyModal />
                             </button>
                         </div>
                     </div>
