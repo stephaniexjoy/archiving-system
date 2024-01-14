@@ -1,6 +1,9 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { EdgeStoreProvider } from '@/app/lib/edgestore'
+import { NextAuthProvider } from './providers';
+
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +20,9 @@ export default function RootLayout({ children }) {
         <style>{inter.styles}</style>
       </head>
       <body className={`bg-[#5B0505] ${inter.className}`}>
-        <EdgeStoreProvider>{children}</EdgeStoreProvider>
+        <NextAuthProvider>
+          <EdgeStoreProvider>{children}</EdgeStoreProvider>
+        </NextAuthProvider>
       </body>
     </html>
   )

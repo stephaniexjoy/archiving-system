@@ -111,10 +111,13 @@ const UploadModal = () => {
                   onClick={async () => {
                     if (file) {
                       console.log("edgestore: ", edgestore);
-                      console.log("2edgestore: ", edgestore.publicFiles);
+                      console.log("2edgestore: ", edgestore.publicFiles1);
                       console.log("file: ", file)
-                      const res = await edgestore.publicFiles.upload({
+                      const res = await edgestore.publicFiles1.upload({
                         file,
+                        options:{
+                          manualFileName: file.name
+                        },
 
                         onProgressChange: (progress) => {
                           setProgress(progress);
