@@ -14,14 +14,16 @@ function createContext(_opts) {
     };
 }
 
-const es = initEdgeStore.context().create();
+const es = initEdgeStore.create();
 
 /**
  * This is the main router for the Edge Store buckets.
  */
 const edgeStoreRouter = es.router({
-    publicFiles: es
-        .fileBucket({}),
+    publicFiles1: es
+        .fileBucket()
+
+    ,
     publicImages: es.imageBucket()
 
     /*  .input(z.object({ type: z.enum(['post', 'article']) })) */
@@ -41,7 +43,7 @@ const edgeStoreRouter = es.router({
 
 export const handler = createEdgeStoreNextHandler({
     router: edgeStoreRouter,
-    createContext,
+    //createContext,
 });
 
 /**
