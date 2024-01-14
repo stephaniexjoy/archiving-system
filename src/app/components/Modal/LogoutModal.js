@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, Modal } from 'flowbite-react';
 import { useState } from 'react';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
+import { signOut } from 'next-auth/react';
 
 function LogoutModal() {
     const [openModal, setOpenModal] = useState(false);
@@ -18,7 +19,7 @@ function LogoutModal() {
                             Are you sure you want to sign out?
                         </h3>
                         <div className="flex justify-center gap-4">
-                            <Button className='bg-[#5B0505] w-36 font-bold' onClick={() => setOpenModal(false)}>
+                            <Button className='bg-[#5B0505] w-36 font-bold' onClick={() => signOut()}>
                                 Yes
                             </Button>
                             <Button className='bg-[#5B0505] w-36  font-bold' onClick={() => setOpenModal(false)}>

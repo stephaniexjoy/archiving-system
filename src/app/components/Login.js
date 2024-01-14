@@ -5,6 +5,7 @@ import { useCallback } from "react";
 import { FaLock } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdEyeOff } from "react-icons/io";
+import ForgotPassword from './Modal/ForgotPassword';
 
 const Login = () => {
 
@@ -75,6 +76,7 @@ const Login = () => {
                     className="ml-96 mt-5 text-[21px] [text-decoration:underline] inline-block text-[#FF7E7E] text-center w-[304px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] cursor-pointer"
                 >
                     Forgot Password?
+                    <ForgotPassword />
                 </b>
                 <div className='flex justify-center'>
                     <button type='submit' className="ml-96 mt-4 bg-[#D9D9D9] text-[20px] font-bold text-black text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
