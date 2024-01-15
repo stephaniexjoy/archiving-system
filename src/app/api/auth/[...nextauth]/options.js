@@ -72,6 +72,7 @@ export const AuthOptions = {
 
             if (user) {
                 console.log("token: ", user, token)
+                token.id = user.id
                 token.position = user.position
                 token.designation = user.designation
                 token.specialization = user.specialization
