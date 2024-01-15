@@ -47,16 +47,22 @@ model User {
 
 // File Entity
 model File {
-  User   User? @relation(fields: [userId], references: [id])
-  userId Int
 
+  // Other file attributes
   id          Int      @id @default(autoincrement())
   filename    String
   fileType    String
-  // For file directory, will be updated soon
   filePath    String   @unique
   fileRole    String?
-  //
   uploadDate  DateTime @default(now())
   description String?
+
+  // Uploader's information from User model
+  uploaderName String
+  uploaderId   Int
+  userId       Int
+  User         User   @relation(fields: [userId], references: [id])
+
+  // Foreign key to User model
+  @@index([userId], name: "idx_userId")
 }
