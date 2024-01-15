@@ -20,7 +20,7 @@ export default function archiving() {
           src="../photos/E-Archiving System.png"
         />
 
-        <div className=" bg-[#AD5606]  w-screen h-[850px] mt-5">
+        <div className="border bg-[#AD5606] w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-auto mt-10 p-16 rounded-lg shadow-lg">
           <div className="flex flex-row gap-x-5 items-center ml-4 md:ml-48 mb-5 mt-5 md:h-20">
             <h1 className="inline-block md:text-[45px] opacity-60 font-semibold md:shadow-zinc-400">
               FIND
@@ -58,7 +58,9 @@ export default function archiving() {
               SORT BY
             </div>
           </div>
-          <div className="bg-[#DABB9C] h-[640px] m-6 ">
+          {/*      <div className="bg-[#DABB9C] h-[640px] m-6 "> */}
+          <div className="border bg-[#DABB9C] w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-auto mt-10 p-16 rounded-lg shadow-lg">
+
             <div className="flex space-x-36 flex-row gap-x-8 ml-4 md:ml-10 md:h-20 ">
               <div className="dropdown">
                 <div className="top-[210px] left-[300px] mt-5 bg-[#D9BA9C] backdrop-filter-blur-[4px] w-[200px] h-[50px] cursor-pointer ">
