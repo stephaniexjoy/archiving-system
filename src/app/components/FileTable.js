@@ -1,65 +1,45 @@
 
-import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from 'flowbite-react';
-
 import React from 'react'
+
+
 
 const FileTable = () => {
     return (
-        <div className="overflow-x-auto ">
-            <Table className=''>
-                <TableHead>
-                    <TableHeadCell>Product name</TableHeadCell>
-                    <TableHeadCell>Color</TableHeadCell>
-                    <TableHeadCell>Category</TableHeadCell>
-                    <TableHeadCell>Price</TableHeadCell>
-                    <TableHeadCell>
-                        <span className="sr-only">Edit</span>
-                    </TableHeadCell>
-                </TableHead>
-                <TableBody className="divide-y">
-                    <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                            {'Apple MacBook Pro 17"'}
-                        </TableCell>
-                        <TableCell>Sliver</TableCell>
-                        <TableCell>Laptop</TableCell>
-                        <TableCell>$2999</TableCell>
-                        <TableCell>
-                            <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
-                                Edit
-                            </a>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                            Microsoft Surface Pro
-                        </TableCell>
-                        <TableCell>White</TableCell>
-                        <TableCell>Laptop PC</TableCell>
-                        <TableCell>$1999</TableCell>
-                        <TableCell>
-                            <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
-                                Edit
-                            </a>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">Magic Mouse 2</TableCell>
-                        <TableCell>Black</TableCell>
-                        <TableCell>Accessories</TableCell>
-                        <TableCell>$99</TableCell>
-                        <TableCell>
-                            <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
-                                Edit
-                            </a>
-                        </TableCell>
-                    </TableRow>
-                </TableBody>
-            </Table>
+        <div className='flex flex-col w-auto h-screen items-center md:h-20 font-[Times New Roman]'>
+            <table className="mt-10 table table-auto md:table-fixed w-[1150px] text-center">
+                <thead className='bg-[#bd8551] text-xl'>
+                    <tr>
+                        <th className='py-2'>NAME</th>
+                        <th>POSITION</th>
+                        <th>LAST ACTIVITY</th>
+                        <th>DATE AND TIME</th>
+                    </tr>
+                </thead>
+                <tbody className='bg-[#D9D9D9] text-black text-lg'>
+                    <tr>
+                        <td className='py-2'>PRINCE ANDRES</td>
+                        <td>PART-TIME INSTRUCTOR</td>
+                        <td>UPLOADED A FILE</td>
+                        <td>December 13, 2023 (9:45)</td>
+                    </tr>
+                    <tr>
+                        <td className='py-2'>AL JOHN VILLAREAL</td>
+                        <td>REGULAR INSTRUCTOR</td>
+                        <td>DELETED A FILE</td>
+                        <td>December 10, 2023 (16:30)</td>
+                    </tr>
+                    <tr>
+                        <td className='py-2'>CATHERINE CASTILLO</td>
+                        <td>REGULAR INSTRUCTOR</td>
+                        <td>EDITED A FILE</td>
+                        <td>December 7, 2023 (7:30)</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     );
 }
 
 export default FileTable
-    
+
 

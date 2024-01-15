@@ -163,11 +163,9 @@ export default function archiving() {
                 />
               </div>
             </div>
-
-            <div className="h-full relative">
+            <div className="relative">
               <FileTable />
             </div>
-
           </div>
         </div>
       </div>
