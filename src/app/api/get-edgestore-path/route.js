@@ -1,4 +1,7 @@
 import { backendClient } from "@/app/lib/edgestore-server";
+
+export const dynamic = "force-dynamic"
+
 export async function GET(req) {
 
     try {
