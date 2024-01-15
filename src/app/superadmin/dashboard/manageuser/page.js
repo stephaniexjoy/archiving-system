@@ -97,13 +97,13 @@ export default function page() {
                     Prince Andres
                   </p>
                   <div className="flex-justify">
-                    <button className="bg-[#5a5151] w-32 rounded-lg m-2 hover:bg-gray-400">
+                    <button className="bg-[#5a5151] w-36 rounded-lg m-2 h-8 hover:bg-gray-400">
                       EDIT
                     </button>
-                    <button className="bg-[#5a5151] w-32 rounded-lg m-2 hover:bg-gray-400">
+                    <button className="bg-[#5a5151] w-36 rounded-lg m-2 h-8 hover:bg-gray-400">
                       VIEW
                     </button>
-                    <button className="bg-[#5a5151] w-32 rounded-lg m-2 ml-auto hover:bg-gray-400">
+                    <button className="bg-[#5a5151] w-36 rounded-lg m-2 h-8 hover:bg-gray-400">
                       DELETE
                     </button>
                   </div>
@@ -114,13 +114,13 @@ export default function page() {
                     John Ryan Ual
                   </p>
                   <div className="flex-justify">
-                    <button className="bg-[#5a5151] w-32 rounded-lg m-2 hover:bg-gray-400">
+                    <button className="bg-[#5a5151] w-36 rounded-lg m-2 h-8 hover:bg-gray-400">
                       EDIT
                     </button>
-                    <button className="bg-[#5a5151] w-32 rounded-lg m-2 hover:bg-gray-400">
+                    <button className="bg-[#5a5151] w-36 rounded-lg m-2 h-8 hover:bg-gray-400">
                       VIEW
                     </button>
-                    <button className="bg-[#5a5151] w-32 rounded-lg m-2 ml-auto hover:bg-gray-400">
+                    <button className="bg-[#5a5151] w-36 rounded-lg m-2 h-8 hover:bg-gray-400">
                       DELETE
                     </button>
                   </div>
@@ -130,13 +130,13 @@ export default function page() {
                     Marco Del Rosario
                   </p>
                   <div className="flex-justify">
-                    <button className="bg-[#5a5151] w-32 rounded-lg m-2 hover:bg-gray-400">
+                    <button className="bg-[#5a5151] w-36 rounded-lg m-2 h-8 hover:bg-gray-400">
                       EDIT
                     </button>
-                    <button className="bg-[#5a5151] w-32 rounded-lg m-2 hover:bg-gray-400">
+                    <button className="bg-[#5a5151] w-36 rounded-lg m-2 h-8 hover:bg-gray-400">
                       VIEW
                     </button>
-                    <button className="bg-[#5a5151] w-32 rounded-lg m-2 ml-auto hover:bg-gray-400">
+                    <button className="bg-[#5a5151] w-36 rounded-lg m-2 h-8 hover:bg-gray-400">
                       DELETE
                     </button>
                   </div>
@@ -147,13 +147,13 @@ export default function page() {
                     Prince Andres
                   </p>
                   <div className="flex-justify">
-                    <button className="bg-[#5a5151] w-32 rounded-lg m-2 hover:bg-gray-400">
+                    <button className="bg-[#5a5151] w-36 rounded-lg m-2 h-8 hover:bg-gray-400">
                       EDIT
                     </button>
-                    <button className="bg-[#5a5151] w-32 rounded-lg m-2 hover:bg-gray-400">
+                    <button className="bg-[#5a5151] w-36 rounded-lg m-2 h-8 hover:bg-gray-400">
                       VIEW
                     </button>
-                    <button className="bg-[#5a5151] w-32 rounded-lg m-2 ml-auto hover:bg-gray-400">
+                    <button className="bg-[#5a5151] w-36 rounded-lg m-2 h-8 hover:bg-gray-400">
                       DELETE
                     </button>
                   </div>
@@ -164,13 +164,13 @@ export default function page() {
                     John Ryan Ual
                   </p>
                   <div className="flex-justify">
-                    <button className="bg-[#5a5151] w-32 rounded-lg m-2 hover:bg-gray-400">
+                    <button className="bg-[#5a5151] w-36 rounded-lg m-2 h-8 hover:bg-gray-400">
                       EDIT
                     </button>
-                    <button className="bg-[#5a5151] w-32 rounded-lg m-2 hover:bg-gray-400">
+                    <button className="bg-[#5a5151] w-36 rounded-lg m-2 h-8 hover:bg-gray-400">
                       VIEW
                     </button>
-                    <button className="bg-[#5a5151] w-32 rounded-lg m-2 ml-auto hover:bg-gray-400">
+                    <button className="bg-[#5a5151] w-36 rounded-lg m-2 h-8 hover:bg-gray-400">
                       DELETE
                     </button>
                   </div>
