@@ -12,7 +12,7 @@ export default function profile() {
           alt=""
           width={400}
           height={400}
-          src="../photos/E-Archiving System.png"
+          src="/photos/E-Archiving System.png"
         />
         <div className="absolute top-[30px] left-[1950px] w-[60px] h-[60px] shadow-lg" />
         <h1><FaUserLock size="60" style={{ position: "absolute", top: "40px", left: "1660px" }} /></h1>
