@@ -9,7 +9,7 @@ function LogoutModal() {
     const [modalPlacement] = useState('center')
     return (
         <>
-            <Button onClick={() => setOpenModal(true)}>Signout</Button>
+            <Button className="text-black text-2xl font-semibold border-none" onClick={() => setOpenModal(true)}>SIGN OUT</Button>
             <Modal show={openModal}  position={modalPlacement} size="md" onClose={() => setOpenModal(false)} popup>
                 <Modal.Header />
                 <Modal.Body>
