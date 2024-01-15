@@ -1,13 +1,12 @@
-"use client"
-import Sidebar from "../components/Sidebar"
+
 
 export default function dashboard() {
   return (
     <>
-      <div className="flex flex-col w-auto h-screen">
-        <div className='flex flex-col w-auto h-screen items-center py-10'>
+      <div className="flex flex-col w-auto h-screen max-w-screen-xl ">
+        <div className='flex flex-col w-full h-screen items-center '>
           <img
-            className=" w-[870px] h-[200px] object-cover"
+            className="w-full max-w-screen-xl h-[200px] object-cover"
             alt=""
             src="../photos/E-Archiving System.png"
           />
@@ -19,9 +18,9 @@ export default function dashboard() {
             USER&apos;S NAME
           </h1>
 
-          <div className="bg-[#AD5606] w-screen h-auto mt-10 py-20">
+          <div className="border bg-[#AD5606] w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-auto mt-10 p-16 rounded-lg shadow-lg">
             <div>
-              <h1 className="text-center mb-10 text-[35px] -mt-4">
+              <h1 className="text-center mb-10 text-[35px] mt-4">
                 ABOUT
               </h1>
               <div>
