@@ -3,15 +3,34 @@ export async function POST(req) {
     try {
 
         const path = await req.json()
-        const { fileName, filePath, fileType, userId } = path
+        const { fileName, filePath, fileRole, fileType, userId, uploaderName } = path
+
+        /*         const currentUser = await db.user.fi({
+                    where: {
+                        userId: userId,
+                    },
+                    include:{
+                        User:true
+                    }
+                })
+        
+                console.log("Current User: ",currentUser)
+         */
 
         const newFile = await db.File.create({
             data: {
                 filename: fileName,
                 fileType,
                 filePath,
-                userId,
-                //uploaderName:"Test2"
+
+                uploaderName,
+                fileRole,
+                uploadDate: new Date(),
+                User: {
+                    connect: {
+                        id: userId
+                    }
+                }
             }
 
         })
