@@ -1,4 +1,4 @@
-"use client"
+
 import TypeModal from "@/app/components/Modal/TypeModal";
 import ProgramModal from "@/app/components/Modal/ProgramModal";
 import MaterialModal from "@/app/components/Modal/MaterialModal";
