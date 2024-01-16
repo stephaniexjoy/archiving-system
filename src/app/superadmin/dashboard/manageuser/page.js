@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { FaSearch } from "react-icons/fa";
 import CreateModal from "@/app/components/Modal/CreateModal";
+import DeleteModal from "@/app/components/Modal/DeleteModal";
 
 export default function page() {
   const [name, setName] = useState("");
@@ -109,7 +110,7 @@ export default function page() {
                               <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</a>
                             </td>
                             <td className="px-6 py-4">
-                              <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">DELETE</a>
+                              <DeleteModal/>
                             </td>
                           </tr>
                           <tr className="whitespace-nowrap">
@@ -127,7 +128,7 @@ export default function page() {
                               <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</a>
                             </td>
                             <td className="px-6 py-4">
-                              <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">DELETE</a>
+                              <DeleteModal/>
                             </td>
                           </tr>
                           <tr className="whitespace-nowrap">
@@ -145,7 +146,7 @@ export default function page() {
                               <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</a>
                             </td>
                             <td className="px-6 py-4">
-                              <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">DELETE</a>
+                              <DeleteModal/>
                             </td>
                           </tr>
                         </tbody>
