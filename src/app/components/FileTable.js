@@ -1,23 +1,8 @@
 
 import React, { cache } from 'react'
 
+const FileTable = ({ data }) => {
 
-async function getData() {
-    const res = await fetch('http://localhost:3000/api/get-file-path')
-    // The return value is *not* serialized
-    // You can return Date, Map, Set, etc.
-/* 
-    if (!res.ok) {
-        // This will activate the closest `error.js` Error Boundary
-        throw new Error('Failed to fetch data')
-    } */
-
-    return res.json()
-}
-
-
-const FileTable = async () => {
-    let data = await getData()
     if (!data) {
         data = null
     }
@@ -41,7 +26,7 @@ const FileTable = async () => {
                         <td>UPLOADED A FILE</td>
                         <td>December 13, 2023 (9:45)</td>
                     </tr> */}
-                    {data === null || !data ? (
+                    {data === null || !data || data.length === 0 ? (
                         <tr>
                             <td colSpan="4">No files available</td>
                         </tr>

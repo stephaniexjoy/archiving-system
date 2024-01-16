@@ -7,10 +7,29 @@ import { FaSearch } from "react-icons/fa";
 import { FaUpload } from "react-icons/fa";
 import UploadModal from "@/app/components/Modal/UploadModal";
 import FileTable from "@/app/components/FileTable";
+import { revalidatePath } from "next/cache";
 
 
-export default function archiving() {
+export default async function archiving() {
 
+  async function getEmptyData() {
+    return Promise.resolve([]); // Returning an empty array
+  }
+
+  async function getData() {
+    const res = await fetch('http://localhost:3000/api/get-file-path',)
+    // The return value is *not* serialized
+    // You can return Date, Map, Set, etc.
+
+    if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      return getEmptyData()
+    }
+    revalidatePath('/dashboard/archiving')
+    return res.json()
+  }
+
+  const data = await getData()
 
   return (
     <div className="flex flex-col w-auto h-screen">
@@ -164,7 +183,7 @@ export default function archiving() {
               </div>
             </div>
             <div className="">
-              <FileTable />
+              <FileTable data={data} />
             </div>
           </div>
         </div>
