@@ -13,7 +13,7 @@ export default function DashboardLayout({
           <Sidebar />
         </div>
 
-        <div className="flex grow justify-center items-center content-center p-6 ">
+        <div className="flex grow justify-center items-center content-center ">
           {children}
         </div>
 

@@ -4,7 +4,8 @@ export async function POST(req) {
 
         const path = await req.json()
         const { fileName, filePath, fileRole, fileType, userId, uploaderName } = path
-
+        const dateString = new Date()
+        const dateObject = new Date(dateString)
         /*         const currentUser = await db.user.fi({
                     where: {
                         userId: userId,
@@ -25,7 +26,7 @@ export async function POST(req) {
 
                 uploaderName,
                 fileRole,
-                uploadDate: new Date(),
+                uploadDate: dateObject,
                 User: {
                     connect: {
                         id: userId

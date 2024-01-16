@@ -1,11 +1,12 @@
 import { db } from "@/app/lib/prisma_db";
+import { revalidatePath } from "next/cache";
 
-//export const dynamic = "force-dynamic"
+export const dynamic = "force-dynamic"
 
 export async function GET(req) {
 
     try {
-    
+
         const res = await db.file.findMany({
             select: {
                 filePath: true,
@@ -15,6 +16,13 @@ export async function GET(req) {
                 fileRole: true
             }
         });
+
+        // revalidatePath("/dashboard/archiving")
+        if (res.length === 0) {
+            return new Response('No files found', { status: 404 })
+
+        }
+
 
 
         console.log(res)
