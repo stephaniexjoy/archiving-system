@@ -57,7 +57,7 @@ const Login = () => {
                     <div className='flex'>
                         <h1 ><FaUserAlt className="mt-3 ml-5" size='50' color='#000000' opacity='26%' /></h1>
                         <input type="text" name='email' placeholder="USERNAME" className="mt-5 ml-8 text-3xl border-none
-                    text-[#A89F9F] inline-block w-[450px] h-[37px] text-shadow-inner"
+                    text-black inline-block w-[450px] h-[37px] text-shadow-inner"
                     onChange={(e) => { setEmail(e.target.value) }} />
                     </div>
                 </div>
@@ -65,7 +65,7 @@ const Login = () => {
                 <div className="ml-96 bg-white w-[600px] h-[77px] md:h-20">
                     <div className='mt-4 flex'>
                         <h1 ><FaLock className="mt-0 ml-5" size='50' color='#000000' opacity='26%' style={{ top: '675px', left: '870px' }} /></h1>
-                        <input type="password" name='password' placeholder="PASSWORD" className="mt-2 ml-8 text-3xl border-none text-[#A89F9F] inline-block w-[450px] h-[37px] text-shadow-inner"
+                        <input type="password" name='password' placeholder="PASSWORD" className="mt-2 ml-8 text-3xl border-none text-black inline-block w-[450px] h-[37px] text-shadow-inner"
                     onChange={(e) => { setPassword(e.target.value) }} />
                     </div>
                 </div>
