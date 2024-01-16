@@ -21,7 +21,7 @@ export default function archiving() {
           src="../photos/E-Archiving System.png"
         />
 
-        <div className="border bg-[#AD5606] w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-auto mt-10 p-8 rounded-lg shadow-lg">
+        <div className="border bg-[#AD5606] w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-full mt-10 p-8 rounded-lg shadow-lg">
           <div className="flex flex-row gap-x-5 md:ml-48 mb-5 mt-5 md:h-20">
             <h1 className=" md:text-[45px] opacity-60 font-semibold md:shadow-zinc-400">
               FIND
@@ -163,7 +163,7 @@ export default function archiving() {
                 />
               </div>
             </div>
-            <div className="relative">
+            <div className="">
               <FileTable />
             </div>
           </div>

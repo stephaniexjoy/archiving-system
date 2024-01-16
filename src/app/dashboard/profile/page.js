@@ -4,32 +4,58 @@ import { FaUserLock } from "react-icons/fa";
 
 export default function profile() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>
-        <div className="absolute top-[125px] left-[1px] bg-[#AD5606] [backdrop-filter:blur(4px)] w-[1800px] h-[1800px]" />
+
+    <main className="flex min-h-screen flex-col items-center justify-between">
+      <div className=" flex flex-row">
         <Image
-          className="absolute top-[10px] left-[670px] w-[400px] h-[100px] object-cover"
+          className=" top-[10px] left-[670px] w-[400px] h-[100px] object-cover"
           alt=""
           width={400}
           height={400}
           src="/photos/E-Archiving System.png"
         />
-        <div className="absolute top-[30px] left-[1950px] w-[60px] h-[60px] shadow-lg" />
-        <h1><FaUserLock size="60" style={{ position: "absolute", top: "40px", left: "1660px" }} /></h1>
+        <div className="flex flex-row justify-end top-[30px] left-[1950px] w-[60px] h-[60px] shadow-lg">
+          <h1><FaUserLock size="60" style={{ position: "", top: "40px", left: "1660px" }} /></h1>
+        </div>
 
-        <div className="absolute left-[250px] top-[140px] rounded-[50%] bg-[#DABB9C] shadow-[30px_0px_30px_rgba(0,_0,_0,_0.35)] w-[130px] h-[135px] [transform:_rotate(-0.3deg)] [transform-origin:0_0]" />
+      </div>
+
+      <div className="bg-[#AD5606] [backdrop-filter:blur(4px)] w-[1800px] h-[1800px]">
+
+
+        {/* <div className=" left-[250px] top-[140px] rounded-[50%] bg-[#DABB9C] shadow-[30px_0px_30px_rgba(0,_0,_0,_0.35)] w-[130px] h-[135px] [transform:_rotate(-0.3deg)] [transform-origin:0_0]">
+
+        </div> */}
+        <div className="flex-row justify-between">
+          <div>
+            <Image className="h-24 w-24 rounded-full mx-auto mb-3" src="/photos/ccs.png" width={180} height={180} alt="User" />
+          </div>
+          <div>
+            <p>Name:</p>
+          </div>
+          <div>
+            <p>Position:</p>
+          </div>
+          <div>
+            <p>Eligibility/Professional License:</p>
+          </div>
+          <div>
+            <p>School:</p>
+          </div>
+        </div>
+
+
+
+
         <div
-          className=" absolute left-[550px] top-[145px] text-[20px] 
+          className="  left-[550px] top-[145px] text-[20px] 
              text-white text-left w-[900px]
             h-[30px]"
         >
-          <div>Name:</div>
-          <div>Position:</div>
-          <div>Eligibility/Professional License:</div>
-          <div>School:</div>
+
         </div>
         <div
-          className=" absolute top-[175px] left-[1150px] text-[20px] 
+          className="  top-[175px] left-[1150px] text-[20px] 
              text-white text-left w-[900px]
             h-[30px]"
         >
@@ -39,14 +65,14 @@ export default function profile() {
           <div>Certifications:</div>
         </div>
         <div
-          className=" absolute top-[285px] left-[1px] text-[20px] bg-[#5B0505]
+          className="  top-[285px] left-[1px] text-[20px] 
             [backdrop-filter:blur(4px)] text-white text-center w-[1800px]
             h-[30px]"
         >
           ACADEMIC QUALIFICATIONS
         </div>
         <div
-          className=" absolute left-[200px] top-[325px] text-[20px] 
+          className="  left-[200px] top-[325px] text-[20px] 
              text-white text-left w-[900px]
             h-[30px]"
         >
@@ -55,7 +81,7 @@ export default function profile() {
           <div>Doctorate Degree:</div>
         </div>
         <div
-          className=" absolute top-[325px] left-[970px] text-[20px] 
+          className="  top-[325px] left-[970px] text-[20px] 
              text-white text-left w-[900px]
             h-[30px]"
         >
@@ -64,14 +90,14 @@ export default function profile() {
           <div>School:</div>
         </div>
         <div
-          className=" absolute top-[420px] left-[1px] text-[20px] bg-[#5B0505]
+          className="  top-[420px] left-[1px] text-[20px] 
             [backdrop-filter:blur(4px)] text-white text-center w-[870px]
             h-[30px]"
         >
           SEMINARS AND TRAININGS ATTENDED
         </div>
         <div
-          className=" absolute top-[420px] left-[920px] text-[20px] bg-[#5B0505]
+          className="  top-[420px] left-[920px] text-[20px] 
             [backdrop-filter:blur(4px)] text-white text-center w-[1000px]
             h-[30px]"
         >
@@ -79,7 +105,7 @@ export default function profile() {
         </div>
         <div>
           <h1
-            className="absolute top-[520px] left-[1px] text-[20px] bg-[#5B0505]
+            className=" top-[520px] left-[1px] text-[20px] 
             [backdrop-filter:blur(4px)] text-white text-center w-[1800px]
             h-[30px]"
           >
@@ -88,7 +114,7 @@ export default function profile() {
         </div>
         <div>
           <h1
-            className="absolute top-[620px] left-[1px] text-[20px] bg-[#5B0505]
+            className=" top-[620px] left-[1px] text-[20px] 
             [backdrop-filter:blur(4px)] text-white text-center w-[1800px]
             h-[30px]"
           >
@@ -97,7 +123,7 @@ export default function profile() {
         </div>
         <div>
           <h1
-            className="absolute top-[720px] left-[1px] text-[20px] bg-[#5B0505]
+            className=" top-[720px] left-[1px] text-[20px] 
             [backdrop-filter:blur(4px)] text-white text-center w-[1800px]
             h-[30px]"
           >
@@ -106,7 +132,7 @@ export default function profile() {
         </div>
         <div>
           <h1
-            className="absolute top-[820px] left-[1px] text-[20px] bg-[#5B0505]
+            className=" top-[820px] left-[1px] text-[20px] 
             [backdrop-filter:blur(4px)] text-white text-center w-[1800px]
             h-[30px]"
           >
@@ -118,7 +144,7 @@ export default function profile() {
       <div className="flex justify-center">
         <button
           type="submit"
-          className="absolute top-[950px] left-[500px] bg-[#8F8F8F] text-[20px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
+          className=" top-[950px] left-[500px] bg-[#8F8F8F] text-[20px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
         // onClick={handleSubmit}
         >
           EDIT
@@ -127,7 +153,7 @@ export default function profile() {
       <div className="flex justify-center">
         <button
           type="submit"
-          className="absolute top-[950px] left-[770px] bg-[#8F8F8F] text-[20px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
+          className=" top-[950px] left-[770px] bg-[#8F8F8F] text-[20px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
         //onClick={handleSubmit}
         >
           DOWNLOAD
@@ -136,13 +162,14 @@ export default function profile() {
       <div className="flex justify-center">
         <button
           type="submit"
-          className="absolute top-[950px] left-[1040px] bg-[#8F8F8F] text-[20px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
+          className=" top-[950px] left-[1040px] bg-[#8F8F8F] text-[20px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
         //onClick={handleSubmit}
         >
           PRINT
         </button>
       </div>
-    </main>
+
+    </main >
   );
 
 }
