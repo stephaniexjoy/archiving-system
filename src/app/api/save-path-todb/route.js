@@ -1,4 +1,5 @@
 import { db } from "@/app/lib/prisma_db";
+import { revalidatePath } from "next/cache";
 export async function POST(req) {
     try {
 
@@ -37,6 +38,7 @@ export async function POST(req) {
         })
         if (newFile) {
             console.log("Good");
+            revalidatePath('/dashboard/archiving')
             return new Response(JSON.stringify(newFile), { status: 200, statusText: "Path Successfully Created" })
         }
     } catch (error) {
