@@ -104,7 +104,8 @@ const UploadModal = () => {
                     </label>
                   </form>
                 </div>
-
+                
+                // Upload button function
                 <button className="ml-52 mt-10 bg-[#8F8F8F] hover:bg-[#6A6A6A]focus:outline-none h-10 w-48 font-bold"
                   onClick={async () => {
                     if (file) {
