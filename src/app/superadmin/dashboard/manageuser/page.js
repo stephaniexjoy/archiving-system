@@ -86,12 +86,81 @@ export default function page() {
               </button>
             </div>
           </div>
-          <div className="bg-[#DABB9C] py-3 border w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-auto mt-10 p-16 rounded-lg shadow-lg">
-            <h1 className=" text-[35px] mt-6 font-semibold text-orange-900 text-center ">
+          <div className="bg-[#DABB9C] py-10 border w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-auto mt-10 p-16 rounded-lg shadow-lg">
+            <h1 className=" text-[35px] mb-5 font-semibold text-orange-900 text-center ">
               MANAGE ACCOUNTS
             </h1>
             <div>
-              <div className="row">
+              <div class="container flex justify-center mx-auto">
+                <div class="flex flex-col">
+                  <div class="w-full">
+                    <div class="border-b border-gray-200 shadow">
+                      <table class="divide-y divide-gray-300">
+                        <tbody class="bg-[#837979] divide-y divide-gray-300">
+                          <tr class="whitespace-nowrap">
+                            <td class="px-6 py-4">
+                              <div class="mr-[500px] text-xl font-semibold text-white">
+                                Prince Andres
+                              </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td class="px-6 py-4">
+                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">EDIT</a>
+                            </td>
+                            <td class="px-6 py-4">
+                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</a>
+                            </td>
+                            <td class="px-6 py-4">
+                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">DELETE</a>
+                            </td>
+                          </tr>
+                          <tr class="whitespace-nowrap">
+                            <td class="px-6 py-4">
+                              <div class="text-xl font-semibold text-white">
+                                Prince Andres
+                              </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td class="px-6 py-4">
+                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">EDIT</a>
+                            </td>
+                            <td class="px-6 py-4">
+                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</a>
+                            </td>
+                            <td class="px-6 py-4">
+                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">DELETE</a>
+                            </td>
+                          </tr>
+                          <tr class="whitespace-nowrap">
+                            <td class="px-6 py-4">
+                              <div class="text-xl font-semibold text-white">
+                                Prince Andres
+                              </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td class="px-6 py-4">
+                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">EDIT</a>
+                            </td>
+                            <td class="px-6 py-4">
+                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</a>
+                            </td>
+                            <td class="px-6 py-4">
+                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">DELETE</a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+              {/* <div className="row">
                 <div className="flex flex-row justify-between w-auto bg-[#837979] items-center m-8 py-2 px-3">
                   <p className="text-2xl m-2 ml-10 font-semibold">
                     Prince Andres
@@ -175,7 +244,14 @@ export default function page() {
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> */}
+
+
+
+
+
+
+
 
               {/*
               <form
