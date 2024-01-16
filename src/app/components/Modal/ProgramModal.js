@@ -15,7 +15,7 @@ function ProgramModal() {
     <>
             <Button className="border-none" onClick={() => setOpenModal(true)}> <span className=" text-center bg-[#675454] text-orange-200 outline-color rounded shadow-lg w-[130px]">ADD CATEGORY</span></Button>
           
-            <Modal show={openModal} size="md" onClose={onCloseModal} popup>
+            <Modal show={openModal} size="md" className='m-96' onClose={onCloseModal} popup>
                 <Modal.Header />
                 <Modal.Body>
                     <div className="space-y-6">
