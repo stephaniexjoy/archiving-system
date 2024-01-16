@@ -53,7 +53,7 @@ export default async function archiving() {
             />
             <div className="">
               <h1>
-                <FaSearch size="40" style={{ top: "100px", left: "10px" }} />
+                <FaSearch size="43" style={{ top: "100px", left: "10px" }} />
               </h1>
             </div>
            
