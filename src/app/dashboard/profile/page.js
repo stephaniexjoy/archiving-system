@@ -1,6 +1,7 @@
 
 import Image from "next/image";
 import { FaUserLock } from "react-icons/fa";
+import EditPrivacy from "@/app/components/Modal/EditPrivacy";
 
 export default function profile() {
   return (
@@ -16,7 +17,7 @@ export default function profile() {
         />
 
         <div>
-          <FaUserLock size="40" style={{ color: "white", top: "40px", left: "1660px"}} />
+          <EditPrivacy/>
         </div>
 
         <div className=" border bg-[#AD5606] w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-full mt-10 p-8 rounded-lg shadow-lg">
