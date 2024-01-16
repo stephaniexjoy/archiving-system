@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { FaSearch } from "react-icons/fa";
+import CreateModal from "@/app/components/Modal/CreateModal";
 
 export default function page() {
   const [name, setName] = useState("");
@@ -78,12 +79,8 @@ export default function page() {
               </h1>
             </div>
 
-            <div className="button">
-              <button className="top-[125px] left-[10px] md:left-[1300px] bg-[#6A6A6A] text-center  w-[100px] h-[45px] shadow-lg cursor-pointer md:text-[20px]  font-bold  ">
-                {" "}
-                CREATE
-                {/* CREATE MODAl */}
-              </button>
+            <div>
+                <CreateModal/>
             </div>
           </div>
           <div className="bg-[#DABB9C] py-10 border w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-auto mt-10 p-16 rounded-lg shadow-lg">
