@@ -54,10 +54,10 @@ export default function page() {
   };
 
   return (
-    <div className="ml-40 flex flex-col w-auto h-screen">
+    <div className="ml-72 flex flex-col w-auto h-screen">
       <div className="flex flex-col w-auto h-screen items-center py-10">
         <img
-          className="mr-20 w-full md:w-[850px] h-[150px] object-cover"
+          className="ml-10 w-full md:w-[850px] h-[150px] object-cover"
           alt=""
           src="/photos/E-Archiving System.png"
         />
