@@ -14,7 +14,7 @@ export default function page() {
         <div className='m-3'>
             <form className=" w-auto h-auto bg-[#DABB9C] justify-center rounded-3xl shadow m-25">
                 <div className='m-10'>
-        <div className='mt-10 flex grid-cols-2 space-x-40 justify-center font-bold font-[Times New Roman]'>
+        <div className='mt-10 flex grid-cols-2 space-x-40 justify-center text-[#000000] font-bold font-[Times New Roman]'>
           <div className=' text-center '>
           <div className='mt-10'>
           <h1>SEMINARS AND TRAININGS ATTENDED</h1>

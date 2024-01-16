@@ -20,7 +20,7 @@ export default function page() {
                 src="/profile.jpg"
                />
             </div>
-            <div className="basis-1/4">
+            <div className="basis-1/4 text-[#000000]">
                 <p className="mt-10 text-[14px] md:text-[23px]">Name:</p>
                 <p className="mt-5 text-[14px] md:text-[23px]">Position:</p>
                 <p className="mt-5 text-[14px] md:text-[23px]">Designation:</p>
@@ -37,7 +37,7 @@ export default function page() {
             </div>
           </div>
 
-          <div className="flex flex-row gap-x-8 ">
+          <div className="flex flex-row gap-x-8 text-[#000000]">
           <div className="basis-1/4">
                 <p className='mt-10 text-[14px] md:text-[23px]'>
                   School:
@@ -50,18 +50,18 @@ export default function page() {
                 </p>
             </div>
             <div className="">
-                  <input type="text" name='' placeholder="" className="mt-10 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[1198px] h-[35px] md:text-shadow-inner" />
-                  <input type="text" name='' placeholder="" className="mt-5 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[1198px] h-[35px] md:text-shadow-inner" />
-                  <input type="text" name='' placeholder="" className="mt-5 mb-5 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[1198px] h-[35px] md:text-shadow-inner" />
+                  <input type="text" name='' placeholder="" className="mt-10 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#000000] bg-[#D9D9D9] inline-block w-[full] md:w-[1198px] h-[35px] md:text-shadow-inner" />
+                  <input type="text" name='' placeholder="" className="mt-5 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#000000] bg-[#D9D9D9] inline-block w-[full] md:w-[1198px] h-[35px] md:text-shadow-inner" />
+                  <input type="text" name='' placeholder="" className="mt-5 mb-5 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#000000] bg-[#D9D9D9] inline-block w-[full] md:w-[1198px] h-[35px] md:text-shadow-inner" />
             </div>
           </div>
           <div>
             <h2 className="md:text-[20px] text-bold font-bold uppercase text-center">ACADEMIC QUALIFICATIONS</h2>
           </div>
           <div>
-          <div className="flex flex-row gap-x-10">
+          <div className="flex flex-row gap-x-10 text-[#000000]">
             <div className="">
-            <p className='mt-10 md:text-[19px]'>
+            <p className='mt-10  md:text-[19px]'>
                   Baccalaureate Degree:
                 </p>
                 <p className='mt-2 md:text-[19px]'>
@@ -78,7 +78,7 @@ export default function page() {
 
             </div>
            
-            <div className="">
+            <div className="text-[#000000]">
                 <p className='mt-10 text-[14px] md:text-[23px]'>
                   School:
                 </p>
