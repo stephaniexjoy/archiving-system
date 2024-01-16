@@ -53,7 +53,7 @@ export default function page() {
   };
 
   return (
-    <div className="flex flex-col w-auto h-screen">
+    <div className="ml-40 flex flex-col w-auto h-screen">
       <div className="flex flex-col w-auto h-screen items-center py-10">
         <img
           className="mr-20 w-full md:w-[850px] h-[150px] object-cover"
@@ -61,7 +61,7 @@ export default function page() {
           src="/photos/E-Archiving System.png"
         />
 
-        <div className=" bg-[#AD5606]  w-screen h-[850px] mt-5">
+        <div className="border items-center bg-[#AD5606] w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-auto mt-10 p-16 rounded-lg shadow-lg">
           <div className="flex flex-row gap-x-5 items-center ml-4 md:ml-48 mb-5 mt-5 md:h-20">
             <h1 className="inline-block md:text-[45px] opacity-60 font-semibold md:shadow-zinc-400">
               FIND
@@ -86,14 +86,14 @@ export default function page() {
               </button>
             </div>
           </div>
-          <div className="bg-[#DABB9C] w-screen h-[640px] py-3 ">
+          <div className="bg-[#DABB9C] py-3 border w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-auto mt-10 p-16 rounded-lg shadow-lg">
             <h1 className=" text-[35px] mt-6 font-semibold text-orange-900 text-center ">
               MANAGE ACCOUNTS
             </h1>
             <div>
               <div className="row">
-                <div className="flex flex-row justify-between w-auto bg-[#837979] items-center m-8">
-                  <p className="mt-5 text-2xl m-2 ml-64 font-semibold">
+                <div className="flex flex-row justify-between w-auto bg-[#837979] items-center m-8 py-2 px-3">
+                  <p className="text-2xl m-2 ml-10 font-semibold">
                     Prince Andres
                   </p>
                   <div className="flex-justify">
@@ -109,8 +109,8 @@ export default function page() {
                   </div>
                 </div>
 
-                <div className="flex flex-row justify-between w-auto bg-[#837979] items-center m-8">
-                  <p className="mt-5 text-2xl m-2 ml-64 font-semibold">
+                <div className="flex flex-row justify-between w-auto bg-[#837979] items-center m-8 py-2 px-3">
+                  <p className="text-2xl m-2 ml-10 font-semibold">
                     John Ryan Ual
                   </p>
                   <div className="flex-justify">
@@ -125,8 +125,8 @@ export default function page() {
                     </button>
                   </div>
                 </div>
-                <div className="flex flex-row justify-between w-auto bg-[#837979] items-center m-8">
-                  <p className="mt-5 text-2xl m-2 ml-64 font-semibold">
+                <div className="flex flex-row justify-between w-auto bg-[#837979] items-center m-8 py-2 px-3">
+                  <p className="text-2xl m-2 ml-10 font-semibold">
                     Marco Del Rosario
                   </p>
                   <div className="flex-justify">
@@ -142,8 +142,8 @@ export default function page() {
                   </div>
                 </div>
 
-                <div className="flex flex-row justify-between w-auto bg-[#837979] items-center m-8">
-                  <p className="mt-5 text-2xl m-2 ml-64 font-semibold">
+                <div className="flex flex-row justify-between w-auto bg-[#837979] items-center m-8 py-2 px-3">
+                  <p className="text-2xl m-2 ml-10 font-semibold">
                     Prince Andres
                   </p>
                   <div className="flex-justify">
@@ -159,8 +159,8 @@ export default function page() {
                   </div>
                 </div>
 
-                <div className="flex flex-row justify-between w-auto bg-[#837979] items-center m-8">
-                  <p className="mt-5 text-2xl m-2 ml-64 font-semibold">
+                <div className="flex flex-row justify-between w-auto bg-[#837979] items-center m-8 py-2 px-3">
+                  <p className="text-2xl m-2 ml-10 font-semibold">
                     John Ryan Ual
                   </p>
                   <div className="flex-justify">
