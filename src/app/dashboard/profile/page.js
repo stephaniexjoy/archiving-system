@@ -46,7 +46,7 @@ export default function profile() {
             </div>
           </div>
           <div
-          className="top-[285px] left-[1px] text-[20px] bg-[#5B0505] [backdrop-filter:blur(4px)] text-white text-center w-[1800px] h-[30px]">
+          className="top-[285px] left-[1px] text-[20px] bg-[#5B0505] [backdrop-filter:blur(4px)] text-white text-center w-[1800px]h-[30px]">
           ACADEMIC QUALIFICATIONS
         </div>
         <div className="">
