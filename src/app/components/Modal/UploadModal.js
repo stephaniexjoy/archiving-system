@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { FaUpload } from "react-icons/fa";
 import { useEdgeStore } from "@/app/lib/edgestore";
+import { useSession } from "next-auth/react";
+import axios from "axios";
 
 
 const UploadModal = () => {
+  const { data: session, status } = useSession()
   const [isOpen, setIsOpen] = useState(false);
   const [dialogType, setDialogType] = useState("");
 
@@ -113,10 +116,18 @@ const UploadModal = () => {
                       console.log("edgestore: ", edgestore);
                       console.log("2edgestore: ", edgestore.publicFiles1);
                       console.log("file: ", file)
+                      const fileExtension = file.name.split('.').pop();
+                      console.log('File Extension:', fileExtension);
+
+
+
                       const res = await edgestore.publicFiles1.upload({
                         file,
-                        options:{
-                          manualFileName: file.name
+
+                        options: {
+                          manualFileName: file.name,
+
+
                         },
 
                         onProgressChange: (progress) => {
@@ -126,8 +137,18 @@ const UploadModal = () => {
 
                       )
 
+
                       console.log(res.url);
+
                       // save your data here
+                      const response = await axios.post('/api/save-path-todb', {
+                        fileName: file.name,
+                        fileType: fileExtension,
+                        filePath: res.url,
+                        userId: session.user.id,
+                        uploaderName: session.user.name,
+                        fileRole: session.user.position
+                      });
 
                     }
                   }}>
