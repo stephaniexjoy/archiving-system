@@ -79,10 +79,8 @@ function ProfileModal() {
                                 />
                             </div>
                         </div>
-                        <div className="flex justify-center gap-4">
-                            <Button className='bg-[#737373] w-36 font-bold' onClick={() => setOpenModal(false)}>
-                                SAVE
-                            </Button>
+                        <div className="flex justify-center w-full">
+                            <Button className='bg-[#D9D9D9] text-[#8F8F8F] px-5 font-bold hover:bg-[#8F8F8F] hover:text-white'><span className='text-lg '>SAVE</span></Button>
                         </div>
                     </div>
                 </Modal.Body>

@@ -1,5 +1,6 @@
 import { db } from '@/app/lib/prisma_db';
 import bcrypt from 'bcrypt'
+import { revalidatePath } from 'next/cache';
 
 export async function POST(req) {
     try {
@@ -39,6 +40,7 @@ export async function POST(req) {
         
         if (newUser) {
             console.log("Good");
+            revalidatePath('/superadmin/dashboard/manageuser')
             return new Response(JSON.stringify(newUser), { status: 200, statusText: "User Successfully Created" })
         } 
     }

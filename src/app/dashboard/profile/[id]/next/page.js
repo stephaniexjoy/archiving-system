@@ -3,17 +3,17 @@ import React from 'react';
 export default function page() {
   return (
     <div className="flex flex-auto w-auto h-screen">
-      <div className="flex flex-col mt-5 md:mr-10 lg:mr-20 items-center h-screen">
+      <div className="flex flex-col w-full h-screen items-center">
                <img
                     className="mr-20 w-full md:w-[400px] h-[100px] object-cover"
                     alt=""
                     src="/photos/E-Archiving System.png" />
 
-        <div className="bg-[#AD5606] w-screen h-screen mt-10">
+        <div className="border bg-[#AD5606] w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-full mt-10 p-8 rounded-lg shadow-lg">
          
-        <div className='m-20'>
+        <div className='m-3'>
             <form className=" w-auto h-auto bg-[#DABB9C] justify-center rounded-3xl shadow m-25">
-                
+                <div className='m-10'>
         <div className='mt-10 flex grid-cols-2 space-x-40 justify-center font-bold font-[Times New Roman]'>
           <div className=' text-center '>
           <div className='mt-10'>
@@ -24,7 +24,7 @@ export default function page() {
 
           </textarea>
           </div>
-          <div className=''>
+          <div className='mt-10 font-bold'>
           <h1>JOB EXPERIENCE</h1>
           </div>
           <div>
@@ -32,7 +32,7 @@ export default function page() {
 
           </textarea>
           </div>
-          <div className=''>
+          <div className='mt-10 font-bold'>
             <h1>PAST DESIGNATION</h1>
           </div>
           <div>
@@ -43,7 +43,7 @@ export default function page() {
           </div>
 
           <div className='text-center'>
-          <div className='mt-10'>
+          <div className='mt-10 font-bold'>
           <h1>SUBJECTS HANDLED (DESCRIPTIVE TITLE)</h1>
           </div>
           <div>
@@ -51,7 +51,7 @@ export default function page() {
 
           </textarea>
           </div>
-          <div className=''>
+          <div className='mt-10 font-bold'>
           <h1>PRESENTED PAPERS</h1>
           </div>
           <div>
@@ -59,7 +59,7 @@ export default function page() {
 
           </textarea>
           </div>
-          <div className=''>
+          <div className='mt-10 font-bold'>
             <h1>EXTENSION PROJECTS</h1>
           </div>
           <div>
@@ -79,7 +79,7 @@ export default function page() {
                 SAVE
               </button>
             </div>
-            
+            </div>
             </form>
             </div>
             

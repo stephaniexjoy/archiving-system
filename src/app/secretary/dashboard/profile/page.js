@@ -29,7 +29,7 @@ function page() {
                                         <h1 className="md:text-[20px] text-white">Name:</h1>
                                     </div>
                                     <div>
-                                        <h1 className="md:text-[20px] text-white font-bold uppercase">Aeron John G. Remorin</h1>
+                                        <h1 className="md:text-[20px] ml-28 text-white font-bold uppercase">Aeron John G. Remorin</h1>
                                     </div>
                                 </div>
                                 <div className="-mt-10 flex flex-row gap-x-8 md:ml-10 md:h-20">
@@ -37,7 +37,7 @@ function page() {
                                         <h1 className=" md:text-[20px] text-white">Age:</h1>
                                     </div>
                                     <div>
-                                        <h1 className="md:text-[20px] text-white font-bold">21</h1>
+                                        <h1 className="md:text-[20px] ml-[130px] text-white font-bold">21</h1>
                                     </div>
                                 </div>
                                 <div className="-mt-10 flex flex-row gap-x-8 md:ml-10 md:h-20">
@@ -45,7 +45,7 @@ function page() {
                                         <h1 className=" md:text-[20px] text-white">Sex:</h1>
                                     </div>
                                     <div>
-                                        <h1 className="md:text-[20px] text-white font-bold uppercase">Male</h1>
+                                        <h1 className="md:text-[20px] ml-[133px] text-white font-bold uppercase">Male</h1>
                                     </div>
                                 </div>
                                 <div className="-mt-10 flex flex-row gap-x-8 md:ml-10 md:h-20">
@@ -53,7 +53,7 @@ function page() {
                                         <h1 className=" md:text-[20px] text-white">Employee No:</h1>
                                     </div>
                                     <div>
-                                        <h1 className="md:text-[20px] text-white font-bold uppercase">0320-0726</h1>
+                                        <h1 className="md:text-[20px] ml-[45px] text-white font-bold uppercase">0320-0726</h1>
                                     </div>
                                 </div>
                                 <div className="-mt-10 flex flex-row gap-x-8 md:ml-10 md:h-20">
@@ -61,7 +61,7 @@ function page() {
                                         <h1 className=" md:text-[20px] text-white">Department:</h1>
                                     </div>
                                     <div>
-                                        <h1 className="md:text-[20px] text-white font-bold uppercase">College of Computer Studies</h1>
+                                        <h1 className="md:text-[20px] ml-14 text-white font-bold uppercase">College of Computer Studies</h1>
                                     </div>
                                 </div>
                                 <div className="-mt-10 flex flex-row gap-x-8 md:ml-10 md:h-20">
@@ -69,7 +69,7 @@ function page() {
                                         <h1 className=" md:text-[20px] text-white">Designation:</h1>
                                     </div>
                                     <div>
-                                        <h1 className="md:text-[20px] text-white font-bold uppercase">Secretary</h1>
+                                        <h1 className="md:text-[20px] ml-14 text-white font-bold uppercase">Secretary</h1>
                                     </div>
                                 </div>
                                 <div className="-mt-10 flex flex-row gap-x-8 md:ml-10 md:h-20">
@@ -83,11 +83,9 @@ function page() {
                             </div>
                             
                                 <ProfileModal/>
-                           
-                            <button class="mt-5 bg-[#D9D9D9] text-[#6A6A6A] text-xl font-bold h-10 w-52 hover:bg-[#6A6A6A] hover:text-white">
-                                EDIT PRIVACY
+                            
                                 <PrivacyModal />
-                            </button>
+                            
                         </div>
                     </div>
                 </div>

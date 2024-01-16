@@ -1,29 +1,10 @@
-
-import React from "react";
-
+'use client'
+import React from 'react'
 import { FaSearch } from "react-icons/fa";
 import CreateModal from "@/app/components/Modal/CreateModal";
 import DeleteModal from "@/app/components/Modal/DeleteModal";
-import { revalidatePath } from "next/cache";
-import Link from "next/link";
 
-
-export default async function page() {
-  async function getEmptyData() {
-    return Promise.resolve([]); // Returning an empty array
-  }
-
-  async function getUsers() {
-    "use server"
-    const res = await fetch('http://localhost:3000/api/users/fetch-users',)
-    if (!res.ok) {
-      // This will activate the closest `error.js` Error Boundary
-      return getEmptyData()
-    }
-    revalidatePath('/superadmin/dashboard/manageuser')
-    return res.json()
-  }
-  const users = await getUsers()
+const page = () => {
   return (
     <div className="ml-72 flex flex-col w-auto h-screen">
       <div className="flex flex-col w-auto h-screen items-center py-10">
@@ -51,12 +32,12 @@ export default async function page() {
             </div>
 
             <div>
-              <CreateModal />
+                <CreateModal/>
             </div>
           </div>
           <div className="bg-[#DABB9C] py-10 border w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-auto mt-10 p-16 rounded-lg shadow-lg">
             <h1 className=" text-[35px] mb-5 font-semibold text-orange-900 text-center ">
-              MANAGE ACCOUNTS
+              VIEW FACULTY
             </h1>
             <div>
               <div className="container flex justify-center mx-auto">
@@ -65,38 +46,54 @@ export default async function page() {
                     <div className="border-b border-gray-200 shadow">
                       <table className="divide-y divide-gray-300">
                         <tbody className="bg-[#837979] divide-y divide-gray-300">
-                          {users.map((user) => (
-                            <tr key={user.id} className="whitespace-nowrap">
-                              <td className="px-6 py-4">
-                                <div className="mr-[500px] text-xl font-semibold text-white">
-                                  {user.name}
-                                </div>
-                              </td>
-                              <td></td>
-                              <td></td>
-                              <td className="px-6 py-4">
-                                <Link href={`/superadmin/dashboard/manageuser/edit-user/${user.id}/`} className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">EDIT</Link>
-                              </td>
-                              <td className="px-6 py-4">
-                                <Link href={`/superadmin/dashboard/manageuser/view-user/${user.id}/`} className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</Link>
-                              </td>
-                              <td className="px-6 py-4">
-                                <DeleteModal userId={user.id} />
-                              </td>
-                            </tr>
-                          ))}
-
+                          <tr className="whitespace-nowrap">
+                            <td className="px-6 py-4">
+                              <div className="mr-[500px] text-xl font-semibold text-white">
+                                Prince Andres
+                              </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td className="px-6 py-4">
+                              <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</a>
+                            </td>
+                          </tr>
+                          <tr className="whitespace-nowrap">
+                            <td className="px-6 py-4">
+                              <div className="text-xl font-semibold text-white">
+                                John Ryan Ual
+                              </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td className="px-6 py-4">
+                              <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</a>
+                            </td>
+                          </tr>
+                          <tr className="whitespace-nowrap">
+                            <td className="px-6 py-4">
+                              <div className="text-xl font-semibold text-white">
+                                Marco Del Rosario
+                              </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td className="px-6 py-4">
+                              <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</a>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
                   </div>
                 </div>
               </div>
-
-            </div>
+              </div>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
+export default page
