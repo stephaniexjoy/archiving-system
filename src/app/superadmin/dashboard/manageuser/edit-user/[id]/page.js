@@ -3,8 +3,21 @@ import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { IoMdEyeOff } from "react-icons/io";
 import { HiPencilAlt } from "react-icons/hi";
+import { db } from "@/app/lib/prisma_db";
 
-const page = () => {
+const page = async ({ params }) => {
+
+  const user = await db.user.findUnique({
+    where: { id: parseInt(params.id) }
+  })
+  console.log(user)
+
+
+
+
+
+
+
   return (
     <div className="flex flex-col w-auto h-screen">
       <div className="flex flex-col w-auto h-screen items-center py-10">
@@ -17,7 +30,7 @@ const page = () => {
         <div className=" bg-[#AD5606]  w-screen h-[50px] mt-5"></div>
         <div className=" bg-[#DABB9C]  w-screen h-[850px] ">
           <h1 className=" text-[50px] mt-2 my-12 font-semibold  text-orange-900 text-center ">
-            PRINCE ANDRES
+            {user.name} {params.id}
           </h1>
           <div className="flex justify-center">
             <div className=" bg-white w-[600px] h-[77px] md:h-20 ">
@@ -27,17 +40,12 @@ const page = () => {
                 name="type"
                 id="position"
               >
-                <option value="position">POSITION</option>
-                <option value="learning materials">Learning Materials</option>
-                <option value="training and seminar">
-                  Training and Seminar
-                </option>
-                <option value="reserch conducted">Research Conducted</option>
-                <option value="extension conducted">Extension Conducted</option>
-                <option value="educational qualification">
-                  Educational Qualification
-                </option>
-                <option value="faculty profile">Faculty Profile</option>
+                <option value={user.position}>{user.position}</option>
+                <option value="Associate Dean">Associate Dean</option>
+                <option value="Secretary">Secretary</option>
+                <option value="Faculty">Faculty</option>
+                <option value="Unit Head">Unit Head</option>
+                <option value="Coordinator">Coordinator</option>
               </select>
               <h1>
                 <HiPencilAlt
@@ -52,9 +60,9 @@ const page = () => {
           <div className="mt-4 flex justify-center">
             <div className=" bg-white w-[600px] h-[77px] md:h-20">
               <input
-                type="user"
-                name="username"
-                placeholder=" EMAIL"
+                type="email"
+                name="email"
+                placeholder={`${user.email}`}
                 className="mt-6 ml-36 text-3xl 
                     text-[#A89F9F] inline-block w-[400px] h-[37px] text-shadow-inner"
               />
@@ -72,8 +80,9 @@ const page = () => {
           <div className="mt-4 flex justify-center">
             <div className=" bg-white w-[600px] h-[77px] md:h-20">
               <input
-                type="pass"
+                type="password"
                 name="password"
+             
                 placeholder=" PASSWORD"
                 className="mt-6 ml-36 text-3xl 
                     text-[#A89F9F] inline-block justify-around  w-[400px] h-[37px] text-shadow-inner"
@@ -123,7 +132,7 @@ const page = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

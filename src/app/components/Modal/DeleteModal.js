@@ -1,11 +1,25 @@
 'use client'
 import React from 'react'
+import axios from 'axios';
 import { Button, Modal } from 'flowbite-react';
 import { useState } from 'react';
 
-function DeleteModal() {
+function DeleteModal({ userId }) {
     const [openModal, setOpenModal] = useState(false);
     const [modalPlacement] = useState('center')
+    console.log("user to delete", userId)
+
+    const handleSubmit = async () => {
+        try {
+            const response = await axios.post("/api/users/delete-user", {
+                userId
+            })
+            console.log(response)
+            setOpenModal(false)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <>
@@ -18,7 +32,7 @@ function DeleteModal() {
                             Are you sure you want to delete?
                         </h3>
                         <div className="flex justify-center gap-4">
-                            <Button className='bg-[#5B0505] w-36 font-bold' onClick={() => signOut()}>
+                            <Button className='bg-[#5B0505] w-36 font-bold' onClick={handleSubmit}>
                                 Yes
                             </Button>
                             <Button className='bg-[#5B0505] w-36  font-bold' onClick={() => setOpenModal(false)}>
