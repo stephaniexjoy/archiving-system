@@ -14,14 +14,14 @@ function PrivacyModal() {
 
     return (
         <>
-            <Button onClick={() => setOpenModal(true)}>Edit Privacy</Button>
-            <Modal show={openModal} size="md" onClose={onCloseModal} popup>
+            <Button className="border-none h-12" onClick={() => setOpenModal(true)}><span className="md:left-[1300px] text-center md:text-[20px] bg-[#D9D9D9] text-[#6A6A6A] text-xl font-bold h-10 w-52 hover:bg-[#6A6A6A] hover:text-white py-2">EDIT PRIVACY</span></Button>
+            <Modal show={openModal} size="md" className='m-56' onClose={onCloseModal} popup>
                 <Modal.Header />
                 <Modal.Body>
                     <div className="space-y-6">
                         <div>
                             <div className="-mt-5 mb-2 block">
-                                <Label htmlFor="email" value="Email:" />
+                                <Label htmlFor="email" className="text-lg" value="Email:" />
                             </div>
                             <TextInput
                                 id="email"
@@ -33,40 +33,25 @@ function PrivacyModal() {
                         </div>
                         <div>
                             <div className="mb-2 block">
-                                <Label htmlFor="password" value="Current Password:" />
+                                <Label htmlFor="password" className="text-lg" value="Current Password:" />
                             </div>
                             <TextInput id="password" type="password" required />
                         </div>
                         <div>
                             <div className="mb-2 block">
-                                <Label htmlFor="password" value="New Password:" />
+                                <Label htmlFor="password" className="text-lg" value="New Password:" />
                             </div>
                             <TextInput id="password" type="password" required />
                         </div>
                         <div>
                             <div className="mb-2 block">
-                                <Label htmlFor="password" value="Confirm Password:" />
+                                <Label htmlFor="password" className="text-lg" value="Confirm Password:" />
                             </div>
                             <TextInput id="password" type="password" required />
                         </div>
-                        {/* <div className="flex justify-between">
-                            <div className="flex items-center gap-2">
-                                <Checkbox id="remember" />
-                                <Label htmlFor="remember">Remember me</Label>
-                            </div>
-                            <a href="#" className="text-sm text-cyan-700 hover:underline dark:text-cyan-500">
-                                Lost Password?
-                            </a>
-                        </div> */}
                         <div className="flex justify-center w-full">
-                            <Button className='bg-[#8F8F8F] px-5 font-bold'>Log in to your account</Button>
+                            <Button className='bg-[#D9D9D9] text-[#8F8F8F] px-5 font-bold hover:bg-[#8F8F8F] hover:text-white'><span className='text-lg '>SAVE</span></Button>
                         </div>
-                        {/* <div className="flex justify-between text-sm font-medium text-gray-500 dark:text-gray-300">
-                            Not registered?&nbsp;
-                            <a href="#" className="text-cyan-700 hover:underline dark:text-cyan-500">
-                                Create account
-                            </a>
-                        </div> */}
                     </div>
                 </Modal.Body>
             </Modal>
