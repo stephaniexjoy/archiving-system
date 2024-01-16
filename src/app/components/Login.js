@@ -54,28 +54,23 @@ const Login = () => {
 
             <div className="flex flex-auto flex-col columns-1 bg-[#AD5606] w-screen h-[600px] place-items-center">
                 <div className="ml-96 mb-20 mt-20 bg-white w-[600px] h-[77px] md:md:h-20">
-                    <div className='flex justify-center'>
-                        <h1 ><FaUserAlt className="mt-3 -ml-20" size='50' color='#000000' opacity='26%' /></h1>
-                        <input type="text" name='email' placeholder="USERNAME" className="mt-5 text-3xl 
-                    text-[#A89F9F] inline-block w-[400px] h-[37px] text-shadow-inner"
+                    <div className='flex'>
+                        <h1 ><FaUserAlt className="mt-3 ml-5" size='50' color='#000000' opacity='26%' /></h1>
+                        <input type="text" name='email' placeholder="USERNAME" className="mt-5 ml-8 text-3xl border-none
+                    text-[#A89F9F] inline-block w-[450px] h-[37px] text-shadow-inner"
                     onChange={(e) => { setEmail(e.target.value) }} />
                     </div>
                 </div>
 
                 <div className="ml-96 bg-white w-[600px] h-[77px] md:h-20">
-                    <div className='mt-4 flex justify-center'>
-                        <h1 ><FaLock className="mt-0 -ml-5" size='50' color='#000000' opacity='26%' style={{ top: '675px', left: '870px' }} /></h1>
-                        <input type="password" name='password' placeholder="PASSWORD" className="mt-2 ml-8 text-3xl 
-                    text-[#A89F9F] inline-block w-[400px] h-[37px] text-shadow-inner"
+                    <div className='mt-4 flex'>
+                        <h1 ><FaLock className="mt-0 ml-5" size='50' color='#000000' opacity='26%' style={{ top: '675px', left: '870px' }} /></h1>
+                        <input type="password" name='password' placeholder="PASSWORD" className="mt-2 ml-8 text-3xl border-none text-[#A89F9F] inline-block w-[450px] h-[37px] text-shadow-inner"
                     onChange={(e) => { setPassword(e.target.value) }} />
-                        <h1 ><IoMdEyeOff className="ml-1" size='50' color='black' /></h1>
                     </div>
                 </div>
 
-                <b
-                    className="ml-96 mt-5 text-[21px] [text-decoration:underline] inline-block text-[#FF7E7E] text-center w-[304px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] cursor-pointer"
-                >
-                    Forgot Password?
+                <b>
                     <ForgotPassword />
                 </b>
                 <div className='flex justify-center'>
