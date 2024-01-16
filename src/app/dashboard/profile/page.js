@@ -4,147 +4,105 @@ import { FaUserLock } from "react-icons/fa";
 
 export default function profile() {
   return (
-
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <div className=" flex flex-row">
-        <Image
-          className=" top-[10px] left-[670px] w-[400px] h-[100px] object-cover"
+    <div className="flex flex-auto w-auto h-screen">
+      
+      <div className="flex flex-col mt-5 md:mr-10 lg:mr-20 items-center h-screen">
+      <Image
+          className=" top-[10px] left-[670px] mr-20  w-[400px] h-[100px] object-cover"
           alt=""
           width={400}
           height={400}
           src="/photos/E-Archiving System.png"
         />
-        <div className="flex flex-row justify-end top-[30px] left-[1950px] w-[60px] h-[60px] shadow-lg">
-          <h1><FaUserLock size="60" style={{ position: "", top: "40px", left: "1660px" }} /></h1>
-        </div>
+        <h1 className="flex flex-row-reverse"><FaUserLock size="40" style={{ top: "40px", left: "1660px"}} /></h1>
 
-      </div>
-
-      <div className="bg-[#AD5606] [backdrop-filter:blur(4px)] w-[1800px] h-[1800px]">
-
-
-        {/* <div className=" left-[250px] top-[140px] rounded-[50%] bg-[#DABB9C] shadow-[30px_0px_30px_rgba(0,_0,_0,_0.35)] w-[130px] h-[135px] [transform:_rotate(-0.3deg)] [transform-origin:0_0]">
-
-        </div> */}
-        <div className="flex-row justify-between">
-          <div>
-            <Image className="h-24 w-24 rounded-full mx-auto mb-3" src="/photos/ccs.png" width={180} height={180} alt="User" />
+        <div className=" top-[125px] left-[1px] bg-[#AD5606] [backdrop-filter:blur(4px)] w-screen h-screen mt-10">
+        <div className="flex flex-row gap-x-10 justify-center ">
+            <div className="mt-10 ml-20 basis-1/4 left-[10px] object-center" >
+            <img
+                className="rounded-[50%]  w-[130px] h-[135px] object-cover  mb-5"
+                alt=""
+                src="/profile.jpg"
+               />
+            </div>
+            <div className="basis-1/4 text-[20px] text-white text-left w-[900px] h-[30px]">
+            
+              <div className="mt-8">Name:</div>
+              <div >Position:</div>
+              <div >Eligibility/Professional License:</div>
+              <div >School:</div>
+           
+            </div>
+    
+            <div className="mt-10 ml-5 basis-1/3 text-[20px] left-[1150px]
+             text-white text-left w-[900px] h-[30px]">
+            <div className=""></div>
+                <div className=" mt-5 top-[350px]">Designation:</div>
+                <div >Specialization:</div>
+                <div >Certifications:</div>
+            </div>
           </div>
-          <div>
-            <p>Name:</p>
-          </div>
-          <div>
-            <p>Position:</p>
-          </div>
-          <div>
-            <p>Eligibility/Professional License:</p>
-          </div>
-          <div>
-            <p>School:</p>
-          </div>
-        </div>
-
-
-
-
-        <div
-          className="  left-[550px] top-[145px] text-[20px] 
-             text-white text-left w-[900px]
-            h-[30px]"
-        >
-
-        </div>
-        <div
-          className="  top-[175px] left-[1150px] text-[20px] 
-             text-white text-left w-[900px]
-            h-[30px]"
-        >
-          <div></div>
-          <div>Designation:</div>
-          <div>Specialization:</div>
-          <div>Certifications:</div>
-        </div>
-        <div
-          className="  top-[285px] left-[1px] text-[20px] 
-            [backdrop-filter:blur(4px)] text-white text-center w-[1800px]
-            h-[30px]"
-        >
+          <div
+          className="top-[285px] left-[1px] text-[20px] bg-[#5B0505] [backdrop-filter:blur(4px)] text-white text-center w-[1800px]h-[30px]">
           ACADEMIC QUALIFICATIONS
         </div>
-        <div
-          className="  left-[200px] top-[325px] text-[20px] 
-             text-white text-left w-[900px]
-            h-[30px]"
-        >
-          <div>Baccalaureate Degree:</div>
-          <div>Masters Degree:</div>
-          <div>Doctorate Degree:</div>
-        </div>
-        <div
-          className="  top-[325px] left-[970px] text-[20px] 
-             text-white text-left w-[900px]
-            h-[30px]"
-        >
-          <div>School:</div>
-          <div>School:</div>
-          <div>School:</div>
-        </div>
-        <div
-          className="  top-[420px] left-[1px] text-[20px] 
-            [backdrop-filter:blur(4px)] text-white text-center w-[870px]
+        <div className="mr-5">
+        <div className="flex flex-row gap-x-10 justify-center">
+          <div className="my-5 left-[200px] top-[325px] text-[20px] text-white text-left w-[900px] h-[30px]">
+            <div className="">Baccalaureate Degree:</div>
+            <div>Masters Degree:</div>
+            <div>Doctorate Degree:</div>
+          </div>
+
+            <div className=" my-5 basis-1/4 top-[325px] left-[870px] text-[20px] text-white text-left w-[900px] h-[30px">
+              
+              <div>School:</div>
+              <div>School:</div>
+              <div>School:</div>
+            
+            </div>
+          </div>
+          <div className="flex flex-row gap-x-10 justify-center">
+          <div
+          className=" basis-1/2 top-[420px] left-[1px] text-[20px] bg-[#5B0505]
+            [backdrop-filter:blur(4px)] text-white text-center w-[970px]
             h-[30px]"
         >
           SEMINARS AND TRAININGS ATTENDED
         </div>
         <div
-          className="  top-[420px] left-[920px] text-[20px] 
+          className=" basis-1/2 top-[420px] left-[1500px] text-[20px] bg-[#5B0505]
             [backdrop-filter:blur(4px)] text-white text-center w-[1000px]
             h-[30px]"
         >
           JOB EXPERIENCE
         </div>
-        <div>
-          <h1
-            className=" top-[520px] left-[1px] text-[20px] 
-            [backdrop-filter:blur(4px)] text-white text-center w-[1800px]
-            h-[30px]"
-          >
-            SUBJECTS HANDLED DESCRIPTIVE TITLE
-          </h1>
+
         </div>
-        <div>
-          <h1
-            className=" top-[620px] left-[1px] text-[20px] 
-            [backdrop-filter:blur(4px)] text-white text-center w-[1800px]
-            h-[30px]"
-          >
+       
+      </div>
+      <div>
+          <h1 className="mt-20 top-[285px] left-[1px] text-[20px] bg-[#5B0505] [backdrop-filter:blur(4px)] text-white text-center w-[1800px]h-[30px]">
             PAST DESIGNATIONS
           </h1>
         </div>
         <div>
           <h1
-            className=" top-[720px] left-[1px] text-[20px] 
-            [backdrop-filter:blur(4px)] text-white text-center w-[1800px]
-            h-[30px]"
-          >
+            className="mt-20 top-[285px] left-[1px] text-[20px] bg-[#5B0505] [backdrop-filter:blur(4px)] text-white text-center w-[1800px]h-[30px]">
             PRESENTED PAPERS
           </h1>
         </div>
         <div>
           <h1
-            className=" top-[820px] left-[1px] text-[20px] 
-            [backdrop-filter:blur(4px)] text-white text-center w-[1800px]
-            h-[30px]"
-          >
+            className="mt-20 top-[285px] left-[1px] text-[20px] bg-[#5B0505] [backdrop-filter:blur(4px)] text-white text-center w-[1800px]h-[30px]">
             EXTENSIONS PROJECTS
           </h1>
         </div>
-      </div>
-
+      <div className=" my-20 flex flex-row gap-x-10 justify-center">
       <div className="flex justify-center">
         <button
           type="submit"
-          className=" top-[950px] left-[500px] bg-[#8F8F8F] text-[20px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
+          className="top-[950px] left-[500px] bg-[#8F8F8F] text-[20px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
         // onClick={handleSubmit}
         >
           EDIT
@@ -153,7 +111,7 @@ export default function profile() {
       <div className="flex justify-center">
         <button
           type="submit"
-          className=" top-[950px] left-[770px] bg-[#8F8F8F] text-[20px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
+          className="top-[950px] left-[770px] bg-[#8F8F8F] text-[20px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
         //onClick={handleSubmit}
         >
           DOWNLOAD
@@ -162,14 +120,18 @@ export default function profile() {
       <div className="flex justify-center">
         <button
           type="submit"
-          className=" top-[950px] left-[1040px] bg-[#8F8F8F] text-[20px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
+          className="top-[950px] left-[1040px] bg-[#8F8F8F] text-[20px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
         //onClick={handleSubmit}
         >
           PRINT
         </button>
       </div>
+      </div>
 
-    </main >
+        </div>
+        </div>
+
+          </div>
   );
 
 }

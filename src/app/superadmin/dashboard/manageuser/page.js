@@ -88,64 +88,64 @@ export default function page() {
               MANAGE ACCOUNTS
             </h1>
             <div>
-              <div class="container flex justify-center mx-auto">
-                <div class="flex flex-col">
-                  <div class="w-full">
-                    <div class="border-b border-gray-200 shadow">
-                      <table class="divide-y divide-gray-300">
-                        <tbody class="bg-[#837979] divide-y divide-gray-300">
-                          <tr class="whitespace-nowrap">
-                            <td class="px-6 py-4">
-                              <div class="mr-[500px] text-xl font-semibold text-white">
+              <div className="container flex justify-center mx-auto">
+                <div className="flex flex-col">
+                  <div className="w-full">
+                    <div className="border-b border-gray-200 shadow">
+                      <table className="divide-y divide-gray-300">
+                        <tbody className="bg-[#837979] divide-y divide-gray-300">
+                          <tr className="whitespace-nowrap">
+                            <td className="px-6 py-4">
+                              <div className="mr-[500px] text-xl font-semibold text-white">
                                 Prince Andres
                               </div>
                             </td>
                             <td></td>
                             <td></td>
-                            <td class="px-6 py-4">
-                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">EDIT</a>
+                            <td className="px-6 py-4">
+                              <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">EDIT</a>
                             </td>
-                            <td class="px-6 py-4">
-                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</a>
+                            <td className="px-6 py-4">
+                              <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</a>
                             </td>
-                            <td class="px-6 py-4">
-                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">DELETE</a>
+                            <td className="px-6 py-4">
+                              <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">DELETE</a>
                             </td>
                           </tr>
-                          <tr class="whitespace-nowrap">
-                            <td class="px-6 py-4">
-                              <div class="text-xl font-semibold text-white">
+                          <tr className="whitespace-nowrap">
+                            <td className="px-6 py-4">
+                              <div className="text-xl font-semibold text-white">
                                 John Ryan Ual
                               </div>
                             </td>
                             <td></td>
                             <td></td>
-                            <td class="px-6 py-4">
-                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">EDIT</a>
+                            <td className="px-6 py-4">
+                              <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">EDIT</a>
                             </td>
-                            <td class="px-6 py-4">
-                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</a>
+                            <td className="px-6 py-4">
+                              <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</a>
                             </td>
-                            <td class="px-6 py-4">
-                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">DELETE</a>
+                            <td className="px-6 py-4">
+                              <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">DELETE</a>
                             </td>
                           </tr>
-                          <tr class="whitespace-nowrap">
-                            <td class="px-6 py-4">
-                              <div class="text-xl font-semibold text-white">
+                          <tr className="whitespace-nowrap">
+                            <td className="px-6 py-4">
+                              <div className="text-xl font-semibold text-white">
                                 Marco Del Rosario
                               </div>
                             </td>
                             <td></td>
                             <td></td>
-                            <td class="px-6 py-4">
-                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">EDIT</a>
+                            <td className="px-6 py-4">
+                              <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">EDIT</a>
                             </td>
-                            <td class="px-6 py-4">
-                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</a>
+                            <td className="px-6 py-4">
+                              <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</a>
                             </td>
-                            <td class="px-6 py-4">
-                              <a href="#" class="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">DELETE</a>
+                            <td className="px-6 py-4">
+                              <a href="#" className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">DELETE</a>
                             </td>
                           </tr>
                         </tbody>
