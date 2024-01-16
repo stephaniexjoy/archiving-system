@@ -2,7 +2,7 @@ import React from 'react'
 
 function page() {
   return (
-    <div className="flex flex-col w-auto h-screen">
+    <div className="flex flex-col w-auto h-screen ml-60">
       <div className='flex flex-col w-auto h-screen items-center py-10'>
         <img
           className=" w-[870px] h-[200px] object-cover"
@@ -17,7 +17,7 @@ function page() {
           SECRETARY
         </h1>
 
-        <div className="bg-[#AD5606] w-screen h-[590px] mt-10">
+        <div className="bg-[#AD5606] h-[590px] mt-10 border w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto p-16 rounded-lg shadow-lg">
 
           <div className='mt-3 flex grid-cols-2 space-x-36 place-content-stretch justify-center h-16 md:h-20 font-bold font-[Times New Roman]'>
             <div className='text-center'>
@@ -39,7 +39,7 @@ function page() {
           </div>
 
           <div className='flex flex-col w-auto h-screen items-center md:h-20 font-[Times New Roman]'>
-            <table className="mt-40 table table-fixed md:table-fixed w-[1800px] text-center">
+            <table className="mt-40 table table-fixed md:table-fixed w-[1300px] text-center">
               <thead className='bg-[#5B0505] text-2xl'>
                 <tr>
                   <th className='py-2'>NAME</th>
