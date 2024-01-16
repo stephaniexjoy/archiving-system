@@ -1,74 +1,39 @@
-"use client"
+'use client'
+import React from 'react'
+import { Button, Checkbox, Label, Modal, TextInput } from 'flowbite-react';
+import { useState } from 'react';
 
-import React, { useState } from "react";
-import axios from "axios";
+function MaterialModal() {
+  const [openModal, setOpenModal] = useState(false);
+  const [email, setEmail] = useState('');
 
-
-const MaterialModal = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [dialogType, setDialogType] = useState("");
-
-  const [addMaterial, setAddMaterial] = useState("")
-
-  const openMaterialModal = (material) => {
-    setIsOpen(true);
-    setDialogType(material);
-  };
-
-  const closeMaterialModal = () => {
-    setIsOpen(false);
-    setDialogType("");
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      console.log(addMaterial)
-      const response = await axios.post('/api/forModals/add/add-new-material', { addMaterial });
-      // Assuming your API returns a success message
-      console.log(response.data.message);
-      // Perform any additional actions or show a success message to the user
-    } catch (error) {
-      // Handle error responses from the API
-      console.error(error);
-      // Show an error message to the user
-    }
+  function onCloseModal() {
+      setOpenModal(false);
+      setEmail('');
   }
   return (
-    <div>
-      <button onClick={() => openMaterialModal("material")}>
-        ADD CATEGORY
-      </button>
-
-      {isOpen && (
-        <div className="modal-material">
-          {dialogType === "material" && (
-            <div>
-              <div className="absolute top-[60px] left-[355px] bg-[#D9D9D9] [backdrop-filter:blur(4px)] w-[420px] h-[170px] rounded-3xl" />
-              <span className="close " onClick={closeMaterialModal}>
-                &times;
-              </span>
-              <input
-                type="text"
-                name="material"
-                placeholder="Add Material"
-                className="absolute top-[85px] left-[375px] text-xl text-center text-[#242323] bg-[#B5B5B5] inline-block w-[375px] h-[37px] text-shadow-inner"
-                value={addMaterial}
-                onChange={(e) => { setAddMaterial(e.target.value) }}
-              />
-              <button
-                className="absolute top-[160px] left-[495px] text-center bg-[#675454]  outline-color text-orange-200 rounded w-[130px] "
-                onClick={handleSubmit}
-              >
-                {" "}
-                ADD CATEGORY
-              </button>
-            </div>
-          )}
-        </div>
-      )
-      }
-    </div >
+    <>
+            <Button className="border-none" onClick={() => setOpenModal(true)}> <span className=" -mt-2 text-center bg-[#675454] text-orange-200 outline-color rounded shadow-lg w-[130px]">ADD CATEGORY</span></Button>
+          
+            <Modal show={openModal} size="md" onClose={onCloseModal} popup>
+                <Modal.Header />
+                <Modal.Body>
+                    <div className="space-y-6">
+                        <div>
+                            <div className="mb-2 block">
+                                <Label htmlFor="category" value="Add Category:" />
+                            </div>
+                            <TextInput id="category" type="category" required />
+                        </div>
+                        
+                        <div className="flex justify-center w-full">
+                            <Button className='bg-[#8F8F8F] px-5 font-bold'>ADD CATEGORY</Button>
+                        </div>
+                       
+                    </div>
+                </Modal.Body>
+            </Modal>
+        </>
   );
 };
 

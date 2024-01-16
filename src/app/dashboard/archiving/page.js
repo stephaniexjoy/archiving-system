@@ -42,7 +42,7 @@ export default async function archiving() {
 
         <div className="border bg-[#AD5606] w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-full mt-10 p-8 rounded-lg shadow-lg">
           <div className="flex flex-row gap-x-5 md:ml-48 mb-5 mt-5 md:h-20">
-            <h1 className=" md:text-[45px] opacity-60 font-semibold md:shadow-zinc-400">
+            <h1 className=" md:text-[45px] opacity-60 -ml-32 font-semibold md:shadow-zinc-400">
               FIND
             </h1>
             <input
@@ -56,7 +56,7 @@ export default async function archiving() {
                 <FaSearch size="40" style={{ top: "100px", left: "10px" }} />
               </h1>
             </div>
-            <div className="" />
+           
             <UploadModal />
           </div>
 
@@ -79,7 +79,7 @@ export default async function archiving() {
             </div>
           </div>
           {/*      <div className="bg-[#DABB9C] h-[640px] m-6 "> */}
-          <div className="border bg-[#DABB9C] w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-auto py-2 rounded-lg shadow-lg">
+          <div className="border bg-[#DABB9C] w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-[500px] py-2 rounded-lg shadow-lg">
 
             <div className="flex flex-row gap-x-10 md:ml-10 md:h-20">
               <div className="dropdown">
@@ -109,16 +109,12 @@ export default async function archiving() {
                     <option value="faculty profile">Faculty Profile</option>
                   </select>
                 </div>
-                <div className="button">
-                  <div className="top-[65px] left-[10px] text-center bg-[#675454] text-orange-200 outline-color rounded shadow-lg w-[130px]">
                     <MaterialModal />
-                  </div>
-                </div>
               </div>
-
-              <div className="top-[210px] left-[540px] mt-5 bg-[#D9BA9C] backdrop-filter-blur-[4px] w-[200px] h-[50px] cursor-pointer">
+              <div className="dropdown">
+              <div className="top-[210px] left-[350px] mt-5 bg-[#D9BA9C] backdrop-filter-blur-[4px] w-[200px] h-[50px] cursor-pointer">
                 <select
-                  className=" text-orange-200 text-2xl font-bold w-[200px] cursor-pointer md:left-[1250px] bg-[#bd8551]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
+                  className=" text-orange-200 text-2xl font-bold w-[200px] cursor-pointer md:left-[1350px] bg-[#bd8551]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
                   name="type"
                   id="type"
                 >
@@ -127,11 +123,8 @@ export default async function archiving() {
                   <option value="ppt">PPT</option>
                   <option value="docx">DOCX</option>
                 </select>
-                <div className="button">
-                  <div className="top-[65px] left-[10px] text-center bg-[#675454]  outline-color text-orange-200 rounded w-[130px] ">
                     <TypeModal />
-                  </div>
-                </div>
+                    </div> 
               </div>
 
               <div className="top-[210px] left-[740px] mt-5 bg-[#D9BA9C] backdrop-filter-blur-[4px] w-[200px] h-[50px] cursor-pointer">
@@ -149,11 +142,9 @@ export default async function archiving() {
                     Platform Technologies
                   </option>
                 </select>
-                <div className="button">
-                  <div className="top-[65px] left-[10px] text-center  bg-[#675454] outline-color text-orange-200 rounded shadow-lg w-[130px]">
+                
                     <ProgramModal />
-                  </div>
-                </div>
+                  
               </div>
 
               <div className="top-[210px] left-[970px] mt-5 bg-[#D9BA9C] backdrop-filter-blur-[4px] w-[200px] h-[50px] cursor-pointer">
@@ -167,11 +158,9 @@ export default async function archiving() {
                   <option value="John Ryan Ual">John Ryan Ual</option>
                   <option value="Marco Del Rosario">Marco Del Rosario</option>
                 </select>
-                <div className="button">
-                  <div className="top-[65px] left-[10px] text-center bg-[#675454] text-orange-200 outline-color rounded shadow-lg w-[130px]">
+                
                     <InstructorModal />
-                  </div>
-                </div>
+                 
               </div>
               <div className="top-[210px] left-[970px] mt-5 bg-[#D9BA9C] backdrop-filter-blur-[4px] w-[200px] h-[50px] cursor-pointer">
                 <input

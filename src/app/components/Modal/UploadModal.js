@@ -31,15 +31,9 @@ const UploadModal = () => {
       <button onClick={() => openUploadModal("upload")}>
         <h1>
           {" "}
-          <FaUpload
-            size="30"
-            style={{
-              position: "static",
-              top: "130px",
-              left: "10px",
-              cursor: "pointer",
-            }}
-          />
+        
+          <FaUpload size="40" style={{ top: "100px", left: "10px" }} />
+          
         </h1>
       </button>
       {isOpen && (

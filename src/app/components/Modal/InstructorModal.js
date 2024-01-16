@@ -1,45 +1,39 @@
-"use client"
-import React, { useState } from "react";
-const InstructorModal = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [dialogType, setDialogType] = useState("");
+'use client'
+import React from 'react'
+import { Button, Checkbox, Label, Modal, TextInput } from 'flowbite-react';
+import { useState } from 'react';
 
-  const openInstructorModal = (program) => {
-    setIsOpen(true);
-    setDialogType(program);
-  };
+function InstructorModal() {
+  const [openModal, setOpenModal] = useState(false);
+  const [email, setEmail] = useState('');
 
-  const closeInstructorModal = () => {
-    setIsOpen(false);
-    setDialogType("");
-  };
+  function onCloseModal() {
+      setOpenModal(false);
+      setEmail('');
+  }
   return (
-    <div>
-      <button onClick={() => openInstructorModal("instructor")}>
-        ADD CATEGORY
-      </button>
-      {isOpen && (
-        <div className="modal-instructor">
-          <div className="modal">
-            <span className="close" onClick={closeInstructorModal}>
-              &times;
-            </span>
-            {dialogType === "instructor" && (
-              <div>
-                <div className="absolute top-[-40px] left-[-355px] bg-[#D9D9D9] [backdrop-filter:blur(4px)] w-[400px] h-[170px] rounded-3xl" />
-                <input
-                  type="add"
-                  name=""
-                  placeholder=""
-                  className="absolute top-[1px] left-[-330px] text-xl text-center text-[#242323] bg-[#B5B5B5] inline-block w-[350px] h-[37px] text-shadow-inner"
-                />
-                <div className="absolute top-[65px] left-[-230px]  hover:bg-zinc-400  bg-[#474543] outline-color shadow-2xl rounded w-[150px] " />
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-    </div>
+    <>
+            <Button className="border-none" onClick={() => setOpenModal(true)}> <span className=" text-center bg-[#675454] text-orange-200 outline-color rounded shadow-lg w-[130px]">ADD CATEGORY</span></Button>
+          
+            <Modal show={openModal} size="md" onClose={onCloseModal} popup>
+                <Modal.Header />
+                <Modal.Body>
+                    <div className="space-y-6">
+                        <div>
+                            <div className="mb-2 block">
+                                <Label htmlFor="category" value="Add Category:" />
+                            </div>
+                            <TextInput id="category" type="category" required />
+                        </div>
+                        
+                        <div className="flex justify-center w-full">
+                            <Button className='bg-[#8F8F8F] px-5 font-bold'>ADD CATEGORY</Button>
+                        </div>
+                       
+                    </div>
+                </Modal.Body>
+            </Modal>
+        </>
   );
 };
 
