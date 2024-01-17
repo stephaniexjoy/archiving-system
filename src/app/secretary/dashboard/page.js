@@ -1,6 +1,22 @@
 import React from 'react'
+import { db } from '@/app/lib/prisma_db'
 
-function page() {
+
+async function page() {
+  const fileCount = await db.file.count()
+  const userCount = await db.user.count()
+
+  console.log(fileCount)
+  console.log(userCount)
+
+
+  const activities = await db.activity.findMany()
+  console.log(activities)
+
+  const activitiesFormatted = activities.map(activity => ({
+    ...activity,
+    createdAt: new Date(activity.createdAt).toLocaleString(),
+  }));
   return (
     <div className="flex flex-col w-auto h-screen ml-60">
       <div className='flex flex-col w-auto h-screen items-center py-10'>
@@ -22,7 +38,7 @@ function page() {
           <div className='mt-3 flex grid-cols-2 space-x-36 place-content-stretch justify-center h-16 md:h-20 font-bold font-[Times New Roman]'>
             <div className='text-center'>
               <p className='mt-11 text-8xl text-[#F1B177] '>
-                36
+                {fileCount}
               </p>
               <p className='mt-5 text-2xl'>
                 ARCHIVED MATERIALS
@@ -30,7 +46,7 @@ function page() {
             </div>
             <div className='text-center'>
               <p className=' mt-11 text-8xl text-[#F1B177]'>
-                19
+                {userCount}
               </p>
               <p className='mt-5 text-2xl'>
                 NO. OF FACULTY MEMBERS
@@ -49,28 +65,21 @@ function page() {
                 </tr>
               </thead>
               <tbody className='bg-[#D9D9D9] text-black text-xl'>
-                <tr>
-                  <td className='py-2'>PRINCE ANDRES</td>
-                  <td>PART-TIME INSTRUCTOR</td>
-                  <td>UPLOADED A FILE</td>
-                  <td>December 13, 2023 (9:45)</td>
-                </tr>
-                <tr>
-                  <td className='py-2'>AL JOHN VILLAREAL</td>
-                  <td>REGULAR INSTRUCTOR</td>
-                  <td>DELETED A FILE</td>
-                  <td>December 10, 2023 (16:30)</td>
-                </tr>
-                <tr>
-                  <td className='py-2'>CATHERINE CASTILLO</td>
-                  <td>REGULAR INSTRUCTOR</td>
-                  <td>EDITED A FILE</td>
-                  <td>December 7, 2023 (7:30)</td>
-                </tr>
+
+                {activitiesFormatted.map((activity) => (
+                  <tr key={activity.id}>
+                    <td className='py-2'>{activity.name}</td>
+                    <td>{activity.position}</td>
+                    <td>{activity.type}</td>
+                    <td>{activity.createdAt}</td>
+                  </tr>
+                ))}
+
+
               </tbody>
             </table>
           </div>
-          
+
         </div>
       </div>
     </div>
