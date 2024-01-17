@@ -18,11 +18,11 @@ export default async function archiving() {
 
   async function getData() {
     const res = await fetch('http://localhost:3000/api/get-file-path',)
-    // The return value is *not* serialized
-    // You can return Date, Map, Set, etc.
+    
+
 
     if (!res.ok) {
-      // This will activate the closest `error.js` Error Boundary
+      
       return getEmptyData()
     }
     revalidatePath('/dashboard/archiving')
@@ -30,6 +30,11 @@ export default async function archiving() {
   }
 
   const data = await getData()
+
+  const dataWithFormattedDate = data.map(file => ({
+    ...file,
+    uploadDate: new Date(file.uploadDate).toLocaleString(),
+  }));
 
   return (
     <div className="flex flex-col w-auto h-screen">
@@ -56,7 +61,7 @@ export default async function archiving() {
                 <FaSearch size="43" style={{ top: "100px", left: "10px" }} />
               </h1>
             </div>
-           
+
             <UploadModal />
           </div>
 
@@ -109,22 +114,22 @@ export default async function archiving() {
                     <option value="faculty profile">Faculty Profile</option>
                   </select>
                 </div>
-                    <MaterialModal />
+                <MaterialModal />
               </div>
               <div className="dropdown">
-              <div className="top-[210px] left-[350px] mt-5 bg-[#D9BA9C] backdrop-filter-blur-[4px] w-[200px] h-[50px] cursor-pointer">
-                <select
-                  className=" text-orange-200 text-2xl font-bold w-[200px] cursor-pointer md:left-[1350px] bg-[#bd8551]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
-                  name="type"
-                  id="type"
-                >
-                  <option value="select">--Select--</option>
-                  <option value="pdf">PDF</option>
-                  <option value="ppt">PPT</option>
-                  <option value="docx">DOCX</option>
-                </select>
-                    <TypeModal />
-                    </div> 
+                <div className="top-[210px] left-[350px] mt-5 bg-[#D9BA9C] backdrop-filter-blur-[4px] w-[200px] h-[50px] cursor-pointer">
+                  <select
+                    className=" text-orange-200 text-2xl font-bold w-[200px] cursor-pointer md:left-[1350px] bg-[#bd8551]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
+                    name="type"
+                    id="type"
+                  >
+                    <option value="select">--Select--</option>
+                    <option value="pdf">PDF</option>
+                    <option value="ppt">PPT</option>
+                    <option value="docx">DOCX</option>
+                  </select>
+                  <TypeModal />
+                </div>
               </div>
 
               <div className="top-[210px] left-[740px] mt-5 bg-[#D9BA9C] backdrop-filter-blur-[4px] w-[200px] h-[50px] cursor-pointer">
@@ -142,9 +147,9 @@ export default async function archiving() {
                     Platform Technologies
                   </option>
                 </select>
-                
-                    <ProgramModal />
-                  
+
+                <ProgramModal />
+
               </div>
 
               <div className="top-[210px] left-[970px] mt-5 bg-[#D9BA9C] backdrop-filter-blur-[4px] w-[200px] h-[50px] cursor-pointer">
@@ -158,9 +163,9 @@ export default async function archiving() {
                   <option value="John Ryan Ual">John Ryan Ual</option>
                   <option value="Marco Del Rosario">Marco Del Rosario</option>
                 </select>
-                
-                    <InstructorModal />
-                 
+
+                <InstructorModal />
+
               </div>
               <div className="top-[210px] left-[970px] mt-5 bg-[#D9BA9C] backdrop-filter-blur-[4px] w-[200px] h-[50px] cursor-pointer">
                 <input
@@ -172,7 +177,7 @@ export default async function archiving() {
               </div>
             </div>
             <div className="">
-              <FileTable data={data} />
+              <FileTable data={dataWithFormattedDate} />
             </div>
           </div>
         </div>

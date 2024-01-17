@@ -20,12 +20,7 @@ const FileTable = ({ data }) => {
                     </tr>
                 </thead>
                 <tbody className='bg-[#D9D9D9] text-black text-lg'>
-                    {/* <tr>
-                        <td className='py-2'>PRINCE ANDRES</td>
-                        <td>PART-TIME INSTRUCTOR</td>
-                        <td>UPLOADED A FILE</td>
-                        <td>December 13, 2023 (9:45)</td>
-                    </tr> */}
+
                     {data === null || !data || data.length === 0 ? (
                         <tr>
                             <td colSpan="4">No files available</td>
@@ -33,7 +28,7 @@ const FileTable = ({ data }) => {
                     ) : (
                         data.map((file) => (
                             <tr key={file.filePath}>
-                                <td>{file.filename}</td>
+                                <td><a href={file.filePath}>{file.filename}</a></td>
                                 <td>{file.uploaderName}</td>
                                 <td>{file.fileRole}</td>
                                 <td>{file.uploadDate}</td>
@@ -43,7 +38,25 @@ const FileTable = ({ data }) => {
 
 
 
-                    {/* <tr>
+
+                </tbody>
+            </table>
+        </div>
+    );
+}
+
+export default FileTable
+
+
+
+{/* <tr>
+                        <td className='py-2'>PRINCE ANDRES</td>
+                        <td>PART-TIME INSTRUCTOR</td>
+                        <td>UPLOADED A FILE</td>
+                        <td>December 13, 2023 (9:45)</td>
+                    </tr> */}
+
+{/* <tr>
                         <td className='py-2'>AL JOHN VILLAREAL</td>
                         <td>REGULAR INSTRUCTOR</td>
                         <td>DELETED A FILE</td>
@@ -55,12 +68,3 @@ const FileTable = ({ data }) => {
                         <td>EDITED A FILE</td>
                         <td>December 7, 2023 (7:30)</td>
                     </tr> */}
-                </tbody>
-            </table>
-        </div>
-    );
-}
-
-export default FileTable
-
-
