@@ -3,16 +3,22 @@ import React from 'react'
 import axios from 'axios';
 import { Button, Modal } from 'flowbite-react';
 import { useState } from 'react';
+import { useSession } from 'next-auth/react';
 
 function DeleteModal({ userId }) {
     const [openModal, setOpenModal] = useState(false);
     const [modalPlacement] = useState('center')
+    const { data: session, status } = useSession()
     console.log("user to delete", userId)
 
     const handleSubmit = async () => {
         try {
             const response = await axios.post("/api/users/delete-user", {
-                userId
+                userId,
+                sessionUserId: session.user.id,
+                sessionUserName: session.user.name,
+                sessionUserPosition: session.user.position,
+
             })
             console.log(response)
             setOpenModal(false)
