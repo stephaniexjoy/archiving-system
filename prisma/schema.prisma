@@ -43,21 +43,32 @@ model Activity {
 }
 
 model User {
-  id             Int        @id @default(autoincrement())
-  email          String     @unique
-  password       String
-  name           String
-  position       String
-  designation    String
-  specialization String
-  license        String
+  id                 Int        @id @default(autoincrement())
+  email              String     @unique
+  password           String
+  name               String
+  position           String
+  designation        String
+  specialization     String
+  license            String
   // Will add more Fields if needed
-  bacSchool      String?
-  masSchool      String?
-  docSchool      String?
+  certifications     String?
+  school             String?
+  bacDegree          String?
+  bacSchool          String?
+  masDegree          String?
+  masSchool          String?
+  docDegree          String?
+  docSchool          String?
+  seminars_trainings String?
+  experience         String?
+  past_designation   String?
+  subjects_handled   String?
+  presented_papers   String?
+  extension_projs    String?
   // Relationship to the files uploaded by User
-  uploadedFiles  File[]
-  Activity       Activity[]
+  uploadedFiles      File[]
+  Activity           Activity[]
 }
 
 // File Entity
