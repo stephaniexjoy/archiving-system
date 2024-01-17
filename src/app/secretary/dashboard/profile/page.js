@@ -1,10 +1,8 @@
-import PrivacyModal from '@/app/components/Modal/PrivacyModal'
-import ProfileModal from '@/app/components/Modal/ProfileModal'
 import React from 'react'
-
 import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next"
 import { db } from "@/app/lib/prisma_db";
+import Link from 'next/link';
 
 
 
@@ -92,9 +90,11 @@ async function page() {
                                 </div>
                             </div>
 
-                            <ProfileModal />
+                      
+                            <Link href={`/secretary/dashboard/profile/edit-profile/${user.id}`} className="md:left-[1300px] text-center md:text-[20px] bg-[#D9D9D9] text-[#6A6A6A] text-xl font-bold h-10 w-52 hover:bg-[#6A6A6A] hover:text-white p-2 m-2">EDIT PROFILE</Link>
 
-                            <PrivacyModal />
+                     
+                            <Link href={`/secretary/dashboard/profile/edit-privacy/${user.id}`} className="md:left-[1300px] text-center md:text-[20px] bg-[#D9D9D9] text-[#6A6A6A] text-xl font-bold h-10 w-52 hover:bg-[#6A6A6A] hover:text-white p-2 m-2">EDIT PRIVACY</Link>
 
                         </div>
                     </div>

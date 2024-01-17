@@ -8,7 +8,7 @@ export default async function page() {
     const session = await getServerSession(AuthOptions)
 
     const user = await db.user.findUnique({
-        where: { id: parseInt(session.user.id) }
+        where: { id: session.user.id }
     })
     console.log(user)
 
