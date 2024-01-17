@@ -2,8 +2,18 @@ import PrivacyModal from '@/app/components/Modal/PrivacyModal'
 import ProfileModal from '@/app/components/Modal/ProfileModal'
 import React from 'react'
 
+import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
+import { getServerSession } from "next-auth/next"
+import { db } from "@/app/lib/prisma_db";
 
-function page() {
+
+
+async function page() {
+    const session = await getServerSession(AuthOptions)
+
+    const user = await db.user.findUnique({
+        where: { id: parseInt(session.user.id) }
+    })
     return (
         <div>
             <div className="ml-20 flex flex-col w-auto h-screen">
@@ -29,7 +39,7 @@ function page() {
                                         <h1 className="md:text-[20px] text-white">Name:</h1>
                                     </div>
                                     <div>
-                                        <h1 className="md:text-[20px] ml-28 text-white font-bold uppercase">Aeron John G. Remorin</h1>
+                                        <h1 className="md:text-[20px] ml-28 text-white font-bold uppercase">{user.name}</h1>
                                     </div>
                                 </div>
                                 <div className="-mt-10 flex flex-row gap-x-8 md:ml-10 md:h-20">
@@ -77,15 +87,15 @@ function page() {
                                         <h1 className=" md:text-[20px] text-white">Institutional Email:</h1>
                                     </div>
                                     <div>
-                                        <h1 className="md:text-[20px] text-white font-bold">0320-0726@lspu.edu.ph</h1>
+                                        <h1 className="md:text-[20px] text-white font-bold">{user.email}</h1>
                                     </div>
                                 </div>
                             </div>
-                            
-                                <ProfileModal/>
-                            
-                                <PrivacyModal />
-                            
+
+                            <ProfileModal />
+
+                            <PrivacyModal />
+
                         </div>
                     </div>
                 </div>
