@@ -51,7 +51,7 @@ const Sidebar = () => {
             </div>
           </div>
           <ul className="mt-24">
-            {session.user.position === "Test2" && (
+            {session.user.position === "Faculty" && (
               <>
                 <MenuItem path="/dashboard" icon={<FaHome className="text-black text-2xl ml-5" />} label="HOME" isMinimized={isMinimized} />
                 <MenuItem path="/dashboard/profile" icon={<IoMdPerson className="text-black text-2xl ml-5" />} label="PROFILE" isMinimized={isMinimized} />
@@ -64,7 +64,7 @@ const Sidebar = () => {
             {session.user.position === "Superadmin" && (
               <>
                 <MenuItem path="/superadmin/dashboard" icon={<FaHome className="text-black text-2xl ml-12" />} label="HOME" />
-                <MenuItem path="/superadmin/dashboard/profile" icon={<IoMdPerson className="text-black text-2xl ml-5" />} label="PROFILE" />
+                <MenuItem path="/superadmin/dashboard/manageuser" icon={<IoMdPerson className="text-black text-2xl ml-5" />} label="MANAGE USERS" />
                 {/* Add more menu items as needed */}
               </>
             )}
@@ -74,7 +74,9 @@ const Sidebar = () => {
               <>
                 <MenuItem path="/secretary/dashboard" icon={<FaHome className="text-black text-2xl ml-12" />} label="HOME" />
                 <MenuItem path="/secretary/dashboard/profile" icon={<IoMdPerson className="text-black text-2xl ml-5" />} label="PROFILE" />
-                <MenuItem path="/secretary/dashboard/profile" icon={<IoMdPerson className="text-black text-2xl ml-5" />} label="PROFILE" />
+                <MenuItem path="/secretary/dashboard/archiving" icon={<FaBook className="text-black text-2xl ml-5" />} label="ARCHIVING" isMinimized={isMinimized} />
+                <MenuItem path="/secretary/dashboard/view-faculty" icon={<FaBook className="text-black text-2xl ml-5" />} label="VIEW FACULTY" isMinimized={isMinimized} />
+
                 {/* Add more menu items as needed */}
               </>
             )}
