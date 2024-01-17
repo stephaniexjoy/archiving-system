@@ -75,7 +75,7 @@ const Sidebar = () => {
                 <MenuItem path="/secretary/dashboard" icon={<FaHome className="text-black text-2xl ml-12" />} label="HOME" />
                 <MenuItem path="/secretary/dashboard/profile" icon={<IoMdPerson className="text-black text-2xl ml-5" />} label="PROFILE" />
                 <MenuItem path="/secretary/dashboard/archiving" icon={<FaBook className="text-black text-2xl ml-5" />} label="ARCHIVING" isMinimized={isMinimized} />
-                <MenuItem path="/secretary/dashboard/viewfaculty/view-user/" icon={<FaBook className="text-black text-2xl ml-5" />} label="VIEW FACULTY" isMinimized={isMinimized} />
+                <MenuItem path="/secretary/dashboard/viewfaculty/" icon={<FaBook className="text-black text-2xl ml-5" />} label="VIEW FACULTY" isMinimized={isMinimized} />
 
                 {/* Add more menu items as needed */}
               </>
