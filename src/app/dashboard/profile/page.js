@@ -11,7 +11,7 @@ export default async function profile() {
   const session = await getServerSession(AuthOptions)
 
   const user = await db.user.findUnique({
-    where: { id: parseInt(session.user.id) }
+    where: { id: session.user.id }
   })
   console.log(user)
   return (
@@ -30,7 +30,7 @@ export default async function profile() {
           <EditPrivacy />
         </div>
 
-        <div className=" border bg-[#AD5606] w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-full mt-4 p-8 rounded-lg shadow-lg overflow-scroll overflow-x-hidden">
+        <div className=" border bg-[#AD5606] w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-full my-6 p-8 rounded-lg shadow-lg overflow-scroll overflow-x-hidden">
 
           <div className="flex flex-row gap-x-10 justify-center ">
             <div className="mt-8 ml-20 basis-1/5 left-[10px] object-center" >
