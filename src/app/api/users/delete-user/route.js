@@ -5,8 +5,10 @@ import { revalidatePath } from 'next/cache';
 export async function POST(req) {
     try {
         const reqBody = await req.json();
-        const { userId } = reqBody
+        const { userId, sessionUserId, sessionUserName, sessionUserPosition } = reqBody
         console.log(reqBody);
+        const dateString = new Date()
+        const dateObject = new Date(dateString)
 
         const user = await db.user.findUnique({
             where: {
@@ -25,6 +27,22 @@ export async function POST(req) {
         });
 
         console.log(`User with id ${userId} deleted successfully`);
+
+        const newActivity = await db.activity.create({
+            data: {
+                name: sessionUserName,
+                position: sessionUserPosition,
+                type: "DELETED A USER",
+                createdAt: dateObject,
+                user: {
+                    connect: {
+                        id: sessionUserId
+                    }
+                }
+            }
+        })
+
+        console.log(newActivity)
 
 
 

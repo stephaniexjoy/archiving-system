@@ -30,9 +30,21 @@ model Programs {
   labels String
 }
 
+model Activity {
+  id        Int      @id @unique @default(autoincrement())
+  userId    Int
+  name      String
+  position  String
+  type      String // Type of activity (e.g., "profile_edit", "file_upload")
+  createdAt DateTime @default(now())
+
+  // Define the relationship to the User model
+  user User @relation(fields: [userId], references: [id])
+}
+
 model User {
-  id             Int    @id @default(autoincrement())
-  email          String @unique
+  id             Int        @id @default(autoincrement())
+  email          String     @unique
   password       String
   name           String
   position       String
@@ -40,14 +52,17 @@ model User {
   specialization String
   license        String
   // Will add more Fields if needed
-
+  bacSchool      String?
+  masSchool      String?
+  docSchool      String?
   // Relationship to the files uploaded by User
-  uploadedFiles File[]
+  uploadedFiles  File[]
+  Activity       Activity[]
 }
 
 // File Entity
 model File {
-  User         User  @relation(fields: [userId], references: [id])
+  User         User   @relation(fields: [userId], references: [id])
   userId       Int
   uploaderName String
 

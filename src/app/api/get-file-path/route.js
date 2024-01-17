@@ -25,7 +25,7 @@ export async function GET(req) {
 
 
 
-        console.log(res)
+        //console.log(res)
         return new Response(JSON.stringify(res), { status: 200, statusText: "Data Successfully Fetched" })
     } catch (err) {
         return new Response('Error', { status: 500, statusText: err })

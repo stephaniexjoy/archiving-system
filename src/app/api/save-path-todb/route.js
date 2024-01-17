@@ -36,12 +36,40 @@ export async function POST(req) {
             }
 
         })
+
+        const getUser = await db.user.findUnique({
+            where: { id: userId }
+        })
+
+        console.log(getUser)
+
+
+
+        const newActivity = await db.activity.create({
+            data: {
+                name: uploaderName,
+                position: getUser.position,
+                type: "UPLOADED A FILE",
+                createdAt: dateObject,
+                user: {
+                    connect: {
+                        id: userId
+                    }
+                }
+            }
+        })
         if (newFile) {
             console.log("Good");
+
             revalidatePath('/dashboard/archiving')
             return new Response(JSON.stringify(newFile), { status: 200, statusText: "Path Successfully Created" })
         }
-    } catch (error) {
+        return new Response(JSON.stringify(newActivity), { status: 200, statusText: "Activity Successfully Recorded" })
+
+    }
+
+
+    catch (error) {
         console.log(error)
         return new Response('Invalid', { status: 400 })
     }
