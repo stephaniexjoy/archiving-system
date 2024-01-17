@@ -11,149 +11,124 @@ const page = async ({ params }) => {
     console.log(user)
 
     return (
-        <div>
-            <div className="flex flex-col w-full items-center">
+        <div className="flex w-full h-full mb-8">
+
+            <div className="flex flex-col w-full h-screen items-center">
                 <Image
+                    className=" top-[10px] left-[670px] mr-20  w-[400px] h-[100px] object-cover"
+                    alt=""
+                    width={400}
+                    height={400}
                     src="/photos/E-Archiving System.png"
-                    alt="E-Archiving System"
-                    width={570}
-                    height={150}
-                    objectFit="cover"
                 />
-                <div className="bg-[#DABB9C] w-full h-auto bg-cover flex">
-                    <div className="flex ml-[100px] mt-7 mb-7">
-                        <Image src="/profile.jpg" alt="Image" className="max-w-[170px] h-[170px] object-fit-fill rounded-full" width={170} height={170} />
 
-                        <div className="ml-16 text-[#5B0505] text-[25px] font-bold text-left">
-                            <div className="grid grid-cols-2 gap-x-96">
-                                <div>
-                                    <div>Name: {user.name}</div>
-                                </div>
-                                <div>
-                                    <div></div>
-                                </div>
-                                <div>
-                                    <div>Position: {user.position}</div>
-                                </div>
-                                <div>
-                                    <div>Designation: {user.designation}</div>
-                                </div>
-                                <div>
-                                    <div>Eligibility/Professional License: {user.license} </div>
-                                </div>
-                                <div>
-                                    <div>Specialization: {user.specialization}</div>
-                                </div>
-                                <div>
-                                    <div>School:</div>
-                                </div>
-                                <div>
-                                    <div>Certifications:</div>
-                                </div>
-                            </div>
+
+
+                <div className=" border bg-[#DABB9C] w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-full mt-4 p-4 rounded-lg shadow-lg">
+
+                    <div className="flex flex-row gap-x-10 justify-center ">
+                        <div className="mt-8 ml-20 basis-1/5 left-[10px] object-center" >
+                            <img
+                                className="rounded-[50%]  w-[130px] h-[135px] object-cover  mb-5"
+                                alt=""
+                                src="/profile.jpg"
+                            />
+                        </div>
+                        <div className="basis-2/5 text-[20px] text-white text-left w-[900px] h-[30px]">
+
+                            <div className="mt-8">Name: {user.name}</div>
+                            <div >Position: {user.position}</div>
+                            <div >Eligibility/Professional License: {user.license}</div>
+                            <div >School: {user.school}</div>
+
+                        </div>
+
+                        <div className="mt-10 ml-5 basis-2/5 text-[20px] left-[1150px]
+               text-white text-left w-[900px] h-[30px]">
+                            <div className=" mt-5 top-[350px]">Designation: {user.designation}</div>
+                            <div >Specialization: {user.specialization}</div>
+                            <div >Certifications: {user.certifications}</div>
                         </div>
                     </div>
-                </div>
+                    <div
+                        className="top-[285px] left-[1px] text-[20px] bg-[#5B0505] [backdrop-filter:blur(4px)] text-white text-center w-[1800px]h-[30px]">
+                        ACADEMIC QUALIFICATIONS
+                    </div>
+                    <div className="">
+                        <div className="flex flex-row gap-x-10 justify-center">
+                            <div className="ml-12 my-5 basis-1/2 top-[325px] text-[20px] text-white text-left w-[900px] h-[30px]">
+                                <div className="">Baccalaureate Degree: {user.bacDegree}</div>
+                                <div>Master's Degree:{user.masDegree}</div>
+                                <div>Doctorate Degree:{user.doccDegree}</div>
+                            </div>
 
-                <div className=" text-[30px] bg-[#5B0505] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-full font-bold">
-                    ACADEMIC QUALIFICATIONS
-                </div>
+                            <div className=" my-5 basis-1/2 top-[325px] left-[870px] text-[20px] text-white text-left w-[900px] h-[30px">
 
-                <div className="bg-[#DABB9C] w-screen h-auto bg-cover flex">
-                    <div className="ml-32 text-[#5B0505] text-[25px] font-bold text-left">
-                        <div className="grid grid-cols-2 gap-x-96">
-                            <div>
-                                <div>Baccalaureate Degree:</div>
-                            </div>
-                            <div>
-                                <div>School:</div>
-                            </div>
-                            <div>
-                                <div>Master Degree:</div>
-                            </div>
-                            <div>
-                                <div>School:</div>
-                            </div>
-                            <div>
-                                <div>Doctorate Degree:</div>
-                            </div>
-                            <div>
-                                <div>School:</div>
+                                <div>School: {user.bacSchool}</div>
+                                <div>School: {user.masSchool}</div>
+                                <div>School: {user.docSchool}</div>
+
                             </div>
                         </div>
+                        <div className="flex flex-row gap-x-10 justify-center">
+                            <div
+                                className=" basis-1/2 top-[420px] left-[1px] text-[20px] bg-[#5B0505]
+              [backdrop-filter:blur(4px)] text-white text-center w-[970px]
+              h-[30px]"
+                            >
+                                SEMINARS AND TRAININGS ATTENDED
+                                <div>
+                                    {user.seminars_trainings}
+                                </div>
+                            </div>
+
+                            <div
+                                className=" basis-1/2 top-[420px] left-[1500px] text-[20px] bg-[#5B0505]
+              [backdrop-filter:blur(4px)] text-white text-center w-auto
+              h-[30px]"
+                            >
+                                JOB EXPERIENCE
+                                <div>
+                                    {user.experience}
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
-                </div>
+                    <div>
+                        <h1 className="mt-20 top-[285px] left-[1px] text-[20px] bg-[#5B0505] [backdrop-filter:blur(4px)] text-white text-center w-[1800px]h-[30px]">
+                            PAST DESIGNATIONS
 
-                <div className="flex flex-column items-center w-full">
-                    <div className="text-[30px] bg-[#5B0505] backdrop-filter-blur-[4px] font-[Century Gothic] text-white text-center h-[50px] w-[49%] font-bold">
-                        SEMINARS AND TRAININGS ATTENDED
+                        </h1>
                     </div>
-                    <div className="bg-[#DABB9C] text-center h-[50px] w-[2%]">
-
+                    <div>
+                        {user.past_designation}
                     </div>
-                    <div className="text-[30px] bg-[#5B0505] backdrop-filter-blur-[4px] font-[Century Gothic] text-white text-center h-[50px] w-[49%] font-bold">
-                        JOB EXPERIENCE
+                    <div>
+                        <h1
+                            className="mt-20 top-[285px] left-[1px] text-[20px] bg-[#5B0505] [backdrop-filter:blur(4px)] text-white text-center w-[1800px]h-[30px]">
+                            PRESENTED PAPERS
+
+                        </h1>
+                        <div>
+                            {user.presented_papers}
+                        </div>
                     </div>
-                </div>
+                    <div>
+                        <h1
+                            className="mt-20 top-[285px] left-[1px] text-[20px] bg-[#5B0505] [backdrop-filter:blur(4px)] text-white text-center w-[1800px]h-[30px]">
+                            EXTENSIONS PROJECTS
 
-                <div className="bg-[#DABB9C] w-screen h-auto bg-cover flex">
-                    <div className="h-32">
-                    </div>
-                </div>
-
-                <div className=" text-[30px] bg-[#5B0505] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-full font-bold">
-                    SUBJECTS HANDLED (DESCRIPTIVE TITLE)
-                </div>
-
-                <div className="bg-[#DABB9C] w-screen h-auto bg-cover flex">
-                    <div className="h-32">
-                    </div>
-                </div>
-
-                <div className=" text-[30px] bg-[#5B0505] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-full font-bold">
-                    PAST DESIGNATIONS
-                </div>
-
-                <div className="bg-[#DABB9C] w-screen h-auto bg-cover flex">
-                    <div className="h-32">
-                    </div>
-                </div>
-
-                <div className=" text-[30px] bg-[#5B0505] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-full font-bold">
-                    PRESENTED PAPERS
-                </div>
-
-                <div className="bg-[#DABB9C] w-screen h-auto bg-cover flex">
-                    <div className="h-32">
-                    </div>
-                </div>
-
-
-                <div className=" text-[30px] bg-[#5B0505] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-full font-bold">
-                    EXTENSION PROJECTS
-                </div>
-
-                <div className="bg-[#DABB9C] w-screen h-auto bg-cover flex">
-                    <div className="h-32">
+                        </h1>
+                        <div>
+                            {user.extension_projs}
+                        </div>
                     </div>
 
-                    <div className="flex justify-center">
-                        <button type="submit" className="bg-[#8F8F8F] text-[30px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] ml-20 mt-16">
-                            BACK
-                        </button>
-                    </div>
-                    <div className="flex justify-center">
-                        <button type="submit" className="bg-[#8F8F8F] text-[30px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] ml-[1000px] mt-16">
-                            DOWNLOAD
-                        </button>
-                    </div>
-                    <div className="flex justify-center">
-                        <button type="submit" className="bg-[#8F8F8F] text-[30px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] ml-8 mt-16">
-                            PRINT
-                        </button>
-                    </div>
                 </div>
             </div>
+
         </div>
     )
 }
