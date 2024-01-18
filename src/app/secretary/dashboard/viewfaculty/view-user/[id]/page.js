@@ -45,7 +45,7 @@ const page = async ({ params }) => {
                                     <div>Specialization: {user.specialization}</div>
                                 </div>
                                 <div>
-                                    <div>School:</div>
+                                    <div>School: {user.school}</div>
                                 </div>
                                 <div>
                                     <div>Certifications:</div>

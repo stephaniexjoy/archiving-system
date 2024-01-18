@@ -1,6 +1,22 @@
+import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
+import { getServerSession } from "next-auth/next"
+import { db } from "@/app/lib/prisma_db";
+import { redirect } from "next/navigation";
 
+export default async function dashboard() {
 
-export default function dashboard() {
+  const session = await getServerSession(AuthOptions)
+
+  console.log(session.user.position)
+
+  if (session.user.position === "Superadmin") {
+    redirect('/superadmin/dashboard/')
+  }
+  if (session.user.position === "Secretary") {
+    console.log("push")
+    redirect('/secretary/dashboard/')
+  }
+
   return (
     <>
       <div className="flex flex-col w-auto h-screen max-w-screen-xl ">

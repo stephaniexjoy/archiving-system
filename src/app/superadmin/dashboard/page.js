@@ -1,9 +1,24 @@
 import React from 'react'
 import { db } from '@/app/lib/prisma_db'
 import { revalidatePath } from 'next/cache'
+import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
+import { getServerSession } from "next-auth/next"
+import { redirect } from "next/navigation";
 
 
 async function page() {
+
+  const session = await getServerSession(AuthOptions)
+
+
+  if (session.user.position === "Faculty") {
+    redirect('/faculty/dashboard/')
+  }
+
+  if (session.user.position === "Secretary") {
+    console.log("push")
+    redirect('/secretary/dashboard/')
+  }
 
   const fileCount = await db.file.count()
   const userCount = await db.user.count()
