@@ -37,7 +37,7 @@ function PrivacyModal() {
     return (
         <>
             <FaUserLock className="border-none h-12 cursor-pointer -mt-16 ml-96" size="55" style={{ color: "white", top: "40px", left: "1660px" }} onClick={() => setOpenModal(true)}><span className="md:left-[1300px] text-center md:text-[20px] bg-[#D9D9D9] text-[#6A6A6A] text-xl font-bold h-10 w-52 hover:bg-[#6A6A6A] hover:text-white py-2">EDIT PRIVACY</span></FaUserLock>
-            <Modal show={openModal} size="md" className='m-56' onClose={onCloseModal} popup>
+            <Modal show={openModal} size="md" className='ml-72' onClose={onCloseModal} popup>
                 <Modal.Header />
                 <Modal.Body>
                     <div className="space-y-3 p-5">

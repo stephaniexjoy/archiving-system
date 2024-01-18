@@ -38,7 +38,7 @@ function UploadModal() {
           CREATE
         </span>
       </FaUpload>
-      <Modal show={openModal} size="md" className='m-60' onClose={onCloseModal} popup>
+      <Modal show={openModal} size="md" className='ml-72' onClose={onCloseModal} popup>
         <Modal.Header />
         <Modal.Body>
           <div className="space-y-6 p-5">
