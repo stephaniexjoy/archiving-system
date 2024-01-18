@@ -39,19 +39,21 @@ const PDF = async () => {
                     ACADEMIC QUALIFICATIONS
                 </div>
 
-                <table class="w-[86%] ml-[145px] mt-[30px]">
-                    <tr>
-                        <td class="text-left text-[25px] font-[Century Gothic] text-black w-1/2">Baccalaureate Degree: {user.bacDegree}</td>
-                        <td class="text-left text-[25px] font-[Century Gothic] text-black w-1/2">School: {user.bacSchool}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-left text-[25px] font-[Century Gothic] text-black w-1/2">Master’s Degree: {user.masDegree}</td>
-                        <td class="text-left text-[25px] font-[Century Gothic] text-black w-1/2">School: {user.masSchool}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-left text-[25px] font-[Century Gothic] text-black w-1/2">Doctorate Degree: {user.docDegree}</td>
-                        <td class="text-left text-[25px] font-[Century Gothic] text-black w-1/2">School: {user.docSchool}</td>
-                    </tr>
+                <table className="w-[86%] ml-[145px] mt-[30px]">
+                    <tbody>
+                        <tr>
+                            <td className="text-left text-[25px] font-[Century Gothic] text-black w-1/2">Baccalaureate Degree: {user.bacDegree}</td>
+                            <td className="text-left text-[25px] font-[Century Gothic] text-black w-1/2">School: {user.bacSchool}</td>
+                        </tr>
+                        <tr>
+                            <td className="text-left text-[25px] font-[Century Gothic] text-black w-1/2">Master’s Degree: {user.masDegree}</td>
+                            <td className="text-left text-[25px] font-[Century Gothic] text-black w-1/2">School: {user.masSchool}</td>
+                        </tr>
+                        <tr>
+                            <td className="text-left text-[25px] font-[Century Gothic] text-black w-1/2">Doctorate Degree: {user.docDegree}</td>
+                            <td className="text-left text-[25px] font-[Century Gothic] text-black w-1/2">School: {user.docSchool}</td>
+                        </tr>
+                    </tbody>
                 </table>
 
                 <div className="relative top-[40px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
@@ -74,221 +76,230 @@ const PDF = async () => {
                     SUBJECTS HANDLED (DESCRIPTIVE TITLE)
                 </div>
 
-                <table class="w-[84%] mt-[5em] ml-[105px]">
-                    <tr>
-                        <td class="text-left w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"> {user.subjects_handled}</div>
-                        </td>
-                        <td class="text-left w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
+                <table className="w-[84%] mt-[5em] ml-[105px]">
+                    <tbody>
+                        <tr>
+                            <td className="text-left w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"> {user.subjects_handled}</div>
+                            </td>
+                            <td className="text-left w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="text-left w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="text-left w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="text-left w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="text-left w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="text-left w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="text-left w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="text-left w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
-                
+
                 <div
                     className="relative top-[50px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
-                        PAST DESIGNATIONS
+                    PAST DESIGNATIONS
                 </div>
 
-                <table class="w-[84%] mt-[5em] ml-[105px]">
-                    <tr>
-                        <td class="text-left mb-[0px] w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"> {user.past_designation}</div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left mb-[0px] w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left mb-[0px] w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/2 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
+                <table className="w-[84%] mt-[5em] ml-[105px]">
+                    <tbody>
+                        <tr>
+                            <td className="text-left mb-[0px] w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"> {user.past_designation}</div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="text-left mb-[0px] w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="text-left mb-[0px] w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/2 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+
                 </table>
 
                 <div
                     className="relative top-[50px] left-[95px] bottom-[50px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
-                        PRESENTED PAPERS
+                    PRESENTED PAPERS
                 </div>
 
-                <table class="w-[84%] mt-[5em] ml-[105px]">
-                    <tr>
-                        <td class="text-left mb-[0px] w-1/3 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"> {user.presented_papers}</div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/3 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/3 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left mb-[0px] w-1/3 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/3 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/3 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left mb-[0px] w-1/3 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/3 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/3 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left mb-[0px] w-1/3 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/3 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/3 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left mb-[0px] w-1/3 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/3 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/3 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
+                <table className="w-[84%] mt-[5em] ml-[105px]">
+                    <tbody>
+                        <tr>
+                            <td className="text-left mb-[0px] w-1/3 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"> {user.presented_papers}</div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/3 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/3 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="text-left mb-[0px] w-1/3 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/3 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/3 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="text-left mb-[0px] w-1/3 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/3 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/3 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="text-left mb-[0px] w-1/3 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/3 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/3 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="text-left mb-[0px] w-1/3 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/3 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/3 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
 
                 <div
                     className="relative top-[50px] left-[95px] bottom-[50px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
-                        EXTENSION PROJECTS
+                    EXTENSION PROJECTS
                 </div>
 
-                <table class="w-[84%] mt-[5em] ml-[105px] mb-[100px]">
-                    <tr>
-                        <td class="text-left mb-[0px] w-1/4 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"> {user.extension_projs}</div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/4 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/4 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/4 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left mb-[0px] w-1/4 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/4 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/4 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/4 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left mb-[0px] w-1/4 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/4 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/4 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                        <td class="text-left mb-[10px] w-1/4 p-0">
-                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                        </td>
-                    </tr>
-                </table>
+                <table className="w-[84%] mt-[5em] ml-[105px] mb-[100px]">
+                    <tbody>
+                        <tr>
+                            <td className="text-left mb-[0px] w-1/4 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"> {user.extension_projs}</div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/4 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/4 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/4 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="text-left mb-[0px] w-1/4 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/4 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/4 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/4 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="text-left mb-[0px] w-1/4 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/4 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/4 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                            <td className="text-left mb-[10px] w-1/4 p-0">
+                                <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table >
 
                 <div className="relative top-[55px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-10">
                 </div>
-            </div>
+            </div >
         </>
     )
 }
