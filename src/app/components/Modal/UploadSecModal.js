@@ -35,7 +35,7 @@ function UploadSecModal() {
       <Modal show={openModal} size="md" className='m-60' onClose={onCloseModal} popup>
         <Modal.Header />
         <Modal.Body>
-          <div className="space-y-6">
+          <div className="space-y-6 p-5">
             <div>
               <div className="mb-2 block">
                 <label for="category" class="mb-2 text-lg font-medium text-gray-900 dark:text-white">Material:</label>
