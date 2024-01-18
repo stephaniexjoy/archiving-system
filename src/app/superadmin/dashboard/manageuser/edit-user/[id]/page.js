@@ -40,13 +40,13 @@ const page = async ({ params }) => {
     <div className="flex flex-col w-auto h-screen">
       <div className="flex flex-col w-auto h-screen items-center py-10">
         <img
-          className="mr-20 w-full md:w-[850px] md:ml-80 h-[150px] object-cover"
+          className="mr-20 w-full md:w-[850px] md:ml-96 h-[150px] object-cover"
           alt=""
           src="/photos/E-Archiving System.png"
         />
 
-        <div className="border bg-[#AD5606] w-auto md:max-w-screen-md md:ml-96 md:h-auto lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-full mt-10 p-8 rounded-lg shadow-lg">
-          <div className="border bg-[#DABB9C] p-6 w-auto md:max-w-screen-lg lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto  py-2 rounded-lg shadow-lg">
+        <div className="border bg-[#AD5606] w-auto md:max-w-screen-md md:ml-80 px-14 py-14 md:h-auto lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-full mt-10 p-8 rounded-lg shadow-lg">
+          <div className="border bg-[#DABB9C] p-6 w-auto px-40 md:max-w-screen-lg lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto  py-2 rounded-lg shadow-lg">
             <div className="flex flex-col gap-x-10 md:ml-10 md:mr-10 md:h-auto">
               <h1 className=" text-[50px] mt-2 my-12 font-semibold  text-orange-900 text-center  ">
                 {user.name} {params.id}
