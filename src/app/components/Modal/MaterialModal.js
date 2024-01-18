@@ -18,7 +18,7 @@ function MaterialModal() {
             <Modal show={openModal} size="md" className='m-96' onClose={onCloseModal} popup>
                 <Modal.Header />
                 <Modal.Body>
-                    <div className="space-y-6">
+                    <div className="space-y-6 p-5">
                         <div>
                             <div className="mb-2 block">
                                 <Label htmlFor="category" value="Add Category:" />

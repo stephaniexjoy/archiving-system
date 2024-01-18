@@ -41,7 +41,7 @@ function UploadModal() {
       <Modal show={openModal} size="md" className='m-60' onClose={onCloseModal} popup>
         <Modal.Header />
         <Modal.Body>
-          <div className="space-y-6">
+          <div className="space-y-6 p-5">
             <div>
               <div className="mb-2 block">
                 <label htmlFor="category" className="mb-2 text-lg font-medium text-gray-900 dark:text-white">Material:</label>
@@ -83,7 +83,7 @@ function UploadModal() {
               </div>
               <div>
                 <form className="flex items-center space-x-6 ml-12 mt-55">
-                  <label className="block">
+                  <label className="block mt-5">
                     <span className="sr-only">Choose file</span>
                     <input type="file" className="block w-full text-lg text-slate-500 file:mr-4 file:py-2 file:px-4 
                       file:border-0 file:text-sm file:font-semibold file:bg-[#6A6A6A] file:text-white hover:file:bg-slate-400"
@@ -95,7 +95,7 @@ function UploadModal() {
               </div>
 
                 // Upload button function
-              <button className="ml-44 mt-10 bg-[#8F8F8F] hover:bg-[#6A6A6A]focus:outline-none h-10 w-48 font-bold"
+              <button className="ml-20 bg-[#8F8F8F] hover:bg-[#6A6A6A]focus:outline-none h-10 w-48 font-bold"
                 onClick={async () => {
                   if (file) {
                     console.log("edgestore: ", edgestore);
