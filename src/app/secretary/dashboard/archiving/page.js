@@ -84,7 +84,7 @@ export default async function archiving() {
           {/*      <div className="bg-[#DABB9C] h-[640px] m-6 "> */}
           <div className="border bg-[#DABB9C] w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-[500px] py-2 rounded-lg shadow-lg">
 
-            <div className="flex flex-row gap-x-10 md:ml-10 md:h-20">
+            <div className="flex flex-row gap-x-10 md:ml-10 md:mr-10 md:h-20">
               <div className="dropdown">
                 <div className="top-[210px] left-[300px] mt-5 bg-[#D9BA9C] backdrop-filter-blur-[4px] w-[200px] h-[50px] cursor-pointer ">
                   <select
