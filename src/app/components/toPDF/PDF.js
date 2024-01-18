@@ -24,20 +24,17 @@ const PDF = async () => {
 
                         <tr>
                             <td className="flex align-center width-100 auto overflow-hidden">
-                                <tr className="shrink-0 mr-[10px]">
+                                <td className="shrink-0 mr-[10px]">
                                     <Image src="/profile.jpg" alt="Image" className="max-width-100 height-400 border border-solid border-black p-1 mt-10 ml-24 object-fit-fill" width={400} height={400} />
-                                </tr>
-                                <tr className="relative left-[30px] top-[70px] text-black text-[25px] font-[Calibri]">
+                                </td>
+                                <td className="relative left-[30px] top-[70px] text-black text-[25px] font-[Calibri]">
                                     <tr className="font-bold text-[50px] mt-[60px]">NAME: {user.name}</tr>
-                                    <tr>Position:</tr>
-                                    <tr>Designation:</tr>
-                                    <tr>Specialization:</tr>
-                                    <tr>Eligibility/Professional License:</tr>
-                                    <tr>Certifications:</tr>
-                                    {/* <td>
-                                    <Image src="/faculty.png" alt="faculty" className="float-right w-auto h-auto ml-[767px] opacity-70" width={350} height={400}/>
-                                </td> */}
-                                </tr>
+                                    <tr>Position: {user.position}</tr>
+                                    <tr>Designation: {user.designation}</tr>
+                                    <tr>Specialization: {user.specialization}</tr>
+                                    <tr>Eligibility/Professional License: {user.license}</tr>
+                                    <tr>Certifications: {user.certifications}</tr>
+                                </td>
                             </td>
                         </tr>
 
@@ -48,16 +45,16 @@ const PDF = async () => {
                         </tr>
 
                         <tr>
-                            <td className="relative top-[20px] left-[140px] text-[25px] font-[Century Gothic] text-black">Baccalaureate Degree:</td>
-                            <td className="relative top-[20px] right-[600px] text-[25px] font-[Century Gothic] text-black">School:</td>
+                            <td className="relative top-[20px] left-[140px] text-[25px] font-[Century Gothic] text-black">Baccalaureate Degree: {user.bacDegree}</td>
+                            <td className="relative top-[20px] right-[600px] text-[25px] font-[Century Gothic] text-black">School: {user.bacSchool}</td>
                         </tr>
                         <tr>
-                            <td className="relative top-[25px] left-[140px] text-[25px] font-[Century Gothic] text-black">Master’s Degree:</td>
-                            <td className="relative top-[25px] right-[600px]  text-[25px] font-[Century Gothic] text-black">School:</td>
+                            <td className="relative top-[25px] left-[140px] text-[25px] font-[Century Gothic] text-black">Master’s Degree: {user.masDegree}</td>
+                            <td className="relative top-[25px] right-[600px]  text-[25px] font-[Century Gothic] text-black">School: {user.masSchool}</td>
                         </tr>
                         <tr>
-                            <td className="relative top-[30px] left-[140px] text-[25px] font-[Century Gothic] text-black">Doctorate Degree:</td>
-                            <td className="relative top-[30px] right-[600px]  text-[25px] font-[Century Gothic] text-black">School:</td>
+                            <td className="relative top-[30px] left-[140px] text-[25px] font-[Century Gothic] text-black">Doctorate Degree: {user.docDegree}</td>
+                            <td className="relative top-[30px] right-[600px]  text-[25px] font-[Century Gothic] text-black">School: {user.docSchool}</td>
                         </tr>
 
                         <tr>
@@ -67,7 +64,8 @@ const PDF = async () => {
                         </tr>
 
                         <tr>
-                            <td className="whitespace-nowrap h-80">
+                            <td className="relative top-[45px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-80">
+                            {user.seminars_trainings}
                             </td>
                         </tr>
 
@@ -78,7 +76,8 @@ const PDF = async () => {
                         </tr>
 
                         <tr>
-                            <td className="whitespace-nowrap h-60">
+                            <td className="relative top-[55px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-60">
+                            {user.experience}
                             </td>
                         </tr>
 
@@ -90,30 +89,30 @@ const PDF = async () => {
 
                         <tr>
                             <td className="w-full flex mt-[5%] ml-[95px] mr-[55px]">
-                                <div className="mb-[10px] w-full">
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                <div className="text-left mb-[10px] w-full">
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"> {user.subjects_handled}</div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
                                 </div>
 
-                                <div className="mb-[10px] w-full">
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                <div className="text-left mb-[10px] w-full">
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
                                 </div>
                             </td>
                         </tr>
@@ -126,12 +125,16 @@ const PDF = async () => {
                         </tr>
 
                         <tr>
-                            <td className="w-full flex mt-[5%] ml-[95px] mr-[20px]">
-                                <div className="w-[40%] mb-[1em] ">
-                                    <div className="border-[1px] border-black h-[15em] mx-auto w-full"></div>
+                            <td className="w-full flex mt-[5%] ml-[95px] mr-[55px]">
+                                <div className="text-left w-full">
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[4em] mx-auto w-full">{user.past_designation}</div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[4em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[4em] mx-auto w-full"></div>
                                 </div>
-                                <div className="mb-[1em] w-full">
-                                    <div className="border-[1px] border-black h-[15em] mx-auto w-full"></div>
+                                <div className="text-left w-full">
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[4em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[4em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[4em] mx-auto w-full"></div>
                                 </div>
                             </td>
                         </tr>
@@ -145,26 +148,26 @@ const PDF = async () => {
 
                         <tr>
                             <td class="flex mt-[5%] ml-[95px] mr-[20px] w-full">
-                                <div class="mb-4 w-full">
-                                    <div class="border border-black h-12 mx-auto w-full"></div>
-                                    <div class="border border-black h-12 mx-auto w-full"></div>
-                                    <div class="border border-black h-12 mx-auto w-full"></div>
-                                    <div class="border border-black h-12 mx-auto w-full"></div>
-                                    <div class="border border-black h-12 mx-auto w-full"></div>
+                                <div class="text-left mb-4 w-full">
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full">{user.presented_papers}</div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
                                 </div>
-                                <div class="mb-4 w-full">
-                                    <div class="border border-black h-12 mx-auto w-full"></div>
-                                    <div class="border border-black h-12 mx-auto w-full"></div>
-                                    <div class="border border-black h-12 mx-auto w-full"></div>
-                                    <div class="border border-black h-12 mx-auto w-full"></div>
-                                    <div class="border border-black h-12 mx-auto w-full"></div>
+                                <div class="text-left mb-4 w-full">
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
                                 </div>
-                                <div class="mb-4 w-full">
-                                    <div class="border border-black h-12 mx-auto w-full"></div>
-                                    <div class="border border-black h-12 mx-auto w-full"></div>
-                                    <div class="border border-black h-12 mx-auto w-full"></div>
-                                    <div class="border border-black h-12 mx-auto w-full"></div>
-                                    <div class="border border-black h-12 mx-auto w-full"></div>
+                                <div class="text-left mb-4 w-full">
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
                                 </div>
                             </td>
                         </tr>
@@ -178,17 +181,25 @@ const PDF = async () => {
 
                         <tr>
                             <td class="flex mt-[5%] ml-[95px] mr-[20px] w-full">
-                                <div class="mb-4 w-full">
-                                    <div class="border border-black h-28 mx-auto w-full"></div>
+                                <div class="text-left mb-4 w-full">
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full">{user.extension_projs}</div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
                                 </div>
-                                <div class="mb-4 w-full">
-                                    <div class="border border-black h-28 mx-auto w-full"></div>
+                                <div class="text-left mb-4 w-full">
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
                                 </div>
-                                <div class="mb-4 w-full">
-                                    <div class="border border-black h-28 mx-auto w-full"></div>
+                                <div class="text-left mb-4 w-full">
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
                                 </div>
-                                <div class="mb-4 w-full">
-                                    <div class="border border-black h-28 mx-auto w-full"></div>
+                                <div class="text-left mb-4 w-full">
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
                                 </div>
                             </td>
                         </tr>
