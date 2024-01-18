@@ -13,201 +13,281 @@ const PDF = async () => {
 
     return (
         <>
-            <div>
-                <table className="w-full bg-white border-gray-800 border-collapse'">
-                    <td>
-                        <tr>
-                            <td className="max-width-100 margin-auto">
-                                <Image className='w-full h-auto items-center' src="/header.jpg" alt="Header Image" width={2700} height={40} />
-                            </td>
-                        </tr>
+            <div className="w-full max-w-screen mx-auto h-auto bg-white border-gray-800 border-collapse">
+                <div className="w-full margin-auto">
+                    <Image className='w-full h-[300px] items-center' src="/header.jpg" alt="Header Image" width={2300} height={100} />
+                </div>
+                <div>
+                    <Image src="/faculty.png" alt="faculty" className="absolute right-0 mt-[330px] mr-[6px] opacity-70" width={210} height={200} />
+                </div>
 
-                        <tr>
-                            <td className="flex align-center width-100 auto overflow-hidden">
-                                <td className="shrink-0 mr-[10px]">
-                                    <Image src="/profile.jpg" alt="Image" className="max-width-100 height-400 border border-solid border-black p-1 mt-10 ml-24 object-fit-fill" width={400} height={400} />
-                                </td>
-                                <td className="relative left-[30px] top-[70px] text-black text-[25px] font-[Calibri]">
-                                    <tr className="font-bold text-[50px] mt-[60px]">NAME: {user.name}</tr>
-                                    <tr>Position: {user.position}</tr>
-                                    <tr>Designation: {user.designation}</tr>
-                                    <tr>Specialization: {user.specialization}</tr>
-                                    <tr>Eligibility/Professional License: {user.license}</tr>
-                                    <tr>Certifications: {user.certifications}</tr>
-                                </td>
-                            </td>
-                        </tr>
+                <div className="flex align-center width-100 auto overflow-hidden">
+                    <div className="shrink-0 mr-[10px]">
+                        <Image src="/profile.jpg" alt="Image" className="max-width-100 height-400 border border-solid border-black p-1 mt-10 ml-24 object-fit-fill" width={400} height={400} />
+                    </div>
+                    <div className="relative left-[30px] top-[70px] text-black text-[25px] font-[Calibri]">
+                        <div className="font-bold text-[50px]">NAME: {user.name}</div>
+                        <div>Position: {user.position}</div>
+                        <div>Designation: {user.designation}</div>
+                        <div>Specialization: {user.specialization}</div>
+                        <div>Eligibility/Professional License: {user.license}</div>
+                        <div>Certifications: {user.certifications}</div>
+                    </div>
+                </div>
 
-                        <tr>
-                            <td className="relative top-[10px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
-                                ACADEMIC QUALIFICATIONS
-                            </td>
-                        </tr>
+                <div className="relative top-[10px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
+                    ACADEMIC QUALIFICATIONS
+                </div>
 
-                        <tr>
-                            <td className="relative top-[20px] left-[140px] text-[25px] font-[Century Gothic] text-black">Baccalaureate Degree: {user.bacDegree}</td>
-                            <td className="relative top-[20px] right-[600px] text-[25px] font-[Century Gothic] text-black">School: {user.bacSchool}</td>
-                        </tr>
-                        <tr>
-                            <td className="relative top-[25px] left-[140px] text-[25px] font-[Century Gothic] text-black">Master’s Degree: {user.masDegree}</td>
-                            <td className="relative top-[25px] right-[600px]  text-[25px] font-[Century Gothic] text-black">School: {user.masSchool}</td>
-                        </tr>
-                        <tr>
-                            <td className="relative top-[30px] left-[140px] text-[25px] font-[Century Gothic] text-black">Doctorate Degree: {user.docDegree}</td>
-                            <td className="relative top-[30px] right-[600px]  text-[25px] font-[Century Gothic] text-black">School: {user.docSchool}</td>
-                        </tr>
-
-                        <tr>
-                            <td className="relative top-[40px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
-                                SEMINARS AND TRAININGS ATTENDED
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td className="relative top-[45px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-80">
-                            {user.seminars_trainings}
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td className="relative top-[50px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
-                                JOB EXPERIENCE
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td className="relative top-[55px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-60">
-                            {user.experience}
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td className="relative top-[50px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
-                                SUBJECTS HANDLED (DESCRIPTIVE TITLE)
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td className="w-full flex mt-[5%] ml-[95px] mr-[55px]">
-                                <div className="text-left mb-[10px] w-full">
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"> {user.subjects_handled}</div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                </div>
-
-                                <div className="text-left mb-[10px] w-full">
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto w-full"></div>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td
-                                className="relative top-[50px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
-                                PAST DESIGNATIONS
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td className="w-full flex mt-[5%] ml-[95px] mr-[55px]">
-                                <div className="text-left w-full">
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[4em] mx-auto w-full">{user.past_designation}</div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[4em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[4em] mx-auto w-full"></div>
-                                </div>
-                                <div className="text-left w-full">
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[4em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[4em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[4em] mx-auto w-full"></div>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td
-                                className="relative top-[50px] left-[95px] bottom-[50px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] font-bold">
-                                PRESENTED PAPERS
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td className="flex mt-[5%] ml-[95px] mr-[20px] w-full">
-                                <div className="text-left mb-4 w-full">
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full">{user.presented_papers}</div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                </div>
-                                <div className="text-left mb-4 w-full">
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                </div>
-                                <div className="text-left mb-4 w-full">
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td
-                                className="relative top-[50px] left-[95px] bottom-[50px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
-                                EXTENSION PROJECTS
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td className="flex mt-[5%] ml-[95px] mr-[20px] w-full">
-                                <div className="text-left mb-4 w-full">
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full">{user.extension_projs}</div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                </div>
-                                <div className="text-left mb-4 w-full">
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                </div>
-                                <div className="text-left mb-4 w-full">
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                </div>
-                                <div className="text-left mb-4 w-full">
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                </div>
-                            </td>
-                        </tr>
-                    </td>
-                    <td>
-                        <Image src="/faculty.png" alt="faculty" className="absolute float-right ml-[-205px] mt-[31%]  opacity-70" width={210} height={100} />
-                    </td>
+                <table class="w-[86%] ml-[145px] mt-[30px]">
+                    <tr>
+                        <td class="text-left text-[25px] font-[Century Gothic] text-black w-1/2">Baccalaureate Degree: {user.bacDegree}</td>
+                        <td class="text-left text-[25px] font-[Century Gothic] text-black w-1/2">School: {user.bacSchool}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left text-[25px] font-[Century Gothic] text-black w-1/2">Master’s Degree: {user.masDegree}</td>
+                        <td class="text-left text-[25px] font-[Century Gothic] text-black w-1/2">School: {user.masSchool}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left text-[25px] font-[Century Gothic] text-black w-1/2">Doctorate Degree: {user.docDegree}</td>
+                        <td class="text-left text-[25px] font-[Century Gothic] text-black w-1/2">School: {user.docSchool}</td>
+                    </tr>
                 </table>
+
+                <div className="relative top-[40px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
+                    SEMINARS AND TRAININGS ATTENDED
+                </div>
+
+                <div className="relative top-[45px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-80">
+                    {user.seminars_trainings}
+                </div>
+
+                <div className="relative top-[50px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
+                    JOB EXPERIENCE
+                </div>
+
+                <div className="relative top-[55px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-60">
+                    {user.experience}
+                </div>
+
+                <div className="relative top-[50px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
+                    SUBJECTS HANDLED (DESCRIPTIVE TITLE)
+                </div>
+
+                <table class="w-[84%] mt-[5em] ml-[105px]">
+                    <tr>
+                        <td class="text-left w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"> {user.subjects_handled}</div>
+                        </td>
+                        <td class="text-left w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                </table>
+                
+                <div
+                    className="relative top-[50px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
+                        PAST DESIGNATIONS
+                </div>
+
+                <table class="w-[84%] mt-[5em] ml-[105px]">
+                    <tr>
+                        <td class="text-left mb-[0px] w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"> {user.past_designation}</div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left mb-[0px] w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left mb-[0px] w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/2 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                </table>
+
+                <div
+                    className="relative top-[50px] left-[95px] bottom-[50px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
+                        PRESENTED PAPERS
+                </div>
+
+                <table class="w-[84%] mt-[5em] ml-[105px]">
+                    <tr>
+                        <td class="text-left mb-[0px] w-1/3 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"> {user.presented_papers}</div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/3 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/3 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left mb-[0px] w-1/3 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/3 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/3 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left mb-[0px] w-1/3 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/3 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/3 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left mb-[0px] w-1/3 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/3 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/3 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left mb-[0px] w-1/3 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/3 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/3 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                </table>
+
+                <div
+                    className="relative top-[50px] left-[95px] bottom-[50px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
+                        EXTENSION PROJECTS
+                </div>
+
+                <table class="w-[84%] mt-[5em] ml-[105px] mb-[100px]">
+                    <tr>
+                        <td class="text-left mb-[0px] w-1/4 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"> {user.extension_projs}</div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/4 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/4 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/4 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left mb-[0px] w-1/4 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/4 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/4 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/4 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left mb-[0px] w-1/4 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/4 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/4 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                        <td class="text-left mb-[10px] w-1/4 p-0">
+                            <div class="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                        </td>
+                    </tr>
+                </table>
+
+                <div className="relative top-[55px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-10">
+                </div>
             </div>
         </>
     )
