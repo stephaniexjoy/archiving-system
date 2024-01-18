@@ -63,7 +63,7 @@ async function page() {
                 <div className="flex flex-col">
                   <div className="w-full">
                     <div className="border-b border-gray-200 shadow">
-                      <table className="divide-y divide-gray-300">
+                      <table className="divide-y divide-gray-300" style={{ borderCollapse: 'separate', borderSpacing: '0 30px' }}>
                         <tbody className="bg-[#837979] divide-y divide-gray-300">
                           {users.map((user) => (
                             <tr key={user.id} className="whitespace-nowrap">
