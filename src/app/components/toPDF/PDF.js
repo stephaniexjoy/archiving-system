@@ -147,27 +147,27 @@ const PDF = async () => {
                         </tr>
 
                         <tr>
-                            <td class="flex mt-[5%] ml-[95px] mr-[20px] w-full">
-                                <div class="text-left mb-4 w-full">
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full">{user.presented_papers}</div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                            <td className="flex mt-[5%] ml-[95px] mr-[20px] w-full">
+                                <div className="text-left mb-4 w-full">
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full">{user.presented_papers}</div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
                                 </div>
-                                <div class="text-left mb-4 w-full">
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                <div className="text-left mb-4 w-full">
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
                                 </div>
-                                <div class="text-left mb-4 w-full">
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                <div className="text-left mb-4 w-full">
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[2.5em] mx-auto w-full"></div>
                                 </div>
                             </td>
                         </tr>
@@ -180,26 +180,26 @@ const PDF = async () => {
                         </tr>
 
                         <tr>
-                            <td class="flex mt-[5%] ml-[95px] mr-[20px] w-full">
-                                <div class="text-left mb-4 w-full">
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full">{user.extension_projs}</div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                            <td className="flex mt-[5%] ml-[95px] mr-[20px] w-full">
+                                <div className="text-left mb-4 w-full">
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full">{user.extension_projs}</div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
                                 </div>
-                                <div class="text-left mb-4 w-full">
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                                <div className="text-left mb-4 w-full">
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
                                 </div>
-                                <div class="text-left mb-4 w-full">
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                                <div className="text-left mb-4 w-full">
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
                                 </div>
-                                <div class="text-left mb-4 w-full">
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
-                                    <div class="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                                <div className="text-left mb-4 w-full">
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
+                                    <div className="text-[25px] font-[Century Gothic] text-black border border-black h-[3em] mx-auto w-full"></div>
                                 </div>
                             </td>
                         </tr>
