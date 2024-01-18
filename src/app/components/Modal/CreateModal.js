@@ -66,7 +66,7 @@ export default function CreateModal() {
     return (
         <>
             <Button className="border-none h-12 bg-[#6A6A6A]" onClick={() => setOpenModal(true)}><span className="md:left-[1300px] text-center md:text-[20px] font-bold">CREATE</span></Button>
-            <Modal show={openModal} size="md" className='m-60' onClose={onCloseModal} popup>
+            <Modal show={openModal} size="md" className='ml-96' onClose={onCloseModal} popup>
                 <Modal.Header />
                 <Modal.Body>
                     <form onSubmit={handleSubmit}>

@@ -32,7 +32,7 @@ function UploadSecModal() {
   return (
     <>
       <FaUpload className="border-none h-12 cursor-pointer" size='40' onClick={() => setOpenModal(true)}><span className="md:left-[1300px] text-center md:text-[20px] font-bold">CREATE</span></FaUpload>
-      <Modal show={openModal} size="md" className='m-60' onClose={onCloseModal} popup>
+      <Modal show={openModal} size="md" className='ml-60 mt-28' onClose={onCloseModal} popup>
         <Modal.Header />
         <Modal.Body>
           <div className="space-y-6 p-5">
