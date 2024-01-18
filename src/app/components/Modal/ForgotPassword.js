@@ -15,7 +15,7 @@ function ForgotPassword() {
     return (
         <>
             <Button className="border-none ml-96" onClick={() => setOpenModal(true)}> <span className="mt-2 text-2xl w-auto [text-decoration:underline] inline-block text-[#FF7E7E] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]">Forgot Password?</span></Button>
-            <Modal show={openModal} size="md" onClose={onCloseModal} popup>
+            <Modal show={openModal} size="md" className='ml-80' onClose={onCloseModal} popup>
                 <Modal.Header />
                 <Modal.Body>
                     <div className="space-y-6">
