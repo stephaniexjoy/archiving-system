@@ -10,7 +10,7 @@ function LogoutModal() {
     return (
         <>
             <Button className="border-none" onClick={() => setOpenModal(true)}><span className='-m-5 text-black text-lg'>SIGN OUT</span></Button>
-            <Modal show={openModal}  position={modalPlacement} size="md" className='m-96' onClose={() => setOpenModal(false)} popup>
+            <Modal show={openModal}  position={modalPlacement} size="md" className='m-16 ml-96' onClose={() => setOpenModal(false)} popup>
                 <Modal.Header />
                 <Modal.Body>
                     <div className="text-center p-10">
