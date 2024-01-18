@@ -1,47 +1,75 @@
-
-import React, { cache } from 'react'
+"use client"
+import React, { useState } from 'react'
 
 const FileTable = ({ data }) => {
+
+    const [currentPrivacy, setCurrentPrivacy] = useState('forall');
 
     if (!data) {
         data = null
     }
     console.log(data)
 
+    const togglePrivacy = () => {
+
+        setCurrentPrivacy(currentPrivacy === 'forall' ? 'seconly' : 'forall');
+    };
     return (
-        <div className='flex flex-col w-auto h-screen items-center md:h-20 font-[Times New Roman]'>
-            <table className="mt-10 table table-auto md:table-fixed w-[1150px] text-center">
-                <thead className='bg-[#bd8551] text-xl'>
-                    <tr>
-                        <th className='py-2'>FILE</th>
-                        <th>UPLOADED BY</th>
-                        <th>PERMISSIONS</th>
-                        <th>DATE AND TIME UPLOADED</th>
-                    </tr>
-                </thead>
-                <tbody className='bg-[#D9D9D9] text-black text-lg'>
+        <>
+            <button onClick={togglePrivacy}
+                className="bg-[#8F8F8F] hover:bg-[#6A6A6A] focus:outline-none h-10 w-48 font-bold text-white"
+            >
+                Toggle Privacy: {currentPrivacy === 'forall' ? 'For All' : 'Secretary Only'}
+            </button>
+            <div className='flex flex-col w-auto h-screen items-center md:h-20 font-[Times New Roman]'>
 
-                    {data === null || !data || data.length === 0 ? (
+                <table className="mt-6 table table-auto md:table-fixed w-[1150px] text-center">
+
+                    <thead className='bg-[#bd8551] text-xl'>
+
+
                         <tr>
-                            <td colSpan="4">No files available</td>
+
+
+                            <th className='py-2'>FILE</th>
+                            <th>UPLOADED BY</th>
+                            <th>PERMISSIONS</th>
+                            <th>DATE AND TIME UPLOADED</th>
+                            <th>ACTIONS</th>
                         </tr>
-                    ) : (
-                        data.map((file) => (
-                            <tr key={file.filePath}>
-                                <td><a href={file.filePath}>{file.filename}</a></td>
-                                <td>{file.uploaderName}</td>
-                                <td>{file.fileRole}</td>
-                                <td>{file.uploadDate}</td>
+                    </thead>
+                    <tbody className='bg-[#D9D9D9] text-black text-lg'>
+
+                        {data === null || !data || data.length === 0 ? (
+                            <tr>
+                                <td colSpan="5">No files available</td>
                             </tr>
-                        ))
-                    )}
+                        ) : (
+                            data
+                                .filter((file) => file.fileRole === currentPrivacy)
+                                .map((file) => (
+                                    <tr key={file.filePath}>
+                                        <td><a href={file.filePath}>{file.filename}</a></td>
+                                        <td>{file.uploaderName}</td>
+                                        <td>{file.fileRole === 'forall' ? 'All' : 'Secretary Only'}</td>
+                                        <td>{file.uploadDate}</td>
+                                        <td>
+                                            <button
+                                                className="bg-[#8F8F8F] hover:bg-[#6A6A6A] focus:outline-none h-10 w-48 font-bold"
+                                            >
+                                                Edit Privacy
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))
+                        )}
 
 
 
-
-                </tbody>
-            </table>
-        </div>
+                    </tbody>
+                </table>
+            </div>
+        </>
     );
 }
 
