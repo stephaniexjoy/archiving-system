@@ -24,7 +24,7 @@ const page = async ({ params }) => {
 
 
 
-                <div className=" border bg-[#DABB9C] w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-full mt-4 p-4 rounded-lg shadow-lg">
+                <div className=" border bg-[#DABB9C] mx-20 w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl  h-full my-6 p-8 rounded-lg shadow-lg">
 
                     <div className="flex flex-row gap-x-10 justify-center ">
                         <div className="mt-8 ml-20 basis-1/5 left-[10px] object-center" >
