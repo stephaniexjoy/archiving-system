@@ -111,9 +111,9 @@ export default async function page() {
                                     </p>
                                 </div>
                                 <div className="">
-                                    <input type="text" name='updSchool' placeholder="" className="mt-10 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#000000] bg-[#D9D9D9] inline-block w-[full] md:w-[1198px] h-[35px] md:text-shadow-inner" />
-                                    <input type="text" name='updSpec' placeholder="" className="mt-5 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#000000] bg-[#D9D9D9] inline-block w-[full] md:w-[1198px] h-[35px] md:text-shadow-inner" />
-                                    <input type="text" name='updCert' placeholder="" className="mt-5 mb-5 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#000000] bg-[#D9D9D9] inline-block w-[full] md:w-[1198px] h-[35px] md:text-shadow-inner" />
+                                    <input type="text" name='updSchool' placeholder="" className="mt-10 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#000000] bg-[#D9D9D9] inline-block w-[full] md:w-[1300px] h-[35px] md:text-shadow-inner" />
+                                    <input type="text" name='updSpec' placeholder="" className="mt-5 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#000000] bg-[#D9D9D9] inline-block w-[full] md:w-[1300px] h-[35px] md:text-shadow-inner" />
+                                    <input type="text" name='updCert' placeholder="" className="mt-5 mb-5 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#000000] bg-[#D9D9D9] inline-block w-[full] md:w-[1300px] h-[35px] md:text-shadow-inner" />
                                 </div>
                             </div>
                             <div>
@@ -133,9 +133,9 @@ export default async function page() {
                                         </p>
                                     </div>
                                     <div className="">
-                                        <input type="text" name='updBacDeg' placeholder="" className="mt-10 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[500px] h-[35px] md:text-shadow-inner" />
-                                        <input type="text" name='updMasDeg' placeholder="" className="mt-10 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[500px] h-[35px] md:text-shadow-inner" />
-                                        <input type="text" name='updDocDeg' placeholder="" className="mt-10 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[500px] h-[35px] md:text-shadow-inner" />
+                                        <input type="text" name='updBacDeg' placeholder="" className="mt-10 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[550px] h-[35px] md:text-shadow-inner" />
+                                        <input type="text" name='updMasDeg' placeholder="" className="mt-10 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[550px] h-[35px] md:text-shadow-inner" />
+                                        <input type="text" name='updDocDeg' placeholder="" className="mt-10 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[550px] h-[35px] md:text-shadow-inner" />
 
                                     </div>
 
@@ -152,9 +152,9 @@ export default async function page() {
 
                                     </div>
                                     <div className="">
-                                        <input type="text" name='updBacDegSchl' placeholder="" className="mt-10 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[550px] h-[35px] md:text-shadow-inner" />
-                                        <input type="text" name='updMasDegSchl' placeholder="" className="mt-10 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[550px] h-[35px] md:text-shadow-inner" />
-                                        <input type="text" name='updDocDegSchl' placeholder="" className="mt-10 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[550px] h-[35px] md:text-shadow-inner" />
+                                        <input type="text" name='updBacDegSchl' placeholder="" className="mt-10 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[600px] h-[35px] md:text-shadow-inner" />
+                                        <input type="text" name='updMasDegSchl' placeholder="" className="mt-10 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[600px] h-[35px] md:text-shadow-inner" />
+                                        <input type="text" name='updDocDegSchl' placeholder="" className="mt-10 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[600px] h-[35px] md:text-shadow-inner" />
 
 
                                     </div>
