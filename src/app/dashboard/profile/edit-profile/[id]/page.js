@@ -64,15 +64,15 @@ export default async function page() {
 
     return (
         <div className="flex flex-auto w-auto h-screen">
-            <div className="flex flex-col w-full h-screen items-center">
+            <div className="flex flex-col w-full mt-5 h-screen items-center">
                 <img
                     className="mr-20 w-full md:w-[400px] h-[100px] object-cover"
                     alt=""
                     src="/photos/E-Archiving System.png" />
 
-                <div className="border m-4 bg-[#AD5606] w-auto h-[85%] rounded-lg shadow-lg">
-                    <form action={updateUser} className=" w-auto h-[93%] bg-[#DABB9C] rounded-3xl shadow m-6 overflow-scroll overflow-x-hidden">
-                        <div className='m-5'>
+                <div className="border bg-[#AD5606] w-auto h-[85%] rounded-lg shadow-lg p-5 m-5">
+                    <form action={updateUser} className=" w-auto h-[93%] bg-[#DABB9C] rounded-3xl shadow m-6 overflow-scroll overflow-x-hidden p-5">
+                        <div className='m-5 -mt-5'>
                             <div className="flex flex-row gap-x-10 justify-center ">
                                 <div className="ml-10 mt-10 basis-1/4 left-[10px]" >
                                     <img
