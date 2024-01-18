@@ -142,22 +142,22 @@ export default async function profile() {
               </Link>
             </div>
             <div className="flex justify-center">
-              <button
-                type="submit"
+              <Link
+                href={`/dashboard/profile/generatepdf`}
                 className="top-[950px] left-[770px] bg-[#8F8F8F] text-[20px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
-              //onClick={handleSubmit}
+
               >
                 DOWNLOAD
-              </button>
+              </Link>
             </div>
             <div className="flex justify-center">
-              <button
-                type="submit"
+              <Link
+                href={`/dashboard/profile/generatepdf`}
                 className="top-[950px] left-[1040px] bg-[#8F8F8F] text-[20px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
-              //onClick={handleSubmit}
+
               >
                 PRINT
-              </button>
+              </Link>
             </div>
           </div>
 
