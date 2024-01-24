@@ -1,18 +1,32 @@
 import { db } from '@/app/lib/prisma_db';
 
 
-export async function GET(req) {
-
-    const reqBody = await req.json()
-    const { userId } = reqBody
+export async function POST(req) {
     try {
 
-        const user = await db.user.findUnique({
+        const reqBody = await req.json()
+        console.log(reqBody)
+        const { userId } = reqBody
+
+        
+
+        const user = await db.user.findMany({
             where: { id: userId }
         })
-        return new Response(JSON.stringify(user), { status: 200, statusText: "User Successfully Fetched" })
-    } catch (error) {
-        return new Response('Invalid Email or Password', { status: 400 })
+
+        console.log(user)
+
+        if (user) {
+            // Return a successful response with the user data
+            return new Response(JSON.stringify(user), { status: 200, statusText: "User Successfully Fetched" });
+        } else {
+            // If user is not found, return a 404 response
+            return new Response('User not found', { status: 404 });
+
+        }
+    }
+    catch (error) {
+        return new Response(error, { status: 400 })
     }
 
 }
