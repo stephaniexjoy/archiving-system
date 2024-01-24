@@ -7,6 +7,7 @@ import { IoMdPerson, IoMdMenu } from "react-icons/io";
 import Image from "next/image";
 import LogoutModal from "./Modal/LogoutModal";
 import { useSession } from "next-auth/react";
+import Signout_Dialog from "./New_Components/Signout_Dialog";
 
 const MenuItem = ({ path, icon, label, onClick, isMinimized }) => (
   <li className={`flex items-center mb-2 hover:bg-[#9D9494] h-10 py-2 ${isMinimized ? "mt-4" : "mt-4"}`}>
@@ -92,6 +93,22 @@ const Sidebar = () => {
                 <div className="ml-5 mt-1 font-medium">
 
                   <LogoutModal />
+                </div>
+              )}
+            </li>
+          </div>
+
+          <div className="">
+
+            <li className={`flex items-center mb-2 hover:bg-[#9D9494] h-10 py-2 ${isMinimized ? "mt-4" : "mt-4"}`}>
+
+              <span className="">
+                <FaSignOutAlt className="text-black text-2xl ml-5" />
+              </span>
+              {!isMinimized && (
+                <div className="ml-5 mt-1 font-medium">
+
+                  <Signout_Dialog />
                 </div>
               )}
             </li>
