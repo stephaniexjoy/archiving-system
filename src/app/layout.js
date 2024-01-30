@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
       <head>
         <style>{inter.styles}</style>
       </head>
-      <body className={`bg-[#5B0505] ${inter.className}`}>
+      <body className={`bg-[#FFFFFF] ${inter.className}`}>
         <NextAuthProvider>
           <EdgeStoreProvider>{children}</EdgeStoreProvider>
         </NextAuthProvider>
