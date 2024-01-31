@@ -27,7 +27,7 @@ export default function Signout_Dialog() {
                     </AlertDialogHeader>
                     <AlertDialogFooter>
                         <AlertDialogCancel>Cancel</AlertDialogCancel>
-                        <AlertDialogAction onClick={() => signOut() }>Sign Out</AlertDialogAction>
+                        <AlertDialogAction className="bg-[#5B0505]" onClick={() => signOut() }>Sign Out</AlertDialogAction>
                     </AlertDialogFooter>
                 </AlertDialogContent>
             </AlertDialog>
