@@ -86,7 +86,7 @@ async function page() {
 
 
       <div className="flex ml-[2%] mt-[-3%]">
-        <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-[455px] h-[270px] p-4 mx-4'>
+        <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-[455px] h-[270px] p-4 mx-4 rounded-lg'>
           <p className='mt-5 text-3xl font-bold'>
             ARCHIVED MATERIALS
           </p>
@@ -94,7 +94,7 @@ async function page() {
             {fileCount}
           </p>
         </div>
-        <div className='text-center bg-[#5B0505] text-white w-[455px] h-[270px] p-4 mx-4'>
+        <div className='text-center bg-[#5B0505] text-white w-[455px] h-[270px] p-4 mx-4 rounded-lg'>
           <p className='mt-5 text-3xl font-bold'>
             NO. OF FACULTY
           </p>
@@ -102,7 +102,7 @@ async function page() {
             {userCount}
           </p>
         </div>
-        <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-[455px] h-[270px] p-4 mx-4'>
+        <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-[455px] h-[270px] p-4 mx-4 rounded-lg'>
           <p className='mt-5 text-3xl font-bold'>
             NO. OF SECRETARY
           </p>
@@ -140,7 +140,6 @@ async function page() {
                 <td>{activity.createdAt}</td>
               </tr>
             ))}
-
           </tbody>
         </table>
       </div>
