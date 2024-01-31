@@ -65,7 +65,7 @@ export default function CreateModal() {
 
     return (
         <>
-            <Button className="border-none h-12 bg-[#6A6A6A]" onClick={() => setOpenModal(true)}><span className="md:left-[1300px] text-center md:text-[20px] font-bold">CREATE</span></Button>
+            <Button className="border-none h-12 bg-[#5B0505]" onClick={() => setOpenModal(true)}><span className="md:left-[1300px] text-center text-2xl font-bold">CREATE ACCOUNTS</span></Button>
             <Modal show={openModal} size="md" className='ml-96' onClose={onCloseModal} popup>
                 <Modal.Header />
                 <Modal.Body>
@@ -81,7 +81,7 @@ export default function CreateModal() {
                                         }} />
                                 </div>
                                 <div className="mb-2 block">
-                                    <label htmlFor="category" className="mb-2 text-lg font-medium text-gray-900 dark:text-white">Position:</label>
+                                    <label htmlFor="category" className="mb-2 text-lg font-medium text-gray-900 dark:text-white">Role:</label>
                                     <select id="categoryPosition" className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                         onChange={(e) => {
                                             setPosition(e.target.value);
@@ -95,7 +95,7 @@ export default function CreateModal() {
                                     </select>
                                 </div>
                                 <div className="mb-2 block">
-                                    <label htmlFor="category" className="mb-2 text-lg font-medium text-gray-900 dark:text-white">Designation:</label>
+                                    <label htmlFor="category" className="mb-2 text-lg font-medium text-gray-900 dark:text-white">Category:</label>
                                     <select id="categoryDesignation" className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                         onChange={(e) => {
                                             setDesignation(e.target.value);

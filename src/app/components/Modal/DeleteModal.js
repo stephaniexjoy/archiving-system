@@ -29,7 +29,7 @@ function DeleteModal({ userId }) {
 
     return (
         <>
-            <Button className="border-none bg-[#675454] rounded-md h-7" onClick={() => setOpenModal(true)}><span className='text-white text-[17px] font-semibold'>DELETE</span></Button>
+            <Button className="border-none bg-[#675454] rounded-md h-7" onClick={() => setOpenModal(true)}><span className='text-white text-[17px] font-semibold'>ARCHIVE</span></Button>
             <Modal show={openModal} position={modalPlacement} size="md" onClose={() => setOpenModal(false)} popup>
                 <Modal.Header />
                 <Modal.Body>

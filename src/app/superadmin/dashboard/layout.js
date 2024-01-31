@@ -13,7 +13,7 @@ export default function SuperadminDashboardLayout({
           <Sidebar />
         </div>
 
-        <div className="flex px-6 ">
+        <div className="flex">
           {children}
         </div>
 

@@ -37,7 +37,7 @@ const Login = () => {
     }
 
     return (
-        <div className='flex flex-auto flex-col columns-1 place-items-center mx-0'>
+        <div className='bg-[#5B0505] flex flex-auto flex-col columns-1 place-items-center mx-0'>
             <img
                 className="absolute top-[0] left-[0] w-[30%] h-[100%] object-cover" alt="CCS Logo Half" src="../photos/ccsLogoHalf.png" style={{ opacity: '100%' }}
             />

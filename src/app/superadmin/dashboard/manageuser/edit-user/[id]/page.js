@@ -37,26 +37,32 @@ const page = async ({ params }) => {
   };
 
   return (
-    <div className="flex flex-col w-auto h-screen">
-      <div className="flex flex-col w-auto h-screen items-center py-10">
-        <img
-          className="mr-20 w-full md:w-[850px] md:ml-96 h-[150px] object-cover"
-          alt=""
-          src="/photos/E-Archiving System.png"
-        />
+  <>
+    <div className='flex flex-col w-screen h-screen'>
+      <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
+      <img
+        className="w-[27%] h-[100%] object-cover flex items-center justify-center"
+        alt="E-Archiving System"
+        src="/photos/E-Archiving System.png"
+      />
+      </div>
 
-        <div className="border bg-[#AD5606] w-auto md:max-w-screen-md md:ml-80 px-14 py-14 md:h-auto lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-full mt-10 p-8 rounded-lg shadow-lg">
-          <div className="border bg-[#DABB9C] p-6 w-auto px-40 md:max-w-screen-lg lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto  py-2 rounded-lg shadow-lg">
-            <div className="flex flex-col gap-x-10 md:ml-10 md:mr-10 md:h-auto">
-              <h1 className=" text-[50px] mt-2 my-12 font-semibold  text-orange-900 text-center  ">
-                {user.name} {params.id}
-              </h1>
+      <div className="flex justify-start items-center w-[100%] h-[1%] p-4">
+        <button className="mt-16 bg-[#5B0505] text-[20px] font-bold text-white text-center inline-block w-[100px] h-[38px]  hover:bg-gray-400">
+            Back
+        </button>
+    </div>  
+
+    <div className="w-auto mx-auto mt-[11%]">
+          <h1 className="text-[60px] mt-2 mb-5 font-semibold text-[#5B0505] text-center">
+            {user.name} {params.id}
+          </h1>
               <form action={updateUser}>
                 <div className="flex justify-center">
-                  <div className=" bg-white w-[600px] h-[77px] md:h-20 ">
+                  <div className=" bg-[#BCBCBC] w-[800px] h-[77px] ">
                     <select
-                      className="mt-5 ml-36 text-xl 
-                text-[#A89F9F] inline-block w-[400px] justify-around text-shadow-inner cursor-pointer border-none"
+                      className="mt-4 ml-28 text-xl 
+                text-[#5B0505] inline-block w-[650px] justify-around text-shadow-inner cursor-pointer border-none"
                       name="position"
                       id="position"
                     >
@@ -69,7 +75,7 @@ const page = async ({ params }) => {
                     </select>
                     <h1>
                       <HiPencilAlt
-                        className=" -mt-12 ml-6"
+                        className=" -mt-14 ml-6"
                         size="55"
                         color="#000000"
                         opacity="26%"
@@ -78,17 +84,17 @@ const page = async ({ params }) => {
                   </div>
                 </div>
                 <div className="mt-4 flex justify-center">
-                  <div className=" bg-white w-[600px] h-[77px] md:h-20">
+                  <div className=" bg-[#BCBCBC] w-[800px] h-[77px] md:h-20">
                     <input
                       type="email"
                       name="email"
                       placeholder={`${user.email}`}
-                      className="mt-6 ml-36 text-xl 
-                text-[#A89F9F] inline-block w-[400px] h-[37px] text-shadow-inner border-none"
+                      className="mt-4 ml-28 text-xl 
+                      text-[#5B0505] w-[650px] h-[50px] text-shadow-inner border-none"
                     />
                     <h1>
                       <FaUserAlt
-                        className="-mt-10 ml-6"
+                        className="-mt-14 ml-6"
                         size="50"
                         color="#000000"
                         opacity="26%"
@@ -98,17 +104,17 @@ const page = async ({ params }) => {
                   </div>
                 </div>
                 <div className="mt-4 flex justify-center">
-                  <div className=" bg-white w-[600px] h-[77px] md:h-20">
+                  <div className=" bg-[#BCBCBC] w-[800px] h-[77px] md:h-20">
                     <input
                       type="password"
                       name="password"
                       placeholder=" PASSWORD"
-                      className="mt-6 ml-36 text-xl 
-                text-[#A89F9F] inline-block justify-around  w-[400px] h-[37px] text-shadow-inner border-none"
+                      className="mt-4 ml-28 text-xl 
+                      text-[#5B0505] inline-block justify-around  w-[650px] h-[50px] text-shadow-inner border-none"
                     />
                     <h1>
                       <FaLock
-                        className="-mt-10 ml-6"
+                        className="-mt-14 ml-6"
                         size="50"
                         color="#000000"
                         opacity="26%"
@@ -117,17 +123,17 @@ const page = async ({ params }) => {
                   </div>
                 </div>
                 <div className="mt-4 flex justify-center">
-                  <div className=" bg-white w-[600px] h-[77px] md:h-20">
+                  <div className=" bg-[#BCBCBC] w-[800px] h-[77px] md:h-20">
                     <input
                       type="password"
                       name="passwordconfirm"
                       placeholder="CONFIRM PASSWORD"
-                      className="mt-6 ml-36 text-xl 
-                text-[#A89F9F]  w-[400px] h-[37px] text-shadow-inner border-none"
+                      className="mt-4 ml-28 text-xl 
+                      text-[#5B0505]  w-[650px] h-[50px] text-shadow-inner border-none"
                     />
                     <h1>
                       <FaLock
-                        className="-mt-10 ml-6"
+                        className="-mt-14 ml-6"
                         size="50"
                         color="#000000"
                         opacity="26%"
@@ -153,9 +159,7 @@ const page = async ({ params }) => {
               </form>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </>
   );
 };
 
