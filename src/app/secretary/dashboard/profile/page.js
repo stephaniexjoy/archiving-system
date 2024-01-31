@@ -3,6 +3,8 @@ import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next"
 import { db } from "@/app/lib/prisma_db";
 import Link from 'next/link';
+import EditProfile_Dialog from '@/app/components/New_Components/EditProfile_Dialog';
+import EditPrivacy_Dialog from '@/app/components/New_Components/EditPrivacy_Dialog';
 
 async function page() {
     const session = await getServerSession(AuthOptions)
@@ -87,10 +89,8 @@ async function page() {
                             </div>
                         </div>
                     </div>
-
-                    <Link href={`/secretary/dashboard/profile/edit-profile/${user.id}`} className="md:left-[1300px] text-center md:text-[25px] bg-[#AD5606] text-white text-xl font-bold h-10 w-52 hover:bg-[#6A6A6A] hover:text-white p-2 m-2">EDIT PROFILE</Link>
-                    <Link href={`/secretary/dashboard/profile/edit-privacy/${user.id}`} className="md:left-[1300px] text-center md:text-[25px] bg-[#AD5606] text-white text-xl font-bold h-10 w-52 hover:bg-[#6A6A6A] hover:text-white p-2 m-2">EDIT PRIVACY</Link>
-
+                    <EditProfile_Dialog />
+                    <EditPrivacy_Dialog />
                 </div>
             </div>
         </div>

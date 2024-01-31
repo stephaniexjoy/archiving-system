@@ -6,6 +6,7 @@ import { FaSearch } from "react-icons/fa";
 import UploadSecModal from "@/app/components/Modal/UploadSecModal";
 import FileTable from "@/app/components/FileTable";
 import { revalidatePath } from "next/cache";
+import AddCategory_Dialog from "@/app/components/New_Components/AddCategory_Dialog";
 
 export default async function archiving() {
 
@@ -69,7 +70,7 @@ export default async function archiving() {
         <div className="inline-block text-[20px] md:text-[23px]">
           INSTRUCTOR
         </div>
-        <div className="inline-block text-[20px] -ml-5 md:text-[23px]">
+        <div className="inline-block text-[20px] md:text-[23px]">
           SORT BY
         </div>
       </div>
@@ -78,8 +79,7 @@ export default async function archiving() {
         <div className="dropdown">
           <div className="top-[210px] left-[300px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer ">
             <select
-              className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606]  
-                    h-[40px] shadow-lg rounded-sm px-2 py-1 "
+              className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606] h-[40px] shadow-lg rounded-sm px-2 py-1 "
               name="type"
               id="type"
             >
@@ -102,7 +102,7 @@ export default async function archiving() {
               <option value="faculty profile">Faculty Profile</option>
             </select>
           </div>
-          <MaterialModal />
+          <AddCategory_Dialog />
         </div>
         <div className="dropdown">
           <div className="top-[210px] left-[350px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
@@ -116,45 +116,52 @@ export default async function archiving() {
               <option value="ppt">PPT</option>
               <option value="docx">DOCX</option>
             </select>
-            <TypeModal />
           </div>
+          <AddCategory_Dialog />
         </div>
 
-        <div className="top-[210px] left-[970px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
-          <select
-            className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
-            name="type"
-            id="type"
-          >
-            <option value="select">--Select--</option>
-            <option value="Machine Learning">Machine Learning</option>
-            <option value="Programming Languages">
-              Programming Languages
-            </option>
-            <option value="Platform Technologie">
-              Platform Technologies
-            </option>
-          </select>
-          <ProgramModal />
+        <div className="dropdown">
+
+          <div className="top-[210px] left-[970px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
+            <select
+              className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
+              name="type"
+              id="type"
+            >
+              <option value="select">--Select--</option>
+              <option value="Machine Learning">Machine Learning</option>
+              <option value="Programming Languages">
+                Programming Languages
+              </option>
+              <option value="Platform Technologie">
+                Platform Technologies
+              </option>
+            </select>
+          </div>
+          <AddCategory_Dialog />
         </div>
 
-        <div className="top-[210px] left-[970px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
-          <select
-            className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606] h-[40px] shadow-lg rounded-sm px-2 py-1 "
-            name="type"
-            id="type"
-          >
-            <option value="select">--Select--</option>
-            <option value="Prince Andres">Prince Andres</option>
-            <option value="John Ryan Ual">John Ryan Ual</option>
-            <option value="Marco Del Rosario">Marco Del Rosario</option>
-          </select>
-          <InstructorModal />
+        <div className="dropdown">
+          <div className="top-[210px] left-[970px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
+            <select
+              className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606] h-[40px] shadow-lg rounded-sm px-2 py-1 "
+              name="type"
+              id="type"
+            >
+              <option value="select">--Select--</option>
+              <option value="Prince Andres">Prince Andres</option>
+              <option value="John Ryan Ual">John Ryan Ual</option>
+              <option value="Marco Del Rosario">Marco Del Rosario</option>
+            </select>
+          </div>
+          <AddCategory_Dialog />
         </div>
+
+
         <div className="top-[210px] left-[970px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
           <input
             type="date"
-            className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
+            className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606] h-[40px] shadow-lg rounded-sm px-2 py-1 "
             name="type"
             id="type "
           />

@@ -7,7 +7,6 @@ import DeleteModal from "@/app/components/Modal/DeleteModal";
 import { revalidatePath } from "next/cache";
 import Link from "next/link";
 
-
 export default async function page() {
   async function getEmptyData() {
     return Promise.resolve([]); // Returning an empty array
