@@ -1,12 +1,11 @@
 
-import TypeModal from "@/app/components/Modal/TypeModal";
-import ProgramModal from "@/app/components/Modal/ProgramModal";
-import MaterialModal from "@/app/components/Modal/MaterialModal";
 import InstructorModal from "@/app/components/Modal/InstructorModal";
-import { FaSearch } from "react-icons/fa";
-import { FaUpload } from "react-icons/fa";
-import UploadModal from "@/app/components/Modal/UploadModal";
+import MaterialModal from "@/app/components/Modal/MaterialModal";
+import ProgramModal from "@/app/components/Modal/ProgramModal";
+import TypeModal from "@/app/components/Modal/TypeModal";
 import FileTable from "@/app/components/FileTable";
+import UploadModal from "@/app/components/Modal/UploadModal";
+import SearchBar from "@/app/components/SearchBar";
 import { revalidatePath } from "next/cache";
 
 
@@ -18,11 +17,11 @@ export default async function archiving() {
 
   async function getData() {
     const res = await fetch('http://localhost:3000/api/get-file-path',)
-    
+
 
 
     if (!res.ok) {
-      
+
       return getEmptyData()
     }
     revalidatePath('/dashboard/archiving')
@@ -50,17 +49,9 @@ export default async function archiving() {
             <h1 className=" md:text-[45px] opacity-60 -ml-32 font-semibold md:shadow-zinc-400">
               FIND
             </h1>
-            <input
-              type="search"
-              name="find"
-              placeholder=""
-              className="top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-20 md:w-[800px] h-[50px] md:text-shadow-inner"
-            />
-            <div className="">
-              <h1>
-                <FaSearch size="43" style={{ top: "100px", left: "10px" }} />
-              </h1>
-            </div>
+            <SearchBar />
+
+
 
             <UploadModal />
           </div>
