@@ -32,6 +32,7 @@ function CreateAccount_Dialog() {
                             Role:
                         </Label>
                         <select id="role" className="ml-24 bg-[#837979] w-[550px] text-white text-[25px]">
+                            <option value="">Select Role</option>
                             <option value="Faculty">Faculty</option>
                             <option value="Secretary">Secretary</option>
                             <option value="Admin">Admin</option>
@@ -41,7 +42,14 @@ function CreateAccount_Dialog() {
                         <Label htmlFor="category" className="font-semibold text-[25px] text-left">
                             Category:
                         </Label>
-                        <Input id="category" type="text" className="ml-24 bg-[#837979] w-[550px] text-white text-[20px]" />
+                        <select id="category" className="ml-24 bg-[#837979] w-[550px] text-white text-[25px]">
+                            <option value="">Select category</option>
+                            <option value="Associate Dean">Associate Dean</option>
+                            <option value="Secretary">Secretary</option>
+                            <option value="Faculty">Faculty</option>
+                            <option value="Unit Head">Unit Head</option>
+                            <option value="Coordinator">Coordinator</option>
+                        </select>
                     </div>
                     <div className="grid grid-cols-4 items-center gap-4 ">
                         <Label htmlFor="specialization" className="font-semibold text-[25px] text-left">

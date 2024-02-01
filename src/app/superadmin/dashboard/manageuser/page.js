@@ -6,6 +6,7 @@ import CreateModal from "@/app/components/Modal/CreateModal";
 import DeleteModal from "@/app/components/Modal/DeleteModal";
 import { revalidatePath } from "next/cache";
 import Link from "next/link";
+import Archive_Dialog from "@/app/components/New_Components/Archive_Dialog";
 
 export default async function page() {
   async function getEmptyData() {
@@ -76,7 +77,7 @@ export default async function page() {
                           <Link href={`/superadmin/dashboard/manageuser/view-user/${user.id}/`} className="px-8 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</Link>
                         </td>
                         <td className="px-6 py-4">
-                          <DeleteModal userId={user.id} />
+                          <Archive_Dialog userId={user.id} />
                         </td>
                       </tr>
                     ))}

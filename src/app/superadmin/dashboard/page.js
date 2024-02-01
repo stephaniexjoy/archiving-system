@@ -5,6 +5,7 @@ import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next"
 import { redirect } from "next/navigation";
 import CreateModal from "@/app/components/Modal/CreateModal";
+import CreateAccount_Dialog from '@/app/components/New_Components/CreateAccount_Dialog';
 
 
 async function page() {
@@ -68,13 +69,13 @@ async function page() {
       {/*add CreateModal.js & add View Materials page*/}
       <div className="flex ml-[2%] mt-3">
         <div className='text-center bg-[#5B0505] text-white w-[700px] h-[80px] p-1 mx-4 rounded-lg'>
-          <button className='mt-5 text-2xl font-bold'>
+          <button className='mt-5 text-3xl font-bold'>
             VIEW MATERIALS
           </button>
         </div>
         <div className='text-center bg-[#5B0505] text-white w-[700px] h-[80px] p-1 mx-4 rounded-lg'>
           <button className='mt-3 text-2xl font-bold'>
-            <CreateModal />
+            <CreateAccount_Dialog />
           </button>
         </div>
         <div className='ml-10 text-center bg-[#B4ABAB] text-[#5B0505] w-[200px] h-[180px] p-4 mx-4'>
