@@ -27,12 +27,12 @@ async function getSearchData(query) {
 export default async function archiving({ searchParams }) {
 
 
-  if (searchParams) {
-    const { query } = searchParams
 
-    const searchedData = await getSearchData(query)
+  const { query } = searchParams
 
-  }
+  const searchedData = await getSearchData(query)
+
+
 
 
 
@@ -41,35 +41,12 @@ export default async function archiving({ searchParams }) {
     return Promise.resolve([]); // Returning an empty array
   }
 
-  async function getData() {
-    const res = await fetch('http://localhost:3000/api/get-file-path',)
 
 
-
-    if (!res.ok) {
-
-      return getEmptyData()
-    }
-    revalidatePath('/dashboard/archiving')
-    return res.json()
-  }
-
-  const data = await getData()
-
-
-
-  const dataWithFormattedDate = data.map(file => ({
+  const searchedDataWithFormattedDate = searchedData.map(file => ({
     ...file,
     uploadDate: new Date(file.uploadDate).toLocaleString(),
   }));
-
-
-
-  /* 
-    const searchedDataWithFormattedDate = searchedData.map(file => ({
-      ...file,
-      uploadDate: new Date(file.uploadDate).toLocaleString(),
-    })); */
 
 
 
@@ -79,7 +56,7 @@ export default async function archiving({ searchParams }) {
         <img
           className="mr-20 w-full md:w-[850px] h-[150px] object-cover"
           alt=""
-          src="../photos/E-Archiving System.png"
+          src="/photos/E-Archiving System.png"
         />
 
         <div className="border bg-[#AD5606] w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-full mt-10 p-8 rounded-lg shadow-lg">
@@ -211,7 +188,7 @@ export default async function archiving({ searchParams }) {
               ) : (
                 <FileTable data={dataWithFormattedDate} />
               )} */}
-              <FileTable data={dataWithFormattedDate} />
+              <FileTable data={searchedDataWithFormattedDate} />
             </div>
           </div>
         </div>
