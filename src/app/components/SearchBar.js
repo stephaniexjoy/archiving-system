@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Input } from "@/components/ui/input"
 import { FaSearch } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
+import archiving from '../dashboard/archiving/page';
 
 
 const SearchBar = () => {
@@ -13,13 +14,16 @@ const SearchBar = () => {
     const onSearch = (event) => {
         event.preventDefault()
 
-        const encodedSearchQuery = encodeURI(searchQuery)
-        router.push(`/dashboard/archiving?query=${encodedSearchQuery}`)
 
-        console.log("Current Query", encodedSearchQuery)
+        if (searchQuery.trim() !== "") {
+            router.push(`/dashboard/archiving/search?query=${encodeURIComponent(searchQuery)}`);
+        } else {
+            router.push("/dashboard/archiving");
+        }
 
-        const decodedSearchQuery = decodeURI(encodedSearchQuery)
-        console.log("Current Query", decodedSearchQuery)
+    
+
+
     }
     return (
         <>
