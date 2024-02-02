@@ -7,6 +7,7 @@ import UploadSecModal from "@/app/components/Modal/UploadSecModal";
 import FileTable from "@/app/components/FileTable";
 import { revalidatePath } from "next/cache";
 import AddCategory_Dialog from "@/app/components/New_Components/AddCategory_Dialog";
+import SecretaryArchivingTab from "@/app/components/New_Components/SecretaryArchivingTab";
 
 export default async function archiving() {
 
@@ -170,6 +171,9 @@ export default async function archiving() {
       <div className="">
         <FileTable data={dataWithFormattedDate} />
       </div>
+      
+      <SecretaryArchivingTab/>
+
     </div>
   );
 }
