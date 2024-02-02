@@ -17,13 +17,13 @@ const FileTable = ({ data }) => {
     return (
         <>
             <button onClick={togglePrivacy}
-                className="mt-10 ml-7 bg-[#8F8F8F] hover:bg-[#6A6A6A] focus:outline-none h-auto w-48 font-bold text-white"
+                className="mt-10 ml-36 bg-[#5B0505] hover:bg-[#6A6A6A] focus:outline-none h-auto w-48 font-bold text-white"
             >
                 Toggle Privacy: {currentPrivacy === 'forall' ? 'For All' : 'Secretary Only'}
             </button>
-            <div className='flex flex-col w-auto h-screen items-center md:h-20 font-[Times New Roman]'>
-                <table className="mt-1 table table-auto md:table-fixed w-[1150px] text-center">
-                    <thead className='bg-[#bd8551] text-xl'>
+            <div className='flex h-screen items-center md:h-20 font-[Times New Roman]'>
+                <table className="mt-16 ml-36 table table-auto md:table-fixed w-[1500px] text-center">
+                    <thead className='bg-[#5B0505] text-white text-xl'>
                         <tr>
                             <th className='py-2'>FILE</th>
                             <th>UPLOADED BY</th>

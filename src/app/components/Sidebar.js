@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaBook, FaHome, FaSignOutAlt } from "react-icons/fa";
 import { IoMdMenu, IoMdPerson } from "react-icons/io";
-import LogoutModal from "./Modal/LogoutModal";
 import Signout_Dialog from "./New_Components/Signout_Dialog";
 
 const MenuItem = ({ path, icon, label, onClick, isMinimized }) => (
@@ -23,7 +22,7 @@ const MenuItem = ({ path, icon, label, onClick, isMinimized }) => (
     {onClick && !isMinimized && (
       <div className="ml-5 mt-1 font-medium" onClick={onClick}>
         {label}
-        {onClick && <LogoutModal />}
+        <Signout_Dialog />
       </div>
     )}
   </li>
@@ -76,13 +75,12 @@ const Sidebar = () => {
                 <MenuItem path="/secretary/dashboard/profile" icon={<IoMdPerson className="text-white text-2xl ml-5" />} label="PROFILE" />
                 <MenuItem path="/secretary/dashboard/archiving" icon={<FaBook className="text-white text-2xl ml-5" />} label="ARCHIVING" isMinimized={isMinimized} />
                 <MenuItem path="/secretary/dashboard/viewfaculty/" icon={<FaBook className="text-white text-2xl ml-5" />} label="VIEW FACULTY" isMinimized={isMinimized} />
-
                 {/* Add more menu items as needed */}
               </>
             )}
           </ul>
-          <div className="">
 
+          <div className="">
             <li className={`flex items-center mb-2 hover:bg-[#9D9494] h-10 py-2 ${isMinimized ? "mt-4" : "mt-4"}`}>
 
               <span className="">
@@ -90,34 +88,15 @@ const Sidebar = () => {
               </span>
               {!isMinimized && (
                 <div className="ml-5 mt-1 font-medium">
-
-                  <LogoutModal />
-                </div>
-              )}
-            </li>
-          </div>
-
-          <div className="">
-
-            <li className={`flex items-center mb-2 hover:bg-[#9D9494] h-10 py-2 ${isMinimized ? "mt-4" : "mt-4"}`}>
-
-              <span className="">
-                <FaSignOutAlt className="text-black text-2xl ml-5" />
-              </span>
-              {!isMinimized && (
-                <div className="ml-5 mt-1 font-medium">
-
                   <Signout_Dialog />
                 </div>
               )}
             </li>
           </div>
-
         </nav>
       </aside >
     );
   }
-
   if (status === "loading") {
     return <div>loading...</div>;
   }

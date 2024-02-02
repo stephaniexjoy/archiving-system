@@ -13,7 +13,7 @@ function InstructorModal() {
   }
   return (
     <>
-            <Button className="border-none" onClick={() => setOpenModal(true)}> <span className=" text-center bg-[#675454] text-orange-200 outline-color rounded shadow-lg w-[130px]">ADD CATEGORY</span></Button>
+            <Button className="border-none" onClick={() => setOpenModal(true)}> <span className=" mt-1 ml-10 text-center bg-[#675454] text-orange-200 outline-color rounded shadow-lg w-[130px]">ADD CATEGORY</span></Button>
           
             <Modal show={openModal} size="md" className='ml-72' onClose={onCloseModal} popup>
                 <Modal.Header />
