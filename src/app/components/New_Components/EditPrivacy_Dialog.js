@@ -17,9 +17,9 @@ function EditPrivacy_Dialog() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button className="md:left-[1300px] text-center md:text-[25px] bg-[#AD5606] text-white text-xl font-bold h-10 w-52 hover:bg-[#6A6A6A] hover:text-white p-2 m-2">EDIT PRIVACY</Button>
+                <b className="md:left-[1300px] text-center bg-transparent text-white text-3xl font-bold h-10 w-64 p-2 m-2 cursor-pointer">EDIT PRIVACY</b>
             </DialogTrigger>
-            <DialogContent className="p-24 md:max-w-[1000px]">
+            <DialogContent className="p- md:max-w-[1000px]">
                 <div className="grid gap-4 py-4">
                     <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="name" className="font-semibold text-[25px] text-left">
@@ -43,11 +43,11 @@ function EditPrivacy_Dialog() {
                         <Label htmlFor="designation" className="font-semibold text-[25px] text-left">
                             Confirm Password:
                         </Label>
-                        <Input id="confirmPassword" type="password" className="bg-[#837979] text-white col-span-3" />
+                        <Input id="confirmPassword" type="password" className="bg-[#837979] text-white text-[20px] col-span-3" />
                     </div>
                 </div>
-                <div className="mt-10 flex justify-center">
-                    <Button type="submit" className="bg-[#8F8F8F] w-[300px]">Save</Button>
+                <div className="mt-6 flex justify-center">
+                    <Button type="submit" className="bg-[#8F8F8F] text-white text-[20px] w-[300px]">Save</Button>
                 </div>
             </DialogContent>
         </Dialog>

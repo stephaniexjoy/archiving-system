@@ -23,7 +23,7 @@ export default function AddCategory_Dialog() {
             </DialogTrigger>
             <DialogContent>
                 <div className="flex flex-col justify-center w-full max-w-md items-center space-x-2 p-6">
-                    <Input type="text" placeholder="" className="bg-[#B5B5B5] border border-black mt-10"/>
+                    <Input type="text" placeholder="" className="font-semibold text-white bg-[#B5B5B5] border border-black mt-10"/>
                     <Button type="submit" className="mt-12 bg-[#8F8F8F] px-5 font-bold">ADD CATEGORY  </Button>
                 </div>
             </DialogContent>

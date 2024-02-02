@@ -70,7 +70,7 @@ async function page() {
       {/*add CreateModal.js & add View Materials page*/}
       <div className="flex ml-[2%] mt-3">
         <div className='text-center bg-[#5B0505] text-white w-[700px] h-[80px] p-1 mx-4 rounded-lg'>
-          <button className='mt-5 text-2xl font-bold'>
+          <button className='mt-5 text-3xl font-bold'>
             VIEW MATERIALS
           </button>
         </div>
