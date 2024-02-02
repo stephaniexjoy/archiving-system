@@ -10,7 +10,7 @@ const page = async ({ params }) => {
     console.log(user)
 
     return (
-        <div className="flex flex-col w-screen h-screen">
+        <div className="flex items-center flex-col w-screen h-screen">
             <div className="bg-[#AD5606] w-full h-[12%] flex items-center justify-center">
                 <img
                 className="w-[27%] h-[100%] object-cover flex items-center justify-center"
@@ -19,7 +19,7 @@ const page = async ({ params }) => {
                 />
             </div>
 
-            <div className=" mx-0 w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl h-full my-6">
+            <div className="overflow-scroll overflow-x-hidden w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl h-full my-6">
                 <div className="flex flex-row justify-center">
                     <div className="mt-8 ml-20 basis-1/5 left-[10px] object-center" >
                         <img
