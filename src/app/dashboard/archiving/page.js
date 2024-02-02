@@ -7,6 +7,7 @@ import FileTable from "@/app/components/FileTable";
 import UploadModal from "@/app/components/Modal/UploadModal";
 import SearchBar from "@/app/components/SearchBar";
 import { revalidatePath } from "next/cache";
+import AddCategory_Dialog from "@/app/components/New_Components/AddCategory_Dialog";
 
 async function getSearchData(query) {
 
