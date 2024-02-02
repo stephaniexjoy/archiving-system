@@ -42,8 +42,8 @@ export default async function archiving() {
 
       <SecretaryArchivingTab>
         <TabsContent value="files">
-          <div className="flex flex-row mt-5 md:h-20">
-            <h1 className="text-[#5B0505] text-[45px] font-semibold md:shadow-zinc-400 ml-[3%] mr-[2%]">
+          <div className="flex flex-row mt-5 md:h-20 px-10">
+            <h1 className="text-[#5B0505] text-[45px] font-semibold md:shadow-zinc-400 mr-[1%]">
               FIND
             </h1>
             <div className="relative">
@@ -51,7 +51,7 @@ export default async function archiving() {
                 type="search"
                 name="find"
                 placeholder=""
-                className="text-md md:text-xl text-[#242323] bg-[#D9D9D9] w-[1480px] h-[60px] md:text-shadow-inner"
+                className="text-md md:text-xl text-[#242323] bg-[#D9D9D9] w-[1640px] h-[60px] md:text-shadow-inner"
               />
             </div>
             <div className="relative bg-[#6A6A6A] p-2 h-[60px] w-auto ml-[1%]">
@@ -59,7 +59,7 @@ export default async function archiving() {
             </div>
           </div>
 
-          <div className="flex flex-row gap-x-56 md:ml-36 font-semibold text-[#5B0505]">
+          <div className="flex flex-row gap-x-64 ont-semibold text-[#5B0505] ml-36 px-10">
             <div className="inline-block text-[20px] md:text-[23px]">
               MATERIAL
             </div>
@@ -77,9 +77,9 @@ export default async function archiving() {
             </div>
           </div>
 
-          <div className="flex flex-row gap-x-24 md:ml-20 md:mr-10 md:h-100">
+          <div className="flex flex-row gap-x-24 ml-16 px-10">
             <div className="dropdown">
-              <div className="top-[210px] left-[300px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer ">
+              <div className="top-[210px] left-[300px] text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer ">
                 <select
                   className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606] h-[40px] shadow-lg rounded-sm px-2 py-1 "
                   name="type"
@@ -107,7 +107,7 @@ export default async function archiving() {
               <AddCategory_Dialog />
             </div>
             <div className="dropdown">
-              <div className="top-[210px] left-[350px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
+              <div className="ml-8 top-[210px] left-[350px] text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
                 <select
                   className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1350px] bg-[#AD5606]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
                   name="type"
@@ -123,8 +123,7 @@ export default async function archiving() {
             </div>
 
             <div className="dropdown">
-
-              <div className="top-[210px] left-[970px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
+              <div className="ml-6 top-[210px] left-[970px] text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
                 <select
                   className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
                   name="type"
@@ -144,7 +143,7 @@ export default async function archiving() {
             </div>
 
             <div className="dropdown">
-              <div className="top-[210px] left-[970px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
+              <div className="ml-6 top-[210px] left-[970px] text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
                 <select
                   className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606] h-[40px] shadow-lg rounded-sm px-2 py-1 "
                   name="type"
@@ -160,7 +159,7 @@ export default async function archiving() {
             </div>
 
 
-            <div className="top-[210px] left-[970px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
+            <div className="ml-8 top-[210px] left-[970px] text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
               <input
                 type="date"
                 className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606] h-[40px] shadow-lg rounded-sm px-2 py-1 "
@@ -169,23 +168,102 @@ export default async function archiving() {
               />
             </div>
           </div>
-          <div className="">
+          <div className="w-full px-10">
             <FileTable data={dataWithFormattedDate} />
           </div>
         </TabsContent>
 
-        <TabsContent value='assigntask'>
-          <h1>assigned task</h1>
+
+        <TabsContent value='assignedtask'>
+          <div className="flex flex-col mt-5 px-10">
+            <h1 className="text-center text-[#5B0505] text-[45px] font-semibold md:shadow-zinc-400 mb-5">
+              Assigned Task Details
+            </h1>
+            <div className="flex flex-col items-center w-full">
+              <div className="flex flex-row bg-white w-[80%] p-4 rounded-md">
+                <label className="w-[10%] text-[#5B0505] text-lg font-semibold mr-4">
+                  No Due Date:
+                </label>
+                <div className="relative flex w-full">
+                  <select
+                    className="text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
+                    name="taskType"
+                    id="taskType"
+                  >
+                    <option value="select">--Select--</option>
+                    <option value="project">Project</option>
+                    <option value="select">--Select--</option>
+                    <option value="project">Project</option>
+                  </select>
+                </div>
+              </div>
+              <div className="flex flex-row bg-white w-[80%] p-4 rounded-md">
+                <label className="w-[10%] text-[#5B0505] text-lg font-semibold mr-4">
+                  This week:
+                </label>
+                <div className="relative flex w-full">
+                  <select
+                    className="text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
+                    name="taskType"
+                    id="taskType"
+                  >
+                    <option value="select">--Select--</option>
+                    <option value="project">Project</option>
+                    <option value="select">--Select--</option>
+                    <option value="project">Project</option>
+                  </select>
+                </div>
+              </div>
+              <div className="flex flex-row bg-white w-[80%] p-4 rounded-md">
+                <label className="w-[10%] text-[#5B0505] text-lg font-semibold mr-4">
+                  Next week:
+                </label>
+                <div className="relative flex w-full">
+                  <select
+                    className="text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
+                    name="taskType"
+                    id="taskType"
+                  >
+                    <option value="select">--Select--</option>
+                    <option value="project">Project</option>
+                    <option value="select">--Select--</option>
+                    <option value="project">Project</option>
+                  </select>
+                </div>
+              </div>
+              <div className="flex flex-row bg-white w-[80%] p-4 rounded-md">
+                <label className="w-[10%] text-[#5B0505] text-lg font-semibold mr-4">
+                  Later:
+                </label>
+                <div className="relative flex w-full">
+                  <select
+                    className="text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
+                    name="taskType"
+                    id="taskType"
+                  >
+                    <option value="select">--Select--</option>
+                    <option value="project">Project</option>
+                    <option value="select">--Select--</option>
+                    <option value="project">Project</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
         </TabsContent>
+
+
+        <TabsContent value='missingtask'>
+          <h1>Missing task</h1>
+        </TabsContent>
+
 
         <TabsContent value='archivedtask'>
-          <h1>archived task</h1>
+          <h1>Archived task</h1>
         </TabsContent>
 
+
       </SecretaryArchivingTab>
-
-
-
     </div >
   );
 }

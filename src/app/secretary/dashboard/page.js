@@ -36,70 +36,69 @@ async function page() {
     <div className='flex flex-col w-screen h-screen'>
       <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
         <img
-          className="w-[27%] h-[100%] object-cover flex items-center justify-center"
+          className="w-[30%] h-[100%] object-cover flex items-center justify-center"
           alt="E-Archiving System"
-          src="../photos/E-Archiving System.png"
+          src="/photos/E-Archiving System.png"
         />
       </div>
 
-
-      <div className="flex mt-[2%] ">
-        <h1 className="text-black text-[30px] ml-[3%]">
-          WELCOME, <br /> SECRETARY
+      <div className="flex mt-[2%] px-10">
+        <h1 className="text-black text-[20px]">
+          WELCOME, <br /> <h1 className='text-[#5B0505] text-[50px] font-semibold -mt-4'>SECRETARY</h1>
         </h1>
         <img
-          className="h-[50%] w-[1300px] mt-[1%] ml-[5%]"
+          className="h-[50%] w-[90%] mt-[1%] ml-[3%]"
           alt="Filler"
           src="../photos/Filler.png"
         />
         <img
-          className="h-[70%] w-[80px] mt-[.8%] ml-[2.5%]"
+          className="h-[70%] w-[90px] mt-[.8%] ml-[2%]"
           alt="Notification Logo"
           src="../photos/Notificationlogo.png"
         />
       </div>
 
-      <div className="flex ml-[2%] mt-[2%]">
-        <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-[455px] h-[270px] p-4 mx-4 rounded-lg'>
-          <p className='mt-5 text-3xl font-bold'>
+      <div className="flex mt-[1%] px-10 gap-x-12">
+        <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-[440px] h-[320px] py-6 rounded-lg'>
+          <p className='mt-8 text-4xl font-semibold'>
             ARCHIVED MATERIALS
           </p>
-          <p className='mt-10 text-8xl text-[#5B0505] font-bold'>
+          <p className='mt-12 text-9xl text-[#5B0505] font-semibold'>
             {fileCount}
           </p>
         </div>
-        <div className='text-center bg-[#5B0505] text-white w-[455px] h-[270px] p-4 mx-4 rounded-lg'>
-          <p className='mt-5 text-3xl font-bold'>
+        <div className='text-center bg-[#5B0505] text-white w-[440px] h-[320px] py-6 rounded-lg'>
+          <p className='mt-8 text-4xl font-bold'>
             NO. OF FACULTY
           </p>
-          <p className='mt-10 text-8xl text-[#FFFFFF] font-bold'>
+          <p className='mt-12 text-9xl text-[#FFFFFF] font-semibold'>
             {userCount}
           </p>
         </div>
         <div className="flex flex-col">
-          <div className='text-center bg-[#5B0505] text-[white] w-[455px] h-[80px] p-4 mx-4 rounded-lg'>
+          <div className='text-center bg-[#5B0505] text-[white] w-[480px] h-[90px] p-4 mx-4 rounded-lg'>
             <CreateAccount_Dialog />
           </div>
-          <div className='mt-3.5 text-center bg-[#B4ABAB] text-[#5B0505] w-[455px] h-[80px] p-4 mx-4 rounded-lg'>
+          <div className='mt-6 text-center bg-[#B4ABAB] text-[#5B0505] w-[480px] h-[90px] p-4 mx-4 rounded-lg'>
             <Link href={'/secretary/dashboard/archiving'}>
               <button className='mt-2 text-3xl font-bold'>
                 VIEW MATERIALS
               </button>
             </Link>
           </div>
-          <div className='mt-3.5 text-center bg-[#5B0505] text-white w-[455px] h-[80px] p-4 mx-4 rounded-lg'>
+          <div className='mt-6 text-center bg-[#5B0505] text-white w-[480px] h-[90px] p-4 mx-4 rounded-lg'>
             <UploadMaterial_Dialog />
           </div>
         </div>
         <div className="flex flex-col">
-          <div className='ml-10 text-center bg-[#B4ABAB] text-[#5B0505] w-[200px] h-[140px] p-4 mx-4'>
-            <p className=' mt-5 text-1xl font-bold'>
+          <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-72 h-44'>
+            <p className=' mt-16 text-1xl font-bold'>
               CALENDAR
             </p>
           </div>
-          <div className='text-center text-[#5B0505] w-[150px] h-[150px] p-4 mx-4'>
+          <div className='w-auto h-auto'>
             <img
-              className='ml-12 mt-0 w-full h-full object-cover'
+              className='ml-16 w-36 h-auto object-cover'
               src="../photos/ccsLogo.png"
               alt="CCS Logo"
             />
@@ -107,8 +106,8 @@ async function page() {
         </div>
       </div>
 
-      <div className='flex ml-[2.8%] mt-[4%] w-[1700px] h-screen items-center md:h-20 font-[Times New Roman]'>
-        <table className="mt-10 table table-fixed md:table-fixed w-[1800px] text-center rounded-lg">
+      <div className='flex w-full h-screen items-center md:h-20 font-[Times New Roman] rounded-lg px-10'>
+        <table className="mt-10 table table-fixed md:table-fixed w-full text-center">
           <thead className='bg-[#5B0505] text-white text-2xl'>
             <tr>
               <th className='py-2'>NAME</th>
@@ -117,8 +116,7 @@ async function page() {
               <th>DATE AND TIME</th>
             </tr>
           </thead>
-          <tbody className='bg-[#D9D9D9] text-black text-xl'>
-
+          <tbody className='bg-[#B4ABAB] text-black text-xl'>
             {activitiesFormatted.map((activity) => (
               <tr key={activity.id}>
                 <td className='py-2'>{activity.name}</td>
@@ -133,5 +131,4 @@ async function page() {
     </div>
   )
 }
-
 export default page

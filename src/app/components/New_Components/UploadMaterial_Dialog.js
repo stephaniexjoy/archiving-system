@@ -18,7 +18,7 @@ export default function UploadMaterial_Dialog() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <b className='bg-transparent hover-transparent mt-2 text-3xl font-bold'>UPLOAD MATERIAL</b>
+                <b className='bg-transparent hover-transparent mt-2 text-3xl font-bold cursor-pointer'>UPLOAD MATERIAL</b>
             </DialogTrigger>
             <DialogContent className="md:max-w-[1025px]">
                 <div className="grid gap-8 py-16 px-16 grid-cols-2">

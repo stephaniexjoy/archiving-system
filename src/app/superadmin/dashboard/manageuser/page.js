@@ -36,8 +36,8 @@ export default async function page() {
       </div>
 
       {/* Search and Create Account Section */}
-      <div className="flex flex-row mt-5 mb-5 md:h-20">
-        <h1 className="text-[#5B0505] text-[45px] font-semibold md:shadow-zinc-400 ml-[3%] mr-[2%]">
+      <div className="flex flex-row mt-5 mb-5 md:h-20 px-10">
+        <h1 className="text-[#5B0505] text-[45px] font-semibold md:shadow-zinc-400 mr-[2%]">
           FIND
         </h1>
         <div className="relative">
@@ -45,7 +45,7 @@ export default async function page() {
             type="search"
             name="find"
             placeholder=""
-            className="text-md md:text-xl text-[#242323] bg-[#D9D9D9] w-[1480px] h-[60px] md:text-shadow-inner"
+            className="text-md md:text-xl text-[#242323] bg-[#D9D9D9] w-[1600px] h-[60px] md:text-shadow-inner"
           />
         </div>
         <div className="relative bg-[#6A6A6A] p-2 h-[60px] w-auto ml-[1%]">

@@ -40,87 +40,82 @@ async function page() {
   }));
 
   return (
-      <div className='flex flex-col w-screen h-screen'>
-        <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
+    <div className='flex flex-col w-screen h-screen'>
+      <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
         <img
-          className="w-[27%] h-[100%] object-cover flex items-center justify-center"
+          className="w-[30%] h-[100%] object-cover flex items-center justify-center"
           alt="E-Archiving System"
-          src="../photos/E-Archiving System.png"
+          src="/photos/E-Archiving System.png"
         />
       </div>
 
-
-      <div className="flex mt-[2%] ">
-        <h1 className="text-black text-[30px] ml-[3%]">
-          WELCOME, <br /> ADMIN
+      <div className="flex mt-[2%] px-10">
+        <h1 className="text-black text-[20px]">
+          WELCOME, <br /> <h1 className='text-[#5B0505] text-[50px] font-semibold -mt-4'>ADMIN</h1>
         </h1>
         <img
-          className="h-[50%] w-[1300px] mt-[1%] ml-[5%]"
+          className="h-[50%] w-[90%] mt-[1%] ml-[3%]"
           alt="Filler"
           src="../photos/Filler.png"
         />
         <img
-          className="h-[70%] w-[80px] mt-[.8%] ml-[2.5%]"
+          className="h-[70%] w-[90px] mt-[.8%] ml-[2%]"
           alt="Notification Logo"
           src="../photos/Notificationlogo.png"
         />
       </div>
 
-
-      {/*add CreateModal.js & add View Materials page*/}
-      <div className="flex ml-[2%] mt-3">
-        <div className='text-center bg-[#5B0505] text-white w-[700px] h-[80px] p-1 mx-4 rounded-lg'>
+      <div className="flex mt-3 px-10 gap-x-8">
+        <div className='text-center bg-[#5B0505] text-white w-[685px] h-[80px] rounded-lg'>
           <button className='mt-5 text-3xl font-bold'>
             VIEW MATERIALS
           </button>
         </div>
-       
-            <Create_Dialog />
-        <div className='ml-10 text-center bg-[#B4ABAB] text-[#5B0505] w-[200px] h-[180px] p-4 mx-4'>
-          <p className=' mt-5 text-1xl font-bold'>
+
+        <Create_Dialog />
+        <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-96 h-56'>
+          <p className=' mt-16 text-1xl font-bold'>
             CALENDAR
           </p>
         </div>
       </div>
 
-
-      <div className="flex ml-[2%] mt-[-3%]">
-        <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-[455px] h-[270px] p-4 mx-4 rounded-lg'>
-          <p className='mt-5 text-3xl font-bold'>
+      <div className="flex -mt-[5%] px-10 gap-x-12">
+        <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-[440px] h-[320px] py-6 rounded-lg'>
+          <p className='mt-8 text-4xl font-semibold'>
             ARCHIVED MATERIALS
           </p>
-          <p className='mt-10 text-8xl text-[#5B0505] font-bold'>
+          <p className='mt-12 text-9xl text-[#5B0505] font-semibold'>
             {fileCount}
           </p>
         </div>
-        <div className='text-center bg-[#5B0505] text-white w-[455px] h-[270px] p-4 mx-4 rounded-lg'>
-          <p className='mt-5 text-3xl font-bold'>
+        <div className='text-center bg-[#5B0505] text-white w-[440px] h-[320px] py-6 rounded-lg'>
+          <p className='mt-8 text-4xl font-bold'>
             NO. OF FACULTY
           </p>
-          <p className='mt-10 text-8xl text-[#FFFFFF] font-bold'>
+          <p className='mt-12 text-9xl text-[#FFFFFF] font-semibold'>
             {userCount}
           </p>
         </div>
-        <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-[455px] h-[270px] p-4 mx-4 rounded-lg'>
-          <p className='mt-5 text-3xl font-bold'>
+        <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-[440px] h-[320px] py-6 rounded-lg'>
+          <p className='mt-8 text-4xl font-bold'>
             NO. OF SECRETARY
           </p>
-          <p className='mt-10 text-8xl text-[#5B0505] font-bold'>
+          <p className='mt-12 text-9xl text-[#5B0505] font-semibold'>
             {secCount}
           </p>
         </div>
-        <div className='text-center text-[#5B0505] w-[220px] h-[220px] p-4 mx-4'>
+        <div className='text-center text-[#5B0505] w-auto h-auto p-4 mx-4'>
           <img
-            className='ml-5 mt-16 w-full h-full object-cover'
-            src="../photos/ccsLogo.png"
+            className='ml-10 mt-24 w-56 h-auto object-cover'
+            src="/photos/ccsLogo.png"
             alt="CCS Logo"
           />
         </div>
       </div>
 
-
-      <div className='flex ml-[2.8%] mt-[7%] w-[1700px] h-screen items-center md:h-20 font-[Times New Roman]'>
-        <table className="mt-10 table table-fixed md:table-fixed w-[1800px] text-center rounded-lg">
+      <div className='flex -mt-[2%] w-full h-screen items-center md:h-20 font-[Times New Roman] px-10'>
+        <table className="mt-10 table table-fixed md:table-fixed w-full text-center rounded-lg">
           <thead className='bg-[#5B0505] text-2xl text-white'>
             <tr>
               <th className='py-2'>NAME</th>
@@ -129,7 +124,7 @@ async function page() {
               <th>DATE AND TIME</th>
             </tr>
           </thead>
-          <tbody className='bg-[#D9D9D9] text-black text-xl'>
+          <tbody className='bg-[#B4ABAB] text-black text-xl'>
 
             {activitiesFormatted.map((activity) => (
               <tr key={activity.id}>
@@ -142,7 +137,6 @@ async function page() {
           </tbody>
         </table>
       </div>
-
     </div>
   )
 }

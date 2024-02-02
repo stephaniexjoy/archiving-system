@@ -16,7 +16,7 @@ const Create_Dialog = () => {
     <div>
       <Dialog>
         <DialogTrigger asChild>
-          <Button className=" bg-[#5B0505] text-white w-[700px] h-[80px] p-1 mx-4 rounded-lg -scroll-mt-1.5 text-2xl font-bold hover">
+          <Button className=" bg-[#5B0505] text-white w-[685px] h-[80px] p-1 mx-4 rounded-lg -scroll-mt-1.5 text-3xl font-bold hover">
             CREATE ACCOUNT
           </Button>
         </DialogTrigger>
@@ -31,7 +31,7 @@ const Create_Dialog = () => {
               <Label htmlFor="name" className="text-left text-lg ">
                 Name:
               </Label>
-              <Input id="name" value="" className="col-span-3 bg-gray-100" />
+              <Input id="name" type="text" value="" className="col-span-3 text-black bg-gray-100" />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="role" className="text-left text-lg ">

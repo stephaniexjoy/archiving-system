@@ -20,14 +20,16 @@ import React from 'react'
 
 function SecretaryArchivingTab({ children }) {
   return (
-    <Tabs defaultValue="files" className="w-[400px]">
+    <Tabs defaultValue="files" className="w-full">
       <TabsList>
         <TabsTrigger value="files">All Files</TabsTrigger>
-        <TabsTrigger value="assigntask">Assign Task</TabsTrigger>
+        <TabsTrigger value="assignedtask">Assigned Task</TabsTrigger>
+        <TabsTrigger value="missingtask">Missing Task</TabsTrigger>
         <TabsTrigger value="archivedtask">Archived Task</TabsTrigger>
       </TabsList>
       <TabsContent value="files">{children}</TabsContent>
-      <TabsContent value="assigntask">{children}</TabsContent>
+      <TabsContent value="assignedtask">{children}</TabsContent>
+      <TabsContent value="missingtask">{children}</TabsContent>
       <TabsContent value="archivedtask">{children}</TabsContent>
     </Tabs>
   )
