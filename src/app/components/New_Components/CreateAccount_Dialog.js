@@ -17,7 +17,7 @@ function CreateAccount_Dialog() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <b className='bg-transparent hover-transparent mt-2 text-3xl font-bold'>CREATE ACCOUNT</b>
+                <b className='bg-transparent hover-transparent mt-2 text-3xl font-bold cursor-pointer'>CREATE ACCOUNT</b>
             </DialogTrigger>
             <DialogContent className="p-16 md:max-w-[1000px]">
                 <div className="grid gap-4 py-3 ">
@@ -77,8 +77,8 @@ function CreateAccount_Dialog() {
                     </div>
                 </div>
                 <div className="flex justify-center gap-4 gap-x-16 mt-20">
-                    <Button type="submit" className="bg-[#737373] w-72 font-bold">CREATE</Button>
-                    <Button type="submit" className="bg-[#737373] w-72  font-bold">BACK</Button>
+                    <Button type="submit" className="bg-[#737373]  text-white text-[20px] w-72 font-bold">CREATE</Button>
+                    <Button type="submit" className="bg-[#737373]  text-white text-[20px] w-72  font-bold">BACK</Button>
                 </div>
             </DialogContent>
         </Dialog>

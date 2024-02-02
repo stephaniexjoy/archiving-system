@@ -17,7 +17,7 @@ function EditProfile_Dialog() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button className="md:left-[1300px] text-center md:text-[25px] bg-[#AD5606] text-white text-xl font-bold h-10 w-52 hover:bg-[#6A6A6A] hover:text-white p-2 m-2">EDIT PROFILE</Button>
+                <b className="md:left-[1300px] text-center bg-transparent text-white text-3xl font-bold h-10 w-64 p-2 m-2 cursor-pointer">EDIT PROFILE</b>
             </DialogTrigger>
             <DialogContent className="p-16 md:max-w-[1000px]">
                 <div className="grid gap-4 py-2">

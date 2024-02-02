@@ -89,8 +89,12 @@ async function page() {
                             </div>
                         </div>
                     </div>
-                    <EditProfile_Dialog />
-                    <EditPrivacy_Dialog />
+                    <div className="bg-[#AD5606] mb-5 rounded-lg">
+                        <EditProfile_Dialog />
+                    </div>
+                    <div className="bg-[#AD5606] rounded-lg">
+                        <EditPrivacy_Dialog />
+                    </div>
                 </div>
             </div>
         </div>
