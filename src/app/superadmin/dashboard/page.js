@@ -4,7 +4,9 @@ import { revalidatePath } from 'next/cache'
 import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next"
 import { redirect } from "next/navigation";
-import CreateModal from "@/app/components/Modal/CreateModal";
+
+import Create_Dialog from '@/app/components/New_Components/Create_Dialog';
+
 
 
 async function page() {
@@ -68,15 +70,12 @@ async function page() {
       {/*add CreateModal.js & add View Materials page*/}
       <div className="flex ml-[2%] mt-3">
         <div className='text-center bg-[#5B0505] text-white w-[700px] h-[80px] p-1 mx-4 rounded-lg'>
-          <button className='mt-5 text-2xl font-bold'>
+          <button className='mt-5 text-3xl font-bold'>
             VIEW MATERIALS
           </button>
         </div>
-        <div className='text-center bg-[#5B0505] text-white w-[700px] h-[80px] p-1 mx-4 rounded-lg'>
-          <button className='mt-3 text-2xl font-bold'>
-            <CreateModal />
-          </button>
-        </div>
+       
+            <Create_Dialog />
         <div className='ml-10 text-center bg-[#B4ABAB] text-[#5B0505] w-[200px] h-[180px] p-4 mx-4'>
           <p className=' mt-5 text-1xl font-bold'>
             CALENDAR
@@ -86,7 +85,7 @@ async function page() {
 
 
       <div className="flex ml-[2%] mt-[-3%]">
-        <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-[455px] h-[270px] p-4 mx-4'>
+        <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-[455px] h-[270px] p-4 mx-4 rounded-lg'>
           <p className='mt-5 text-3xl font-bold'>
             ARCHIVED MATERIALS
           </p>
@@ -94,7 +93,7 @@ async function page() {
             {fileCount}
           </p>
         </div>
-        <div className='text-center bg-[#5B0505] text-white w-[455px] h-[270px] p-4 mx-4'>
+        <div className='text-center bg-[#5B0505] text-white w-[455px] h-[270px] p-4 mx-4 rounded-lg'>
           <p className='mt-5 text-3xl font-bold'>
             NO. OF FACULTY
           </p>
@@ -102,7 +101,7 @@ async function page() {
             {userCount}
           </p>
         </div>
-        <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-[455px] h-[270px] p-4 mx-4'>
+        <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-[455px] h-[270px] p-4 mx-4 rounded-lg'>
           <p className='mt-5 text-3xl font-bold'>
             NO. OF SECRETARY
           </p>
@@ -122,7 +121,7 @@ async function page() {
 
       <div className='flex ml-[2.8%] mt-[7%] w-[1700px] h-screen items-center md:h-20 font-[Times New Roman]'>
         <table className="mt-10 table table-fixed md:table-fixed w-[1800px] text-center rounded-lg">
-          <thead className='bg-[#5B0505] text-2xl'>
+          <thead className='bg-[#5B0505] text-2xl text-white'>
             <tr>
               <th className='py-2'>NAME</th>
               <th>POSITION</th>
@@ -140,7 +139,6 @@ async function page() {
                 <td>{activity.createdAt}</td>
               </tr>
             ))}
-
           </tbody>
         </table>
       </div>

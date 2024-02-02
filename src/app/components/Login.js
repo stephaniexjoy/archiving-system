@@ -6,6 +6,7 @@ import { FaLock } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdEyeOff } from "react-icons/io";
 import ForgotPassword from './Modal/ForgotPassword';
+import ForgotPassword_Dialog from './New_Components/ForgotPassword_Dialog';
 
 const Login = () => {
 
@@ -69,7 +70,7 @@ const Login = () => {
 
                     <div className="flex justify-end">
                         <b className="mr-[15%] text-[#5B0505]">
-                            <ForgotPassword />
+                            <ForgotPassword_Dialog />
                         </b>
                     </div>
 
