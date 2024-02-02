@@ -175,7 +175,7 @@ export default async function archiving() {
         </TabsContent>
 
         <TabsContent value='assigntask'>
-          <h1>assign task</h1>
+          <h1></h1>
         </TabsContent>
 
         <TabsContent value='archivedtask'>
