@@ -94,118 +94,120 @@ export default async function archiving({ searchParams }) {
             <UploadModal />
           </div>
 
-      <div className="flex flex-row gap-x-56 md:ml-36 font-semibold text-[#5B0505]">
-        <div className="inline-block text-[20px] md:text-[23px]">
-          MATERIAL
-        </div>
-        <div className="inline-block text-[20px] md:text-[23px]">
-          FILE TYPE
-        </div>
-        <div className="inline-block text-[20px] md:text-[23px]">
-          COURSES
-        </div>
-        <div className="inline-block text-[20px] md:text-[23px]">
-          INSTRUCTOR
-        </div>
-        <div className="inline-block text-[20px] md:text-[23px]">
-          SORT BY
-        </div>
-      </div>
-
-      <div className="flex flex-row gap-x-24 md:ml-20 md:mr-10 md:h-100">
-        <div className="dropdown">
-          <div className="top-[210px] left-[300px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer ">
-            <select
-              className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606] h-[40px] shadow-lg rounded-sm px-2 py-1 "
-              name="type"
-              id="type"
-            >
-              <option value="select">--Select--</option>
-              <option value="learning materials">
-                Learning Materials
-              </option>
-              <option value="training and seminar">
-                Training and Seminar
-              </option>
-              <option value="reserch conducted">
-                Research Conducted
-              </option>
-              <option value="extension conducted">
-                Extension Conducted
-              </option>
-              <option value="educational qualification">
-                Educational Qualification
-              </option>
-              <option value="faculty profile">Faculty Profile</option>
-            </select>
+          <div className="flex flex-row gap-x-56 md:ml-36 font-semibold text-[#5B0505]">
+            <div className="inline-block text-[20px] md:text-[23px]">
+              MATERIAL
+            </div>
+            <div className="inline-block text-[20px] md:text-[23px]">
+              FILE TYPE
+            </div>
+            <div className="inline-block text-[20px] md:text-[23px]">
+              COURSES
+            </div>
+            <div className="inline-block text-[20px] md:text-[23px]">
+              INSTRUCTOR
+            </div>
+            <div className="inline-block text-[20px] md:text-[23px]">
+              SORT BY
+            </div>
           </div>
-          <AddCategory_Dialog />
-        </div>
-        <div className="dropdown">
-          <div className="top-[210px] left-[350px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
-            <select
-              className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1350px] bg-[#AD5606]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
-              name="type"
-              id="type"
-            >
-              <option value="select">--Select--</option>
-              <option value="pdf">PDF</option>
-              <option value="ppt">PPT</option>
-              <option value="docx">DOCX</option>
-            </select>
+
+          <div className="flex flex-row gap-x-24 md:ml-20 md:mr-10 md:h-100">
+            <div className="dropdown">
+              <div className="top-[210px] left-[300px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer ">
+                <select
+                  className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606] h-[40px] shadow-lg rounded-sm px-2 py-1 "
+                  name="type"
+                  id="type"
+                >
+                  <option value="select">--Select--</option>
+                  <option value="learning materials">
+                    Learning Materials
+                  </option>
+                  <option value="training and seminar">
+                    Training and Seminar
+                  </option>
+                  <option value="reserch conducted">
+                    Research Conducted
+                  </option>
+                  <option value="extension conducted">
+                    Extension Conducted
+                  </option>
+                  <option value="educational qualification">
+                    Educational Qualification
+                  </option>
+                  <option value="faculty profile">Faculty Profile</option>
+                </select>
+              </div>
+              <AddCategory_Dialog />
+            </div>
+            <div className="dropdown">
+              <div className="top-[210px] left-[350px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
+                <select
+                  className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1350px] bg-[#AD5606]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
+                  name="type"
+                  id="type"
+                >
+                  <option value="select">--Select--</option>
+                  <option value="pdf">PDF</option>
+                  <option value="ppt">PPT</option>
+                  <option value="docx">DOCX</option>
+                </select>
+              </div>
+              <AddCategory_Dialog />
+            </div>
+
+            <div className="dropdown">
+
+              <div className="top-[210px] left-[970px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
+                <select
+                  className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
+                  name="type"
+                  id="type"
+                >
+                  <option value="select">--Select--</option>
+                  <option value="Machine Learning">Machine Learning</option>
+                  <option value="Programming Languages">
+                    Programming Languages
+                  </option>
+                  <option value="Platform Technologie">
+                    Platform Technologies
+                  </option>
+                </select>
+              </div>
+              <AddCategory_Dialog />
+            </div>
+
+            <div className="dropdown">
+              <div className="top-[210px] left-[970px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
+                <select
+                  className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606] h-[40px] shadow-lg rounded-sm px-2 py-1 "
+                  name="type"
+                  id="type"
+                >
+                  <option value="select">--Select--</option>
+                  <option value="Prince Andres">Prince Andres</option>
+                  <option value="John Ryan Ual">John Ryan Ual</option>
+                  <option value="Marco Del Rosario">Marco Del Rosario</option>
+                </select>
+              </div>
+              <AddCategory_Dialog />
+            </div>
+
+
+            <div className="top-[210px] left-[970px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
+              <input
+                type="date"
+                className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606] h-[40px] shadow-lg rounded-sm px-2 py-1 "
+                name="type"
+                id="type "
+              />
+            </div>
           </div>
-          <AddCategory_Dialog />
-        </div>
-
-        <div className="dropdown">
-
-          <div className="top-[210px] left-[970px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
-            <select
-              className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
-              name="type"
-              id="type"
-            >
-              <option value="select">--Select--</option>
-              <option value="Machine Learning">Machine Learning</option>
-              <option value="Programming Languages">
-                Programming Languages
-              </option>
-              <option value="Platform Technologie">
-                Platform Technologies
-              </option>
-            </select>
+          <div className="">
+            <FileTable data={dataWithFormattedDate} />
           </div>
-          <AddCategory_Dialog />
         </div>
-
-        <div className="dropdown">
-          <div className="top-[210px] left-[970px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
-            <select
-              className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606] h-[40px] shadow-lg rounded-sm px-2 py-1 "
-              name="type"
-              id="type"
-            >
-              <option value="select">--Select--</option>
-              <option value="Prince Andres">Prince Andres</option>
-              <option value="John Ryan Ual">John Ryan Ual</option>
-              <option value="Marco Del Rosario">Marco Del Rosario</option>
-            </select>
-          </div>
-          <AddCategory_Dialog />
-        </div>
-
-
-        <div className="top-[210px] left-[970px] mt-2 text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
-          <input
-            type="date"
-            className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606] h-[40px] shadow-lg rounded-sm px-2 py-1 "
-            name="type"
-            id="type "
-          />
-        </div>
-      </div>
-      <div className="">
-        <FileTable data={dataWithFormattedDate} />
       </div>
     </div>
   );
