@@ -38,23 +38,24 @@ const Create_Dialog = () => {
                 Role:
               </Label>
               <select className="col-span-3 h-9 rounded-md cursor-pointer text-center bg-gray-100">
-                <option id="faculty">Dean</option>
-                <option value="secretary">Regular</option>
-                <option value="admin">Faculty (Regular)</option>
-                <option value="admin">Faculty (Part Time)</option>
-                <option value="admin">Job Order</option>
+                <option value="">Select Role</option>
+                <option value="Faculty">Faculty</option>
+                <option value="Secretary">Secretary</option>
+                <option value="Admin">Admin</option>
               </select>
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="category" className="text-left text-lg ">
                 Category:
               </Label>
-              <Input
-                id="category"
-                text=""
-                value=""
-                className="col-span-3 bg-gray-100"
-              />
+              <select className="col-span-3 h-9 rounded-md cursor-pointer text-center bg-gray-100">
+                <option value="">Select category</option>
+                <option value="Associate Dean">Associate Dean</option>
+                <option value="Secretary">Secretary</option>
+                <option value="Faculty">Faculty</option>
+                <option value="Unit Head">Unit Head</option>
+                <option value="Coordinator">Coordinator</option>
+              </select>
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="specialization" className="text-left text-md ">
