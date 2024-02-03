@@ -30,14 +30,19 @@ function UploadModal() {
 
   return (
     <>
-      <FaUpload
-        className="border-none h-12 cursor-pointer"
-        size='40'
-        onClick={() => setOpenModal(true)}>
-        <span className="md:left-[1300px] text-center md:text-[20px] font-bold">
-          CREATE
-        </span>
-      </FaUpload>
+      <div className="relative bg-[#6A6A6A] p-2 h-[60px] w-auto ml-[1%]">
+        <h1>
+          <FaUpload
+            className="border-none h-12 cursor-pointer"
+            size='50'
+            style={{ top: "200px", left: "10px" }}
+            onClick={() => setOpenModal(true)}>
+            <span className="md:left-[1300px] text-center md:text-[20px] font-bold">
+              CREATE
+            </span>
+          </FaUpload>
+        </h1>
+      </div>
       <Modal show={openModal} size="md" className='ml-72' onClose={onCloseModal} popup>
         <Modal.Header />
         <Modal.Body>

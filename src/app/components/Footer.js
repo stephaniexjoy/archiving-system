@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <div>
             <footer className="bg-[rgb(91,5,5)] w-full h-[210px] flex items-center justify-center">
-                <div className="flex ml-[2%]">
+                <div className="flex px-10">
                     <div className="flex flex-col w-1/2">
                         <div className="flex flex-row">
                             <div className="flex items-start justify-start mt-2 mb-2">

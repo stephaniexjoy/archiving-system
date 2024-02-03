@@ -22,7 +22,7 @@ const FileTable = ({ data }) => {
                 Toggle Privacy: {currentPrivacy === 'forall' ? 'For All' : 'Secretary Only'}
             </button>
             <div className='flex h-screen items-center md:h-20 font-[Times New Roman]'>
-                <table className="mt-16 table table-auto md:table-fixed w-full text-center">
+                <table className="mt-8 table table-auto md:table-fixed w-full text-center">
                     <thead className='bg-[#5B0505] text-white text-xl'>
                         <tr>
                             <th className='py-2'>FILE</th>

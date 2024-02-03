@@ -26,7 +26,6 @@ export default async function page() {
   const users = await getUsers()
   return (
     <div className="flex flex-col w-screen h-screen">
-      {/* Header with E-Archiving System image */}
       <div className="bg-[#AD5606] w-full h-[12%] flex items-center justify-center">
         <img
           className="w-[27%] h-[100%] object-cover flex items-center justify-center"
@@ -54,8 +53,8 @@ export default async function page() {
       </div>
 
       {/* Manage Accounts Section */}
-      <div className="w-full md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-auto mt-0 p-0">
-        <h1 className="text-[55px] mb-0 font-semibold text-[#5B0505] text-center">
+      <div className="w-full md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-auto">
+        <h1 className="text-[55px] font-semibold text-[#5B0505] text-center">
           MANAGE ACCOUNTS
         </h1>
         <div className="container flex justify-center mx-auto">

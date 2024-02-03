@@ -14,23 +14,19 @@ const SearchBar = () => {
     const onSearch = (event) => {
         event.preventDefault()
 
-
         if (searchQuery.trim() !== "") {
             router.push(`/dashboard/archiving/search?query=${encodeURIComponent(searchQuery)}`);
         } else {
             router.push("/dashboard/archiving");
         }
 
-    
-
-
     }
     return (
         <>
-            <Input placeholder="Enter Query" value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} />
-            <div className="">
+            <Input className="text-md md:text-xl text-[#242323] bg-[#D9D9D9] w-[1560px] h-[60px] md:text-shadow-inner" placeholder="Enter Query" value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} />
+            <div className="relative bg-[#6A6A6A] p-2 h-[60px] w-auto ml-[1%] cursor-pointer">
                 <h1>
-                    <FaSearch onClick={onSearch} size="43" style={{ top: "100px", left: "10px" }} />
+                    <FaSearch onClick={onSearch} size="50" />
                 </h1>
             </div>
         </>

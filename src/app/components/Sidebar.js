@@ -62,8 +62,8 @@ const Sidebar = () => {
           <ul className="mt-24">
             {session.user.position === "Superadmin" && (
               <>
-                <MenuItem path="/superadmin/dashboard" icon={<FaHome className="text-white text-2xl ml-5" />} label="HOME" />
-                <MenuItem path="/superadmin/dashboard/manageuser" icon={<IoMdPerson className="text-white text-2xl ml-5" />} label="MANAGE USERS" />
+                <MenuItem path="/superadmin/dashboard" icon={<FaHome className="text-white text-2xl ml-5" />} label="HOME" isMinimized={isMinimized} />
+                <MenuItem path="/superadmin/dashboard/manageuser" icon={<IoMdPerson className="text-white text-2xl ml-5" />} label="MANAGE USERS" isMinimized={isMinimized}/>
                 {/* Add more menu items as needed */}
               </>
             )}
@@ -71,8 +71,8 @@ const Sidebar = () => {
           <ul className="mt-24">
             {session.user.position === "Secretary" && (
               <>
-                <MenuItem path="/secretary/dashboard" icon={<FaHome className="text-white text-2xl ml-12" />} label="HOME" />
-                <MenuItem path="/secretary/dashboard/profile" icon={<IoMdPerson className="text-white text-2xl ml-5" />} label="PROFILE" />
+                <MenuItem path="/secretary/dashboard" icon={<FaHome className="text-white text-2xl ml-5" />} label="HOME" isMinimized={isMinimized}/>
+                <MenuItem path="/secretary/dashboard/profile" icon={<IoMdPerson className="text-white text-2xl ml-5" />} label="PROFILE" isMinimized={isMinimized}/>
                 <MenuItem path="/secretary/dashboard/archiving" icon={<FaBook className="text-white text-2xl ml-5" />} label="ARCHIVING" isMinimized={isMinimized} />
                 <MenuItem path="/secretary/dashboard/viewfaculty/" icon={<FaBook className="text-white text-2xl ml-5" />} label="VIEW FACULTY" isMinimized={isMinimized} />
                 {/* Add more menu items as needed */}

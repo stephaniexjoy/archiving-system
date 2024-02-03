@@ -80,7 +80,7 @@ async function page() {
         </div>
       </div>
 
-      <div className="flex -mt-[5%] px-10 gap-x-12">
+      <div className="flex flex-row -mt-[5%] px-10 gap-x-12">
         <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-[440px] h-[320px] py-6 rounded-lg'>
           <p className='mt-8 text-4xl font-semibold'>
             ARCHIVED MATERIALS
@@ -114,7 +114,7 @@ async function page() {
         </div>
       </div>
 
-      <div className='flex -mt-[2%] w-full h-screen items-center md:h-20 font-[Times New Roman] px-10'>
+      <div className='flex mt-[1%] w-full h-screen items-center md:h-20 font-[Times New Roman] px-10'>
         <table className="mt-10 table table-fixed md:table-fixed w-full text-center rounded-lg">
           <thead className='bg-[#5B0505] text-2xl text-white'>
             <tr>
