@@ -3,12 +3,13 @@ import bcrypt from 'bcrypt'
 import { revalidatePath } from 'next/cache';
 
 export async function POST(req) {
+
     try {
         const reqBody = await req.json();
-        const { name, email, password, position, designation, specialization, license } = reqBody;
+        const { email, password, name, position, designation, specialization, license, age, sex, employee_no } = reqBody;
         console.log(reqBody);
 
-        if (!name || !email || !password || !position || !designation || !specialization || !license) {
+        if (!name || !email || !password || !position || !designation || !specialization || !license || !age || !sex || !employee_no) {
             return new Response('Missing Info', { status: 400 });
         }
 
@@ -32,17 +33,20 @@ export async function POST(req) {
                 position,
                 designation,
                 specialization,
-                license
+                license,
+                age,
+                sex,
+                employee_no,
             }
         })
 
         // Declare User for storing the data fetched from database
-        
+
         if (newUser) {
             console.log("Good");
             revalidatePath('/superadmin/dashboard/manageuser')
             return new Response(JSON.stringify(newUser), { status: 200, statusText: "User Successfully Created" })
-        } 
+        }
     }
     catch (error) {
         console.log(error)
