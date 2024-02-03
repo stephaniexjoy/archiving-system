@@ -46,7 +46,7 @@ export default async function dashboard() {
 
         <div className="flex mt-[2%] px-10">
           <h1 className="text-black text-[20px]">
-            WELCOME, <br /> <h1 className='text-[#5B0505] text-[50px] font-semibold -mt-4'>FACULTY</h1>
+            WELCOME, <br /> <span className='text-[#5B0505] text-[50px] font-semibold -mt-4'>FACULTY</span>
           </h1>
           <img
             className="h-[50%] w-[90%] mt-[1%] ml-[3%]"
