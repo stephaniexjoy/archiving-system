@@ -1,3 +1,4 @@
+import Footer from "@/app/components/Footer";
 import Sidebar from "@/app/components/Sidebar";
 
 export default function DashboardLayout({
@@ -18,7 +19,7 @@ export default function DashboardLayout({
         </div>
 
       </div >
-
+      <Footer />
     </>
   );
 }

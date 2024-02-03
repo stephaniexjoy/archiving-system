@@ -44,7 +44,7 @@ async function page() {
 
       <div className="flex mt-[2%] px-10">
         <h1 className="text-black text-[20px]">
-          WELCOME, <br /> <h1 className='text-[#5B0505] text-[50px] font-semibold -mt-4'>SECRETARY</h1>
+          WELCOME, <br /> <span className='text-[#5B0505] text-[50px] font-semibold -mt-4'>SECRETARY</span>
         </h1>
         <img
           className="h-[50%] w-[90%] mt-[1%] ml-[3%]"
@@ -106,7 +106,7 @@ async function page() {
         </div>
       </div>
 
-      <div className='flex w-full h-screen items-center md:h-20 font-[Times New Roman] rounded-lg mt-12 px-10'>
+      <div className='flex mt-16 w-full h-screen items-center md:h-20 font-[Times New Roman] rounded-lg px-10'>
         <table className="mt-10 table table-fixed md:table-fixed w-full text-center">
           <thead className='bg-[#5B0505] text-white text-2xl'>
             <tr>
