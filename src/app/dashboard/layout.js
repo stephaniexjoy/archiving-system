@@ -1,4 +1,5 @@
 import Sidebar from "@/app/components/Sidebar";
+import Footer from "../components/Footer";
 
 export default function DashboardLayout({
   children // will be a page or nested layout
@@ -18,7 +19,7 @@ export default function DashboardLayout({
         </div>
 
       </div >
-
+      <Footer />
     </>
   );
 }
