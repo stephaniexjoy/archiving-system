@@ -44,16 +44,32 @@ model Activity {
 }
 
 model User {
-  id                 Int        @id @default(autoincrement())
-  email              String     @unique
+  id                 Int     @id @default(autoincrement())
+  employee_no        String  @unique
+  email              String  @unique
   password           String
   name               String
+  age                Int
+  sex                String
   position           String
   designation        String
   specialization     String
   license            String
-  // Will add more Fields if needed
+  profile_photo_path String?
   certifications     String?
+
+  // Relationship to the educational details
+  education User_Education?
+
+  // Relationship to the files uploaded by User
+  uploadedFiles File[]
+  Activity      Activity[]
+  Deadline      Deadline[]
+}
+
+model User_Education {
+  id                 Int     @id @default(autoincrement())
+  userId             Int     @unique
   school             String?
   bacDegree          String?
   bacSchool          String?
@@ -67,10 +83,9 @@ model User {
   subjects_handled   String?
   presented_papers   String?
   extension_projs    String?
-  // Relationship to the files uploaded by User
-  uploadedFiles      File[]
-  Activity           Activity[]
-  Deadline           Deadline[]
+
+  // Define the relationship to the User model
+  User User @relation(fields: [userId], references: [id])
 }
 
 // File Entity
