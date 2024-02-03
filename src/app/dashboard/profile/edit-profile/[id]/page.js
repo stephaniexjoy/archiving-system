@@ -35,30 +35,52 @@ export default async function page() {
         const presPaperUpd = formData.get("papersUpd")
         const extProjUpd = formData.get("extUpd")
 
-        const updUser = await db.user.update({
-            where: { id: session.user.id },
-            data: {
-                name: nameUpd,
-                position: positionUpd,
-                designation: designationUpd,
-                specialization: specUpd,
-                license: licenseUpd,
-                certifications: certUpd,
-                school: schoolUpd,
-                bacDegree: bacDegUpd,
-                bacSchool: bacSchlUpd,
-                masDegree: masDegUpd,
-                masSchool: masSchlUpd,
-                docDegree: docDegUpd,
-                docSchool: docSchlUpd,
-                seminars_trainings: seminarsUpd,
-                experience: expUpd,
-                past_designation: pastDesigUpd,
-                subjects_handled: subjectsUpd,
-                presented_papers: presPaperUpd,
-                extension_projs: extProjUpd,
-            }
-        })
+        const [updUser, updUser_Educ] = await db.$transaction([
+            db.user.update({
+                where: { id: session.user.id },
+                data: {
+                    name: nameUpd,
+                    position: positionUpd,
+                    designation: designationUpd,
+                    specialization: specUpd,
+                    license: licenseUpd,
+                    certifications: certUpd,
+                    school: schoolUpd,
+                    bacDegree: bacDegUpd,
+                    bacSchool: bacSchlUpd,
+                    masDegree: masDegUpd,
+                    masSchool: masSchlUpd,
+                    docDegree: docDegUpd,
+                    docSchool: docSchlUpd,
+                    seminars_trainings: seminarsUpd,
+                    experience: expUpd,
+                    past_designation: pastDesigUpd,
+                    subjects_handled: subjectsUpd,
+                    presented_papers: presPaperUpd,
+                    extension_projs: extProjUpd,
+                }
+            }),
+            db.user_education.update({
+                where: { id: session.user.id },
+                data: {
+
+                    school: schoolUpd,
+                    bacDegree: bacDegUpd,
+                    bacSchool: bacSchlUpd,
+                    masDegree: masDegUpd,
+                    masSchool: masSchlUpd,
+                    docDegree: docDegUpd,
+                    docSchool: docSchlUpd,
+                    seminars_trainings: seminarsUpd,
+                    experience: expUpd,
+                    past_designation: pastDesigUpd,
+                    subjects_handled: subjectsUpd,
+                    presented_papers: presPaperUpd,
+                    extension_projs: extProjUpd,
+                }
+            })
+        ])
+
     }
 
 

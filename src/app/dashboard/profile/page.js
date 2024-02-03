@@ -1,19 +1,20 @@
 
-import Image from "next/image";
-import { FaUserLock } from "react-icons/fa";
-import EditPrivacy from "@/app/components/Modal/EditPrivacy";
 import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
-import { getServerSession } from "next-auth/next"
-import { db } from "@/app/lib/prisma_db";
-import Link from "next/link";
 import EditProfileFaculty_Dialog from "@/app/components/New_Components/EditProfileFaculty_Dialog";
-import NextEditProfileFaculty_Dialog from "@/app/components/New_Components/NextEditProfileFaculty_Dialog";
+import { db } from "@/app/lib/prisma_db";
+import { getServerSession } from "next-auth/next";
 
 export default async function profile() {
   const session = await getServerSession(AuthOptions)
 
   const user = await db.user.findUnique({
-    where: { id: session.user.id }
+    where: { id: session.user.id },
+    include: {
+
+      education: true
+
+    }
+
   })
   console.log(user)
 
@@ -154,8 +155,8 @@ export default async function profile() {
               </div>
 
               <div className="flex justify-center">
-                <button type="submit" className="bg-[#5B0505] text-[25px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] ml-[500px]">
-                  <EditProfileFaculty_Dialog/>
+                <button type="button" className="bg-[#5B0505] text-[25px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] ml-[500px]">
+                  <EditProfileFaculty_Dialog sessionId={session.user.id}/>
                 </button>
               </div>
               <div className="flex justify-center">
