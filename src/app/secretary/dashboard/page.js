@@ -106,7 +106,7 @@ async function page() {
         </div>
       </div>
 
-      <div className='flex w-full h-screen items-center md:h-20 font-[Times New Roman] rounded-lg px-10'>
+      <div className='flex w-full h-screen items-center md:h-20 font-[Times New Roman] rounded-lg mt-12 px-10'>
         <table className="mt-10 table table-fixed md:table-fixed w-full text-center">
           <thead className='bg-[#5B0505] text-white text-2xl'>
             <tr>

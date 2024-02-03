@@ -22,16 +22,16 @@ async function page() {
   }
   const users = await getUsers()
   return (
-    <div className='flex flex-col w-screen h-screen'>
-      <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
+    <div className="flex flex-col w-screen h-screen">
+      <div className="bg-[#AD5606] w-full h-[12%] flex items-center justify-center">
         <img
-          className="w-[30%] h-[100%] object-cover flex items-center justify-center"
+          className="w-[27%] h-[100%] object-cover flex items-center justify-center"
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
         />
       </div>
 
-      <div className="bg-[#5B0505] flex flex-row mb-5 md:h-20">
+      <div className="bg-[#5B0505] flex flex-row mb-5 md:h-20 px-10">
         <h1 className="text-[#DABB9C] mt-2 w-auto text-[45px] font-semibold md:shadow-zinc-400 px-24">
           FIND
         </h1>

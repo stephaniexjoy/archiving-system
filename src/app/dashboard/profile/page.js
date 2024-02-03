@@ -18,7 +18,7 @@ export default async function profile() {
   console.log(user)
 
   return (
-    <div className="flex flex-col w-screen h-screen">
+    <div className="flex items-center flex-col w-screen h-screen">
       <div className="bg-[#AD5606] w-full h-[12%] flex items-center justify-center">
         <img
           className="w-[27%] h-[100%] object-cover flex items-center justify-center"
@@ -27,7 +27,7 @@ export default async function profile() {
         />
       </div>
 
-      <div className=" mx-0 w-auto md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl h-full my-6">
+      <div className="overflow-scroll overflow-x-hidden w-xl md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl h-full my-6">
         <div className="flex flex-row justify-center">
           <div className="mt-8 ml-20 basis-1/5 left-[10px] object-center" >
             <img
@@ -49,7 +49,7 @@ export default async function profile() {
           </div>
         </div>
         <div
-          className="top-[290px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-[1800px] h-[30px]">
+          className="top-[290px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
           ACADEMIC QUALIFICATIONS
         </div>
         <div className="flex flex-col">
@@ -65,17 +65,17 @@ export default async function profile() {
               <div>School: {user.docSchool}</div>
             </div>
           </div>
-          <div className="flex w-[1800px]">
-            <div className="top-[420px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-[2400px] h-[30px]">
+          <div className="flex w-full">
+            <div className="top-[420px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
               SEMINARS AND TRAININGS ATTENDED
               <div>
                 {user.seminars_trainings}
               </div>
             </div>
-            <div className="ml-16 top-[420px] font-semibold text-[20px] bg-transparent [backdrop-filter:blur(4px)] text-white text-center w-[50px] h-[30px]">
-              abc
+            <div className="top-[420px] font-semibold text-[20px] bg-transparent [backdrop-filter:blur(4px)] text-white text-center w-[20px] h-[30px]">
+
             </div>
-            <div className="ml-16 top-[420px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-[2400px] h-[30px]">
+            <div className="ml-16 top-[420px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
               JOB EXPERIENCE
               <div>
                 {user.experience}
@@ -85,7 +85,7 @@ export default async function profile() {
 
         </div>
         <div>
-          <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-[1800px] h-[30px]">
+          <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
             SUBJECTS HANDLED (DESCRIPTIVE TITLE)
           </h1>
         </div>
@@ -93,7 +93,7 @@ export default async function profile() {
           {user.subject_handled}
         </div>
         <div>
-          <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-[1800px] h-[30px]">
+          <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
             PAST DESIGNATIONS
           </h1>
         </div>
@@ -101,17 +101,17 @@ export default async function profile() {
           {user.past_designation}
         </div>
         <div>
-          <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-[1800px] h-[30px]">
+          <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
             PRESENTED PAPERS
           </h1>
 
           <div>
-            <table className="w-[1800px] border-none border-collapse">
+            <table className="w-full border-none border-collapse">
               <thead>
                 <tr>
-                  <th className="border border-black bg-[#D7D4D4] [backdrop-filter:blur(4px)] font-semibold text-[20px] text-white text-center w-[600px] h-[30px]">COMPLETED</th>
-                  <th className="border border-black bg-[#D7D4D4] [backdrop-filter:blur(4px)] font-semibold text-[20px] text-white text-center w-[600px] h-[30px]">PUBLISHED</th>
-                  <th className="border border-black bg-[#D7D4D4] [backdrop-filter:blur(4px)] font-semibold text-[20px] text-white text-center w-[600px] h-[30px]">PRESENTED</th>
+                  <th className="border border-black bg-[#D7D4D4] [backdrop-filter:blur(4px)] font-semibold text-[20px] text-white text-center w-1/3 h-[30px]">COMPLETED</th>
+                  <th className="border border-black bg-[#D7D4D4] [backdrop-filter:blur(4px)] font-semibold text-[20px] text-white text-center w-1/3 h-[30px]">PUBLISHED</th>
+                  <th className="border border-black bg-[#D7D4D4] [backdrop-filter:blur(4px)] font-semibold text-[20px] text-white text-center w-1/3 h-[30px]">PRESENTED</th>
                 </tr>
               </thead>
               <tbody>
@@ -140,7 +140,7 @@ export default async function profile() {
           </div>
         </div>
         <div>
-          <h1 className="mt-5 mb-36 top-[285px] bottom-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-[1800px] h-[30px]">
+          <h1 className="mt-5 mb-36 top-[285px] bottom-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
             EXTENSIONS PROJECTS
           </h1>
           <div>
@@ -148,23 +148,23 @@ export default async function profile() {
           </div>
         </div>
         <div>
-          <div className="mt-0 top-[285px] bottom-[285px] font-semibold text-[20px] bg-[#FFFFFF] [backdrop-filter:blur(4px)] text-white text-center w-[1800px] h-[30px]">
+          <div className="mt-0 top-[285px] bottom-[285px] font-semibold text-[20px] bg-[#FFFFFF] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
             <div className="w-screen h-auto bg-cover flex">
               <div className="h-32">
               </div>
 
               <div className="flex justify-center">
-                <button type="submit" className="bg-[#5B0505] text-[25px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] ml-[500px]">
-                  <EditProfileFaculty_Dialog/>
+                <button type="submit" className="bg-[#5B0505] text-[25px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] ml-72 mt-10">
+                  BACK
                 </button>
               </div>
               <div className="flex justify-center">
-                <button type="submit" className="bg-[#5B0505] text-3xl font-bold text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] ml-20 mt-0">
+                <button type="submit" className="bg-[#5B0505] text-[25px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] ml-20 mt-10">
                   DOWNLOAD
                 </button>
               </div>
               <div className="flex justify-center">
-                <button type="submit" className="bg-[#5B0505] text-3xl font-bold text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] ml-20 mt-0">
+                <button type="submit" className="bg-[#5B0505] text-[25px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] ml-20 mt-10">
                   PRINT
                 </button>
               </div>

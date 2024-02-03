@@ -13,7 +13,7 @@ async function getSearchData(query) {
 
   if (query) {
     const res = await fetch(`http://localhost:3000/api/search-query?query=${encodeURIComponent(query)}`)
-    revalidatePath('/dashboard/archiving')
+    revalidatePath('/secretary/dashboard/archiving')
     return res.json()
   } else {
     console.log("Empty Search Params")
@@ -160,11 +160,6 @@ export default async function archiving({ searchParams }) {
         </div>
       </div>
       <div className="w-full px-10">
-        {/*    {searchParams ? (
-                <FileTable data={searchedDataWithFormattedDate} />
-              ) : (
-                <FileTable data={dataWithFormattedDate} />
-              )} */}
         <FileTable data={searchedDataWithFormattedDate} />
       </div>
     </div>
