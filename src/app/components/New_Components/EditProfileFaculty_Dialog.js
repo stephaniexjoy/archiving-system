@@ -8,6 +8,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { db } from "@/app/lib/prisma_db"
+import { backendClient } from "@/app/lib/edgestore-server"
+
 
 async function EditProfileFaculty_Dialog({ sessionId }) {
 
@@ -37,43 +39,61 @@ async function EditProfileFaculty_Dialog({ sessionId }) {
 
         console.log(profilePic)
 
-        /*    const [updUser, updUser_Educ] = await db.$transaction([
-               db.user.update({
-                   where: { id: sessionId },
-                   data: {
-                       name: nameUpd,
-                       position: roleUpd,
-                       designation: designationUpd,
-                       specialization: specUpd,
-                       license: licenseUpd,
-                       certifications: certUpd,
-                       education: {
-                           update: {
-                               school: schoolUpd,
-                               bacDegree: bacDegUpd,
-                               bacSchool: bacSchlUpd,
-                               masDegree: masDegUpd,
-                               masSchool: masSchlUpd,
-                               docDegree: docDegUpd,
-                               docSchool: docSchlUpd,
-                               seminars_trainings: seminarsUpd,
-                               experience: expUpd,
-                               past_designation: pastDesigUpd,
-                               subjects_handled: subjectsUpd,
-                               presented_papers: presPaperUpd,
-                               extension_projs: extProjUpd,
-                           },
-                       },
-                   },
-                   include: {
-                       education: true
-                   }
-               }),
-           ])
-   
-           if (updUser) {
-               console.log(updUser)
-           } */
+        let profilePhotoPath = null
+
+        if (profilePic) {
+            const fileExtension = profilePic.name.split('.').pop();
+            const res = await backendClient.publicImages.upload({
+                content: {
+                    blob: new Blob([profilePic], { type: profilePic.type }),
+                    extension: fileExtension
+                },
+            })
+            profilePhotoPath = res.url;
+
+        }
+
+
+        console.log(profilePhotoPath)
+
+        const [updUser, updUser_Educ] = await db.$transaction([
+            db.user.update({
+                where: { id: sessionId },
+                data: {
+                    name: nameUpd,
+                    position: roleUpd,
+                    designation: designationUpd,
+                    specialization: specUpd,
+                    license: licenseUpd,
+                    certifications: certUpd,
+                    profile_photo_path: profilePhotoPath,
+                    education: {
+                        update: {
+                            school: schoolUpd,
+                            bacDegree: bacDegUpd,
+                            bacSchool: bacSchlUpd,
+                            masDegree: masDegUpd,
+                            masSchool: masSchlUpd,
+                            docDegree: docDegUpd,
+                            docSchool: docSchlUpd,
+                            seminars_trainings: seminarsUpd,
+                            experience: expUpd,
+                            past_designation: pastDesigUpd,
+                            subjects_handled: subjectsUpd,
+                            presented_papers: presPaperUpd,
+                            extension_projs: extProjUpd,
+                        },
+                    },
+                },
+                include: {
+                    education: true
+                }
+            }),
+        ])
+
+        if (updUser) {
+            console.log(updUser)
+        }
     }
 
 
