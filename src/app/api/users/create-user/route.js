@@ -37,6 +37,9 @@ export async function POST(req) {
                 age,
                 sex,
                 employee_no,
+                education: {
+                    create: {}
+                }
             }
         })
 
