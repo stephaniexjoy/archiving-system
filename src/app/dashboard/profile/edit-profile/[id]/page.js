@@ -35,7 +35,9 @@ export default async function page() {
         const presPaperUpd = formData.get("papersUpd")
         const extProjUpd = formData.get("extUpd")
 
-        const [updUser, updUser_Educ] = await db.$transaction([
+        console.log(nameUpd)
+
+       /*  const [updUser, updUser_Educ] = await db.$transaction([
             db.user.update({
                 where: { id: session.user.id },
                 data: {
@@ -79,7 +81,7 @@ export default async function page() {
                     extension_projs: extProjUpd,
                 }
             })
-        ])
+        ]) */
 
     }
 
