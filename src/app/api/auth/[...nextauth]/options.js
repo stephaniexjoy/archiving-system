@@ -77,11 +77,11 @@ export const AuthOptions = {
                 token.designation = user.designation
                 token.specialization = user.specialization
                 token.license = user.license
-
+                token.picture = user.profile_photo_path
 
             }
 
-            //console.log('new token: ', token)
+           // console.log('new token: ', token)
             return token
 
         },
@@ -93,6 +93,7 @@ export const AuthOptions = {
             session.user.designation = token.designation
             session.user.specialization = token.specialization
             session.user.license = token.license
+            session.user.picture - token.picture
             //console.log("Session Data: ",session)
 
             return session
