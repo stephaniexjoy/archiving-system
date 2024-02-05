@@ -156,7 +156,7 @@ export default async function profile() {
 
               <div className="flex justify-center">
                 <button type="button" className="bg-[#5B0505] text-[25px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] ml-[500px]">
-                  <EditProfileFaculty_Dialog sessionId={session.user.id}/>
+                  <EditProfileFaculty_Dialog sessionUser={session.user}/>
                 </button>
               </div>
               <div className="flex justify-center">
