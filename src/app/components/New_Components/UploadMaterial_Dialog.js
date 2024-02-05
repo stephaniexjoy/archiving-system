@@ -29,11 +29,12 @@ export default async function UploadMaterial_Dialog({ sessionUser }) {
         const dateString = new Date()
         const dateObject = new Date(dateString)
 
-        const fileExtension = fileInput.name.split('.').pop();
 
         console.log(material, fileType, program, privacy, fileInput)
 
         let fileInputPath = null
+
+        const fileExtension = fileInput.name.split('.').pop();
 
         const res = await backendClient.publicFiles1.upload({
             content: {
@@ -42,6 +43,7 @@ export default async function UploadMaterial_Dialog({ sessionUser }) {
             },
         })
         fileInputPath = res.url;
+
 
         const [uploadFile, saveUserActivity] = await db.$transaction([
             db.file.create({

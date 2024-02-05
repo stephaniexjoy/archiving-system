@@ -11,10 +11,13 @@ import { db } from "@/app/lib/prisma_db"
 import { backendClient } from "@/app/lib/edgestore-server"
 
 
-async function EditProfileFaculty_Dialog({ sessionId }) {
+async function EditProfileFaculty_Dialog({ sessionUser }) {
 
     const updateUser = async (formData) => {
         "use server"
+
+        const dateString = new Date()
+        const dateObject = new Date(dateString)
 
         const profilePic = formData.get("profilepic")
         const nameUpd = formData.get("updName")
@@ -58,7 +61,7 @@ async function EditProfileFaculty_Dialog({ sessionId }) {
 
         const [updUser, updUser_Educ] = await db.$transaction([
             db.user.update({
-                where: { id: sessionId },
+                where: { id: sessionUser.id },
                 data: {
                     name: nameUpd,
                     position: roleUpd,
@@ -89,6 +92,19 @@ async function EditProfileFaculty_Dialog({ sessionId }) {
                     education: true
                 }
             }),
+            db.activity.create({
+                data: {
+                    name: sessionUser.name,
+                    position: sessionUser.position,
+                    type: "EDITED PROFILE",
+                    createdAt: dateObject,
+                    user: {
+                        connect: {
+                            id: sessionUser.id
+                        }
+                    }
+                }
+            })
         ])
 
         if (updUser) {
