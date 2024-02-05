@@ -51,6 +51,7 @@ export const AuthOptions = {
                         return user
                     } else {
                         // If you return null then an error will be displayed advising the user to check their details.
+                        
                         return null
 
                         // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
@@ -63,6 +64,7 @@ export const AuthOptions = {
     ],
     pages: {
         signIn: "/",
+        error: "/",
         signOut: "/",
 
     },
@@ -71,17 +73,17 @@ export const AuthOptions = {
         async jwt({ token, user }) {
 
             if (user) {
-                console.log("token: ", user, token)
+
                 token.id = user.id
                 token.position = user.position
                 token.designation = user.designation
                 token.specialization = user.specialization
                 token.license = user.license
                 token.picture = user.profile_photo_path
-
+                console.log("token: ", user, token)
             }
 
-           // console.log('new token: ', token)
+            // console.log('new token: ', token)
             return token
 
         },
