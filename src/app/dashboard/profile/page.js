@@ -56,7 +56,7 @@ export default async function profile() {
         <div className="flex flex-col">
           <div className="flex flex-row gap-x-16 justify-center">
             <div className="ml-24 my-5 basis-1/2 top-[325px] font-semibold text-[25px] text-black text-left w-[900px] h-[30px]">
-              <div className="">Baccalaureate Degree: {user.bacDegree}</div>
+              <div className="">Baccalaureate Degree: {user.education.bacDegree}</div>
               <div>Master's Degree:{user.masDegree}</div>
               <div>Doctorate Degree:{user.doccDegree}</div>
             </div>

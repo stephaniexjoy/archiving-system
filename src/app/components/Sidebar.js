@@ -32,11 +32,33 @@ const Sidebar = () => {
   const [isMinimized, setIsMinimized] = useState(false);
   const { data: session, status } = useSession();
 
+  console.log("Session User: ", session)
+
   const handleToggleMinimize = () => {
     setIsMinimized(!isMinimized);
   };
 
+  const userImage = session?.user.image ? (
+    <Image className='h-20 w-20 rounded-full mx-auto mb-3'
+      src={session.user.image}
+      width={200}
+      height={200}
+      alt={'none'}
+      priority={true}
+    />
+  ) : <Image className='h-20 w-20 rounded-full mx-auto mb-3'
+    src="/photos/ccsLogo.png"
+    width={200}
+    height={200}
+    alt={'none'}
+    priority={true}
+  />
+
   if (status === "authenticated") {
+
+
+
+
     return (
       <aside className={`flex place-content-center bg-[#5B0505] text-white ${isMinimized ? "w-[10vh]" : "w-[24vh]"} h-full transition-all`}>
         <nav>
@@ -45,7 +67,7 @@ const Sidebar = () => {
               <IoMdMenu className="text-white text-2xl ml-5" />
             </div>
             <div className={`h-10 text-center mt-4 py-2 text-base ${isMinimized ? "hidden" : ""}`}>
-              <Image className="h-20 w-20 rounded-full mx-auto mb-3" src="/photos/ccsLogo.png" width={200} height={200} alt="User" />
+              {userImage}
               <p>{session.user.name}</p>
             </div>
           </div>
@@ -63,7 +85,7 @@ const Sidebar = () => {
             {session.user.position === "Superadmin" && (
               <>
                 <MenuItem path="/superadmin/dashboard" icon={<FaHome className="text-white text-2xl ml-5" />} label="HOME" isMinimized={isMinimized} />
-                <MenuItem path="/superadmin/dashboard/manageuser" icon={<IoMdPerson className="text-white text-2xl ml-5" />} label="MANAGE USERS" isMinimized={isMinimized}/>
+                <MenuItem path="/superadmin/dashboard/manageuser" icon={<IoMdPerson className="text-white text-2xl ml-5" />} label="MANAGE USERS" isMinimized={isMinimized} />
                 {/* Add more menu items as needed */}
               </>
             )}
@@ -71,8 +93,8 @@ const Sidebar = () => {
           <ul className="mt-24">
             {session.user.position === "Secretary" && (
               <>
-                <MenuItem path="/secretary/dashboard" icon={<FaHome className="text-white text-2xl ml-5" />} label="HOME" isMinimized={isMinimized}/>
-                <MenuItem path="/secretary/dashboard/profile" icon={<IoMdPerson className="text-white text-2xl ml-5" />} label="PROFILE" isMinimized={isMinimized}/>
+                <MenuItem path="/secretary/dashboard" icon={<FaHome className="text-white text-2xl ml-5" />} label="HOME" isMinimized={isMinimized} />
+                <MenuItem path="/secretary/dashboard/profile" icon={<IoMdPerson className="text-white text-2xl ml-5" />} label="PROFILE" isMinimized={isMinimized} />
                 <MenuItem path="/secretary/dashboard/archiving" icon={<FaBook className="text-white text-2xl ml-5" />} label="ARCHIVING" isMinimized={isMinimized} />
                 <MenuItem path="/secretary/dashboard/viewfaculty/" icon={<FaBook className="text-white text-2xl ml-5" />} label="VIEW FACULTY" isMinimized={isMinimized} />
                 {/* Add more menu items as needed */}
