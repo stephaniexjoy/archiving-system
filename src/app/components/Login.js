@@ -5,6 +5,7 @@ import { FaLock, FaUserAlt } from "react-icons/fa";
 import { IoMdEyeOff } from "react-icons/io";
 import ForgotPassword_Dialog from './New_Components/ForgotPassword_Dialog';
 import { useToast } from "@/components/ui/use-toast"
+import { useRouter } from 'next/navigation';
 
 const Login = () => {
     const { toast } = useToast();  // Get the toast function
@@ -23,6 +24,7 @@ const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const router = useRouter()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -32,22 +34,26 @@ const Login = () => {
             const result = await signIn('credentials', {
                 email: email,
                 password: password,
-                callbackUrl: '/dashboard'
+                callbackUrl: '/dashboard',
+                redirect: false
             });
 
             console.log("Sign in result:", result);
 
-            if (result?.error) {
+            if (result?.status === 401) {
                 toast({
                     description: "Invalid username or password.",
                     type: "error",
                     variant: "destructive",
                 })
             } else {
+                router.push("/dashboard")
                 toast({
+
                     description: "Login Successful.",
                     type: "success",
-                    variant: "",
+                    variant: "default",
+
                 })
             }
         } catch (error) {
