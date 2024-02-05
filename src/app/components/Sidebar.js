@@ -38,7 +38,26 @@ const Sidebar = () => {
     setIsMinimized(!isMinimized);
   };
 
+  const userImage = session?.user.image ? (
+    <Image className='h-20 w-20 rounded-full mx-auto mb-3'
+      src={session.user.image}
+      width={200}
+      height={200}
+      alt={'none'}
+      priority={true}
+    />
+  ) : <Image className='h-20 w-20 rounded-full mx-auto mb-3'
+    src="/photos/ccsLogo.png"
+    width={200}
+    height={200}
+    alt={'none'}
+    priority={true}
+  />
+
   if (status === "authenticated") {
+
+
+
 
     return (
       <aside className={`flex place-content-center bg-[#5B0505] text-white ${isMinimized ? "w-[10vh]" : "w-[24vh]"} h-full transition-all`}>
@@ -48,7 +67,7 @@ const Sidebar = () => {
               <IoMdMenu className="text-white text-2xl ml-5" />
             </div>
             <div className={`h-10 text-center mt-4 py-2 text-base ${isMinimized ? "hidden" : ""}`}>
-              <Image className="h-20 w-20 rounded-full mx-auto mb-3" src={session.user.image} width={200} height={200} alt="User" />
+              {userImage}
               <p>{session.user.name}</p>
             </div>
           </div>
