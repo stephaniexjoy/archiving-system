@@ -1,21 +1,20 @@
-"use client"
+"use client";
 import { signIn } from 'next-auth/react';
-import React, { useState } from 'react'
-import { useCallback } from "react";
-import { FaLock } from "react-icons/fa";
-import { FaUserAlt } from "react-icons/fa";
+import React, { useState } from 'react';
+import { FaLock, FaUserAlt } from "react-icons/fa";
 import { IoMdEyeOff } from "react-icons/io";
-import ForgotPassword from './Modal/ForgotPassword';
 import ForgotPassword_Dialog from './New_Components/ForgotPassword_Dialog';
+import { useToast } from "@/components/ui/use-toast"
 
 const Login = () => {
+    const { toast } = useToast();  // Get the toast function
 
     /* const loginUser = async (formData) => {
         "use server";
         console.log('hi')
         const email = formData.get("email")
         const password = formData.get("password")
-      
+    
         const responseData = await fetch('http://localhost:3000/api/users/sign-in-user',
         {
             method: 'POST'
@@ -26,16 +25,35 @@ const Login = () => {
     const [password, setPassword] = useState("");
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        console.log(email,password)
-        const result = await signIn('credentials', {
-            email: email,
-            password: password,
+        e.preventDefault();
+        console.log("Login form submitted with email:", email);
 
+        try {
+            const result = await signIn('credentials', {
+                email: email,
+                password: password,
+                callbackUrl: '/dashboard'
+            });
 
-            callbackUrl: '/dashboard'
-        })
-    }
+            console.log("Sign in result:", result);
+
+            if (result?.error) {
+                toast({
+                    description: "Invalid username or password.",
+                    type: "error",
+                    variant: "destructive",
+                })
+            } else {
+                toast({
+                    description: "Login Successful.",
+                    type: "success",
+                    variant: "",
+                })
+            }
+        } catch (error) {
+            console.error("Login error:", error);
+        }
+    };
 
     return (
         <div className='bg-[#5B0505] flex'>
@@ -55,8 +73,8 @@ const Login = () => {
                         <div className='flex'>
                             <h1 ><FaUserAlt className="mt-3 ml-5" size='50' color='#000000' opacity='26%' /></h1>
                             <input type="text" name='email' placeholder="USERNAME" className="mt-5 ml-8 text-3xl border-none
-                        text-black inline-block w-[83%] h-[37px] text-shadow-inner"
-                        onChange={(e) => { setEmail(e.target.value) }} />
+                            text-black inline-block w-[83%] h-[37px] text-shadow-inner"
+                                onChange={(e) => { setEmail(e.target.value) }} />
                         </div>
                     </div>
 
@@ -64,7 +82,7 @@ const Login = () => {
                         <div className='mt-4 flex'>
                             <h1 ><FaLock className="ml-5" size='50' color='#000000' opacity='26%' style={{ top: '675px', left: '870px' }} /></h1>
                             <input type="password" name='password' placeholder="PASSWORD" className="mt-2 ml-8 text-3xl border-none text-black inline-block w-[83%] h-[37px] text-shadow-inner"
-                        onChange={(e) => { setPassword(e.target.value) }} />
+                                onChange={(e) => { setPassword(e.target.value) }} />
                         </div>
                     </div>
 
