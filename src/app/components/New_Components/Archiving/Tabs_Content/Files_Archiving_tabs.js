@@ -19,6 +19,10 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { CalendarIcon } from "@radix-ui/react-icons";
+import { addDays, format } from "date-fns";
+import { DateRange } from "react-day-picker";
+import { Calendar } from "@/components/ui/calendar";
 
 const materialFrameworks = [
   {
@@ -95,6 +99,7 @@ const filetypeFrameworks = [
 export default function Files_Archiving_tabs({
   children,
   dataWithFormattedDate,
+  className,
 }) {
   const [openMaterial, setOpenMaterial] = useState(false);
   const [valueMaterial, setValueMaterial] = useState("");
@@ -104,6 +109,11 @@ export default function Files_Archiving_tabs({
   const [valueInstructor, setValueInstructor] = useState("");
   const [openFiletype, setOpenFiletype] = useState(false);
   const [valueFiletype, setValueFiletype] = useState("");
+
+  const [date, setDate] = React.useState({
+    from: new Date(2022, 0, 20),
+    to: addDays(new Date(2022, 0, 20), 20),
+  });
 
   return (
     <>
@@ -115,20 +125,21 @@ export default function Files_Archiving_tabs({
         <UploadModal />
       </div>
 
-      <div className="flex flex-row gap-x-64 ont-semibold text-[#5B0505] ml-36 px-10">
-        <div className="inline-block text-[20px] md:text-[23px]">
-          <AddCategory_Dialog />
+      <div className="flex flex-row ml-28 gap-x-36">
+        <AddCategory_Dialog />
+        <AddCategory_Dialog />
+      </div>
+
+      <div className="flex flex-row font-semibold text-[#5B0505] px-10">
+        <div className="ml-36 inline-block text-[20px] md:text-[23px]">
           MATERIAL
         </div>
-        <div className="inline-block text-[20px] md:text-[23px]">
-          <AddCategory_Dialog />
-          PROGRAM
-        </div>
-        <div className="inline-block text-[20px] md:text-[23px]">
+        <div className="ml-56 inline-block text-[20px] md:text-[23px]">PROGRAM</div>
+        <div className="ml-52 inline-block text-[20px] md:text-[23px]">
           INSTRUCTOR
         </div>
-        <div className="inline-block text-[20px] md:text-[23px]">FILE TYPE</div>
-        <div className="inline-block text-[20px] md:text-[23px]">SORT BY</div>
+        <div className="ml-52 inline-block text-[20px] md:text-[23px]">FILE TYPE</div>
+        <div className="ml-60 inline-block text-[20px] md:text-[23px]">SORT BY</div>
       </div>
 
       <div className="flex flex-row gap-x-24 ml-16 px-10">
@@ -341,13 +352,43 @@ export default function Files_Archiving_tabs({
           </Popover>
         </div>
 
-        <div className="ml-8 top-[210px] left-[970px] text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
-          <input
-            type="date"
-            className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606] h-[40px] shadow-lg rounded-sm px-2 py-1 "
-            name="type"
-            id="type "
-          />
+        <div className={cn("grid gap-2", className)}>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                id="date"
+                variant={"outline"}
+                className={cn(
+                  "text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer",
+                  !date && "text-muted-foreground"
+                )}
+              >
+                <CalendarIcon className="mr-2 h-4 w-4" />
+                {date?.from ? (
+                  date.to ? (
+                    <>
+                      {format(date.from, "LLL dd, y")} -{" "}
+                      {format(date.to, "LLL dd, y")}
+                    </>
+                  ) : (
+                    format(date.from, "LLL dd, y")
+                  )
+                ) : (
+                  <span>Pick a date</span>
+                )}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="text-[23px] w-auto p-0" align="start">
+              <Calendar
+                initialFocus
+                mode="range"
+                defaultMonth={date?.from}
+                selected={date}
+                onSelect={setDate}
+                numberOfMonths={2}
+              />
+            </PopoverContent>
+          </Popover>
         </div>
       </div>
       <div className="w-full px-10">
