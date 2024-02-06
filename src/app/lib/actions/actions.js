@@ -104,3 +104,62 @@ export async function updateUser(formData, sessionUser) {
     }
 
 }
+
+export async function uploadFile(formData, sessionUser) {
+    const material = formData.get("matFile")
+    const fileType = formData.get("typeFile")
+    const program = formData.get("programFile")
+    const privacy = formData.get("privacyFile")
+    const fileInput = formData.get("inputFile")
+
+    const dateString = new Date()
+    const dateObject = new Date(dateString)
+
+
+    console.log(material, fileType, program, privacy, fileInput)
+
+    let fileInputPath = null
+
+    const fileExtension = fileInput.name.split('.').pop();
+
+    const res = await backendClient.publicFiles1.upload({
+        content: {
+            blob: new Blob([fileInput], { type: fileInput.type }),
+            extension: fileExtension
+        },
+    })
+    fileInputPath = res.url;
+
+
+    const [uploadFile, saveUserActivity] = await db.$transaction([
+        db.file.create({
+            data: {
+                filename: fileInput.name,
+                fileType: fileInput.type,
+                filePath: fileInputPath,
+
+                uploaderName: sessionUser.name,
+                fileRole: privacy,
+                uploadDate: dateObject,
+                User: {
+                    connect: {
+                        id: sessionUser.id
+                    }
+                }
+            }
+        }),
+        db.activity.create({
+            data: {
+                name: sessionUser.name,
+                position: sessionUser.position,
+                type: "UPLOADED A FILE",
+                createdAt: dateObject,
+                user: {
+                    connect: {
+                        id: sessionUser.id
+                    }
+                }
+            }
+        })
+    ])
+}
