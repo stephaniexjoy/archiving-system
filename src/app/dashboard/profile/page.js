@@ -41,12 +41,12 @@ export default async function profile() {
             <div className="mt-6">Name: {user.name}</div>
             <div >Position: {user.position}</div>
             <div >Eligibility/Professional License: {user.license}</div>
-            <div >School: {user.school}</div>
+            <div >School: {user.education.school}</div>
           </div>
           <div className="mt-10 ml-36 basis-2/5 font-semibold text-[25px] left-[1150px] text-black text-left w-[900px] h-[30px]">
-            <div className=" mt-5 top-[350px]">Designation: {user.designation}</div>
-            <div >Specialization: {user.specialization}</div>
-            <div >Certifications: {user.certifications}</div>
+            <div className=" mt-5 top-[350px]">Designation: {user.education.designation}</div>
+            <div >Specialization: {user.education.specialization}</div>
+            <div >Certifications: {user.education.certifications}</div>
           </div>
         </div>
         <div
@@ -57,52 +57,52 @@ export default async function profile() {
           <div className="flex flex-row gap-x-16 justify-center">
             <div className="ml-24 my-5 basis-1/2 top-[325px] font-semibold text-[25px] text-black text-left w-[900px] h-[30px]">
               <div className="">Baccalaureate Degree: {user.education.bacDegree}</div>
-              <div>Master's Degree:{user.masDegree}</div>
-              <div>Doctorate Degree:{user.doccDegree}</div>
+              <div>Master's Degree:{user.education.masDegree}</div>
+              <div>Doctorate Degree:{user.education.doccDegree}</div>
             </div>
             <div className=" my-5 basis-1/2 top-[325px] font-semibold text-[25px] text-black text-left w-[900px] h-[30px">
-              <div>School: {user.bacSchool}</div>
-              <div>School: {user.masSchool}</div>
-              <div>School: {user.docSchool}</div>
+              <div>School: {user.education.bacSchool}</div>
+              <div>School: {user.education.masSchool}</div>
+              <div>School: {user.education.docSchool}</div>
             </div>
           </div>
           <div className="flex w-full">
-            <div className="top-[420px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
+            <div className="top-[420px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center w-full h-[30px]">
               SEMINARS AND TRAININGS ATTENDED
               <div>
-                {user.seminars_trainings}
+                {user.education.seminars_trainings}
               </div>
             </div>
-            <div className="top-[420px] font-semibold text-[20px] bg-transparent [backdrop-filter:blur(4px)] text-white text-center w-[20px] h-[30px]">
+            <div className="top-[420px] font-semibold text-[20px] bg-transparent [backdrop-filter:blur(4px)] text-black text-center w-[20px] h-[30px]">
 
             </div>
-            <div className="ml-16 top-[420px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
+            <div className="ml-16 top-[420px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center w-full h-[30px]">
               JOB EXPERIENCE
               <div>
-                {user.experience}
+                {user.education.experience}
               </div>
             </div>
           </div>
 
         </div>
         <div>
-          <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
+          <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center w-full h-[30px]">
             SUBJECTS HANDLED (DESCRIPTIVE TITLE)
           </h1>
         </div>
         <div>
-          {user.subject_handled}
+          {user.education.subjects_handled}
         </div>
         <div>
-          <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
+          <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center w-full h-[30px]">
             PAST DESIGNATIONS
           </h1>
         </div>
         <div>
-          {user.past_designation}
+          {user.education.past_designation}
         </div>
         <div>
-          <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
+          <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center w-full h-[30px]">
             PRESENTED PAPERS
           </h1>
 
@@ -110,53 +110,53 @@ export default async function profile() {
             <table className="w-full border-none border-collapse">
               <thead>
                 <tr>
-                  <th className="border border-black bg-[#D7D4D4] [backdrop-filter:blur(4px)] font-semibold text-[20px] text-white text-center w-1/3 h-[30px]">COMPLETED</th>
-                  <th className="border border-black bg-[#D7D4D4] [backdrop-filter:blur(4px)] font-semibold text-[20px] text-white text-center w-1/3 h-[30px]">PUBLISHED</th>
-                  <th className="border border-black bg-[#D7D4D4] [backdrop-filter:blur(4px)] font-semibold text-[20px] text-white text-center w-1/3 h-[30px]">PRESENTED</th>
+                  <th className="border border-black bg-[#D7D4D4] [backdrop-filter:blur(4px)] font-semibold text-[20px] text-black text-center w-1/3 h-[30px]">COMPLETED</th>
+                  <th className="border border-black bg-[#D7D4D4] [backdrop-filter:blur(4px)] font-semibold text-[20px] text-black text-center w-1/3 h-[30px]">PUBLISHED</th>
+                  <th className="border border-black bg-[#D7D4D4] [backdrop-filter:blur(4px)] font-semibold text-[20px] text-black text-center w-1/3 h-[30px]">PRESENTED</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center h-[50px]"></td>
+                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center h-[50px]"></td>
+                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center h-[50px]"></td>
+                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center h-[50px]"></td>
                 </tr>
                 <tr>
-                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center h-[50px]"></td>
+                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center h-[50px]"></td>
+                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center h-[50px]"></td>
+                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center h-[50px]"></td>
                 </tr>
                 <tr>
-                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center h-[50px]"></td>
+                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center h-[50px]"></td>
+                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center h-[50px]"></td>
+                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center h-[50px]"></td>
                 </tr>
                 <tr>
-                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center h-[50px]"></td>
+                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center h-[50px]"></td>
+                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center h-[50px]"></td>
+                  <td className="border border-black bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center h-[50px]"></td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
         <div>
-          <h1 className="mt-5 mb-36 top-[285px] bottom-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
+          <h1 className="mt-5 mb-36 top-[285px] bottom-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-black text-center w-full h-[30px]">
             EXTENSIONS PROJECTS
           </h1>
           <div>
-            {user.extension_projs}
+            {user.education.extension_projs}
           </div>
         </div>
         <div>
-          <div className="mt-0 top-[285px] bottom-[285px] font-semibold text-[20px] bg-[#FFFFFF] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
+          <div className="mt-0 top-[285px] bottom-[285px] font-semibold text-[20px] bg-[#FFFFFF] [backdrop-filter:blur(4px)] text-black text-center w-full h-[30px]">
             <div className="w-screen h-auto bg-cover flex">
               <div className="h-32">
               </div>
 
               <div className="flex justify-center">
                 <button type="button" className="bg-[#5B0505] text-[25px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] ml-[500px]">
-                  <EditProfileFaculty_Dialog sessionUser={session.user}/>
+                  <EditProfileFaculty_Dialog sessionUser={session.user} />
                 </button>
               </div>
               <div className="flex justify-center">
