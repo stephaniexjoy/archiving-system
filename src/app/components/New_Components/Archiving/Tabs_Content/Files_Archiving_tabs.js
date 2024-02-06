@@ -110,7 +110,7 @@ export default function Files_Archiving_tabs({
   const [openFiletype, setOpenFiletype] = useState(false);
   const [valueFiletype, setValueFiletype] = useState("");
 
-  const [date, setDate] = React.useState({
+  const [date, setDate] = useState({
     from: new Date(2022, 0, 20),
     to: addDays(new Date(2022, 0, 20), 20),
   });
