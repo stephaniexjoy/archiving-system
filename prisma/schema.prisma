@@ -25,7 +25,7 @@ model Filetype {
   labels String
 }
 
-model Programs {
+model Courses {
   id     Int    @id @default(autoincrement())
   values String @unique
   labels String
