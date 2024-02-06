@@ -16,7 +16,7 @@ export default function AssignedTask_Archiving_tabs({ position }) {
           Assigned Tasks
 
         </h1>
-        {!position === "Faculty" && (
+        {position === "Secretary" && (
           <div className='flex items-center justify-center'>
             <button className='bg-[#AD5606] text-white text-center items-center w-[15%] h-12 border border-black text-xl rounded-lg'>
               <AddTask_Dialog />

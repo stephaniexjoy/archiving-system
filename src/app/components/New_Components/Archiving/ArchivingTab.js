@@ -22,7 +22,7 @@ function ArchivingTab({ children, datas }) {
         <TabsTrigger value="files">All Files</TabsTrigger>
         <TabsTrigger value="assignedtask">Assigned Task</TabsTrigger>
         <TabsTrigger value="missingtask">Missing Task</TabsTrigger>
-        {!session.user.position === "Faculty" && (
+        {session.user.position === "Secretary" && (
           <TabsTrigger value="archivedtask">Archived Task</TabsTrigger>
         )}
 
@@ -30,7 +30,7 @@ function ArchivingTab({ children, datas }) {
       <TabsContent value="files"> <Files_Archiving_tabs dataWithFormattedDate={datas} /> </TabsContent>
       <TabsContent value="assignedtask"> <AssignedTask_Archiving_tabs position={session.user.position} /> </TabsContent>
       <TabsContent value="missingtask"> <MissingTask_Archiving_tabs /> </TabsContent>
-      {!session.user.position === "Faculty" && (
+      {session.user.position === "Secretary" && (
         <TabsContent value="archivedtask"><ArchivedTask_Archiving_tabs /></TabsContent>
       )}
 
