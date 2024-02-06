@@ -16,26 +16,31 @@ function ArchivingTab({ children, datas }) {
   const { data: session, status } = useSession()
   console.log(session)
 
-  return (
-    <Tabs defaultValue="files" className="w-full">
-      <TabsList>
-        <TabsTrigger value="files">All Files</TabsTrigger>
-        <TabsTrigger value="assignedtask">Assigned Task</TabsTrigger>
-        <TabsTrigger value="missingtask">Missing Task</TabsTrigger>
-        {session.user.position === "Secretary" && (
-          <TabsTrigger value="archivedtask">Archived Task</TabsTrigger>
+  if (status === "loading") return <>Loading...</>
+
+  if (status === "authenticated") {
+
+    return (
+      <Tabs defaultValue="files" className="w-full">
+        <TabsList>
+          <TabsTrigger value="files">All Files</TabsTrigger>
+          <TabsTrigger value="assignedtask">Assigned Task</TabsTrigger>
+          <TabsTrigger value="missingtask">Missing Task</TabsTrigger>
+          {session?.user?.position === "Secretary" && (
+            <TabsTrigger value="archivedtask">Archived Task</TabsTrigger>
+          )}
+
+        </TabsList>
+        <TabsContent value="files"> <Files_Archiving_tabs dataWithFormattedDate={datas} /> </TabsContent>
+        <TabsContent value="assignedtask"> <AssignedTask_Archiving_tabs position={session.user.position} /> </TabsContent>
+        <TabsContent value="missingtask"> <MissingTask_Archiving_tabs /> </TabsContent>
+        {session?.user?.position === "Secretary" && (
+          <TabsContent value="archivedtask"><ArchivedTask_Archiving_tabs /></TabsContent>
         )}
 
-      </TabsList>
-      <TabsContent value="files"> <Files_Archiving_tabs dataWithFormattedDate={datas} /> </TabsContent>
-      <TabsContent value="assignedtask"> <AssignedTask_Archiving_tabs position={session.user.position} /> </TabsContent>
-      <TabsContent value="missingtask"> <MissingTask_Archiving_tabs /> </TabsContent>
-      {session.user.position === "Secretary" && (
-        <TabsContent value="archivedtask"><ArchivedTask_Archiving_tabs /></TabsContent>
-      )}
-
-    </Tabs>
-  )
+      </Tabs>
+    )
+  }
 }
 
 export default ArchivingTab
