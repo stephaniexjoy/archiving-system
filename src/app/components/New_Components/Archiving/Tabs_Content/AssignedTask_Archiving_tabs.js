@@ -4,14 +4,10 @@ import { useState } from 'react';
 import { Button, Checkbox, Label, Modal, TextInput } from 'flowbite-react';
 import AddTask_Dialog from './Dialogs/AddTask_Dialog';
 
-export default function AssignedTask_Archiving_tabs() {
+export default function AssignedTask_Archiving_tabs({ position }) {
 
   const [options, setOptions] = useState("");
 
-  function onCloseModal() {
-    setOpenModal(false);
-
-  }
 
   return (
     <>
@@ -20,11 +16,14 @@ export default function AssignedTask_Archiving_tabs() {
           Assigned Tasks
 
         </h1>
-        <div className='flex items-center justify-center'>
-          <button className='bg-[#AD5606] text-white text-center items-center w-[15%] h-12 border border-black text-xl rounded-lg'>
-            <AddTask_Dialog />
-          </button>
-        </div>
+        {!position === "Faculty" && (
+          <div className='flex items-center justify-center'>
+            <button className='bg-[#AD5606] text-white text-center items-center w-[15%] h-12 border border-black text-xl rounded-lg'>
+              <AddTask_Dialog />
+            </button>
+          </div>
+        )}
+
         <div className="flex flex-col items-center w-full">
           <div className="flex flex-col bg-white w-[60%] p-4 rounded-md">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
@@ -77,7 +76,7 @@ export default function AssignedTask_Archiving_tabs() {
               This week:
             </label>
             <div className="w-full">
-            <select onChange={(e) => setOptions(e.target.value)}
+              <select onChange={(e) => setOptions(e.target.value)}
                 className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
                 name="taskType"
                 id="taskType"
@@ -123,7 +122,7 @@ export default function AssignedTask_Archiving_tabs() {
               Next week:
             </label>
             <div className="w-full">
-            <select onChange={(e) => setOptions(e.target.value)}
+              <select onChange={(e) => setOptions(e.target.value)}
                 className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
                 name="taskType"
                 id="taskType"
@@ -168,7 +167,7 @@ export default function AssignedTask_Archiving_tabs() {
               Later:
             </label>
             <div className="w-full">
-            <select onChange={(e) => setOptions(e.target.value)}
+              <select onChange={(e) => setOptions(e.target.value)}
                 className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
                 name="taskType"
                 id="taskType"

@@ -1,6 +1,6 @@
 import FileTable from "@/app/components/FileTable";
 import AddCategory_Dialog from "@/app/components/New_Components/AddCategory_Dialog/AddCategory_Dialog";
-import SecretaryArchivingTab from "@/app/components/New_Components/Secretary/Archiving/SecretaryArchivingTab";
+import ArchivingTab from "@/app/components/New_Components/Archiving/ArchivingTab";
 import { revalidatePath } from "next/cache";
 import { FaSearch } from "react-icons/fa";
 import UploadModal from "@/app/components/Modal/UploadModal";
@@ -61,7 +61,7 @@ export default async function archiving({ searchParams }) {
           />
         </div>
 
-        <SecretaryArchivingTab datas={dataWithFormattedDate} />
+        <ArchivingTab datas={dataWithFormattedDate} />
 
 
       </div >
