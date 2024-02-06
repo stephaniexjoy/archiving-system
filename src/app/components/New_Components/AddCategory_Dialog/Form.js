@@ -21,7 +21,7 @@ export default function Form({ category }) {
                         toast({
 
                             description: "Filter is already listed.",
-                            type: "success",
+                            
                             variant: "default",
 
                         })
@@ -30,16 +30,16 @@ export default function Form({ category }) {
                         toast({
 
                             description: "You have successfully added a new Filter (Material/Course).",
-                            type: "success",
+                          
                             variant: "default",
 
                         })
                     }
 
-
+                    console.log("Wieee: ", isAdded_Material)
                 }
 
-                console.log("Wieee: ", isAdded_Material)
+
 
 
             }}>
