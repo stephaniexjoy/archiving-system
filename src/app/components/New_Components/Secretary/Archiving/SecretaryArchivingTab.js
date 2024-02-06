@@ -17,8 +17,12 @@ import {
 } from "@/components/ui/tabs"
 
 import React from 'react'
+import Files_Archiving_tabs from "./Tabs_Content/Files_Archiving_tabs"
+import AssignedTask_Archiving_tabs from "./Tabs_Content/AssignedTask_Archiving_tabs"
+import MissingTask_Archiving_tabs from "./Tabs_Content/MissingTask_Archiving_tabs"
+import ArchivedTask_Archiving_tabs from "./Tabs_Content/ArchivedTask_Archiving_tabs"
 
-function SecretaryArchivingTab({ children }) {
+function SecretaryArchivingTab({ children, datas }) {
   return (
     <Tabs defaultValue="files" className="w-full">
       <TabsList>
@@ -27,10 +31,10 @@ function SecretaryArchivingTab({ children }) {
         <TabsTrigger value="missingtask">Missing Task</TabsTrigger>
         <TabsTrigger value="archivedtask">Archived Task</TabsTrigger>
       </TabsList>
-      <TabsContent value="files">{children}</TabsContent>
-      <TabsContent value="assignedtask">{children}</TabsContent>
-      <TabsContent value="missingtask">{children}</TabsContent>
-      <TabsContent value="archivedtask">{children}</TabsContent>
+      <TabsContent value="files"> <Files_Archiving_tabs dataWithFormattedDate={datas} /> </TabsContent>
+      <TabsContent value="assignedtask"> <AssignedTask_Archiving_tabs /> </TabsContent>
+      <TabsContent value="missingtask"> <MissingTask_Archiving_tabs /> </TabsContent>
+      <TabsContent value="archivedtask"><ArchivedTask_Archiving_tabs /></TabsContent>
     </Tabs>
   )
 }
