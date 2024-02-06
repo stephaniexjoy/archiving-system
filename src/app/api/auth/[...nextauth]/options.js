@@ -80,7 +80,7 @@ export const AuthOptions = {
                 token.specialization = user.specialization
                 token.license = user.license
                 token.picture = user.profile_photo_path
-                console.log("token: ", user, token)
+              //  console.log("token: ", user, token)
             }
 
             // console.log('new token: ', token)

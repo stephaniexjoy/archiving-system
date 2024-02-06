@@ -1,6 +1,6 @@
 
 import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
-import EditProfileFaculty_Dialog from "@/app/components/New_Components/EditProfileFaculty_Dialog";
+import EditProfileFaculty_Dialog from "@/app/components/New_Components/EditProfileFaculty_Dialog/EditProfileFaculty_Dialog";
 import { db } from "@/app/lib/prisma_db";
 import { getServerSession } from "next-auth/next";
 

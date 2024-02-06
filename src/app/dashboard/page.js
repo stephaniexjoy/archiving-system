@@ -9,13 +9,12 @@ import { Footer } from "flowbite-react";
 export default async function dashboard() {
   const session = await getServerSession(AuthOptions);
 
-  console.log(session.user.position);
 
   if (session.user.position === "Superadmin") {
     redirect('/superadmin/dashboard/');
   }
   if (session.user.position === "Secretary") {
-    console.log("push");
+  
     redirect('/secretary/dashboard/');
   }
 
@@ -23,11 +22,9 @@ export default async function dashboard() {
   const userCount = await db.user.count();
   const secCount = await db.user.count({ where: { position: "Secretary" } });
 
-  console.log(fileCount);
-  console.log(userCount);
 
   const activities = await db.activity.findMany();
-  console.log(activities);
+
 
   const activitiesFormatted = activities.map((activity) => ({
     ...activity,
