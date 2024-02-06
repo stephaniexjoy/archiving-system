@@ -19,8 +19,7 @@ export default async function dashboard() {
   }
 
   const fileCount = await db.file.count();
-  const userCount = await db.user.count();
-  const secCount = await db.user.count({ where: { position: "Secretary" } });
+  
 
 
   const activities = await db.activity.findMany();
