@@ -3,7 +3,7 @@ import { db } from '@/app/lib/prisma_db'
 import { redirect } from "next/navigation";
 import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next"
-import UploadMaterial_Dialog from '@/app/components/New_Components/UploadMaterial_Dialog';
+import UploadMaterial_Dialog from '@/app/components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog';
 import CreateAccount_Dialog from '@/app/components/New_Components/CreateAccount_Dialog';
 import Link from 'next/link';
 

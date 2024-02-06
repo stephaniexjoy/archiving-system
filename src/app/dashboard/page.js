@@ -2,7 +2,7 @@ import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
 import { db } from "@/app/lib/prisma_db";
 import { redirect } from "next/navigation";
-import UploadMaterial_Dialog from "../components/New_Components/UploadMaterial_Dialog";
+import UploadMaterial_Dialog from "../components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog";
 import EditPrivacy_Dialog from "../components/New_Components/EditPrivacy_Dialog";
 import { Footer } from "flowbite-react";
 
