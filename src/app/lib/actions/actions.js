@@ -184,7 +184,7 @@ export async function addFilter(formData, category) {
     if (categoryBody === "Material") {
 
         const existingData = await db.materials.findUnique({
-            where: { values: addToFilter }
+            where: { value: addToFilter }
         });
 
         if (existingData) {
@@ -194,8 +194,8 @@ export async function addFilter(formData, category) {
         const [addCategory, addActivity] = await db.$transaction([
             db.materials.create({
                 data: {
-                    values: addToFilter,
-                    labels: addToFilter
+                    value: addToFilter.toLowerCase(),
+                    label: addToFilter
                 }
             }),
             db.activity.create({
@@ -221,7 +221,7 @@ export async function addFilter(formData, category) {
     if (categoryBody === "Course") {
 
         const existingData = await db.courses.findUnique({
-            where: { values: addToFilter }
+            where: { value: addToFilter }
         });
 
         if (existingData) {
@@ -231,8 +231,8 @@ export async function addFilter(formData, category) {
         const [addCategory, addActivity] = await db.$transaction([
             db.courses.create({
                 data: {
-                    values: addToFilter,
-                    labels: addToFilter
+                    value: addToFilter.toLowerCase(),
+                    label: addToFilter
                 }
             }),
             db.activity.create({
@@ -260,3 +260,41 @@ export async function addFilter(formData, category) {
 
 }
 
+
+export async function getMaterials() {
+
+    const materials = await db.materials.findMany()
+    if (materials) {
+        console.log(materials)
+    } return materials
+}
+
+export async function getCourses() {
+
+    const courses = await db.courses.findMany()
+    if (courses) {
+        console.log(courses)
+    } return courses
+}
+
+export async function getInstructors() {
+
+    const instructors = await db.user.findMany({
+        select: {
+            name: true,
+            email: true
+        }
+    })
+
+    if (instructors) {
+        console.log(instructors)
+    } return instructors
+}
+
+export async function getFileTypes() {
+
+    const fileTypes = await db.filetype.findMany()
+    if (fileTypes) {
+        console.log(fileTypes)
+    } return fileTypes
+}

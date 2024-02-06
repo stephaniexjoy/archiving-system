@@ -5,6 +5,7 @@ import AddCategory_Dialog from "@/app/components/New_Components/AddCategory_Dial
 import SearchBar from "@/app/components/SearchBar";
 import ArchivingTab from "@/app/components/New_Components/Archiving/ArchivingTab";
 import { revalidatePath } from "next/cache";
+import { getMaterials } from "@/app/lib/actions/actions";
 
 async function getSearchData(query) {
 
@@ -55,6 +56,8 @@ export default async function archiving({ searchParams }) {
       uploadDate: new Date(file.uploadDate).toLocaleString(),
     })); */
 
+  const fetchMaterials = await getMaterials()
+  console.log(fetchMaterials)
 
   return (
     <>
@@ -67,8 +70,8 @@ export default async function archiving({ searchParams }) {
           />
         </div>
 
-        <ArchivingTab datas={dataWithFormattedDate} />
-        </div>
-      </>
-      );
+        <ArchivingTab datas={dataWithFormattedDate} materials={fetchMaterials} />
+      </div>
+    </>
+  );
 }

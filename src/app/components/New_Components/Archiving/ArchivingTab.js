@@ -12,7 +12,7 @@ import Files_Archiving_tabs from "./Tabs_Content/Files_Archiving_tabs"
 import MissingTask_Archiving_tabs from "./Tabs_Content/MissingTask_Archiving_tabs"
 import { useSession } from "next-auth/react"
 
-function ArchivingTab({ children, datas }) {
+function ArchivingTab({ children, datas, materials, courses, instructors, filetypes }) {
   const { data: session, status } = useSession()
   console.log(session)
 
@@ -31,7 +31,7 @@ function ArchivingTab({ children, datas }) {
           )}
 
         </TabsList>
-        <TabsContent value="files"> <Files_Archiving_tabs dataWithFormattedDate={datas} /> </TabsContent>
+        <TabsContent value="files"> <Files_Archiving_tabs dataWithFormattedDate={datas} materials={materials} courses={courses} instructors={instructors} /> </TabsContent>
         <TabsContent value="assignedtask"> <AssignedTask_Archiving_tabs position={session.user.position} /> </TabsContent>
         <TabsContent value="missingtask"> <MissingTask_Archiving_tabs /> </TabsContent>
         {session?.user?.position === "Secretary" && (

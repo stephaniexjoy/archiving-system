@@ -1,15 +1,7 @@
-import FileTable from "@/app/components/FileTable";
-import AddCategory_Dialog from "@/app/components/New_Components/AddCategory_Dialog/AddCategory_Dialog";
 import ArchivingTab from "@/app/components/New_Components/Archiving/ArchivingTab";
 import { revalidatePath } from "next/cache";
-import { FaSearch } from "react-icons/fa";
-import UploadModal from "@/app/components/Modal/UploadModal";
-import SearchBar from "@/app/components/SearchBar";
-import noDueAssignTask from "@/app/components/New_Components/noDueAssignTask";
 
-import {
-  TabsContent
-} from "@/components/ui/tabs";
+import { getCourses, getInstructors, getMaterials, getFileTypes } from "@/app/lib/actions/actions";
 
 async function getSearchData(query) {
 
@@ -22,6 +14,12 @@ async function getSearchData(query) {
   }
 }
 export default async function archiving({ searchParams }) {
+
+  const fetchMaterials = await getMaterials()
+  const fetchCourses = await getCourses()
+  const fetchInstructors = await getInstructors()
+  const fetchFileTypes = await getFileTypes()
+  console.log("Hehehe", fetchMaterials)
 
   if (searchParams) {
     const { query } = searchParams
@@ -50,6 +48,8 @@ export default async function archiving({ searchParams }) {
     uploadDate: new Date(file.uploadDate).toLocaleString(),
   }));
 
+
+
   return (
     <>
       <div className="flex flex-col w-screen h-screen">
@@ -61,7 +61,7 @@ export default async function archiving({ searchParams }) {
           />
         </div>
 
-        <ArchivingTab datas={dataWithFormattedDate} />
+        <ArchivingTab datas={dataWithFormattedDate} materials={fetchMaterials} courses={fetchCourses} instructors={fetchInstructors} filetype={fetchFileTypes} />
 
 
       </div >
