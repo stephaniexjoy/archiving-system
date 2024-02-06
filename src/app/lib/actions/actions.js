@@ -2,6 +2,9 @@
 import { db } from "../prisma_db";
 import { backendClient } from "../edgestore-server";
 
+import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
+import { getServerSession } from "next-auth/next";
+
 export async function updateUser(formData, sessionUser) {
 
     console.log(formData, sessionUser)
@@ -162,4 +165,98 @@ export async function uploadFile(formData, sessionUser) {
             }
         })
     ])
+    if (uploadFile) {
+        return uploadFile
+    }
 }
+
+export async function addFilter(formData, category) {
+
+    const session = await getServerSession(AuthOptions)
+
+    const dateString = new Date()
+    const dateObject = new Date(dateString)
+
+
+    const addToFilter = formData.get("categoryInput")
+    const categoryBody = category
+
+    if (categoryBody === "Material") {
+
+        const existingData = await db.materials.findUnique({
+            where: { values: addToFilter }
+        });
+
+        if (existingData) {
+            return "existingData"
+        }
+
+        const [addCategory, addActivity] = await db.$transaction([
+            db.materials.create({
+                data: {
+                    values: addToFilter,
+                    labels: addToFilter
+                }
+            }),
+            db.activity.create({
+                data: {
+                    name: session.user.name,
+                    position: session.user.position,
+                    type: "ADDED NEW MATERIAL(FILTER)",
+                    createdAt: dateObject,
+                    user: {
+                        connect: {
+                            id: session.user.id
+                        }
+                    }
+                }
+            })
+
+        ])
+        if (addCategory) {
+            return addCategory
+        }
+    }
+
+    if (categoryBody === "Course") {
+
+        const existingData = await db.courses.findUnique({
+            where: { values: addToFilter }
+        });
+
+        if (existingData) {
+            return existingData
+        }
+
+        const [addCategory, addActivity] = await db.$transaction([
+            db.courses.create({
+                data: {
+                    values: addToFilter,
+                    labels: addToFilter
+                }
+            }),
+            db.activity.create({
+                data: {
+                    name: session.user.name,
+                    position: session.user.position,
+                    type: "ADDED NEW COURSE(FILTER)",
+                    createdAt: dateObject,
+                    user: {
+                        connect: {
+                            id: session.user.id
+                        }
+                    }
+                }
+            })
+
+        ])
+        if (addCategory) {
+            return addCategory
+        }
+    }
+
+
+
+
+}
+
