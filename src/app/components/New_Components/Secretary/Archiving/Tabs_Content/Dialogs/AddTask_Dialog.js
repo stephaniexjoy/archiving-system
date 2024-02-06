@@ -28,18 +28,24 @@ function AddTask_Dialog({ sessionUser }) {
                         <Label>Instructions</Label>
                         <Input className="my-3" type="text" placeholder="" />
                         <div className="flex flex-row my-4">
-                            <Checkbox id="terms" />
+                            <input
+                                type="checkbox"
+                                onChange={(e) => setisNoDueDate(e.target.checked)}
+                                checked={isNoDueDate}
+                            />
                             <label
                                 htmlFor="terms"
-                                onChange={()=> {setisNoDueDate(true)}}
+                                onChange={(e) => { setisNoDueDate(e.target.checked) }}
                                 className="mx-4 text-xl font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                             >
                                 No Due Date?
                             </label>
                         </div>
-                        {!isNoDueDate === true && (<div className="items-center justify-center">
-                            <button className="bg-[#AD5606] text-white font-semibold w-[15%]">Add</button>
-                        </div>)}
+                        {!isNoDueDate && (
+                            <div className="items-center justify-center">
+                                <button className="bg-[#AD5606] text-white font-semibold w-[15%]">Add</button>
+                            </div>
+                        )}
 
                     </div>
                 </div>
