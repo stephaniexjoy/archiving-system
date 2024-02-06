@@ -56,13 +56,13 @@ function AddTask_Dialog({ sessionUser }) {
               </label>
             </div>
             {!isNoDueDate && (
-              <div className="items-center justify-center">
+              <div className="flex flex-col justify-start">
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button
                       variant={"outline"}
                       className={cn(
-                        "my-6 w-[380px] justify-start text-left font-normal",
+                        "my-6 w-[310px] justify-start text-left font-normal",
                         !date && "text-muted-foreground"
                       )}
                     >
@@ -79,6 +79,7 @@ function AddTask_Dialog({ sessionUser }) {
                     />
                   </PopoverContent>
                 </Popover>
+                <input type="time" className=" my-6  w-[310px] border border-black text-2xl rounded-lg cursor-pointer"/>
               </div>
             )}
           </div>
