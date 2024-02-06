@@ -15,20 +15,20 @@ datasource db {
 
 model Materials {
   id     Int    @id @default(autoincrement())
-  values String @unique
-  labels String
+  value String @unique
+  label String
 }
 
 model Filetype {
   id     Int    @id @default(autoincrement())
-  values String @unique
-  labels String
+  value String @unique
+  label String
 }
 
 model Courses {
   id     Int    @id @default(autoincrement())
-  values String @unique
-  labels String
+  value String @unique
+  label String
 }
 
 model Activity {
@@ -113,8 +113,7 @@ model Deadline {
   id              Int      @id @default(autoincrement())
   title           String
   deadlineCreated DateTime
-  setDeadline     DateTime
-
-  isActive    Boolean
-  description String?
+  setDeadline     DateTime?
+  isActive        Boolean
+  description     String?
 }
