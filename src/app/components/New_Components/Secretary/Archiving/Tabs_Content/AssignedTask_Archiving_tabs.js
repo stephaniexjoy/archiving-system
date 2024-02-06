@@ -21,9 +21,9 @@ export default function AssignedTask_Archiving_tabs() {
 
         </h1>
         <div className='flex items-center justify-center'>
-        <button className='bg-[#AD5606] text-white text-center items-center w-[15%] h-12 border border-black text-xl rounded-lg'>
-        <AddTask_Dialog/>
-        </button>
+          <button className='bg-[#AD5606] text-white text-center items-center w-[15%] h-12 border border-black text-xl rounded-lg'>
+            <AddTask_Dialog />
+          </button>
         </div>
         <div className="flex flex-col items-center w-full">
           <div className="flex flex-col bg-white w-[60%] p-4 rounded-md">
@@ -43,13 +43,30 @@ export default function AssignedTask_Archiving_tabs() {
               </select>
               {options === "nodue1" && (
                 <div className='border border-black text-xl text-black p-4 mt-4'>
-                  <h1 className="text-xl font-semibold mb-2">No Due Date 1 Title</h1>
-                  <p className="mb-4 ">No Dute Date 1 Instructions.</p>
+                  <h1 className="text-2xl font-semibold mb-2">No Due Date 1 Title</h1>
+                  <p className="mb-4 text-lg">No Dute Date 1 Instructions.</p>
+                  <div>
+                    <h1 className="text-sm mb-2">Post Today</h1>
+                  </div>
+                </div>
+              )}
+              {options === "nodue2" && (
+                <div className='border border-black text-xl text-black p-4 mt-4'>
+                  <h1 className="text-2xl font-semibold mb-2">No Due Date 2 Title</h1>
+                  <p className="mb-4 text-lg">No Dute Date 2 Instructions.</p>
 
                   <div>
-                    <h1 className="text-xl mb-2">Post Today</h1>
+                    <h1 className="text-sm mb-2">Post Today</h1>
                   </div>
-
+                </div>
+              )}
+              {options === "nodue3" && (
+                <div className='border border-black text-xl text-black p-4 mt-4'>
+                  <h1 className="text-2xl font-semibold mb-2">No Due Date 3 Title</h1>
+                  <p className="mb-4 text-lg">No Dute Date 3 Instructions.</p>
+                  <div>
+                    <h1 className="text-sm mb-2">Post Today</h1>
+                  </div>
                 </div>
               )}
             </div>
@@ -60,7 +77,7 @@ export default function AssignedTask_Archiving_tabs() {
               This week:
             </label>
             <div className="w-full">
-              <select
+            <select onChange={(e) => setOptions(e.target.value)}
                 className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
                 name="taskType"
                 id="taskType"
@@ -70,6 +87,34 @@ export default function AssignedTask_Archiving_tabs() {
                 <option value="thisweek2">This week 2</option>
                 <option value="thisweek3">This week 3</option>
               </select>
+              {options === "thisweek1" && (
+                <div className='border border-black text-xl text-black p-4 mt-4'>
+                  <h1 className="text-2xl font-semibold mb-2">This week 1 Title</h1>
+                  <p className="mb-4 text-lg">This week 1 Instructions.</p>
+                  <div>
+                    <h1 className="text-sm mb-2">Post Today</h1>
+                  </div>
+                </div>
+              )}
+              {options === "thisweek2" && (
+                <div className='border border-black text-xl text-black p-4 mt-4'>
+                  <h1 className="text-2xl font-semibold mb-2">This week 2 Title</h1>
+                  <p className="mb-4 text-lg">This week 2 Instructions.</p>
+                  <div>
+                    <h1 className="text-sm mb-2">Post Today</h1>
+                  </div>
+                </div>
+              )}
+              {options === "thisweek3" && (
+                <div className='border border-black text-xl text-black p-4 mt-4'>
+                  <h1 className="text-2xl font-semibold mb-2">This wwek 3 Title</h1>
+                  <p className="mb-4 text-lg">This week 3 Instructions.</p>
+                  <div>
+                    <h1 className="text-sm mb-2">Post Today</h1>
+                  </div>
+
+                </div>
+              )}
             </div>
           </div>
 
@@ -78,7 +123,7 @@ export default function AssignedTask_Archiving_tabs() {
               Next week:
             </label>
             <div className="w-full">
-              <select
+            <select onChange={(e) => setOptions(e.target.value)}
                 className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
                 name="taskType"
                 id="taskType"
@@ -88,6 +133,33 @@ export default function AssignedTask_Archiving_tabs() {
                 <option value="nextweek2">Next week 2</option>
                 <option value="nextweek3">Next week 3</option>
               </select>
+              {options === "nextweek1" && (
+                <div className='border border-black text-xl text-black p-4 mt-4'>
+                  <h1 className="text-2xl font-semibold mb-2">Next week 1 Title</h1>
+                  <p className="mb-4 text-lg">Next week 1 Instructions.</p>
+                  <div>
+                    <h1 className="text-sm mb-2">Post Today</h1>
+                  </div>
+                </div>
+              )}
+              {options === "nextweek2" && (
+                <div className='border border-black text-xl text-black p-4 mt-4'>
+                  <h1 className="text-2xl font-semibold mb-2">Next week 2 Title</h1>
+                  <p className="mb-4 text-lg">Next week 2 Instructions.</p>
+                  <div>
+                    <h1 className="text-sm mb-2">Post Today</h1>
+                  </div>
+                </div>
+              )}
+              {options === "nextweek3" && (
+                <div className='border border-black text-xl text-black p-4 mt-4'>
+                  <h1 className="text-2xl font-semibold mb-2">Next week 3 Title</h1>
+                  <p className="mb-4 text-lg">Next week 3 Instructions.</p>
+                  <div>
+                    <h1 className="text-sm mb-2">Post Today</h1>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
@@ -96,7 +168,7 @@ export default function AssignedTask_Archiving_tabs() {
               Later:
             </label>
             <div className="w-full">
-              <select
+            <select onChange={(e) => setOptions(e.target.value)}
                 className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
                 name="taskType"
                 id="taskType"
@@ -106,6 +178,33 @@ export default function AssignedTask_Archiving_tabs() {
                 <option value="later2">Later 2</option>
                 <option value="later3">Later 3</option>
               </select>
+              {options === "later1" && (
+                <div className='border border-black text-xl text-black p-4 mt-4'>
+                  <h1 className="text-2xl font-semibold mb-2">Later 1 Title</h1>
+                  <p className="mb-4 text-lg">Later 1 Instructions.</p>
+                  <div>
+                    <h1 className="text-sm mb-2">Post Today</h1>
+                  </div>
+                </div>
+              )}
+              {options === "later2" && (
+                <div className='border border-black text-xl text-black p-4 mt-4'>
+                  <h1 className="text-2xl font-semibold mb-2">Later 2 Title</h1>
+                  <p className="mb-4 text-lg">Later 2 Instructions.</p>
+                  <div>
+                    <h1 className="text-sm mb-2">Post Today</h1>
+                  </div>
+                </div>
+              )}
+              {options === "later3" && (
+                <div className='border border-black text-xl text-black p-4 mt-4'>
+                  <h1 className="text-2xl font-semibold mb-2">Later 3 Title</h1>
+                  <p className="mb-4 text-lg">Later 3 Instructions.</p>
+                  <div>
+                    <h1 className="text-sm mb-2">Post Today</h1>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
