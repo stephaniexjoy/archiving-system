@@ -106,31 +106,28 @@ async function page() {
         </div>
       </div>
 
-      <div className='flex mt-10 w-full h-screen items-center font-[Times New Roman] rounded-lg px-10 overflow-y-auto'>
-        <div className="w-full overflow-x-auto">
-          <table className="mt-48 min-w-full table-fixed md:table-fixed w-full text-center">
-            <thead className='bg-[#5B0505] text-white text-2xl'>
-              <tr>
-                <th className='py-2'>NAME</th>
-                <th>POSITION</th>
-                <th>LAST ACTIVITY</th>
-                <th>DATE AND TIME</th>
+      <div className='mt-8 w-full h-screen items-center font-[Times New Roman] rounded-lg px-10 overflow-y-auto'>
+        <table className=" min-w-full table-fixed w-full text-center">
+          <thead className='bg-[#5B0505] text-white text-2xl'>
+            <tr>
+              <th className='py-2'>NAME</th>
+              <th>POSITION</th>
+              <th>LAST ACTIVITY</th>
+              <th>DATE AND TIME</th>
+            </tr>
+          </thead>
+          <tbody className='bg-[#B4ABAB] text-black text-xl'>
+            {activitiesFormatted.map((activity) => (
+              <tr key={activity.id}>
+                <td className='py-2'>{activity.name}</td>
+                <td>{activity.position}</td>
+                <td>{activity.type}</td>
+                <td>{activity.createdAt}</td>
               </tr>
-            </thead>
-            <tbody className='bg-[#B4ABAB] text-black text-xl'>
-              {activitiesFormatted.map((activity) => (
-                <tr key={activity.id}>
-                  <td className='py-2'>{activity.name}</td>
-                  <td>{activity.position}</td>
-                  <td>{activity.type}</td>
-                  <td>{activity.createdAt}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </table>
       </div>
-
     </div>
   )
 }

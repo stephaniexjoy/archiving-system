@@ -9,7 +9,7 @@ import {
 import UploadModal from "@/app/components/Modal/UploadModal";
 import SearchBar from "@/app/components/SearchBar";
 import FileTable from "@/app/components/FileTable";
-import AddCategory_Dialog from "@/app/components/New_Components/AddCategory_Dialog";
+import AddCategory_Dialog from "@/app/components/New_Components/AddCategory_Dialog/AddCategory_Dialog";
 
 export default function Files_Archiving_tabs({ children, dataWithFormattedDate }) {
     return (

@@ -1,13 +1,9 @@
 
-import InstructorModal from "@/app/components/Modal/InstructorModal";
-import MaterialModal from "@/app/components/Modal/MaterialModal";
-import ProgramModal from "@/app/components/Modal/ProgramModal";
-import TypeModal from "@/app/components/Modal/TypeModal";
 import FileTable from "@/app/components/FileTable";
 import UploadModal from "@/app/components/Modal/UploadModal";
+import AddCategory_Dialog from "@/app/components/New_Components/AddCategory_Dialog/AddCategory_Dialog";
 import SearchBar from "@/app/components/SearchBar";
 import { revalidatePath } from "next/cache";
-import AddCategory_Dialog from "@/app/components/New_Components/AddCategory_Dialog";
 
 async function getSearchData(query) {
 
@@ -21,6 +17,8 @@ async function getSearchData(query) {
 }
 
 export default async function archiving({ searchParams }) {
+
+
 
   if (searchParams) {
     const { query } = searchParams
@@ -81,13 +79,13 @@ export default async function archiving({ searchParams }) {
             MATERIAL
           </div>
           <div className="inline-block text-[20px] md:text-[23px]">
-            FILE TYPE
-          </div>
-          <div className="inline-block text-[20px] md:text-[23px]">
             COURSES
           </div>
           <div className="inline-block text-[20px] md:text-[23px]">
             INSTRUCTOR
+          </div>
+          <div className="inline-block text-[20px] md:text-[23px]">
+            FILE TYPE
           </div>
           <div className="inline-block text-[20px] md:text-[23px]">
             SORT BY
@@ -121,23 +119,9 @@ export default async function archiving({ searchParams }) {
                 <option value="faculty profile">Faculty Profile</option>
               </select>
             </div>
-            <AddCategory_Dialog />
+            <AddCategory_Dialog category={"Material"} />
           </div>
-          <div className="dropdown">
-            <div className="ml-8 top-[210px] left-[350px] text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
-              <select
-                className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1350px] bg-[#AD5606]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
-                name="type"
-                id="type"
-              >
-                <option value="select">--Select--</option>
-                <option value="pdf">PDF</option>
-                <option value="ppt">PPT</option>
-                <option value="docx">DOCX</option>
-              </select>
-            </div>
-            <AddCategory_Dialog />
-          </div>
+
 
           <div className="dropdown">
             <div className="ml-6 top-[210px] left-[970px] text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
@@ -156,7 +140,7 @@ export default async function archiving({ searchParams }) {
                 </option>
               </select>
             </div>
-            <AddCategory_Dialog />
+            <AddCategory_Dialog category={"Course"} />
           </div>
 
           <div className="dropdown">
@@ -172,7 +156,23 @@ export default async function archiving({ searchParams }) {
                 <option value="Marco Del Rosario">Marco Del Rosario</option>
               </select>
             </div>
-            <AddCategory_Dialog />
+
+          </div>
+
+          <div className="dropdown">
+            <div className="ml-8 top-[210px] left-[350px] text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer">
+              <select
+                className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1350px] bg-[#AD5606]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
+                name="type"
+                id="type"
+              >
+                <option value="select">--Select--</option>
+                <option value="pdf">PDF</option>
+                <option value="ppt">PPT</option>
+                <option value="docx">DOCX</option>
+              </select>
+            </div>
+
           </div>
 
 
