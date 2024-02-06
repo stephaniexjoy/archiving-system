@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import FileTable from "@/app/components/FileTable";
 import UploadModal from "@/app/components/Modal/UploadModal";
 import AddCategory_Dialog from "@/app/components/New_Components/AddCategory_Dialog/AddCategory_Dialog";
@@ -26,7 +26,7 @@ import { Calendar } from "@/components/ui/calendar";
 
 const materialFrameworks = [
   {
-    value: "Learning Materials",
+    value: "learning materials",
     label: "Learning Materials",
   },
   {
@@ -154,8 +154,8 @@ export default function Files_Archiving_tabs({
               >
                 {valueMaterial
                   ? materialFrameworks.find(
-                      (framework) => framework.value === valueMaterial
-                    )?.label
+                    (framework) => framework.value === valueMaterial
+                  )?.label
                   : "Select material..."}
                 <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
               </Button>
@@ -176,7 +176,8 @@ export default function Files_Archiving_tabs({
                         setValueMaterial(
                           currentValue === valueMaterial ? "" : currentValue
                         );
-                        setOpenMaterial(false);
+                        console.log(valueMaterial)
+                        setOpenMaterial(true);
                       }}
                     >
                       {framework.label}
@@ -207,8 +208,8 @@ export default function Files_Archiving_tabs({
               >
                 {valueProgram
                   ? programFrameworks.find(
-                      (framework) => framework.value === valueProgram
-                    )?.label
+                    (framework) => framework.value === valueProgram
+                  )?.label
                   : "Select program..."}
                 <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
               </Button>
@@ -257,8 +258,8 @@ export default function Files_Archiving_tabs({
               >
                 {valueInstructor
                   ? instructorFrameworks.find(
-                      (framework) => framework.value === valueInstructor
-                    )?.label
+                    (framework) => framework.value === valueInstructor
+                  )?.label
                   : "Select instructor..."}
                 <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
               </Button>
@@ -310,8 +311,8 @@ export default function Files_Archiving_tabs({
               >
                 {valueFiletype
                   ? filetypeFrameworks.find(
-                      (framework) => framework.value === valueFiletype
-                    )?.label
+                    (framework) => framework.value === valueFiletype
+                  )?.label
                   : "Select File Type..."}
                 <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
               </Button>

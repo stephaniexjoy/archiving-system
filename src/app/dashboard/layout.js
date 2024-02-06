@@ -12,14 +12,22 @@ export default function DashboardLayout({
 
         <div className="flex">
           <Sidebar />
+          <div className="flex grow justify-center items-center content-center ">
+            {children}
+          </div>
+          <div className="flex grow justify-center items-center content-center">
+            <div className='flex flex-col w-screen h-screen'>
+              <Footer />
+            </div>
+          </div>
         </div>
 
-        <div className="flex grow justify-center items-center content-center ">
-          {children}
-        </div>
+
+
+
 
       </div >
-      <Footer />
+
     </>
   );
 }
