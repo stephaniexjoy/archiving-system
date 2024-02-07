@@ -12,6 +12,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
+
 export default function AssignedTask_Archiving_tabs({ position, tasks }) {
   console.log(tasks);
   const [options, setOptions] = useState("");
@@ -166,9 +167,9 @@ export default function AssignedTask_Archiving_tabs({ position, tasks }) {
                                           multiple
                                         />
                                       </label>{" "}
-                                      <label className="w-[30%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg">
-                                        Done
-                                      </label>{" "}
+                                      <button className="w-[30%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg">
+                                        Temporary Upload
+                                      </button>{" "}
                                     </div>
                                   </DialogContent>
                                 </Dialog>
