@@ -1,16 +1,7 @@
 "use client";
-import React from "react";
-import { useState } from "react";
-import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
-import AddTask_Dialog from "./Dialogs/AddTask_Dialog/AddTask_Dialog";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { useEdgeStore } from "@/app/lib/edgestore";
+import { useToast } from "@/components/ui/use-toast";
+import { unstable_noStore as noStore } from 'next/cache';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -22,11 +13,25 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { useState } from "react";
+import AddTask_Dialog from "./Dialogs/AddTask_Dialog/AddTask_Dialog";
+import { confirmUpload } from "@/app/lib/actions/actions";
 
 export default function AssignedTask_Archiving_tabs({ position, tasks }) {
+  const { toast } = useToast()
   console.log(tasks);
+  const { edgestore } = useEdgeStore();
   const [options, setOptions] = useState("");
-  const [uploadedFiles, setUploadedFiles] = useState([]); // Define uploadedFiles state here
+  const [uploadedFiles, setUploadedFiles] = useState([])
+  const [urls, setUrls] = useState([]); // Define uploadedFiles state here
 
   const handleFileUpload = (event) => {
     const files = event.target.files;
@@ -44,6 +49,11 @@ export default function AssignedTask_Archiving_tabs({ position, tasks }) {
       prevFiles.filter((file, index) => index !== indexToRemove)
     );
   };
+
+  const getUrls = (results, setUrls) => {
+    const extractUrls = results.map(result => result.url)
+    setUrls(extractUrls)
+  }
 
   return (
     <>
@@ -178,21 +188,58 @@ export default function AssignedTask_Archiving_tabs({ position, tasks }) {
                                       <AlertDialog>
                                         <AlertDialogTrigger asChild>
                                           <button
-                                           className="w-[30%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg">
+                                            className="w-[30%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg">
                                             Temporary Upload
                                           </button>
                                         </AlertDialogTrigger>
                                         <AlertDialogContent>
                                           <AlertDialogHeader>
                                             <AlertDialogTitle>
-                                              Are you absolutely sure?
+                                              Do you want to Proceed?
                                             </AlertDialogTitle>
+                                            <AlertDialogDescription>
+                                              This action will upload your file temporarily. Mark it as done to confirm the upload.
+                                            </AlertDialogDescription>
                                           </AlertDialogHeader>
                                           <AlertDialogFooter className="items-center">
                                             <AlertDialogCancel>
                                               Cancel
                                             </AlertDialogCancel>
-                                            <AlertDialogAction>
+                                            <AlertDialogAction onClick={async () => {
+                                              console.log(uploadedFiles)
+
+                                              try {
+                                                const uploadPromises = uploadedFiles.map(async (upFile) => {
+                                                  try {
+                                                    console.log("Upfile", upFile);
+                                                    const res = await edgestore.publicFiles1.upload({
+                                                      file: upFile,
+                                                      options: {
+                                                        manualFileName: upFile.name,
+                                                        temporary: true
+                                                      }
+                                                    });
+                                                    console.log(res);
+                                                    return res;
+                                                  } catch (error) {
+                                                    console.error(error);
+                                                    throw error; // rethrowing error to handle at the end
+                                                  }
+                                                });
+
+                                                const results = await Promise.all(uploadPromises);
+                                                if (results) {
+                                                  toast
+                                                }
+
+                                                getUrls(results, setUrls)
+                                                console.log("All files uploaded successfully:", results);
+                                              } catch (error) {
+                                                console.error("Error uploading files:", error);
+                                              }
+                                              console.log(urls)
+
+                                            }}>
                                               Continue
                                             </AlertDialogAction>
                                           </AlertDialogFooter>
@@ -201,7 +248,11 @@ export default function AssignedTask_Archiving_tabs({ position, tasks }) {
                                     </div>
                                   </DialogContent>
                                 </Dialog>
-                                <button className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
+                                <button onClick={async () => {
+                                  const res = await confirmUpload(urls)
+                                  console.log(res)
+
+                                }} className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
                                   Mark as done
                                 </button>
                               </div>
