@@ -37,11 +37,11 @@ const FileTable = ({ data }) => {
         <Table className="mt-6 table table-auto md:table-fixed w-full text-center">
           <TableHeader className='bg-[#5B0505] text-white text-xl'>
             <TableRow>
-            <TableHead className='text-center py-2'>FILE</TableHead>
-            <TableHead className='text-center py-2'>UPLOADED BY</TableHead>
-            <TableHead className='text-center py-2'>PERMISSIONS</TableHead>
-            <TableHead className='text-center py-2'>DATE AND TIME UPLOADED</TableHead>
-            <TableHead className='text-center py-2'>ACTIONS</TableHead>
+            <TableHead className='text-center text-white py-2'>FILE</TableHead>
+            <TableHead className='text-center text-white py-2'>UPLOADED BY</TableHead>
+            <TableHead className='text-center text-white py-2'>PERMISSIONS</TableHead>
+            <TableHead className='text-center text-white py-2'>DATE AND TIME UPLOADED</TableHead>
+            <TableHead className='text-center text-white py-2'>ACTIONS</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody className='bg-[#D9D9D9] text-black text-lg'>

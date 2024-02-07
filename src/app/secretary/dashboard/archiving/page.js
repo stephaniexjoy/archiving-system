@@ -50,8 +50,6 @@ export default async function archiving({ searchParams }) {
     uploadDate: new Date(file.uploadDate).toLocaleString(),
   }));
 
-
-
   return (
     <>
       <div className="flex flex-col w-screen h-screen">
