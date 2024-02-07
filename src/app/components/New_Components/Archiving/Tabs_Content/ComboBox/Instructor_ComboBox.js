@@ -31,7 +31,7 @@ export default function Instructor_ComboBox({ instructorFrameworks }) {
                         variant="outline"
                         role="combobox"
                         aria-expanded={openInstructor}
-                        className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
+                        className="text-xl font-semibold w-[280px] cursor-pointer md:left-[1250px] bg-[#AD5606]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
                     >
                         {valueInstructor
                             ? transformInstructor.find(

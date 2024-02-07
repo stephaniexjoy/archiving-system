@@ -25,8 +25,8 @@ export default function Date_Range({ className }) {
                         id="date"
                         variant={"outline"}
                         className={cn(
-                            "text-black bg-[#AD5606] backdrop-filter-blur-[4px] w-[250px] h-[50px] cursor-pointer",
-                            !date && "text-muted-foreground"
+                            "text-xl font-semibold w-[280px] cursor-pointer md:left-[1250px] bg-[#AD5606]  h-[40px] shadow-lg rounded-sm px-2 py-1 ",
+                            !date
                         )}
                     >
                         <CalendarIcon className="mr-2 h-4 w-4" />
@@ -44,7 +44,7 @@ export default function Date_Range({ className }) {
                         )}
                     </Button>
                 </PopoverTrigger>
-                <PopoverContent className="text-[23px] w-auto p-0" align="start">
+                <PopoverContent className="text-black text-[23px] w-auto p-0" align="start">
                     <Calendar
                         initialFocus
                         mode="range"

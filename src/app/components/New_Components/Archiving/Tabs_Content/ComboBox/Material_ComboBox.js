@@ -29,7 +29,7 @@ export default function Material_ComboBox({ materialFrameworks }) {
                         variant="outline"
                         role="combobox"
                         aria-expanded={openMaterial}
-                        className="text-2xl font-bold w-[250px] cursor-pointer md:left-[1250px] bg-[#AD5606]  h-[40px] shadow-lg rounded-sm px-2 py-1 "
+                        className="text-xl font-semibold w-[280px] cursor-pointer md:left-[1250px] bg-[#AD5606]  h-[40px] overflow-hidden shadow-lg rounded-sm px-2 py-1 "
                     >
                         {valueMaterial
                             ? materialFrameworks.find(
