@@ -1,7 +1,8 @@
 "use client";
-import { useState } from "react";
 import React from "react";
-export default function MissingTask_Archiving_tabs() {
+import { useState } from "react";
+
+export default function CompletedTask_Archiving_tabs() {
   const [options, setOptions] = useState("");
 
   function onCloseModal() {
@@ -12,8 +13,9 @@ export default function MissingTask_Archiving_tabs() {
     <>
       <div className="flex flex-col mt-5 px-10">
         <h1 className="text-center text-[#5B0505] text-[45px] font-semibold md:shadow-zinc-400 mb-5">
-          Missing Tasks
+          Completed Tasks
         </h1>
+        <div className="flex items-center justify-center"></div>
         <div className="flex flex-col items-center w-full">
           <div className="flex flex-col bg-white w-[60%] p-4 rounded-md">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
@@ -46,23 +48,25 @@ export default function MissingTask_Archiving_tabs() {
                       </div>
                       <div class="w-[60%]">
                         <div class="flex flex-col bg-white p-4 gap-4 drop-shadow-2xl  rounded-xl">
-                          <div className="flex flex-row gap-x-48">
+                          <div className="flex flex-row gap-x-44">
                             <h1 className="text-md">Your work</h1>
-                            <h1 className="text-sm text-red-600">Missing</h1>
+                            <h1 className="text-sm">Completed</h1>
                           </div>
                           <label
                             for="file-upload"
-                            class="w-full h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer inline-flex items-center justify-center"
+                            class="w-full h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-not-allowed inline-flex items-center justify-center pointer-events-none"
                           >
                             Add work
                             <input
                               id="file-upload"
                               type="file"
                               class="hidden"
+                              disabled
                             />
-                          </label>{" "}
+                          </label>
+
                           <button class="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
-                            Mark as done
+                            Unsubmit
                           </button>
                         </div>
                       </div>
