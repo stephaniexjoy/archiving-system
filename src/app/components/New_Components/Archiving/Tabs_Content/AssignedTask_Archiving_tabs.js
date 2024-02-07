@@ -32,36 +32,34 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-const frameworks = [
+const togglePrivacy = [
   {
-    value: "next.js",
-    label: "Next.js",
+    value: "for all",
+    label: "For All",
   },
   {
-    value: "sveltekit",
-    label: "SvelteKit",
-  },
-  {
-    value: "nuxt.js",
-    label: "Nuxt.js",
-  },
-  {
-    value: "remix",
-    label: "Remix",
-  },
-  {
-    value: "astro",
-    label: "Astro",
+    value: "for secretary",
+    label: "For Secretary",
   },
 ];
 
-export default function AssignedTask_Archiving_tabs({ position, tasks, materials}) {
-  console.log(materials);
+export default function AssignedTask_Archiving_tabs({
+  position,
+  tasks,
+  materials,
+  courses,
+}) {
+  console.log(courses);
+
   const [options, setOptions] = useState("");
   const [uploadedFiles, setUploadedFiles] = useState([]); // Define uploadedFiles state here
 
-  const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
+  const [openMaterials, setOpenMaterials] = React.useState(false);
+  const [valueMaterials, setValueMaterials] = React.useState("");
+  const [openCourse, setOpenCourse] = React.useState(false);
+  const [valueCourse, setValueCourse] = React.useState("");
+  const [openTogglePrivacy, setOpenTogglePrivacy] = React.useState(false);
+  const [valueTogglePrivacy, setValueTogglePrivacy] = React.useState("");
 
   const handleFileUpload = (event) => {
     const files = event.target.files;
@@ -183,22 +181,24 @@ export default function AssignedTask_Archiving_tabs({ position, tasks, materials
                                             </div>
                                             <div className="flex flex-row justify-items-center w-full">
                                               <Popover
-                                                open={open}
-                                                onOpenChange={setOpen}
+                                                open={openMaterials}
+                                                onOpenChange={setOpenMaterials}
                                               >
                                                 <PopoverTrigger asChild>
                                                   <Button
                                                     role="combobox"
-                                                    aria-expanded={open}
+                                                    aria-expanded={
+                                                      openMaterials
+                                                    }
                                                     className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded"
                                                   >
-                                                    {value
-                                                      ? frameworks.find(
+                                                    {valueMaterials
+                                                      ? materials.find(
                                                           (framework) =>
                                                             framework.value ===
-                                                            value
+                                                            valueMaterials
                                                         )?.label
-                                                      : "Select..."}
+                                                      : "Materials..."}
                                                     <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                                                   </Button>
                                                 </PopoverTrigger>
@@ -209,20 +209,22 @@ export default function AssignedTask_Archiving_tabs({ position, tasks, materials
                                                         <div
                                                           key={framework.value}
                                                           onClick={() => {
-                                                            setValue(
+                                                            setValueMaterials(
                                                               framework.value ===
-                                                                value
+                                                                valueMaterials
                                                                 ? ""
                                                                 : framework.value
                                                             );
-                                                            setOpen(false);
+                                                            setOpenMaterials(
+                                                              false
+                                                            );
                                                           }}
                                                           className="flex items-center justify-between p-2 cursor-pointer hover:bg-gray-100"
                                                         >
                                                           <span>
                                                             {framework.label}
                                                           </span>
-                                                          {value ===
+                                                          {valueMaterials ===
                                                             framework.value && (
                                                             <CheckIcon className="ml-auto h-4 w-4 opacity-100" />
                                                           )}
@@ -232,12 +234,120 @@ export default function AssignedTask_Archiving_tabs({ position, tasks, materials
                                                   </div>
                                                 </PopoverContent>
                                               </Popover>{" "}
-                                              <button className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
-                                                Mark as done
-                                              </button>
-                                              <button className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded ">
-                                                Mark as done
-                                              </button>
+
+
+                                              <Popover
+                                                open={openCourse}
+                                                onOpenChange={setOpenCourse}
+                                              >
+                                                <PopoverTrigger asChild>
+                                                  <Button
+                                                    role="combobox"
+                                                    aria-expanded={openCourse}
+                                                    className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded"
+                                                  >
+                                                    {valueCourse
+                                                      ? courses.find(
+                                                          (framework) =>
+                                                            framework.value ===
+                                                            valueCourse
+                                                        )?.label
+                                                      : "Courses..."}
+                                                    <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                                                  </Button>
+                                                </PopoverTrigger>
+                                                <PopoverContent className="w-[200px] p-0">
+                                                  <div>
+                                                    {courses.map(
+                                                      (framework) => (
+                                                        <div
+                                                          key={framework.value}
+                                                          onClick={() => {
+                                                            setValueCourse(
+                                                              framework.value ===
+                                                                valueCourse
+                                                                ? ""
+                                                                : framework.value
+                                                            );
+                                                            setOpenCourse(
+                                                              false
+                                                            );
+                                                          }}
+                                                          className="flex items-center justify-between p-2 cursor-pointer hover:bg-gray-100"
+                                                        >
+                                                          <span>  
+                                                            {framework.label}
+                                                          </span>
+                                                          {valueCourse ===
+                                                            framework.value && (
+                                                            <CheckIcon className="ml-auto h-4 w-4 opacity-100" />
+                                                          )}
+                                                        </div>
+                                                      )
+                                                    )}
+                                                  </div>
+                                                </PopoverContent>
+                                              </Popover>{" "}
+
+
+                                              <Popover
+                                                open={openTogglePrivacy}
+                                                onOpenChange={
+                                                  setOpenTogglePrivacy
+                                                }
+                                              >
+                                                <PopoverTrigger asChild>
+                                                  <Button
+                                                    role="combobox"
+                                                    aria-expanded={
+                                                      openTogglePrivacy
+                                                    }
+                                                    className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded"
+                                                  >
+                                                    {valueTogglePrivacy
+                                                      ? togglePrivacy.find(
+                                                          (framework) =>
+                                                            framework.value ===
+                                                            valueTogglePrivacy
+                                                        )?.label
+                                                      : "Privacy..."}
+                                                    <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                                                  </Button>
+                                                </PopoverTrigger>
+                                                <PopoverContent className="w-[200px] p-0">
+                                                  <div>
+                                                    {togglePrivacy.map(
+                                                      (framework) => (
+                                                        <div
+                                                          key={framework.value}
+                                                          onClick={() => {
+                                                            setValueTogglePrivacy(
+                                                              framework.value ===
+                                                                togglePrivacy
+                                                                ? ""
+                                                                : framework.value
+                                                            );
+                                                            setOpenTogglePrivacy(
+                                                              false
+                                                            );
+                                                          }}
+                                                          className="flex items-center justify-between p-2 cursor-pointer hover:bg-gray-100"
+                                                        >
+                                                          <span>
+                                                            {framework.label}
+                                                          </span>
+                                                          {valueTogglePrivacy ===
+                                                            framework.value && (
+                                                            <CheckIcon className="ml-auto h-4 w-4 opacity-100" />
+                                                          )}
+                                                        </div>
+                                                      )
+                                                    )}
+                                                  </div>
+                                                </PopoverContent>
+                                              </Popover>{" "}
+
+                                              
                                             </div>
                                           </div>
                                         </>
