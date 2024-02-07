@@ -22,7 +22,7 @@ export default function AssignedTask_Archiving_tabs({ position }) {
         )}
 
         <div className="flex flex-col items-center w-full">
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md">
+          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md drop-shadow-xl">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               No Due Date:
             </label>
