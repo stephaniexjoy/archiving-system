@@ -5,7 +5,7 @@ import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next"
 import { redirect } from "next/navigation";
 
-import Create_Dialog from '@/app/components/New_Components/Create_Dialog';
+import CreateAccount_Dialog from '@/app/components/New_Components/CreateAccount_Dialog/CreateAccount_Dialog';
 
 
 
@@ -72,7 +72,7 @@ async function page() {
           </button>
         </div>
 
-        <Create_Dialog />
+        <CreateAccount_Dialog />
         <div className='text-center bg-[#B4ABAB] text-[#5B0505] w-96 h-56'>
           <p className=' mt-16 text-1xl font-bold'>
             CALENDAR
