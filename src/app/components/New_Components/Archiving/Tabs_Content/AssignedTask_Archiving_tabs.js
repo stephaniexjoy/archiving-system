@@ -3,9 +3,29 @@ import React from "react";
 import { useState } from "react";
 import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
 import AddTask_Dialog from "./Dialogs/AddTask_Dialog/AddTask_Dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function AssignedTask_Archiving_tabs({ position }) {
   const [options, setOptions] = useState("");
+  const [uploadedFiles, setUploadedFiles] = useState([]); // Define uploadedFiles state here
+
+  const handleFileUpload = (event) => {
+    const files = event.target.files;
+    const newFiles = [...uploadedFiles];
+
+    for (let i = 0; i < files.length; i++) {
+      newFiles.push(files[i]);
+    }
+
+    setUploadedFiles(newFiles);
+  };
 
   return (
     <>
@@ -57,17 +77,45 @@ export default function AssignedTask_Archiving_tabs({ position }) {
                             <h1 className="text-md">Your work</h1>
                             <h1 className="text-sm text-green-600">Assigned</h1>
                           </div>
-                            <label
-                              for="file-upload"
-                              class="w-full h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer inline-flex items-center justify-center"
-                            >
+
+                          <Dialog>
+                            <DialogTrigger class="w-full h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer inline-flex items-center justify-center">
                               Add work
-                              <input
-                                id="file-upload"
-                                type="file"
-                                class="hidden"
-                              />
-                            </label>{" "}
+                            </DialogTrigger>
+                            <DialogContent className="w-[1200px] h-auto p-16">
+                              {" "}
+                              <DialogHeader>
+                                <DialogTitle>Upload files</DialogTitle>
+                                <DialogDescription>
+                                  You can upload files here.
+                                </DialogDescription>
+                              </DialogHeader>
+                              <div>
+                                {" "}
+                                {uploadedFiles.map((file, index) => (
+                                  <div
+                                    className="border border-black drop-shadow-xl mb-2"
+                                    key={index}
+                                  >
+                                    <p>{file.name}</p>
+                                  </div>
+                                ))}
+                              </div>
+                              <label
+                                htmlFor="file-upload"
+                                className="w-full h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer inline-flex items-center justify-center"
+                              >
+                                Browse
+                                <input
+                                  id="file-upload"
+                                  type="file"
+                                  className="hidden"
+                                  onChange={handleFileUpload}
+                                  multiple
+                                />
+                              </label>
+                            </DialogContent>
+                          </Dialog>
                           <button class="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
                             Mark as done
                           </button>
@@ -77,6 +125,7 @@ export default function AssignedTask_Archiving_tabs({ position }) {
                   </div>
                 </div>
               )}
+
               {options === "nodue2" && (
                 <div className="border border-black text-xl text-black p-4 mt-4">
                   <h1 className="text-2xl font-semibold mb-2">
