@@ -3,10 +3,30 @@ import React from "react";
 import { useState } from "react";
 import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
 import AddTask_Dialog from "./Dialogs/AddTask_Dialog/AddTask_Dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function AssignedTask_Archiving_tabs({ position, tasks }) {
   console.log(tasks)
   const [options, setOptions] = useState("");
+  const [uploadedFiles, setUploadedFiles] = useState([]); // Define uploadedFiles state here
+
+  const handleFileUpload = (event) => {
+    const files = event.target.files;
+    const newFiles = [...uploadedFiles];
+
+    for (let i = 0; i < files.length; i++) {
+      newFiles.push(files[i]);
+    }
+
+    setUploadedFiles(newFiles);
+  };
 
   return (
     <>
