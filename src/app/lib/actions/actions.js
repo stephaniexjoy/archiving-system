@@ -7,7 +7,7 @@ import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
 
 
-export async function createAccount(formData) {
+export async function createAccount(formData, sessionUser) {
     const name = formData.get("nameInput")
     const role = formData.get("roleInput")
     const category = formData.get("catInput")
@@ -15,12 +15,32 @@ export async function createAccount(formData) {
     const license = formData.get("licInput")
     const email = formData.get("emailInput")
     const password = formData.get("passInput")
+    const age = formData.get("")
+    const sex = formData.get("")
+    const empNo = formData.get("")
 
     const hashedPassword = await bcrypt.hash(password, 12);
     console.log(hashedPassword)
 
     const [createUser, addActivity] = await db.$transaction([
-        db.user.create
+        db.user.create({
+            data: {
+
+            }
+        }),
+        db.activity.create({
+            data: {
+                name: sessionUser.name,
+                position: sessionUser.position,
+                type: "CREATED NEW USER",
+                createdAt: dateObject,
+                user: {
+                    connect: {
+                        id: sessionUser.id
+                    }
+                }
+            }
+        })
     ])
 
 }

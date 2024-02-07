@@ -6,14 +6,14 @@ import { Label } from "@/components/ui/label"
 import { useToast } from "@/components/ui/use-toast"
 
 
-export default function Form() {
+export default function Form({ sessionUser }) {
     const { toast } = useToast()
     return (
         <>
             <form action={async formData => {
                 console.log(formData)
 
-                const create = await createAccount(formData)
+                const create = await createAccount(formData, sessionUser)
                 if (create) {
                     toast({
 

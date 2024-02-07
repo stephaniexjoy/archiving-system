@@ -14,14 +14,14 @@ import { Label } from "@/components/ui/label"
 import React from 'react'
 import Form from "./Form"
 
-function CreateAccount_Dialog() {
+function CreateAccount_Dialog({ sessionUser }) {
     return (
         <Dialog>
             <DialogTrigger asChild>
                 <b className='bg-transparent hover-transparent mt-2 text-3xl font-bold cursor-pointer'>CREATE ACCOUNT</b>
             </DialogTrigger>
             <DialogContent className="p-16 md:max-w-[1000px]">
-                <Form />
+                <Form sessionUser={sessionUser} />
             </DialogContent>
         </Dialog>
     )
