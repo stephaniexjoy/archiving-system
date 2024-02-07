@@ -10,6 +10,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Button } from "@/components/ui/button"
+
 
 const FileTable = ({ data }) => {
   const [currentPrivacy, setCurrentPrivacy] = useState("forall");
@@ -24,13 +26,13 @@ const FileTable = ({ data }) => {
   };
   return (
     <>
-      <button
+      <Button
         onClick={togglePrivacy}
         className="mt-10 bg-[#5B0505] hover:bg-[#6A6A6A] focus:outline-none h-auto w-auto font-bold text-white"
       >
         Toggle Privacy:{" "}
         {currentPrivacy === "forall" ? "For All" : "Secretary Only"}
-      </button>
+      </Button>
       <div className="flex h-auto items-center font-[Times New Roman]">
         <Table className="mt-6 table table-auto md:table-fixed w-full text-center">
           <TableHeader className='bg-[#5B0505] text-white text-xl'>
@@ -61,9 +63,9 @@ const FileTable = ({ data }) => {
                     </TableCell>
                     <TableCell>{file.uploadDate}</TableCell>
                     <TableCell>
-                      <button className="bg-[#8F8F8F] hover:bg-[#6A6A6A] focus:outline-none h-10 w-48 font-bold">
+                      <Button className="bg-[#8F8F8F] hover:bg-[#6A6A6A] focus:outline-none h-10 w-48 font-bold">
                         Edit Privacy
-                      </button>
+                      </Button>
                     </TableCell>
                   </TableRow>
                 ))
