@@ -99,10 +99,10 @@ export default function AssignedTask_Archiving_tabs({ position, tasks }) {
                                 </div>
                                 <Dialog>
                                   <DialogTrigger className="w-full h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer inline-flex items-center justify-center">
-                                    Upload here
+                                    Upload Here
                                   </DialogTrigger>
                                   <DialogContent className="bg-white md:max-w-[1200px] h-[800px] py-6 px-6 mx-auto overflow-y-auto">
-                                    {" "}
+
                                     <DialogHeader>
                                       <DialogTitle className="text-2xl">
                                         Upload files
@@ -111,37 +111,44 @@ export default function AssignedTask_Archiving_tabs({ position, tasks }) {
                                         You can upload files here.
                                       </DialogDescription>
                                     </DialogHeader>
-                                    <div className="flex flex-row w-full">
+                                    <div className="flex flex-col w-full">
                                       {uploadedFiles.map((file, index) => (
                                         <>
-                                          <div
-                                            className="flex border w-full h-auto border-black drop-shadow-2xl mb-2 rounded-lg overflow-x-hidden items-center"
-                                            key={index}
-                                          >
-                                            <div className="w-full h-auto text-xl font-semibold justify-between items-center p-2 ">
-                                              <p>{file.name}</p>
-                                              <button
-                                                className="text-red-600"
-                                                onClick={() =>
-                                                  handleRemoveFile(index)
-                                                }
-                                              >
-                                                X
+                                          <div className="flex flex-row">
+                                            <div
+                                              className="flex border w-full h-auto border-black drop-shadow-2xl mb-2 rounded-lg overflow-x-hidden items-center"
+                                              key={index}
+                                            >
+                                              <div className="flex flex-row h-auto text-xl font-semibold justify-between items-center p-2 ">
+                                                <div>
+                                                  <p>{file.name}</p>
+                                                </div>
+                                                <div>
+
+                                                  <button
+                                                    className="text-red-600"
+                                                    onClick={() =>
+                                                      handleRemoveFile(index)
+                                                    }>
+                                                    X
+                                                  </button>
+                                                </div>
+                                              </div>
+                                              <div />
+                                            </div>
+                                            <div className="flex flex-row justify-items-center w-full">
+                                              <button className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
+                                                Mark as done
+                                              </button>
+                                              <button className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
+                                                Mark as done
+                                              </button>
+                                              <button className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded ">
+                                                Mark as done
                                               </button>
                                             </div>
-                                            <div />
                                           </div>
-                                          <div className="flex flex-row justify-items-center w-full">
-                                            <button className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
-                                              Mark as done
-                                            </button>
-                                            <button className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
-                                              Mark as done
-                                            </button>
-                                            <button className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded ">
-                                              Mark as done
-                                            </button>
-                                          </div>
+
                                         </>
                                       ))}
                                     </div>
