@@ -33,7 +33,7 @@ const Sidebar = () => {
   const [isMinimized, setIsMinimized] = useState(false);
   const { data: session, status } = useSession();
 
-  console.log("Session User: ", session)
+
 
   const handleToggleMinimize = () => {
     setIsMinimized(!isMinimized);
