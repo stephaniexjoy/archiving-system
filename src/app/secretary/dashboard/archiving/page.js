@@ -1,7 +1,7 @@
 import ArchivingTab from "@/app/components/New_Components/Archiving/ArchivingTab";
 import { revalidatePath } from "next/cache";
 
-import { getCourses, getInstructors, getMaterials, getFileTypes } from "@/app/lib/actions/actions";
+import { getCourses, getInstructors, getMaterials, getFileTypes, getTasks } from "@/app/lib/actions/actions";
 
 async function getSearchData(query) {
 
@@ -20,6 +20,8 @@ export default async function archiving({ searchParams }) {
   const fetchInstructors = await getInstructors()
   const fetchFileTypes = await getFileTypes()
   console.log("Hehehe", fetchMaterials)
+
+  const tasks = await getTasks()
 
   if (searchParams) {
     const { query } = searchParams
@@ -61,7 +63,7 @@ export default async function archiving({ searchParams }) {
           />
         </div>
 
-        <ArchivingTab datas={dataWithFormattedDate} materials={fetchMaterials} courses={fetchCourses} instructors={fetchInstructors} filetype={fetchFileTypes} />
+        <ArchivingTab datas={dataWithFormattedDate} materials={fetchMaterials} courses={fetchCourses} instructors={fetchInstructors} filetype={fetchFileTypes} tasks={tasks} />
 
 
       </div >

@@ -87,7 +87,11 @@ async function page() {
             </Link>
           </div>
           <div className='mt-6 text-center bg-[#5B0505] text-white w-[480px] h-[90px] p-4 mx-4 rounded-lg'>
-            <UploadMaterial_Dialog sessionUser={session.user} />
+            <Link href={'/secretary/dashboard/viewfaculty'}>
+              <button className='mt-2 text-3xl font-bold'>
+                VIEW FACULTY
+              </button>
+            </Link>
           </div>
         </div>
         <div className="flex flex-col">

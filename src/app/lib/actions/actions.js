@@ -365,3 +365,8 @@ export async function getFileTypes() {
         console.log(fileTypes)
     } return fileTypes
 }
+
+export async function getTasks() {
+    const tasks = await db.tasks.findMany()
+    if (tasks) return tasks
+}
