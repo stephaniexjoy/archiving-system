@@ -5,6 +5,7 @@ import CreateModal from "@/app/components/Modal/CreateModal";
 import DeleteModal from "@/app/components/Modal/DeleteModal";
 import { revalidatePath } from "next/cache";
 import Link from "next/link";
+import { Table, TableCell, TableRow } from '@/components/ui/table';
 
 async function page() {
   async function getEmptyData() {
@@ -64,28 +65,27 @@ async function page() {
         VIEW FACULTY
       </div>
       <div>
-        <div className="container flex justify-center mx-auto">
+        <div className="container flex justify-center mx-auto drop-shadow-2xl">
           <div className="flex flex-col">
             <div className="w-full">
-              <table className="w-[1300px] divide-y divide-gray-300" style={{ borderCollapse: 'separate', borderSpacing: '0 30px' }}>
-                <tbody className="bg-[#837979] divide-y divide-gray-300">
+              <Table className="w-[1300px] divide-y divide-gray-300" style={{ borderCollapse: 'separate', borderSpacing: '0 30px' }}>
+                <Table className="bg-[#837979] divide-y divide-gray-300">
                   {users.map((user) => (
-                    <tr key={user.id} className="whitespace-nowrap">
-                      <td className="px-3 py-4">
+                    <TableRow key={user.id} className="whitespace-nowrap">
+                      <TableCell className="px-3 py-4">
                         <div className="mr-[700px] text-xl font-semibold text-white">
                           {user.name}
                         </div>
-                      </td>
-                      <td></td>
-                      <td></td>
-                      <td className="px-1 py-4">
+                      </TableCell>
+                      {/* <TableCell></TableCell>
+                      <TableCell></TableCell> */}
+                      <TableCell className="px-1 py-4">
                         <Link href={`/secretary/dashboard/viewfaculty/view-user/${user.id}/`} className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</Link>
-                      </td>
-                    </tr>
+                      </TableCell>
+                    </TableRow>
                   ))}
-
-                </tbody>
-              </table>
+                </Table>
+              </Table>
             </div>
           </div>
         </div>
