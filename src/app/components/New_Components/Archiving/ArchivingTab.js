@@ -41,7 +41,7 @@ function ArchivingTab({ children, datas, materials, courses, instructors, filety
 
         </TabsList>
         <TabsContent value="files"> <Files_Archiving_tabs dataWithFormattedDate={datas} materials={materials} courses={courses} instructors={instructors} /> </TabsContent>
-        <TabsContent value="assignedtask"> <AssignedTask_Archiving_tabs position={session.user.position} tasks={filteredTasks} /> </TabsContent>
+        <TabsContent value="assignedtask"> <AssignedTask_Archiving_tabs position={session.user.position} tasks={filteredTasks} materials={materials}/> </TabsContent>
         <TabsContent value="missingtask"> <MissingTask_Archiving_tabs /> </TabsContent>
         <TabsContent value="archivedtask"><ArchivedTask_Archiving_tabs /></TabsContent>
         {session?.user?.position === "Secretary" && (

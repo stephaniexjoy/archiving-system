@@ -25,13 +25,50 @@ import { useState } from "react";
 import AddTask_Dialog from "./Dialogs/AddTask_Dialog/AddTask_Dialog";
 import { confirmUpload } from "@/app/lib/actions/actions";
 
-export default function AssignedTask_Archiving_tabs({ position, tasks }) {
+import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
+
+import { cn } from "@/lib/utils";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+
+const frameworks = [
+  {
+    value: "next.js",
+    label: "Next.js",
+  },
+  {
+    value: "sveltekit",
+    label: "SvelteKit",
+  },
+  {
+    value: "nuxt.js",
+    label: "Nuxt.js",
+  },
+  {
+    value: "remix",
+    label: "Remix",
+  },
+  {
+    value: "astro",
+    label: "Astro",
+  },
+];
+
+export default function AssignedTask_Archiving_tabs({ position, tasks, materials}) {
+  console.log(materials);
   const { toast } = useToast()
   console.log(tasks);
   const { edgestore } = useEdgeStore();
   const [options, setOptions] = useState("");
   const [uploadedFiles, setUploadedFiles] = useState([])
   const [urls, setUrls] = useState([]); // Define uploadedFiles state here
+// Define uploadedFiles state here
+
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState("");
 
   const handleFileUpload = (event) => {
     const files = event.target.files;
@@ -157,9 +194,56 @@ export default function AssignedTask_Archiving_tabs({ position, tasks }) {
                                               <div />
                                             </div>
                                             <div className="flex flex-row justify-items-center w-full">
-                                              <button className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
-                                                Mark as done
-                                              </button>
+                                              <Popover
+                                                open={open}
+                                                onOpenChange={setOpen}
+                                              >
+                                                <PopoverTrigger asChild>
+                                                  <Button
+                                                    role="combobox"
+                                                    aria-expanded={open}
+                                                    className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded"
+                                                  >
+                                                    {value
+                                                      ? frameworks.find(
+                                                          (framework) =>
+                                                            framework.value ===
+                                                            value
+                                                        )?.label
+                                                      : "Select..."}
+                                                    <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                                                  </Button>
+                                                </PopoverTrigger>
+                                                <PopoverContent className="w-[200px] p-0">
+                                                  <div>
+                                                    {materials.map(
+                                                      (framework) => (
+                                                        <div
+                                                          key={framework.value}
+                                                          onClick={() => {
+                                                            setValue(
+                                                              framework.value ===
+                                                                value
+                                                                ? ""
+                                                                : framework.value
+                                                            );
+                                                            setOpen(false);
+                                                          }}
+                                                          className="flex items-center justify-between p-2 cursor-pointer hover:bg-gray-100"
+                                                        >
+                                                          <span>
+                                                            {framework.label}
+                                                          </span>
+                                                          {value ===
+                                                            framework.value && (
+                                                            <CheckIcon className="ml-auto h-4 w-4 opacity-100" />
+                                                          )}
+                                                        </div>
+                                                      )
+                                                    )}
+                                                  </div>
+                                                </PopoverContent>
+                                              </Popover>{" "}
                                               <button className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
                                                 Mark as done
                                               </button>
@@ -187,8 +271,7 @@ export default function AssignedTask_Archiving_tabs({ position, tasks }) {
                                       </label>{" "}
                                       <AlertDialog>
                                         <AlertDialogTrigger asChild>
-                                          <button
-                                            className="w-[30%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg">
+                                          <button className="w-[30%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg">
                                             Temporary Upload
                                           </button>
                                         </AlertDialogTrigger>
