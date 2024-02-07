@@ -1,9 +1,29 @@
 'use server'
 import { db } from "../prisma_db";
 import { backendClient } from "../edgestore-server";
+import bcrypt from 'bcrypt'
 
 import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
+
+
+export async function createAccount(formData) {
+    const name = formData.get("nameInput")
+    const role = formData.get("roleInput")
+    const category = formData.get("catInput")
+    const specialization = formData.get("specInput")
+    const license = formData.get("licInput")
+    const email = formData.get("emailInput")
+    const password = formData.get("passInput")
+
+    const hashedPassword = await bcrypt.hash(password, 12);
+    console.log(hashedPassword)
+
+    const [createUser, addActivity] = await db.$transaction([
+        db.user.create
+    ])
+
+}
 
 export async function updateUser(formData, sessionUser) {
 
@@ -364,4 +384,9 @@ export async function getFileTypes() {
     if (fileTypes) {
         console.log(fileTypes)
     } return fileTypes
+}
+
+export async function getTasks() {
+    const tasks = await db.tasks.findMany()
+    if (tasks) return tasks
 }

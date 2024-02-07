@@ -21,7 +21,7 @@ export default function Form({ category }) {
                         toast({
 
                             description: "Filter is already listed.",
-                            
+
                             variant: "default",
 
                         })
@@ -30,7 +30,7 @@ export default function Form({ category }) {
                         toast({
 
                             description: "You have successfully added a new Filter (Material/Course).",
-                          
+
                             variant: "default",
 
                         })

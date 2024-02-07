@@ -65,6 +65,7 @@ model User {
   uploadedFiles File[]
   Activity      Activity[]
   Tasks         Tasks[]
+  CompletedTask CompletedTask[]
 }
 
 model User_Education {
@@ -111,10 +112,24 @@ model Tasks {
   uploaderName String
   isUserDone   Boolean
 
-  id              Int       @id @default(autoincrement())
+  id              Int             @id @default(autoincrement())
   title           String
   deadlineCreated DateTime
   setDeadline     DateTime?
   isActive        Boolean
   description     String?
+  CompletedTask   CompletedTask[]
+}
+
+model CompletedTask {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  taskId    Int
+  completed DateTime @default(now())
+
+  // Define the relationship to the User model
+  user User @relation(fields: [userId], references: [id])
+
+  // Define the relationship to the Tasks model
+  task Tasks @relation(fields: [taskId], references: [id])
 }

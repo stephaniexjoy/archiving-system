@@ -12,7 +12,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-export default function AssignedTask_Archiving_tabs({ position }) {
+export default function AssignedTask_Archiving_tabs({ position, tasks }) {
+  console.log(tasks)
   const [options, setOptions] = useState("");
   const [uploadedFiles, setUploadedFiles] = useState([]); // Define uploadedFiles state here
 
@@ -47,112 +48,72 @@ export default function AssignedTask_Archiving_tabs({ position }) {
               No Due Date:
             </label>
             <div className="w-full">
+
               <select
                 onChange={(e) => setOptions(e.target.value)}
                 className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
                 name="taskType"
                 id="taskType"
               >
-                <option value="select"></option>
-                <option value="nodue1">No Due Date 1</option>
-                <option value="nodue2">No Due Date 2</option>
-                <option value="nodue3">No Due Date 3</option>
-              </select>
-              {options === "nodue1" && (
-                <div class="flex flex-row">
-                  <div class="w-full p-0">
-                    <div class="flex flex-row border border-black text-xl text-black p-4 mt-4">
-                      <div className="w-full flex flex-col">
-                        <h1 class="text-2xl font-semibold mb-12">
-                          No Due Date 1 Title
-                        </h1>
-                        <p class="mb-16 text-lg">No Due Date 1 Instructions.</p>
-                        <div>
-                          <h1 class="text-sm mb-0">Post Today</h1>
-                        </div>
-                      </div>
-                      <div class="w-[60%]">
-                        <div class="flex flex-col bg-white p-4 gap-4 drop-shadow-2xl  rounded-xl">
-                          <div className="flex flex-row gap-x-48">
-                            <h1 className="text-md">Your work</h1>
-                            <h1 className="text-sm text-green-600">Assigned</h1>
-                          </div>
 
-                          <Dialog>
-                            <DialogTrigger class="w-full h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer inline-flex items-center justify-center">
-                              Add work
-                            </DialogTrigger>
-                            <DialogContent className="w-[1200px] h-auto p-16">
-                              {" "}
-                              <DialogHeader>
-                                <DialogTitle>Upload files</DialogTitle>
-                                <DialogDescription>
-                                  You can upload files here.
-                                </DialogDescription>
-                              </DialogHeader>
-                              <div>
-                                {" "}
-                                {uploadedFiles.map((file, index) => (
-                                  <div
-                                    className="border border-black drop-shadow-xl mb-2"
-                                    key={index}
-                                  >
-                                    <p>{file.name}</p>
-                                  </div>
-                                ))}
+                <option value="select"></option>
+                {tasks.noDue_Tasks.map(task => (
+                  <option key={task.id} value={task.id}>{task.title}</option>
+                ))}
+              </select>
+
+              {tasks.noDue_Tasks.map(task => (
+
+                options === String(task.id) && (
+
+                  < div key={task.id} >
+                    <div className="flex flex-row">
+                      <div className="w-full p-0">
+                        <div className="flex flex-row border border-black text-xl text-black p-4 mt-4">
+                          <div className="w-full flex flex-col">
+                            <h1 className="text-2xl font-semibold mb-12">
+                              {task.title}
+                            </h1>
+                            <p className="mb-16 text-lg">{task.description}</p>
+                            <div>
+                              <h1 className="text-sm mb-0">Date Posted: {task.deadlineCreated.toLocaleString()}</h1>
+                            </div>
+                          </div>
+                          <div className="w-[60%]">
+                            <div className="flex flex-col bg-white p-4 gap-4 drop-shadow-2xl  rounded-xl">
+                              <div className="flex flex-row gap-x-48">
+                                <h1 className="text-md">Your work</h1>
+                                <h1 className="text-sm text-green-600">Assigned</h1>
                               </div>
                               <label
                                 htmlFor="file-upload"
                                 className="w-full h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer inline-flex items-center justify-center"
                               >
-                                Browse
+                                Add work
                                 <input
                                   id="file-upload"
                                   type="file"
                                   className="hidden"
-                                  onChange={handleFileUpload}
-                                  multiple
                                 />
-                              </label>
-                            </DialogContent>
-                          </Dialog>
-                          <button class="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
-                            Mark as done
-                          </button>
+                              </label>{" "}
+                              <button className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
+                                Mark as done
+                              </button>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              )}
+                )
+              ))}
 
-              {options === "nodue2" && (
-                <div className="border border-black text-xl text-black p-4 mt-4">
-                  <h1 className="text-2xl font-semibold mb-2">
-                    No Due Date 2 Title
-                  </h1>
-                  <p className="mb-4 text-lg">No Dute Date 2 Instructions.</p>
 
-                  <div>
-                    <h1 className="text-sm mb-2">Post Today</h1>
-                  </div>
-                </div>
-              )}
-              {options === "nodue3" && (
-                <div className="border border-black text-xl text-black p-4 mt-4">
-                  <h1 className="text-2xl font-semibold mb-2">
-                    No Due Date 3 Title
-                  </h1>
-                  <p className="mb-4 text-lg">No Dute Date 3 Instructions.</p>
-                  <div>
-                    <h1 className="text-sm mb-2">Post Today</h1>
-                  </div>
-                </div>
-              )}
+
             </div>
           </div>
 
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md">
+          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md drop-shadow-xl">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               This week:
             </label>
@@ -204,7 +165,7 @@ export default function AssignedTask_Archiving_tabs({ position }) {
             </div>
           </div>
 
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md">
+          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md drop-shadow-xl">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               Next week:
             </label>
@@ -256,7 +217,7 @@ export default function AssignedTask_Archiving_tabs({ position }) {
             </div>
           </div>
 
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md">
+          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md drop-shadow-xl">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               Later:
             </label>
@@ -302,7 +263,7 @@ export default function AssignedTask_Archiving_tabs({ position }) {
             </div>
           </div>
         </div>
-      </div>
+      </div >
     </>
   );
 }
