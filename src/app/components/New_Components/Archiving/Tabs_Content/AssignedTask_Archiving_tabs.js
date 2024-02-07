@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/dialog";
 
 export default function AssignedTask_Archiving_tabs({ position, tasks }) {
-  console.log(tasks)
+  console.log(tasks);
   const [options, setOptions] = useState("");
   const [uploadedFiles, setUploadedFiles] = useState([]); // Define uploadedFiles state here
 
@@ -26,6 +26,12 @@ export default function AssignedTask_Archiving_tabs({ position, tasks }) {
     }
 
     setUploadedFiles(newFiles);
+  };
+
+  const handleRemoveFile = (indexToRemove) => {
+    setUploadedFiles((prevFiles) =>
+      prevFiles.filter((file, index) => index !== indexToRemove)
+    );
   };
 
   return (
@@ -48,68 +54,128 @@ export default function AssignedTask_Archiving_tabs({ position, tasks }) {
               No Due Date:
             </label>
             <div className="w-full">
-
               <select
                 onChange={(e) => setOptions(e.target.value)}
                 className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
                 name="taskType"
                 id="taskType"
               >
-
                 <option value="select"></option>
-                {tasks.noDue_Tasks.map(task => (
-                  <option key={task.id} value={task.id}>{task.title}</option>
+                {tasks.noDue_Tasks.map((task) => (
+                  <option key={task.id} value={task.id}>
+                    {task.title}
+                  </option>
                 ))}
               </select>
 
-              {tasks.noDue_Tasks.map(task => (
-
-                options === String(task.id) && (
-
-                  < div key={task.id} >
-                    <div className="flex flex-row">
-                      <div className="w-full p-0">
-                        <div className="flex flex-row border border-black text-xl text-black p-4 mt-4">
-                          <div className="w-full flex flex-col">
-                            <h1 className="text-2xl font-semibold mb-12">
-                              {task.title}
-                            </h1>
-                            <p className="mb-16 text-lg">{task.description}</p>
-                            <div>
-                              <h1 className="text-sm mb-0">Date Posted: {task.deadlineCreated.toLocaleString()}</h1>
-                            </div>
-                          </div>
-                          <div className="w-[60%]">
-                            <div className="flex flex-col bg-white p-4 gap-4 drop-shadow-2xl  rounded-xl">
-                              <div className="flex flex-row gap-x-48">
-                                <h1 className="text-md">Your work</h1>
-                                <h1 className="text-sm text-green-600">Assigned</h1>
+              {tasks.noDue_Tasks.map(
+                (task) =>
+                  options === String(task.id) && (
+                    <div key={task.id}>
+                      <div className="flex flex-row">
+                        <div className="w-full p-0">
+                          <div className="flex flex-row border border-black text-xl text-black p-4 mt-4">
+                            <div className="w-full flex flex-col">
+                              <h1 className="text-2xl font-semibold mb-12">
+                                {task.title}
+                              </h1>
+                              <p className="mb-16 text-lg">
+                                {task.description}
+                              </p>
+                              <div>
+                                <h1 className="text-sm mb-0">
+                                  Date Posted:{" "}
+                                  {task.deadlineCreated.toLocaleString()}
+                                </h1>
                               </div>
-                              <label
-                                htmlFor="file-upload"
-                                className="w-full h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer inline-flex items-center justify-center"
-                              >
-                                Add work
-                                <input
-                                  id="file-upload"
-                                  type="file"
-                                  className="hidden"
-                                />
-                              </label>{" "}
-                              <button className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
-                                Mark as done
-                              </button>
+                            </div>
+                            <div className="w-[60%]">
+                              <div className="flex flex-col bg-white p-4 gap-4 drop-shadow-2xl rounded-xl">
+                                <div className="flex flex-row gap-x-48">
+                                  <h1 className="text-md">Your work</h1>
+                                  <h1 className="text-sm text-green-600">
+                                    Assigned
+                                  </h1>
+                                </div>
+                                <Dialog>
+                                  <DialogTrigger className="w-full h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer inline-flex items-center justify-center">
+                                    Upload here
+                                  </DialogTrigger>
+                                  <DialogContent className="bg-white md:max-w-[1200px] h-[800px] py-6 px-6 mx-auto overflow-y-auto">
+                                    {" "}
+                                    <DialogHeader>
+                                      <DialogTitle className="text-2xl">
+                                        Upload files
+                                      </DialogTitle>
+                                      <DialogDescription>
+                                        You can upload files here.
+                                      </DialogDescription>
+                                    </DialogHeader>
+                                    <div className="flex flex-row w-full">
+                                      {uploadedFiles.map((file, index) => (
+                                        <>
+                                          <div
+                                            className="flex border w-full h-auto border-black drop-shadow-2xl mb-2 rounded-lg overflow-x-hidden items-center"
+                                            key={index}
+                                          >
+                                            <div className="w-full h-auto text-xl font-semibold justify-between items-center p-2 ">
+                                              <p>{file.name}</p>
+                                              <button
+                                                className="text-red-600"
+                                                onClick={() =>
+                                                  handleRemoveFile(index)
+                                                }
+                                              >
+                                                X
+                                              </button>
+                                            </div>
+                                            <div />
+                                          </div>
+                                          <div className="flex flex-row justify-items-center w-full">
+                                            <button className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
+                                              Mark as done
+                                            </button>
+                                            <button className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
+                                              Mark as done
+                                            </button>
+                                            <button className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded ">
+                                              Mark as done
+                                            </button>
+                                          </div>
+                                        </>
+                                      ))}
+                                    </div>
+                                    <div className="flex flex-col items-center justify-center w-full">
+                                      <label
+                                        htmlFor="file-upload"
+                                        className="w-[30%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg"
+                                      >
+                                        Browse
+                                        <input
+                                          id="file-upload"
+                                          type="file"
+                                          className="hidden"
+                                          onChange={handleFileUpload}
+                                          multiple
+                                        />
+                                      </label>{" "}
+                                      <label className="w-[30%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg">
+                                        Done
+                                      </label>{" "}
+                                    </div>
+                                  </DialogContent>
+                                </Dialog>
+                                <button className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
+                                  Mark as done
+                                </button>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                )
-              ))}
-
-
-
+                  )
+              )}
             </div>
           </div>
 
@@ -263,7 +329,7 @@ export default function AssignedTask_Archiving_tabs({ position, tasks }) {
             </div>
           </div>
         </div>
-      </div >
+      </div>
     </>
   );
 }
