@@ -32,6 +32,18 @@ export default function Form({ sessionUser }) {
                         <Input name="nameInput" id="name" type="text" className="ml-24 bg-[#837979] w-[550px] text-white text-[20px]" />
                     </div>
                     <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="age" className="font-semibold text-[25px] text-left">
+                            Age:
+                        </Label>
+                        <Input name="ageInput" id="age" type="text" className="ml-24 bg-[#837979] w-[550px] text-white text-[20px]" />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="sex" className="font-semibold text-[25px] text-left">
+                            Sex:
+                        </Label>
+                        <Input name="sexInput" id="sex" type="text" className="ml-24 bg-[#837979] w-[550px] text-white text-[20px]" />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="role" className="font-semibold text-[25px] text-left">
                             Role:
                         </Label>
@@ -66,6 +78,12 @@ export default function Form({ sessionUser }) {
                             Eligibity/Professional License:
                         </Label>
                         <Input name="licInput" id="eligibility/professionallicenseeligibility/professionallicense" type="text" className="ml-24 bg-[#837979] w-[550px] text-white text-[20px]" />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="employeeNo" className="font-semibold text-[25px] text-left">
+                            Employee Number:
+                        </Label>
+                        <Input name="employeeNoInput" id="employeeNo" type="text" className="ml-24 bg-[#837979] w-[550px] text-white text-[20px]" />
                     </div>
                     <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="email" className="font-semibold text-[25px] text-left">
