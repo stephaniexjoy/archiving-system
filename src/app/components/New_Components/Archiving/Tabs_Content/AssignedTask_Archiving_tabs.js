@@ -57,7 +57,7 @@ const frameworks = [
   },
 ];
 
-export default function AssignedTask_Archiving_tabs({ position, tasks, materials}) {
+export default function AssignedTask_Archiving_tabs({ position, tasks, materials }) {
   console.log(materials);
   const { toast } = useToast()
   console.log(tasks);
@@ -65,7 +65,7 @@ export default function AssignedTask_Archiving_tabs({ position, tasks, materials
   const [options, setOptions] = useState("");
   const [uploadedFiles, setUploadedFiles] = useState([])
   const [urls, setUrls] = useState([]); // Define uploadedFiles state here
-// Define uploadedFiles state here
+  // Define uploadedFiles state here
 
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
@@ -206,10 +206,10 @@ export default function AssignedTask_Archiving_tabs({ position, tasks, materials
                                                   >
                                                     {value
                                                       ? frameworks.find(
-                                                          (framework) =>
-                                                            framework.value ===
-                                                            value
-                                                        )?.label
+                                                        (framework) =>
+                                                          framework.value ===
+                                                          value
+                                                      )?.label
                                                       : "Select..."}
                                                     <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                                                   </Button>
@@ -236,8 +236,8 @@ export default function AssignedTask_Archiving_tabs({ position, tasks, materials
                                                           </span>
                                                           {value ===
                                                             framework.value && (
-                                                            <CheckIcon className="ml-auto h-4 w-4 opacity-100" />
-                                                          )}
+                                                              <CheckIcon className="ml-auto h-4 w-4 opacity-100" />
+                                                            )}
                                                         </div>
                                                       )
                                                     )}
