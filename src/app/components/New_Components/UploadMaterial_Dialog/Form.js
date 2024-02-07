@@ -5,8 +5,10 @@ import {
 } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
 import { uploadFile } from "@/app/lib/actions/actions"
+import { useToast } from "@/components/ui/use-toast"
 
 export default function Form({ sessionUser }) {
+    const { toast } = useToast()
     return (
         <>
             <form action={async formData => {

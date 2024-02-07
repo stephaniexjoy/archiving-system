@@ -5,20 +5,33 @@ import { Input } from "@/components/ui/input"
 import { FaSearch } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
 import archiving from '../dashboard/archiving/page';
+import { useSession } from 'next-auth/react';
 
 
 const SearchBar = () => {
+    const { data: session, status } = useSession()
     const [searchQuery, setSearchQuery] = useState("")
     const router = useRouter()
+    console.log("Session search bar", session)
+
 
     const onSearch = (event) => {
         event.preventDefault()
 
-        if (searchQuery.trim() !== "") {
-            router.push(`/dashboard/archiving/search?query=${encodeURIComponent(searchQuery)}`);
-        } else {
-            router.push("/dashboard/archiving");
-        }
+     let searchRoute = "/dashboard/archiving"; // Default route for Faculty
+
+    if (session.user.position === "Secretary") {
+        searchRoute = "/secretary/dashboard/archiving"; // Route for Secretary
+    }
+
+    if (searchQuery.trim() !== "") {
+        searchRoute += `/search?query=${encodeURIComponent(searchQuery)}`;
+    }
+
+    router.push(searchRoute);
+
+
+
 
     }
     return (
