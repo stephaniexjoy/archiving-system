@@ -11,7 +11,17 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 export default function AssignedTask_Archiving_tabs({ position, tasks }) {
   console.log(tasks);
@@ -103,7 +113,6 @@ export default function AssignedTask_Archiving_tabs({ position, tasks }) {
                                     Upload Here
                                   </DialogTrigger>
                                   <DialogContent className="bg-white md:max-w-[1200px] h-[800px] py-6 px-6 mx-auto overflow-y-auto">
-
                                     <DialogHeader>
                                       <DialogTitle className="text-2xl">
                                         Upload files
@@ -125,14 +134,14 @@ export default function AssignedTask_Archiving_tabs({ position, tasks }) {
                                                   <p>{file.name}</p>
                                                 </div>
                                                 <div>
-
-                                                  <button
-                                                    className="text-red-600"
+                                                  <label
+                                                    className="cursor-pointer text-red-600"
                                                     onClick={() =>
                                                       handleRemoveFile(index)
-                                                    }>
+                                                    }
+                                                  >
                                                     X
-                                                  </button>
+                                                  </label>
                                                 </div>
                                               </div>
                                               <div />
@@ -149,7 +158,6 @@ export default function AssignedTask_Archiving_tabs({ position, tasks }) {
                                               </button>
                                             </div>
                                           </div>
-
                                         </>
                                       ))}
                                     </div>
@@ -167,9 +175,29 @@ export default function AssignedTask_Archiving_tabs({ position, tasks }) {
                                           multiple
                                         />
                                       </label>{" "}
-                                      <button className="w-[30%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg">
-                                        Temporary Upload
-                                      </button>{" "}
+                                      <AlertDialog>
+                                        <AlertDialogTrigger asChild>
+                                          <button
+                                           className="w-[30%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg">
+                                            Temporary Upload
+                                          </button>
+                                        </AlertDialogTrigger>
+                                        <AlertDialogContent>
+                                          <AlertDialogHeader>
+                                            <AlertDialogTitle>
+                                              Are you absolutely sure?
+                                            </AlertDialogTitle>
+                                          </AlertDialogHeader>
+                                          <AlertDialogFooter className="items-center">
+                                            <AlertDialogCancel>
+                                              Cancel
+                                            </AlertDialogCancel>
+                                            <AlertDialogAction>
+                                              Continue
+                                            </AlertDialogAction>
+                                          </AlertDialogFooter>
+                                        </AlertDialogContent>
+                                      </AlertDialog>{" "}
                                     </div>
                                   </DialogContent>
                                 </Dialog>
