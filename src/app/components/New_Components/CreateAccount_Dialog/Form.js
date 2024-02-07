@@ -35,7 +35,7 @@ export default function Form({ sessionUser }) {
                         <Label htmlFor="age" className="font-semibold text-[25px] text-left">
                             Age:
                         </Label>
-                        <Input name="ageInput" id="age" type="text" className="ml-24 bg-[#837979] w-[550px] text-white text-[20px]" />
+                        <Input name="ageInput" id="age" type="number" min={0} className="ml-24 bg-[#837979] w-[550px] text-white text-[20px]" />
                     </div>
                     <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="sex" className="font-semibold text-[25px] text-left">

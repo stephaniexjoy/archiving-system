@@ -8,6 +8,11 @@ import { getServerSession } from "next-auth/next";
 
 
 export async function createAccount(formData, sessionUser) {
+
+    const dateString = new Date()
+    const dateObject = new Date(dateString)
+
+
     const name = formData.get("nameInput")
     const role = formData.get("roleInput")
     const category = formData.get("catInput")
@@ -15,9 +20,9 @@ export async function createAccount(formData, sessionUser) {
     const license = formData.get("licInput")
     const email = formData.get("emailInput")
     const password = formData.get("passInput")
-    const age = formData.get("")
-    const sex = formData.get("")
-    const empNo = formData.get("")
+    const age = formData.get("ageInput")
+    const sex = formData.get("sexInput")
+    const empNo = formData.get("employeeNoInput")
 
     const hashedPassword = await bcrypt.hash(password, 12);
     console.log(hashedPassword)
@@ -25,7 +30,19 @@ export async function createAccount(formData, sessionUser) {
     const [createUser, addActivity] = await db.$transaction([
         db.user.create({
             data: {
-
+                employee_no: empNo,
+                email: email,
+                password: hashedPassword,
+                name: name,
+                age: parseInt(age),
+                sex: sex,
+                position: role,
+                designation: category,
+                specialization: specialization,
+                license: license,
+                education: {
+                    create: {}
+                }
             }
         }),
         db.activity.create({
@@ -42,6 +59,7 @@ export async function createAccount(formData, sessionUser) {
             }
         })
     ])
+    if (createUser) return createUser
 
 }
 
