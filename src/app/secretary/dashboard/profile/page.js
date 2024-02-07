@@ -44,7 +44,7 @@ async function page() {
                             <h1 className=" md:text-[25px]">Age:</h1>
                         </div>
                         <div>
-                            <h1 className="md:text-[25px] ml-[163px] font-bold">21</h1>
+                            <h1 className="md:text-[25px] ml-[163px] font-bold">{user.age}</h1>
                         </div>
                     </div>
                     <div className="-mt-10 flex flex-row gap-x-8 text-[#5B0505] md:ml-10 md:h-20">
@@ -52,7 +52,7 @@ async function page() {
                             <h1 className=" md:text-[25px]">Sex:</h1>
                         </div>
                         <div>
-                            <h1 className="md:text-[25px] ml-[166px] font-bold uppercase">Male</h1>
+                            <h1 className="md:text-[25px] ml-[166px] font-bold uppercase">{user.sex}</h1>
                         </div>
                     </div>
                     <div className="-mt-10 flex flex-row gap-x-8 text-[#5B0505] md:ml-10 md:h-20">
@@ -60,7 +60,7 @@ async function page() {
                             <h1 className=" md:text-[25px]">Employee No:</h1>
                         </div>
                         <div>
-                            <h1 className="md:text-[25px] ml-[55px] font-bold uppercase">0320-0726</h1>
+                            <h1 className="md:text-[25px] ml-[55px] font-bold uppercase">{user.employee_no}</h1>
                         </div>
                     </div>
                     <div className="-mt-10 flex flex-row gap-x-8 text-[#5B0505] md:ml-10 md:h-20">
@@ -76,7 +76,7 @@ async function page() {
                             <h1 className=" md:text-[25px]">Designation:</h1>
                         </div>
                         <div>
-                            <h1 className="md:text-[25px] ml-[70px] font-bold uppercase">Secretary</h1>
+                            <h1 className="md:text-[25px] ml-[70px] font-bold uppercase">{user.designation}</h1>
                         </div>
                     </div>
                     <div className="-mt-10 flex flex-row gap-x-8 text-[#5B0505] md:ml-10 md:h-20">

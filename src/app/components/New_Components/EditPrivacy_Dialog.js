@@ -43,7 +43,7 @@ async function EditPrivacy_Dialog() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <b className="md:left-[1300px] text-center bg-transparent text-white text-3xl font-bold h-10 w-64 p-2 m-2 cursor-pointer">EDIT PRIVACY</b>
+                <b className="md:left-[1300px] text-center bg-transparent text-white text-3xl font-bold h-12 w-64 p-2 m-2 cursor-pointer">EDIT PRIVACY</b>
             </DialogTrigger>
             <DialogContent className="p- md:max-w-[1000px]">
                 <form>
