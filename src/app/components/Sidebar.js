@@ -6,6 +6,7 @@ import { useState } from "react";
 import { FaBook, FaHome, FaSignOutAlt } from "react-icons/fa";
 import { IoMdMenu, IoMdPerson } from "react-icons/io";
 import Signout_Dialog from "./New_Components/Signout_Dialog";
+import Sidebar_Skeleton from "./Skeletons/Sidebar_Skeleton";
 
 const MenuItem = ({ path, icon, label, onClick, isMinimized }) => (
   <li className={`flex items-center mb-2 hover:bg-[#9D9494] h-10 py-2 ${isMinimized ? "mt-4" : "mt-4"}`}>
@@ -120,7 +121,7 @@ const Sidebar = () => {
     );
   }
   if (status === "loading") {
-    return <div>loading...</div>;
+    return <><Sidebar_Skeleton/></>;
   }
 };
 
