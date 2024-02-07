@@ -14,19 +14,19 @@ datasource db {
 //Options for filtering
 
 model Materials {
-  id     Int    @id @default(autoincrement())
+  id    Int    @id @default(autoincrement())
   value String @unique
   label String
 }
 
 model Filetype {
-  id     Int    @id @default(autoincrement())
+  id    Int    @id @default(autoincrement())
   value String @unique
   label String
 }
 
 model Courses {
-  id     Int    @id @default(autoincrement())
+  id    Int    @id @default(autoincrement())
   value String @unique
   label String
 }
@@ -64,7 +64,7 @@ model User {
   // Relationship to the files uploaded by User
   uploadedFiles File[]
   Activity      Activity[]
-  Deadline      Deadline[]
+  Tasks         Tasks[]
 }
 
 model User_Education {
@@ -105,12 +105,13 @@ model File {
   description String?
 }
 
-model Deadline {
-  User         User   @relation(fields: [userId], references: [id])
+model Tasks {
+  User         User    @relation(fields: [userId], references: [id])
   userId       Int
   uploaderName String
+  isUserDone   Boolean
 
-  id              Int      @id @default(autoincrement())
+  id              Int       @id @default(autoincrement())
   title           String
   deadlineCreated DateTime
   setDeadline     DateTime?

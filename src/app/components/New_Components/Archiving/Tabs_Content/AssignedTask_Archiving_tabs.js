@@ -2,7 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
-import AddTask_Dialog from "./Dialogs/AddTask_Dialog";
+import AddTask_Dialog from "./Dialogs/AddTask_Dialog/AddTask_Dialog";
 
 export default function AssignedTask_Archiving_tabs({ position }) {
   const [options, setOptions] = useState("");

@@ -260,6 +260,73 @@ export async function addFilter(formData, category) {
 
 }
 
+export async function addTasks(formData, date) {
+
+    const session = await getServerSession(AuthOptions)
+
+    const dateString = new Date()
+    const dateObject = new Date(dateString)
+    //const dateObject1 = new Date(date)
+
+    console.log(formData)
+
+
+
+
+    const titleForm = formData.get('titleInput')
+    const instruction = formData.get('instructionInput')
+    const isNoDueDate = formData.get('isNoDueDateBox')
+    let deadlineDate = null
+
+    if (!isNoDueDate) {
+
+        const deadline = formData.get('time')
+        const formattedDate = date.toLocaleDateString('en-US')
+
+        const [month, day, year] = formattedDate.split("/");
+        const [hours, minutes] = deadline.split(":");
+
+        const dateTime = new Date(year, month - 1, day, hours, minutes); // Month is 0-indexed, so subtract 1
+        deadlineDate = dateTime.toISOString();
+    }
+
+
+    const [addTask, addActivity] = await db.$transaction([
+        db.tasks.create({
+            data: {
+                User: {
+                    connect: {
+                        id: session.user.id
+                    }
+                },
+                uploaderName: session.user.name,
+                isUserDone: false,
+                title: titleForm,
+                deadlineCreated: dateObject,
+                setDeadline: deadlineDate,
+                isActive: true,
+                description: instruction
+
+
+            }
+        }),
+        db.activity.create({
+            data: {
+                name: session.user.name,
+                position: session.user.position,
+                type: "ADDED NEW TASKS",
+                createdAt: dateObject,
+                user: {
+                    connect: {
+                        id: session.user.id
+                    }
+                }
+            }
+        })
+    ])
+    if (addTask) return addTask
+}
+
 
 export async function getMaterials() {
 
