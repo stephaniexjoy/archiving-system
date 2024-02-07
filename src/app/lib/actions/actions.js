@@ -6,6 +6,8 @@ import bcrypt from 'bcrypt'
 import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
 
+import { unstable_noStore as noStore } from 'next/cache';
+
 
 export async function createAccount(formData, sessionUser) {
 
@@ -393,7 +395,6 @@ export async function addTasks(formData, date) {
     if (addTask) return addTask
 }
 
-
 export async function getMaterials() {
 
     const materials = await db.materials.findMany()
@@ -435,4 +436,25 @@ export async function getFileTypes() {
 export async function getTasks() {
     const tasks = await db.tasks.findMany()
     if (tasks) return tasks
+}
+
+export async function confirmUpload(urls) {
+
+    console.log(urls)
+    try {
+
+        for (const url of urls) {
+
+            const res = await backendClient.publicFiles1.confirmUpload({
+                url
+            })
+            console.log(res)
+
+        }
+        return "Success"
+
+    } catch (error) {
+        return error
+    }
+
 }
