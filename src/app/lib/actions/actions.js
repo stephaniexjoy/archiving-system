@@ -18,7 +18,7 @@ export async function createAccount(formData, sessionUser) {
     const category = formData.get("catInput")
     const specialization = formData.get("specInput")
     const license = formData.get("licInput")
-    const email = formData.get("emailInput")
+    const emailForm = formData.get("emailInput")
     const password = formData.get("passInput")
     const age = formData.get("ageInput")
     const sex = formData.get("sexInput")
@@ -27,11 +27,19 @@ export async function createAccount(formData, sessionUser) {
     const hashedPassword = await bcrypt.hash(password, 12);
     console.log(hashedPassword)
 
+    const existingUser = await db.user.findMany({
+        where: {
+            OR: [{ email: emailForm }, { employee_no: empNo }]
+        }
+    });
+
+    if (existingUser) return "Existing User"
+
     const [createUser, addActivity] = await db.$transaction([
         db.user.create({
             data: {
                 employee_no: empNo,
-                email: email,
+                email: emailForm,
                 password: hashedPassword,
                 name: name,
                 age: parseInt(age),

@@ -15,13 +15,25 @@ export default function Form({ sessionUser }) {
 
                 const create = await createAccount(formData, sessionUser)
                 if (create) {
-                    toast({
+                    if (create === "Existing User") {
+                        toast({
 
-                        description: "Successfuly Created an Account.",
+                            description: "User already Exist.",
 
-                        variant: "default",
+                            variant: "default",
 
-                    })
+                        })
+                    }
+                    else {
+
+                        toast({
+
+                            description: "Successfuly Created an Account.",
+
+                            variant: "default",
+
+                        })
+                    }
                 }
             }}>
                 <div className="grid gap-4 py-3 ">
