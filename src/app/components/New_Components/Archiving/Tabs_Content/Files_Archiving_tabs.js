@@ -16,11 +16,11 @@ const programFrameworks = [
     label: "Machine Learning",
   },
   {
-    value: "Programming Languages",
+    value: "programming languages",
     label: "Programming Languages",
   },
   {
-    value: "Platform Technologies",
+    value: "platform technologies",
     label: "Platform Technologies",
   },
 ];
@@ -46,11 +46,11 @@ const filetypeFrameworks = [
     label: "PDF",
   },
   {
-    value: "PPT",
+    value: "ppt",
     label: "PPT",
   },
   {
-    value: "DOCX",
+    value: "docx",
     label: "DOCX",
   },
 ];
