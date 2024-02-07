@@ -234,8 +234,6 @@ export default function AssignedTask_Archiving_tabs({
                                                   </div>
                                                 </PopoverContent>
                                               </Popover>{" "}
-
-
                                               <Popover
                                                 open={openCourse}
                                                 onOpenChange={setOpenCourse}
@@ -275,7 +273,7 @@ export default function AssignedTask_Archiving_tabs({
                                                           }}
                                                           className="flex items-center justify-between p-2 cursor-pointer hover:bg-gray-100"
                                                         >
-                                                          <span>  
+                                                          <span>
                                                             {framework.label}
                                                           </span>
                                                           {valueCourse ===
@@ -288,8 +286,6 @@ export default function AssignedTask_Archiving_tabs({
                                                   </div>
                                                 </PopoverContent>
                                               </Popover>{" "}
-
-
                                               <Popover
                                                 open={openTogglePrivacy}
                                                 onOpenChange={
@@ -346,8 +342,6 @@ export default function AssignedTask_Archiving_tabs({
                                                   </div>
                                                 </PopoverContent>
                                               </Popover>{" "}
-
-                                              
                                             </div>
                                           </div>
                                         </>
