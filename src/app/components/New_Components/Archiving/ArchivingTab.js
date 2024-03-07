@@ -15,7 +15,7 @@ import { useSession } from "next-auth/react"
 
 function ArchivingTab({ children, datas, materials, courses, instructors, filetypes, tasks }) {
   const { data: session, status } = useSession()
-
+  console.log(tasks)
   const filteredTasks = {
 
     noDue_Tasks: tasks.filter(task => task.setDeadline === null),

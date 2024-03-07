@@ -6,7 +6,7 @@ import bcrypt from 'bcrypt'
 import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
 
-import { unstable_noStore as noStore } from 'next/cache';
+import { unstable_noStore as noStore, revalidatePath } from 'next/cache';
 
 
 export async function createAccount(formData, sessionUser) {
@@ -357,6 +357,7 @@ export async function addTasks(formData, date) {
         const dateTime = new Date(year, month - 1, day, hours, minutes); // Month is 0-indexed, so subtract 1
         deadlineDate = dateTime.toISOString();
     }
+    
 
 
     const [addTask, addActivity] = await db.$transaction([
@@ -392,6 +393,7 @@ export async function addTasks(formData, date) {
             }
         })
     ])
+    revalidatePath('/secretary/dashboard/archiving')
     if (addTask) return addTask
 }
 

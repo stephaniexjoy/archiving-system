@@ -13,6 +13,7 @@ import {
   getInstructors,
   getMaterials,
   getFileTypes,
+  getTasks,
 } from "@/app/lib/actions/actions";
 
 async function getSearchData(query) {
@@ -34,6 +35,9 @@ export default async function archiving({ searchParams }) {
   const fetchInstructors = await getInstructors();
   const fetchFileTypes = await getFileTypes();
   console.log("Hehehe", fetchMaterials);
+
+  const tasks = await getTasks();
+  console.log(tasks);
 
   
     const { query } = searchParams;
@@ -66,6 +70,7 @@ export default async function archiving({ searchParams }) {
           courses={fetchCourses}
           instructors={fetchInstructors}
           filetype={fetchFileTypes}
+          tasks={tasks}
         />
       </div>
     </>

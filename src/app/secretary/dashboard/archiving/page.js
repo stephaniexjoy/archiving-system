@@ -1,32 +1,41 @@
 import ArchivingTab from "@/app/components/New_Components/Archiving/ArchivingTab";
 import { revalidatePath } from "next/cache";
 
-import { getCourses, getInstructors, getMaterials, getFileTypes, getTasks } from "@/app/lib/actions/actions";
+import {
+  getCourses,
+  getInstructors,
+  getMaterials,
+  getFileTypes,
+  getTasks,
+} from "@/app/lib/actions/actions";
 
 async function getSearchData(query) {
-
   if (query) {
-    const res = await fetch(`http://localhost:3000/api/search-query?query=${encodeURIComponent(query)}`)
-    revalidatePath('/secretary/dashboard/archiving')
-    return res.json()
+    const res = await fetch(
+      `http://localhost:3000/api/search-query?query=${encodeURIComponent(
+        query
+      )}`
+    );
+    revalidatePath("/secretary/dashboard/archiving");
+    return res.json();
   } else {
-    console.log("Empty Search Params")
+    console.log("Empty Search Params");
   }
 }
 export default async function archiving({ searchParams }) {
+  const fetchMaterials = await getMaterials();
+  const fetchCourses = await getCourses();
+  const fetchInstructors = await getInstructors();
+  const fetchFileTypes = await getFileTypes();
+  console.log("Hehehe", fetchMaterials);
 
-  const fetchMaterials = await getMaterials()
-  const fetchCourses = await getCourses()
-  const fetchInstructors = await getInstructors()
-  const fetchFileTypes = await getFileTypes()
-  console.log("Hehehe", fetchMaterials)
-
-  const tasks = await getTasks()
+  const tasks = await getTasks();
+  console.log(tasks);
 
   if (searchParams) {
-    const { query } = searchParams
+    const { query } = searchParams;
 
-    const searchedData = await getSearchData(query)
+    const searchedData = await getSearchData(query);
   }
 
   async function getEmptyData() {
@@ -34,18 +43,18 @@ export default async function archiving({ searchParams }) {
   }
 
   async function getData() {
-    const res = await fetch('http://localhost:3000/api/get-file-path',)
+    const res = await fetch("http://localhost:3000/api/get-file-path");
 
     if (!res.ok) {
-      return getEmptyData()
+      return getEmptyData();
     }
-    revalidatePath('secretary/dashboard/archiving')
-    return res.json()
+    revalidatePath("secretary/dashboard/archiving");
+    return res.json();
   }
 
-  const data = await getData()
+  const data = await getData();
 
-  const dataWithFormattedDate = data.map(file => ({
+  const dataWithFormattedDate = data.map((file) => ({
     ...file,
     uploadDate: new Date(file.uploadDate).toLocaleString(),
   }));
@@ -61,10 +70,15 @@ export default async function archiving({ searchParams }) {
           />
         </div>
 
-        <ArchivingTab datas={dataWithFormattedDate} materials={fetchMaterials} courses={fetchCourses} instructors={fetchInstructors} filetype={fetchFileTypes} tasks={tasks} />
-
-
-      </div >
+        <ArchivingTab
+          datas={dataWithFormattedDate}
+          materials={fetchMaterials}
+          courses={fetchCourses}
+          instructors={fetchInstructors}
+          filetype={fetchFileTypes}
+          tasks={tasks}
+        />
+      </div>
     </>
   );
 }
