@@ -5,7 +5,7 @@ import AddCategory_Dialog from "@/app/components/New_Components/AddCategory_Dial
 import SearchBar from "@/app/components/SearchBar";
 import ArchivingTab from "@/app/components/New_Components/Archiving/ArchivingTab";
 import { revalidatePath } from "next/cache";
-import { getMaterials } from "@/app/lib/actions/actions";
+import { getCourses, getInstructors, getMaterials, getFileTypes, getTasks } from "@/app/lib/actions/actions";
 
 async function getSearchData(query) {
 
@@ -20,6 +20,13 @@ async function getSearchData(query) {
 
 export default async function archiving({ searchParams }) {
 
+  const fetchMaterials = await getMaterials()
+  const fetchCourses = await getCourses()
+  const fetchInstructors = await getInstructors()
+  const fetchFileTypes = await getFileTypes()
+  console.log("Hehehe", fetchMaterials)
+
+  const tasks = await getTasks()
 
 
   if (searchParams) {
@@ -29,7 +36,7 @@ export default async function archiving({ searchParams }) {
   }
 
   async function getEmptyData() {
-    return Promise.resolve([]); // Returning an empty array
+    return Promise.resolve([]);
   }
 
   async function getData() {
@@ -56,8 +63,8 @@ export default async function archiving({ searchParams }) {
       uploadDate: new Date(file.uploadDate).toLocaleString(),
     })); */
 
-  const fetchMaterials = await getMaterials()
-  console.log(fetchMaterials)
+  // const fetchMaterials = await getMaterials()
+  // console.log(fetchMaterials)
 
   return (
     <>
@@ -70,7 +77,8 @@ export default async function archiving({ searchParams }) {
           />
         </div>
 
-        <ArchivingTab datas={dataWithFormattedDate} materials={fetchMaterials} />
+        <ArchivingTab datas={dataWithFormattedDate} materials={fetchMaterials} courses={fetchCourses} instructors={fetchInstructors} filetype={fetchFileTypes} tasks={tasks} />
+        
       </div>
     </>
   );
