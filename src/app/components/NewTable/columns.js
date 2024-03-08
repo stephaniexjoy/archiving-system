@@ -4,7 +4,6 @@ import { ColumnDef } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { LuArrowUpDown } from "react-icons/lu";
 
-
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 
@@ -44,5 +43,14 @@ export const columns = [
   {
     accessorKey: "actions",
     header: "Actions",
+    cell: ({ row }) => {
+      return (
+        <div className="">
+          <Button className="bg-[#8F8F8F] hover:bg-[#6A6A6A] focus:outline-none h-10 w-48 font-bold">
+            Edit Privacy
+          </Button>
+        </div>
+      );
+    },
   },
 ];
