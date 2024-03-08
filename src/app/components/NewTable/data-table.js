@@ -20,25 +20,24 @@ import {
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 
-import * as React from "react"
-import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandItem,
-} from "@/components/ui/command"
+} from "@/components/ui/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
+} from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { addDays, format } from "date-fns";
-
 
 const permissions = [
   {
@@ -48,25 +47,6 @@ const permissions = [
   {
     value: "secretary",
     label: "Secretary",
-  },
-]
-
-const materials = [
-  {
-    value: "learning materials",
-    label: "Learning Materials",
-  },
-  {
-    value: "trainings and seminars",
-    label: "Trainings and Seminars",
-  },
-  {
-    value: "research conducted",
-    label: "Research Conducted",
-  },
-  {
-    value: "educational qualification",
-    label: "Educational Qualification",
   },
 ];
 
@@ -98,7 +78,7 @@ const instructors = [
     value: "aw",
     label: "AwAw",
   },
-]
+];
 
 const filetypes = [
   {
@@ -113,10 +93,10 @@ const filetypes = [
     value: "docx",
     label: "DOCX",
   },
-]
+];
 
 export function ComboboxPermission({ value, onChange }) {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(false);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -142,8 +122,8 @@ export function ComboboxPermission({ value, onChange }) {
                 key={framework.value}
                 value={framework.value}
                 onSelect={(currentValue) => {
-                  onChange(currentValue === value ? "" : currentValue)
-                  setOpen(false)
+                  onChange(currentValue === value ? "" : currentValue);
+                  setOpen(false);
                 }}
               >
                 {framework.label}
@@ -159,11 +139,11 @@ export function ComboboxPermission({ value, onChange }) {
         </Command>
       </PopoverContent>
     </Popover>
-  )
+  );
 }
 
-export function ComboboxMaterial({ value, onChange }) {
-  const [open, setOpen] = React.useState(false)
+export function ComboboxMaterial({ value, onChange, materials }) {
+  const [open, setOpen] = React.useState(false);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -189,8 +169,8 @@ export function ComboboxMaterial({ value, onChange }) {
                 key={framework.value}
                 value={framework.value}
                 onSelect={(currentValue) => {
-                  onChange(currentValue === value ? "" : currentValue)
-                  setOpen(false)
+                  onChange(currentValue === value ? "" : currentValue);
+                  setOpen(false);
                 }}
               >
                 {framework.label}
@@ -206,11 +186,11 @@ export function ComboboxMaterial({ value, onChange }) {
         </Command>
       </PopoverContent>
     </Popover>
-  )
+  );
 }
 
 export function ComboboxProgram({ value, onChange }) {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(false);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -236,8 +216,8 @@ export function ComboboxProgram({ value, onChange }) {
                 key={framework.value}
                 value={framework.value}
                 onSelect={(currentValue) => {
-                  onChange(currentValue === value ? "" : currentValue)
-                  setOpen(false)
+                  onChange(currentValue === value ? "" : currentValue);
+                  setOpen(false);
                 }}
               >
                 {framework.label}
@@ -253,11 +233,15 @@ export function ComboboxProgram({ value, onChange }) {
         </Command>
       </PopoverContent>
     </Popover>
-  )
+  );
 }
 
-export function ComboboxInstructor({ value, onChange }) {
-  const [open, setOpen] = React.useState(false)
+export function ComboboxInstructor({ value, onChange, instructors }) {
+  const [open, setOpen] = React.useState(false);
+  const transformInstructor = instructors.map(item=>({
+    label: item.name,
+    value: item.email,
+}))
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -269,7 +253,7 @@ export function ComboboxInstructor({ value, onChange }) {
           className="w-[200px] justify-between"
         >
           {value
-            ? instructors.find((framework) => framework.value === value)?.label
+            ? transformInstructor.find((framework) => framework.value === value)?.label
             : "Select instructor.."}
           <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
@@ -278,13 +262,13 @@ export function ComboboxInstructor({ value, onChange }) {
         <Command>
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
-            {instructors.map((framework) => (
+            {transformInstructor.map((framework) => (
               <CommandItem
                 key={framework.value}
                 value={framework.value}
                 onSelect={(currentValue) => {
-                  onChange(currentValue === value ? "" : currentValue)
-                  setOpen(false)
+                  onChange(currentValue === value ? "" : currentValue);
+                  setOpen(false);
                 }}
               >
                 {framework.label}
@@ -300,11 +284,11 @@ export function ComboboxInstructor({ value, onChange }) {
         </Command>
       </PopoverContent>
     </Popover>
-  )
+  );
 }
 
 export function ComboboxFileType({ value, onChange }) {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(false);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -330,8 +314,8 @@ export function ComboboxFileType({ value, onChange }) {
                 key={framework.value}
                 value={framework.value}
                 onSelect={(currentValue) => {
-                  onChange(currentValue === value ? "" : currentValue)
-                  setOpen(false)
+                  onChange(currentValue === value ? "" : currentValue);
+                  setOpen(false);
                 }}
               >
                 {framework.label}
@@ -347,59 +331,57 @@ export function ComboboxFileType({ value, onChange }) {
         </Command>
       </PopoverContent>
     </Popover>
-  )
+  );
 }
 
 export default function Date_Range({ className }) {
-
   const [date, setDate] = useState({
-      from: new Date(2022, 0, 20),
-      to: addDays(new Date(2022, 0, 20), 20),
+    from: new Date(2022, 0, 20),
+    to: addDays(new Date(2022, 0, 20), 20),
   });
   return (
-      <div className={cn("grid gap-2", className)}>
-          <Popover>
-              <PopoverTrigger asChild>
-                  <Button
-                      id="date"
-                      variant={"outline"}
-                      className={cn(
-                          "text-sm w-[280px] cursor-pointer md:left-[1250px] h-[40px] shadow-lg rounded-sm px-2 py-1 ",
-                          !date
-                      )}
-                  >
-                      <CalendarIcon className="mr-2 h-4 w-4" />
-                      {date?.from ? (
-                          date.to ? (
-                              <>
-                                  {format(date.from, "LLL dd, y")} -{" "}
-                                  {format(date.to, "LLL dd, y")}
-                              </>
-                          ) : (
-                              format(date.from, "LLL dd, y")
-                          )
-                      ) : (
-                          <span>Pick a date</span>
-                      )}
-                  </Button>
-              </PopoverTrigger>
-              <PopoverContent className="text-black w-auto p-0" align="start">
-                  <Calendar
-                      initialFocus
-                      mode="range"
-                      defaultMonth={date?.from}
-                      selected={date}
-                      onSelect={setDate}
-                      numberOfMonths={2}
-                  />
-              </PopoverContent>
-          </Popover>
-      </div>
-  )
+    <div className={cn("grid gap-2", className)}>
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button
+            id="date"
+            variant={"outline"}
+            className={cn(
+              "text-sm w-[280px] cursor-pointer md:left-[1250px] h-[40px] shadow-lg rounded-sm px-2 py-1 ",
+              !date
+            )}
+          >
+            <CalendarIcon className="mr-2 h-4 w-4" />
+            {date?.from ? (
+              date.to ? (
+                <>
+                  {format(date.from, "LLL dd, y")} -{" "}
+                  {format(date.to, "LLL dd, y")}
+                </>
+              ) : (
+                format(date.from, "LLL dd, y")
+              )
+            ) : (
+              <span>Pick a date</span>
+            )}
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="text-black w-auto p-0" align="start">
+          <Calendar
+            initialFocus
+            mode="range"
+            defaultMonth={date?.from}
+            selected={date}
+            onSelect={setDate}
+            numberOfMonths={2}
+          />
+        </PopoverContent>
+      </Popover>
+    </div>
+  );
 }
 
-
-export function DataTable({ columns, data }) {
+export function DataTable({ columns, data, materials,instructors }) {
   const [sorting, setSorting] = useState([]);
   const [columnFilters, setColumnFilters] = useState([]);
 
@@ -427,28 +409,28 @@ export function DataTable({ columns, data }) {
 
   const handleComboBoxPermissionChange = (value) => {
     table.getColumn("fileRole")?.setFilterValue(value);
-  };   
-  
+  };
+
   const handleComboBoxProgramChange = (value) => {
     table.getColumn("filename")?.setFilterValue(value);
-  }; 
-  
+  };
+
   const handleComboBoxMaterialChange = (value) => {
     table.getColumn("filename")?.setFilterValue(value);
   };
 
   const handleComboBoxInstructorChange = (value) => {
     table.getColumn("filename")?.setFilterValue(value);
-  };  
+  };
 
   const handleComboBoxDateRangeChange = (value) => {
     table.getColumn("uploadDate")?.setFilterValue(value);
-  };  
+  };
 
   return (
     <div className="rounded-md border">
       <div className="flex items-center py-4">
-      <Input
+        <Input
           placeholder="Filter Filename..."
           value={table.getColumn("filename")?.getFilterValue() ?? ""}
           onChange={(event) =>
@@ -463,6 +445,7 @@ export function DataTable({ columns, data }) {
         <ComboboxMaterial
           value={table.getColumn("filename")?.getFilterValue() ?? ""}
           onChange={handleComboBoxMaterialChange}
+          materials={materials}
         />
         <ComboboxProgram
           value={table.getColumn("filename")?.getFilterValue() ?? ""}
@@ -471,16 +454,16 @@ export function DataTable({ columns, data }) {
         <ComboboxInstructor
           value={table.getColumn("filename")?.getFilterValue() ?? ""}
           onChange={handleComboBoxInstructorChange}
+          instructors={instructors}
         />
         <ComboboxFileType
           value={table.getColumn("filename")?.getFilterValue() ?? ""}
           onChange={handleComboBoxFileTypeChange}
         />
-        <Date_Range 
+        <Date_Range
           value={table.getColumn("uploadDate")?.getFilterValue() ?? ""}
           onChange={handleComboBoxDateRangeChange}
-          />
-
+        />
       </div>
       <Table>
         <TableHeader>
@@ -510,12 +493,17 @@ export function DataTable({ columns, data }) {
               >
                 {row.getVisibleCells().map((cell) => (
                   <TableCell key={cell.id}>
-                    {cell.column.id === 'filename' ? (
+                    {cell.column.id === "filename" ? (
                       <a
                         href="#"
-                        onClick={() => handleFilenameClick(row.original.filePath)}
+                        onClick={() =>
+                          handleFilenameClick(row.original.filePath)
+                        }
                       >
-                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
                       </a>
                     ) : (
                       flexRender(cell.column.columnDef.cell, cell.getContext())

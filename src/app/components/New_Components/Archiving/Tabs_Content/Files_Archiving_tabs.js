@@ -107,7 +107,12 @@ export default function Files_Archiving_tabs({
       </div>
       <div className="w-full px-10">
         <FileTable data={dataWithFormattedDate} />
-        <DataTable columns={columns} data={dataWithFormattedDate} />
+        <DataTable
+          columns={columns}
+          data={dataWithFormattedDate}
+          materials={materials}
+          instructors={instructors}
+        />
       </div>
     </>
   );
