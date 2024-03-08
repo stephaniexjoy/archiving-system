@@ -26,29 +26,29 @@ export default async function dashboard() {
   }));
 
   return (
-    <div className="flex flex-col w-auto h-screen">
-      <div className="bg-[#AD5606] w-auto h-[12%] flex items-center justify-center">
+    <div className='flex flex-col w-auto h-screen'>
+      <div className="bg-[#AD5606] w-auto h-[80%] flex items-center justify-center">
         <img
-          className="w-[30%] h-[100%] object-cover flex items-center justify-center"
+          className="w-[30%] h-[100%] object-cover flex items-center justify-center sm:w-[50%] sm:h-[75%] md:w-[80%] md:h-[75%] lg:w-[60%] lg:h-[80%] "
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
         />
       </div>
 
       <div className="flex mt-[2%] px-10">
-        <h1 className="text-black text-[20px]">
+        <h1 className="text-black text-[20px] sm:text-sm md:text-md lg:text-lg">
           WELCOME, <br />{" "}
           <span className="text-[#5B0505] text-[30px] font-semibold -mt-4">
             FACULTY
           </span>
         </h1>
         <img
-          className="h-[50%] w-[90%] mt-[1%] ml-[3%]"
+          className="h-[50%] w-[90%] mt-[1%] ml-[3%] sm:w-[80%] sm:h-[40%] md:w-[80%] md:h-[40%] lg:w-[70%] lg:h-[50%]"
           alt="Filler"
           src="../photos/Filler.png"
         />
         <img
-          className="h-[70%] w-[90px] mt-[.8%] ml-[2%] "
+          className="h-[70%] w-[90px] mt-[.8%] ml-[2%] sm:w-[50%] sm:h-[50%] md:w-[60%] md:h-[50%] lg:w-[10%] lg:h-[50%]"
           alt="Notification Logo"
           src="../photos/Notificationlogo.png"
         />
