@@ -19,8 +19,8 @@ export default async function profile() {
   console.log(user)
 
   return (
-    <div className="flex items-center flex-col w-screen h-screen">
-      <div className="bg-[#AD5606] w-full h-[12%] flex items-center justify-center">
+    <div className="flex items-center flex-col w-screen h-screen ">
+      <div className="bg-[#AD5606] w-full md:h-[12%] flex items-center justify-center">
         <img
           className="w-[27%] h-[100%] object-cover flex items-center justify-center"
           alt="E-Archiving System"
@@ -28,7 +28,7 @@ export default async function profile() {
         />
       </div>
 
-      <div className="overflow-scroll overflow-x-hidden w-xl md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl h-full my-6">
+      <div className="bg-[#F5EEE6] overflow-scroll overflow-x-hidden w-xl md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl h-full my-6 rounded-t-lg rounded-b-lg shadow-2xl">
         <div className="flex flex-row justify-center">
           <div className="mt-8 ml-20 basis-1/5 left-[10px] object-center" >
             <img
@@ -37,13 +37,13 @@ export default async function profile() {
               src="/profile.jpg"
             />
           </div>
-          <div className="ml-10 basis-2/5 font-semibold text-[25px] text-black text-left w-[900px] h-[30px]">
+          <div className="ml-10 basis-2/5 font-semibold text-[25px] text-black text-center md:text-left md:w-[900px] h-[30px]">
             <div className="mt-6">Name: {user.name}</div>
             <div >Position: {user.position}</div>
             <div >Eligibility/Professional License: {user.license}</div>
             <div >School: {user.education.school}</div>
           </div>
-          <div className="mt-10 ml-36 basis-2/5 font-semibold text-[25px] left-[1150px] text-black text-left w-[900px] h-[30px]">
+          <div className="mt-10 ml-36 basis-2/5 font-semibold text-[25px] left-[1150px] text-black text-center md:text-left md:w-[900px] h-[30px]">
             <div className=" mt-5 top-[350px]">Designation: {user.education.designation}</div>
             <div >Specialization: {user.education.specialization}</div>
             <div >Certifications: {user.education.certifications}</div>
@@ -149,13 +149,13 @@ export default async function profile() {
           </div>
         </div>
         <div>
-          <div className="mt-0 top-[285px] bottom-[285px] font-semibold text-[20px] bg-[#FFFFFF] [backdrop-filter:blur(4px)] text-black text-center w-full h-[30px]">
+          <div className="mt-0 top-[285px] bottom-[285px] font-semibold text-[20px] bg-[#FFFFFF] [backdrop-filter:blur(4px)] text-black text-center w-full h-[16px]">
             <div className="w-screen h-auto bg-cover flex">
               <div className="h-32">
               </div>
 
               <div className="flex justify-center">
-                <button type="button" className="bg-[#5B0505] text-[25px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)] ml-[500px]">
+                <button type="button" className="bg-[#5B0505] text-[25px] text-white text-center inline-block w-[247px] h-[38px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]  mt-10 ml-[300px]">
                   <EditProfileFaculty_Dialog sessionUser={session.user} />
                 </button>
               </div>
