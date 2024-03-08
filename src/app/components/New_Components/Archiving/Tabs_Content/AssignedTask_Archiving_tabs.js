@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react"; // Import React and useState
+import React, { useState } from "react";
 
 import { confirmUpload } from "@/app/lib/actions/actions";
 import { useEdgeStore } from "@/app/lib/edgestore";
@@ -56,8 +56,7 @@ export default function AssignedTask_Archiving_tabs({
   const { edgestore } = useEdgeStore();
   const [options, setOptions] = useState("");
   const [uploadedFiles, setUploadedFiles] = useState([])
-  const [urls, setUrls] = useState([]); // Define uploadedFiles state here
-  // Define uploadedFiles state here
+  const [urls, setUrls] = useState([]); 
 
   const [openMaterials, setOpenMaterials] = React.useState(false);
   const [valueMaterials, setValueMaterials] = React.useState("");
@@ -155,7 +154,7 @@ export default function AssignedTask_Archiving_tabs({
                                   <DialogTrigger className="w-full h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer inline-flex items-center justify-center">
                                     Upload Here
                                   </DialogTrigger>
-                                  <DialogContent className="bg-white md:max-w-[1200px] h-[800px] py-6 px-6 mx-auto overflow-y-auto">
+                                  <DialogContent className="bg-white max-w-[700px] max-h-[600px] h-auto py-6 px-6 mx-auto overflow-y-auto">
                                     <DialogHeader>
                                       <DialogTitle className="text-2xl">
                                         Upload files
@@ -172,13 +171,13 @@ export default function AssignedTask_Archiving_tabs({
                                               className="flex border w-full h-auto border-black drop-shadow-2xl mb-2 rounded-lg overflow-x-hidden items-center"
                                               key={index}
                                             >
-                                              <div className="flex flex-row h-auto text-xl font-semibold justify-between items-center p-2 ">
+                                              <div className="flex flex-row h-auto text-xl font-semibold justify-between items-center p-2 w-full">
                                                 <div>
                                                   <p>{file.name}</p>
                                                 </div>
                                                 <div>
                                                   <label
-                                                    className="cursor-pointer text-red-600"
+                                                    className="cursor-pointer w-full text-red-600"
                                                     onClick={() =>
                                                       handleRemoveFile(index)
                                                     }
@@ -189,178 +188,14 @@ export default function AssignedTask_Archiving_tabs({
                                               </div>
                                               <div />
                                             </div>
-                                            <div className="flex flex-row justify-items-center w-full">
-                                              <Popover
-                                                open={openMaterials}
-                                                onOpenChange={setOpenMaterials}
-                                              >
-                                                <PopoverTrigger asChild>
-                                                  <Button
-                                                    role="combobox"
-                                                    aria-expanded={
-                                                      openMaterials
-                                                    }
-                                                    className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded"
-                                                  >
-                                                    {valueMaterials
-                                                      ? materials.find(
-                                                          (framework) =>
-                                                            framework.value ===
-                                                            valueMaterials
-                                                        )?.label
-                                                      : "Materials..."}
-                                                    <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                                                  </Button>
-                                                </PopoverTrigger>
-                                                <PopoverContent className="w-[200px] p-0">
-                                                  <div>
-                                                    {materials.map(
-                                                      (framework) => (
-                                                        <div
-                                                          key={framework.value}
-                                                          onClick={() => {
-                                                            setValueMaterials(
-                                                              framework.value ===
-                                                                valueMaterials
-                                                                ? ""
-                                                                : framework.value
-                                                            );
-                                                            setOpenMaterials(
-                                                              false
-                                                            );
-                                                          }}
-                                                          className="flex items-center justify-between p-2 cursor-pointer hover:bg-gray-100"
-                                                        >
-                                                          <span>
-                                                            {framework.label}
-                                                          </span>
-                                                          {valueMaterials ===
-                                                            framework.value && (
-                                                            <CheckIcon className="ml-auto h-4 w-4 opacity-100" />
-                                                          )}
-                                                        </div>
-                                                      )
-                                                    )}
-                                                  </div>
-                                                </PopoverContent>
-                                              </Popover>{" "}
-                                              <Popover
-                                                open={openCourse}
-                                                onOpenChange={setOpenCourse}
-                                              >
-                                                <PopoverTrigger asChild>
-                                                  <Button
-                                                    role="combobox"
-                                                    aria-expanded={openCourse}
-                                                    className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded"
-                                                  >
-                                                    {valueCourse
-                                                      ? courses.find(
-                                                          (framework) =>
-                                                            framework.value ===
-                                                            valueCourse
-                                                        )?.label
-                                                      : "Courses..."}
-                                                    <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                                                  </Button>
-                                                </PopoverTrigger>
-                                                <PopoverContent className="w-[200px] p-0">
-                                                  <div>
-                                                    {courses.map(
-                                                      (framework) => (
-                                                        <div
-                                                          key={framework.value}
-                                                          onClick={() => {
-                                                            setValueCourse(
-                                                              framework.value ===
-                                                                valueCourse
-                                                                ? ""
-                                                                : framework.value
-                                                            );
-                                                            setOpenCourse(
-                                                              false
-                                                            );
-                                                          }}
-                                                          className="flex items-center justify-between p-2 cursor-pointer hover:bg-gray-100"
-                                                        >
-                                                          <span>
-                                                            {framework.label}
-                                                          </span>
-                                                          {valueCourse ===
-                                                            framework.value && (
-                                                            <CheckIcon className="ml-auto h-4 w-4 opacity-100" />
-                                                          )}
-                                                        </div>
-                                                      )
-                                                    )}
-                                                  </div>
-                                                </PopoverContent>
-                                              </Popover>{" "}
-                                              <Popover
-                                                open={openTogglePrivacy}
-                                                onOpenChange={
-                                                  setOpenTogglePrivacy
-                                                }
-                                              >
-                                                <PopoverTrigger asChild>
-                                                  <Button
-                                                    role="combobox"
-                                                    aria-expanded={
-                                                      openTogglePrivacy
-                                                    }
-                                                    className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded"
-                                                  >
-                                                    {valueTogglePrivacy
-                                                      ? togglePrivacy.find(
-                                                          (framework) =>
-                                                            framework.value ===
-                                                            valueTogglePrivacy
-                                                        )?.label
-                                                      : "Privacy..."}
-                                                    <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                                                  </Button>
-                                                </PopoverTrigger>
-                                                <PopoverContent className="w-[200px] p-0">
-                                                  <div>
-                                                    {togglePrivacy.map(
-                                                      (framework) => (
-                                                        <div
-                                                          key={framework.value}
-                                                          onClick={() => {
-                                                            setValueTogglePrivacy(
-                                                              framework.value ===
-                                                                togglePrivacy
-                                                                ? ""
-                                                                : framework.value
-                                                            );
-                                                            setOpenTogglePrivacy(
-                                                              false
-                                                            );
-                                                          }}
-                                                          className="flex items-center justify-between p-2 cursor-pointer hover:bg-gray-100"
-                                                        >
-                                                          <span>
-                                                            {framework.label}
-                                                          </span>
-                                                          {valueTogglePrivacy ===
-                                                            framework.value && (
-                                                              <CheckIcon className="ml-auto h-4 w-4 opacity-100" />
-                                                            )}
-                                                        </div>
-                                                      )
-                                                    )}
-                                                  </div>
-                                                </PopoverContent>
-                                              </Popover>{" "}
-                                            </div>
                                           </div>
                                         </>
                                       ))}
                                     </div>
-                                    <div className="flex flex-col items-center justify-center w-full">
+                                    <div className="flex flex-col bottom-0 items-center justify-center w-full h-auto">
                                       <label
                                         htmlFor="file-upload"
-                                        className="w-[30%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg"
+                                        className="w-[40%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg"
                                       >
                                         Browse
                                         <input
@@ -373,8 +208,8 @@ export default function AssignedTask_Archiving_tabs({
                                       </label>{" "}
                                       <AlertDialog>
                                         <AlertDialogTrigger asChild>
-                                          <button className="w-[30%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg">
-                                            Temporary Upload
+                                          <button className="w-[40%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer items-center justify-center rounded-lg">
+                                            Upload
                                           </button>
                                         </AlertDialogTrigger>
                                         <AlertDialogContent>
@@ -401,7 +236,7 @@ export default function AssignedTask_Archiving_tabs({
                                                       file: upFile,
                                                       options: {
                                                         manualFileName: upFile.name,
-                                                        temporary: false
+                                                        temporary: true
                                                       }
                                                     });
                                                     console.log(res);
@@ -451,7 +286,7 @@ export default function AssignedTask_Archiving_tabs({
             </div>
           </div>
 
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md drop-shadow-xl">
+          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md drop-shadow-xl">  
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               This week:
             </label>
