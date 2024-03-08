@@ -401,7 +401,7 @@ export default function AssignedTask_Archiving_tabs({
                                                       file: upFile,
                                                       options: {
                                                         manualFileName: upFile.name,
-                                                        temporary: true
+                                                        temporary: false
                                                       }
                                                     });
                                                     console.log(res);
