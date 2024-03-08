@@ -31,8 +31,8 @@ export default async function dashboard() {
   }));
 
   return (
-    <div className='flex flex-col w-screen h-screen'>
-      <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
+    <div className='flex flex-col w-auto h-screen'>
+      <div className="bg-[#AD5606] w-auto h-[12%] flex items-center justify-center">
         <img
           className="w-[30%] h-[100%] object-cover flex items-center justify-center"
           alt="E-Archiving System"
@@ -42,7 +42,7 @@ export default async function dashboard() {
 
       <div className="flex mt-[2%] px-10">
         <h1 className="text-black text-[20px]">
-          WELCOME, <br /> <span className='text-[#5B0505] text-[50px] font-semibold -mt-4'>FACULTY</span>
+          WELCOME, <br /> <span className='text-[#5B0505] text-[30px] font-semibold -mt-4'>FACULTY</span>
         </h1>
         <img
           className="h-[50%] w-[90%] mt-[1%] ml-[3%]"
@@ -72,7 +72,7 @@ export default async function dashboard() {
             alt="CCS Logo"
           />
         </div>
-        <div className='ml-10 text-center bg-[#B4ABAB] text-[#5B0505] w-[900px] h-[540px]'>
+        <div className='ml-10 text-center bg-[#B4ABAB] text-[#5B0505] w-[500px] h-[540px]'>
           <p className=' mt-5 text-1xl font-bold'>
             CALENDAR
           </p>
