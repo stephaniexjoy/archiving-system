@@ -52,7 +52,7 @@ export default function AssignedTask_Archiving_tabs({
 }) {
   console.log(materials);
   const { toast } = useToast();
-  console.log(tasks);
+  console.log("tasks", tasks);
   const { edgestore } = useEdgeStore();
   const [options, setOptions] = useState("");
   const [uploadedFiles, setUploadedFiles] = useState([]);
@@ -126,14 +126,14 @@ export default function AssignedTask_Archiving_tabs({
                 id="taskType"
               >
                 <option value="select"></option>
-                {tasks.noDue_Tasks.map((task) => (
+                {tasks.noDeadline.map((task) => (
                   <option key={task.id} value={task.id}>
                     {task.title}
                   </option>
                 ))}
               </select>
 
-              {tasks.noDue_Tasks.map(
+              {tasks.noDeadline.map(
                 (task, index) =>
                   options === String(task.id) && (
                     <div key={`${task.id}_${index}`}>
@@ -335,9 +335,11 @@ export default function AssignedTask_Archiving_tabs({
                 id="taskType"
               >
                 <option value="select"></option>
-                <option value="thisweek1">This week 1</option>
-                <option value="thisweek2">This week 2</option>
-                <option value="thisweek3">This week 3</option>
+                {tasks.thisWeek.map((task) => (
+                  <option key={task.id} value={task.id}>
+                    {task.title}
+                  </option>
+                ))}
               </select>
               {options === "thisweek1" && (
                 <div className="border border-black text-xl text-black p-4 mt-4">
