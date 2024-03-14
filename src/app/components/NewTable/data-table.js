@@ -402,7 +402,7 @@ export function DataTable({ columns, data, materials, instructors }) {
   };
 
   const handleComboBoxMaterialChange = (value) => {
-    table.getColumn("filename")?.setFilterValue(value);
+    table.getColumn("fileMaterial")?.setFilterValue(value);
   };
 
   const handleComboBoxInstructorChange = (value) => {
@@ -425,11 +425,11 @@ export function DataTable({ columns, data, materials, instructors }) {
           className="max-w-sm"
         />
         <ComboboxPermission
-          value={table.getColumn("filename")?.getFilterValue() ?? ""}
+          value={table.getColumn("fileRole")?.getFilterValue() ?? ""}
           onChange={handleComboBoxPermissionChange}
         />
         <ComboboxMaterial
-          value={table.getColumn("filename")?.getFilterValue() ?? ""}
+          value={table.getColumn("fileMaterial")?.getFilterValue() ?? ""}
           onChange={handleComboBoxMaterialChange}
           materials={materials}
         />
