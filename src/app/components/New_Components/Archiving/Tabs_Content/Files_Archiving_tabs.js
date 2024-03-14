@@ -106,12 +106,11 @@ export default function Files_Archiving_tabs({
         <Date_Range />
       </div>
       <div className="w-full px-10">
-        <FileTable data={dataWithFormattedDate} />
         <DataTable
           columns={columns}
           data={dataWithFormattedDate}
           materials={materials}
-          instructors={instructors}
+          instructors={instructors} 
         />
       </div>
     </>
