@@ -110,7 +110,7 @@ export default function Files_Archiving_tabs({
           columns={columns}
           data={dataWithFormattedDate}
           materials={materials}
-          instructors={instructors} 
+          instructors={instructors}
         />
       </div>
     </>
