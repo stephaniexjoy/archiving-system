@@ -1,4 +1,24 @@
 "use client";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
 import React from "react";
@@ -68,29 +88,29 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
                             <CardContent>
                               <div className="flex flex-row text-xl text-black p-4 mt-4">
                                 <div className="w-full flex flex-col">
-                                  <h1 className="text-2xl font-semibold mb-12">
+                                  <h1 className="text-4xl font-semibold mb-48">
                                     {task.title}
                                   </h1>
-                                  <p className="mb-16 text-lg">
+                                  <p className="mb-48 text-2xl">
                                     {task.description}
                                   </p>
                                   <div>
-                                    <h1 className="text-sm mb-0">
+                                    <h1 className="text-lg mb-0">
                                       Date Posted:{" "}
                                       {task.deadlineCreated.toLocaleString()}
                                     </h1>
                                   </div>
                                 </div>
-                                <div className="w-[60%]">
+                                <div className="w-[80%]">
                                   <div className="flex flex-col bg-white p-4 gap-4 drop-shadow-2xl rounded-xl">
-                                    <div className="flex flex-row gap-x-48">
-                                      <h1 className="text-md">Your work</h1>
-                                      <h1 className="text-sm text-red-600">
+                                    <div className="flex flex-row gap-x-60">
+                                      <h1 className="text-xl">Your work</h1>
+                                      <h1 className="text-lg text-red-600">
                                         Missing
                                       </h1>
                                     </div>
                                     <Dialog>
-                                      <DialogTrigger className="w-full h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer inline-flex items-center justify-center">
+                                      <DialogTrigger className="w-full h-14 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer inline-flex items-center justify-center mt-16">
                                         Upload Here
                                       </DialogTrigger>
                                       <DialogContent className="bg-white max-w-[700px] max-h-[600px] h-auto py-6 px-6 mx-auto overflow-y-auto">
@@ -239,7 +259,7 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
                                         console.log(res);
                                         console.log(fileInfo);
                                       }}
-                                      className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded"
+                                      className="w-full h-14 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded"
                                     >
                                       Mark as done
                                     </button>
