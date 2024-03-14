@@ -453,9 +453,9 @@ export function DataTable({ columns, data, materials, instructors }) {
       </div>
       <div className="rounded-md border">
         <Table>
-          <TableHeader className="bg-[#5B0505]">
+          <TableHeader className="bg-[#5B0505] ">
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id} className="text-white">
+              <TableRow key={headerGroup.id} className="">
                 {headerGroup.headers.map((header) => {
                   return (
                     <TableHead key={header.id} className="text-white">
