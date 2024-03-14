@@ -25,7 +25,9 @@ import {
 } from "@/components/ui/dialog";
 import AddCategory_Dialog from "@/app/components/New_Components/AddCategory_Dialog/AddCategory_Dialog";
 import Material_ComboBox from "../New_Components/Archiving/Tabs_Content/ComboBox/Material_ComboBox";
+import Course_ComboBox from "../New_Components/Archiving/Tabs_Content/ComboBox/Course_ComboBox";
 import { getMaterials } from "@/app/lib/actions/actions";
+import { ComboboxPermission } from "./data-table";
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 
@@ -86,40 +88,40 @@ export const columns = [
     cell: ({ row }) => {
       return (
         <div className="">
-          <Button className="bg-[#8F8F8F] hover:bg-[#6A6A6A] focus:outline-none h-10 w-48 font-bold">
-            <Dialog>
-              <DialogTrigger className="bg-[#8F8F8F] hover:bg-[#6A6A6A] focus:outline-none h-10 w-48 font-bold">
-                Edit
-              </DialogTrigger>
-              <DialogContent className="bg-white max-w-[700px] max-h-[800px] h-auto py-6 px-6 mx-auto overflow-y-auto">
-                <DialogHeader>
-                  <DialogTitle className="text-2xl">Edit</DialogTitle>
-                  <DialogDescription>
-                    {/* You can upload files here. */}
+          <Dialog>
+            <DialogTrigger className="bg-[#8F8F8F] hover:bg-[#6A6A6A] focus:outline-none h-10 w-48 font-bold">
+              Edit
+            </DialogTrigger>
+            <DialogContent className="bg-white max-w-[1000px] max-h-[800px] h-auto py-6 px-6 mx-auto overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle className="text-2xl">Edit</DialogTitle>
+                <DialogDescription>
+                  <div className="flex flex-row ml-12 gap-x-40">
                     <AddCategory_Dialog category={"Material"} />
                     <AddCategory_Dialog category={"Course"} />
-                    <br />
-                    <div className="flex flex-row font-semibold text-[#5B0505] w-full gap-x-0 py-5 px-10 ml-0">
-                      <div className="ml-8 inline-block text-[20px] md:text-[23px]">
-                        MATERIAL
-                      </div>
-                      <div className="ml-20 inline-block text-[20px] md:text-[23px]">
-                        PROGRAM
-                      </div>
-                      <div className="ml-20 inline-block text-[20px] md:text-[23px]">
-                        INSTRUCTOR
-                      </div>
+                  </div>
+                  <div className="flex flex-row font-semibold text-[#5B0505] w-full gap-x-0 py-5 px-10 ml-0">
+                    <div className="ml-20 inline-block text-[20px] md:text-[23px]">
+                      MATERIAL
                     </div>
-                    <div className="flex flex-row gap-x-28 w-full px-10">
-                      <Material_ComboBox />
+                    <div className="ml-56 inline-block text-[20px] md:text-[23px]">
+                      PROGRAM
                     </div>
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="flex flex-col w-full"></div>
-                <div className="flex flex-col bottom-0 items-center justify-center w-full h-auto"></div>
-              </DialogContent>
-            </Dialog>
-          </Button>
+                    <div className="ml-48 inline-block text-[20px] md:text-[23px]">
+                      PERMISSION
+                    </div>
+                  </div>
+                  <div className="flex flex-row gap-x-16 w-full px-10">
+                    <Material_ComboBox />
+                    <Course_ComboBox />
+                    <ComboboxPermission />
+                  </div>
+                </DialogDescription>
+              </DialogHeader>
+              <div className="flex flex-col w-full"></div>
+              <div className="flex flex-col bottom-0 items-center justify-center w-full h-auto"></div>
+            </DialogContent>
+          </Dialog>
         </div>
       );
     },

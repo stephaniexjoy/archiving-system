@@ -1,3 +1,4 @@
+import { getCourses } from "@/app/lib/actions/actions";
 import { Button } from "@/components/ui/button";
 import {
     Command,
@@ -13,11 +14,21 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function Course_ComboBox({ programFrameworks }) {
+export default function Course_ComboBox() {
+    useEffect(() => {
+        const fetchCourses = async () => {
+          const getCoursesData = await getCourses();
+          setProgramFrameworks(getCoursesData);
+        };
+    
+        fetchCourses();
+      }, []);
+
     const [openCourse, setOpenCourse] = useState(false);
     const [valueCourse, setValueCourse] = useState("");
+    const [programFrameworks, setProgramFrameworks] = useState([]);
     return (
         <div className="dropdown">
             <Popover open={openCourse} onOpenChange={setOpenCourse}>
