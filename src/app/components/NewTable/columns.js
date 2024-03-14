@@ -3,7 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { LuArrowUpDown } from "react-icons/lu";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/dialog";
 import AddCategory_Dialog from "@/app/components/New_Components/AddCategory_Dialog/AddCategory_Dialog";
 import Material_ComboBox from "../New_Components/Archiving/Tabs_Content/ComboBox/Material_ComboBox";
+import { getMaterials } from "@/app/lib/actions/actions";
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 
@@ -110,7 +111,7 @@ export const columns = [
                       </div>
                     </div>
                     <div className="flex flex-row gap-x-28 w-full px-10">
-                      <Material_ComboBox materialFrameworks={materials} />
+                      <Material_ComboBox />
                     </div>
                   </DialogDescription>
                 </DialogHeader>

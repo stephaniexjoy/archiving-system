@@ -75,15 +75,15 @@ export default function Files_Archiving_tabs({
         <UploadModal />
       </div>
 
-      <div className="flex flex-row ml-12 gap-x-48">
+      {/*  <div className="flex flex-row ml-12 gap-x-48">
         <AddCategory_Dialog category={"Material"} />
         <AddCategory_Dialog category={"Course"} />
-      </div>
+      </div> */}
 
       <div className="flex flex-row font-semibold text-[#5B0505] w-full gap-x-56 px-10 ml-0">
-        <div className="ml-20 inline-block text-[20px] md:text-[23px]">
+        {/* <div className="ml-20 inline-block text-[20px] md:text-[23px]">
           MATERIAL
-        </div>
+        </div> */}
         <div className="ml-12 inline-block text-[20px] md:text-[23px]">
           PROGRAM
         </div>
@@ -99,7 +99,7 @@ export default function Files_Archiving_tabs({
       </div>
 
       <div className="flex flex-row gap-x-28 w-full px-10">
-        <Material_ComboBox materialFrameworks={materials} />
+        {/* <Material_ComboBox materialFrameworks={materials} /> */}
         <Course_ComboBox programFrameworks={programFrameworks} />
         <Instructor_ComboBox instructorFrameworks={instructors} />
         <FileType_ComboBox filetypeFrameworks={filetypeFrameworks} />
