@@ -47,6 +47,14 @@ export const columns = [
     //{file.fileRole === "forall" ? "All" : "Secretary Only"}
   },
   {
+    accessorKey: "fileMaterial",
+    header: "Material",
+  },
+  {
+    accessorKey: "fileProgram",
+    header: "Program",
+  },
+  {
     accessorKey: "uploadDate",
     header: "Date & Time Uploaded",
   },
