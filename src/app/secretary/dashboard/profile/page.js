@@ -21,7 +21,7 @@ async function page() {
     where: { id: parseInt(session.user.id) },
   });
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen">
+    <div className="flex flex-col items-center w-screen h-screen">
       <div className="bg-[#AD5606] w-full h-[12%] flex items-center justify-center">
         <img
           className="w-[30%] h-[100%] object-cover flex items-center justify-center"
