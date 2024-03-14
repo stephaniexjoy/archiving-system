@@ -8,6 +8,13 @@ import { getServerSession } from "next-auth/next";
 
 import { unstable_noStore as noStore, revalidatePath } from "next/cache";
 
+function getDateNow() {
+  const dateString = new Date();
+  const dateObject = new Date(dateString);
+
+  return dateObject;
+}
+
 async function getUserSession() {
   const session = getServerSession(AuthOptions);
   return session;
@@ -415,11 +422,25 @@ export async function getTasks() {
   if (tasks) return tasks;
 }
 
-export async function confirmUpload(urls, fileInfo) {
+export async function getCompletedTasks() {
+  const session = await getUserSession();
+  console.log(session);
+  const completedTasks = await db.completedTask.findMany({
+    where: {
+      userId: session.user.id,
+    },
+  });
+  return completedTasks;
+}
+
+export async function confirmUpload(urls, fileInfo, taskId) {
   console.log(urls);
   console.log(fileInfo);
+  console.log(taskId);
+
   const session = await getUserSession();
   const sessionUser = session.user;
+  console.log(sessionUser);
   let index = 0;
   try {
     for (const url of urls) {
@@ -435,6 +456,10 @@ export async function confirmUpload(urls, fileInfo) {
       );
       index++;
     }
+
+    const setCompleted = await addToCompletedTask(taskId, sessionUser);
+    console.log(setCompleted);
+
     return "Success";
   } catch (error) {
     return JSON.parse(JSON.stringify(error));
@@ -504,4 +529,29 @@ export async function updateFile(filePath, material, program, permission) {
   });
 
   return updateFileInfo;
+}
+
+export async function addToCompletedTask(taskId, sessionUser) {
+  const dateNow = getDateNow();
+  try {
+    const setComplete = await db.completedTask.create({
+      data: {
+        user: {
+          connect: {
+            id: sessionUser.id,
+          },
+        },
+        task: {
+          connect: {
+            id: taskId,
+          },
+        },
+        completed: dateNow,
+      },
+    });
+    console.log(setComplete);
+    return setComplete;
+  } catch (error) {
+    console.log(error);
+  }
 }
