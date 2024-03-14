@@ -7,6 +7,7 @@ import {
   getMaterials,
   getFileTypes,
   getTasks,
+  getCompletedTasks,
 } from "@/app/lib/actions/actions";
 
 async function getSearchData(query) {
@@ -27,10 +28,10 @@ export default async function archiving({ searchParams }) {
   const fetchCourses = await getCourses();
   const fetchInstructors = await getInstructors();
   const fetchFileTypes = await getFileTypes();
-  console.log("Hehehe", fetchMaterials);
 
   const tasks = await getTasks();
-  console.log(tasks);
+  const completedTasks = await getCompletedTasks();
+  console.log(completedTasks);
 
   if (searchParams) {
     const { query } = searchParams;
@@ -79,6 +80,7 @@ export default async function archiving({ searchParams }) {
           instructors={fetchInstructors}
           filetype={fetchFileTypes}
           tasks={tasks}
+          completedTasks={completedTasks}
         />
       </div>
     </>

@@ -8,7 +8,67 @@ import MissingTask_Archiving_tabs from "./Tabs_Content/MissingTask_Archiving_tab
 import CompletedTask_Archiving_tabs from "./Tabs_Content/CompletedTask_Archiving_Tab";
 import { useSession } from "next-auth/react";
 
-function filterTasksByDate(tasks) {
+function filterTasksByDate(tasks, completedTasks) {
+  // Separate tasks into completed and incomplete categories
+  const completedTaskIds = completedTasks.map((task) => task.taskId);
+  const incompleteTasks = tasks.filter(
+    (task) => !completedTaskIds.includes(task.id)
+  );
+
+  console.log(completedTaskIds);
+  console.log(incompleteTasks);
+
+  // Your existing code for filtering tasks by date
+  const currentDate = new Date();
+  const currentWeekStart = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    currentDate.getDate() - currentDate.getDay()
+  );
+  const currentWeekEnd = new Date(currentWeekStart);
+  currentWeekEnd.setDate(currentWeekStart.getDate() + 6);
+
+  const nextWeekStart = new Date(currentWeekEnd);
+  nextWeekStart.setDate(currentWeekEnd.getDate() + 1);
+  const nextWeekEnd = new Date(nextWeekStart);
+  nextWeekEnd.setDate(nextWeekStart.getDate() + 6);
+
+  const filteredTasks = {
+    completed: [],
+    incomplete: {
+      thisWeek: [],
+      nextWeek: [],
+      laterThanNextWeek: [],
+      pastDue: [],
+      noDeadline: [],
+    },
+  };
+
+  // Populate filteredTasks object
+  incompleteTasks.forEach((task) => {
+    if (!task.setDeadline) {
+      filteredTasks.incomplete.noDeadline.push(task);
+      return; // Skip further processing for tasks with no deadline
+    }
+    const setDeadline = new Date(task.setDeadline);
+    if (setDeadline >= currentWeekStart && setDeadline <= currentWeekEnd) {
+      filteredTasks.incomplete.thisWeek.push(task);
+    } else if (setDeadline >= nextWeekStart && setDeadline <= nextWeekEnd) {
+      filteredTasks.incomplete.nextWeek.push(task);
+    } else if (setDeadline > nextWeekEnd) {
+      filteredTasks.incomplete.laterThanNextWeek.push(task);
+    } else if (setDeadline < currentDate) {
+      filteredTasks.incomplete.pastDue.push(task);
+    }
+  });
+
+  // Add completed tasks to the filteredTasks object
+  filteredTasks.completed = completedTasks;
+
+  return filteredTasks;
+}
+
+function filterTasks(tasks) {
   const currentDate = new Date();
   const currentWeekStart = new Date(
     currentDate.getFullYear(),
@@ -59,11 +119,13 @@ function ArchivingTab({
   instructors,
   filetypes,
   tasks,
+  completedTasks,
 }) {
   const { data: session, status } = useSession();
   console.log(tasks);
+  console.log(completedTasks);
 
-  const filteredTasks = filterTasksByDate(tasks);
+  const filteredTasks = filterTasksByDate(tasks, completedTasks);
   console.log("Filtered ", filteredTasks);
 
   if (status === "loading") return <>Loading...</>;
@@ -90,23 +152,24 @@ function ArchivingTab({
           />{" "}
         </TabsContent>
         <TabsContent value="assignedtask">
-          {" "}
           <AssignedTask_Archiving_tabs
             position={session.user.position}
-            tasks={filteredTasks}
+            tasks={filteredTasks.incomplete}
             materials={materials}
             courses={courses}
-          />{" "}
+          />
         </TabsContent>
         <TabsContent value="missingtask">
-          <MissingTask_Archiving_tabs tasks={filteredTasks.pastDue} />
+          <MissingTask_Archiving_tabs
+            tasks={filteredTasks.incomplete.pastDue}
+          />
         </TabsContent>
         <TabsContent value="archivedtask">
           <ArchivedTask_Archiving_tabs />
         </TabsContent>
         {session?.user?.position === "Secretary" && (
           <TabsContent value="completedtask">
-            <CompletedTask_Archiving_tabs />
+            <CompletedTask_Archiving_tabs tasks={filteredTasks.completed} />
           </TabsContent>
         )}
       </Tabs>

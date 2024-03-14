@@ -303,7 +303,8 @@ export default function AssignedTask_Archiving_tabs({
                                       onClick={async () => {
                                         const res = await confirmUpload(
                                           urls,
-                                          fileInfo
+                                          fileInfo,
+                                          task.id
                                         );
                                         console.log(res);
                                         console.log(fileInfo);
