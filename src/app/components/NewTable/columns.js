@@ -28,6 +28,8 @@ import Material_ComboBox from "../New_Components/Archiving/Tabs_Content/ComboBox
 import Course_ComboBox from "../New_Components/Archiving/Tabs_Content/ComboBox/Course_ComboBox";
 import { getMaterials } from "@/app/lib/actions/actions";
 import { ComboboxPermission } from "./data-table";
+import Permission_ComboBox from "../New_Components/Archiving/Tabs_Content/ComboBox/Permission_ComboBox";
+import Edit_FileForm from "./Edit_FileForm";
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 
@@ -65,7 +67,7 @@ export const columns = [
     header: "Permissions",
     cell: ({ row }) => {
       const privacy = row.getValue("fileRole");
-      const formatted = privacy === "forall" ? "All" : "Secretary Only";
+      const formatted = privacy === "All" ? "All" : "Secretary";
       return <div className="">{formatted}</div>;
     },
     //{file.fileRole === "forall" ? "All" : "Secretary Only"}
@@ -86,6 +88,8 @@ export const columns = [
     accessorKey: "actions",
     header: "Actions",
     cell: ({ row }) => {
+      console.log(row.original.filePath);
+      const filePath = row.original.filePath;
       return (
         <div className="">
           <Dialog>
@@ -111,10 +115,8 @@ export const columns = [
                       PERMISSION
                     </div>
                   </div>
-                  <div className="flex flex-row gap-x-16 w-full px-10">
-                    <Material_ComboBox />
-                    <Course_ComboBox />
-                    <ComboboxPermission />
+                  <div className="">
+                    <Edit_FileForm filePath={filePath} />
                   </div>
                 </DialogDescription>
               </DialogHeader>

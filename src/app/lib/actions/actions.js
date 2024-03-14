@@ -488,3 +488,20 @@ export async function newuploadFile(fileInfo, url, sessionUser) {
     console.log(error);
   }
 }
+
+export async function updateFile(filePath, material, program, permission) {
+  console.log(filePath, material, program, permission);
+
+  const updateFileInfo = await db.file.update({
+    where: {
+      filePath: filePath,
+    },
+    data: {
+      fileMaterial: material,
+      fileProgram: program,
+      fileRole: permission,
+    },
+  });
+
+  return updateFileInfo;
+}

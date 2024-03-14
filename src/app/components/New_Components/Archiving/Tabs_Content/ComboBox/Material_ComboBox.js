@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
 import { useState, useEffect } from "react";
 
-export default function Material_ComboBox() {
+export default function Material_ComboBox({ setMaterial }) {
   useEffect(() => {
     const fetchMaterials = async () => {
       const getMaterialsData = await getMaterials();
@@ -39,7 +39,7 @@ export default function Material_ComboBox() {
             variant="outline"
             role="combobox"
             aria-expanded={openMaterial}
-            className="text-xl font-semibold w-[280px] cursor-pointer md:left-[1250px] bg-[#AD5606]  h-[40px] overflow-hidden shadow-lg rounded-sm px-2 py-1 "
+            className="w-[200px] justify-between"
           >
             {valueMaterial
               ? materialFrameworks.find(
@@ -62,8 +62,11 @@ export default function Material_ComboBox() {
                     setValueMaterial(
                       currentValue === valueMaterial ? "" : currentValue
                     );
+                    setMaterial(
+                      currentValue === valueMaterial ? "" : framework.label
+                    );
                     console.log(valueMaterial);
-                    setOpenMaterial(true);
+                    setOpenMaterial(false);
                   }}
                 >
                   {framework.label}
