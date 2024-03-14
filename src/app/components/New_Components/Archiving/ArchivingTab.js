@@ -99,8 +99,7 @@ function ArchivingTab({
           />{" "}
         </TabsContent>
         <TabsContent value="missingtask">
-          {" "}
-          <MissingTask_Archiving_tabs />{" "}
+          <MissingTask_Archiving_tabs tasks={filteredTasks.pastDue} />
         </TabsContent>
         <TabsContent value="archivedtask">
           <ArchivedTask_Archiving_tabs />
