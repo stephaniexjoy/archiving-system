@@ -95,15 +95,17 @@ model File {
   userId       Int
   uploaderName String
 
-  id          Int      @id @default(autoincrement())
-  filename    String
-  fileType    String
+  id           Int      @id @default(autoincrement())
+  filename     String
+  fileType     String
   // For file directory, will be updated soon
-  filePath    String   @unique
-  fileRole    String?
+  filePath     String   @unique
+  fileRole     String?
+  fileMaterial String?
+  fileProgram  String?
   //
-  uploadDate  DateTime @default(now())
-  description String?
+  uploadDate   DateTime @default(now())
+  description  String?
 }
 
 model Tasks {
