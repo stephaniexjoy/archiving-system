@@ -51,12 +51,13 @@ export default function AssignedTask_Archiving_tabs({
   courses,
 }) {
   console.log(materials);
-  const { toast } = useToast()
+  const { toast } = useToast();
   console.log(tasks);
   const { edgestore } = useEdgeStore();
   const [options, setOptions] = useState("");
-  const [uploadedFiles, setUploadedFiles] = useState([])
-  const [urls, setUrls] = useState([]); 
+  const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [urls, setUrls] = useState([]);
+  const [fileInfo, setFileInfo] = useState([]);
 
   const [openMaterials, setOpenMaterials] = React.useState(false);
   const [valueMaterials, setValueMaterials] = React.useState("");
@@ -69,11 +70,22 @@ export default function AssignedTask_Archiving_tabs({
     const files = event.target.files;
     const newFiles = [...uploadedFiles];
 
+    const fileName = [];
+
     for (let i = 0; i < files.length; i++) {
+      const file = files[i];
       newFiles.push(files[i]);
+
+      // Extract the file extension from the file name
+      const name = file.name;
+      const extension = file.name.split(".").pop();
+
+      fileName.push({ name, extension });
     }
 
     setUploadedFiles(newFiles);
+    setFileInfo(fileName);
+    console.log(fileInfo);
   };
 
   const handleRemoveFile = (indexToRemove) => {
@@ -83,9 +95,9 @@ export default function AssignedTask_Archiving_tabs({
   };
 
   const getUrls = (results, setUrls) => {
-    const extractUrls = results.map(result => result.url)
-    setUrls(extractUrls)
-  }
+    const extractUrls = results.map((result) => result.url);
+    setUrls(extractUrls);
+  };
 
   return (
     <>
@@ -122,9 +134,9 @@ export default function AssignedTask_Archiving_tabs({
               </select>
 
               {tasks.noDue_Tasks.map(
-                (task) =>
+                (task, index) =>
                   options === String(task.id) && (
-                    <div key={task.id}>
+                    <div key={`${task.id}_${index}`}>
                       <div className="flex flex-row">
                         <div className="w-full p-0">
                           <div className="flex flex-row border border-black text-xl text-black p-4 mt-4">
@@ -165,12 +177,9 @@ export default function AssignedTask_Archiving_tabs({
                                     </DialogHeader>
                                     <div className="flex flex-col w-full">
                                       {uploadedFiles.map((file, index) => (
-                                        <>
+                                        <React.Fragment key={index}>
                                           <div className="flex flex-row">
-                                            <div
-                                              className="flex border w-full h-auto border-black drop-shadow-2xl mb-2 rounded-lg overflow-x-hidden items-center"
-                                              key={index}
-                                            >
+                                            <div className="flex border w-full h-auto border-black drop-shadow-2xl mb-2 rounded-lg overflow-x-hidden items-center">
                                               <div className="flex flex-row h-auto text-xl font-semibold justify-between items-center p-2 w-full">
                                                 <div>
                                                   <p>{file.name}</p>
@@ -189,7 +198,7 @@ export default function AssignedTask_Archiving_tabs({
                                               <div />
                                             </div>
                                           </div>
-                                        </>
+                                        </React.Fragment>
                                       ))}
                                     </div>
                                     <div className="flex flex-col bottom-0 items-center justify-center w-full h-auto">
@@ -218,48 +227,70 @@ export default function AssignedTask_Archiving_tabs({
                                               Do you want to Proceed?
                                             </AlertDialogTitle>
                                             <AlertDialogDescription>
-                                              This action will upload your file temporarily. Mark it as done to confirm the upload.
+                                              This action will upload your file
+                                              temporarily. Mark it as done to
+                                              confirm the upload.
                                             </AlertDialogDescription>
                                           </AlertDialogHeader>
                                           <AlertDialogFooter className="items-center">
                                             <AlertDialogCancel>
                                               Cancel
                                             </AlertDialogCancel>
-                                            <AlertDialogAction onClick={async () => {
-                                              console.log(uploadedFiles)
+                                            <AlertDialogAction
+                                              onClick={async () => {
+                                                console.log(uploadedFiles);
 
-                                              try {
-                                                const uploadPromises = uploadedFiles.map(async (upFile) => {
-                                                  try {
-                                                    console.log("Upfile", upFile);
-                                                    const res = await edgestore.publicFiles1.upload({
-                                                      file: upFile,
-                                                      options: {
-                                                        manualFileName: upFile.name,
-                                                        temporary: true
+                                                try {
+                                                  const uploadPromises =
+                                                    uploadedFiles.map(
+                                                      async (upFile) => {
+                                                        try {
+                                                          console.log(
+                                                            "Upfile",
+                                                            upFile
+                                                          );
+                                                          const res =
+                                                            await edgestore.publicFiles1.upload(
+                                                              {
+                                                                file: upFile,
+                                                                options: {
+                                                                  manualFileName:
+                                                                    upFile.name,
+                                                                  temporary: true,
+                                                                },
+                                                              }
+                                                            );
+                                                          console.log(res);
+                                                          return res;
+                                                        } catch (error) {
+                                                          console.error(error);
+                                                          throw error; // rethrowing error to handle at the end
+                                                        }
                                                       }
-                                                    });
-                                                    console.log(res);
-                                                    return res;
-                                                  } catch (error) {
-                                                    console.error(error);
-                                                    throw error; // rethrowing error to handle at the end
+                                                    );
+
+                                                  const results =
+                                                    await Promise.all(
+                                                      uploadPromises
+                                                    );
+                                                  if (results) {
+                                                    toast;
                                                   }
-                                                });
 
-                                                const results = await Promise.all(uploadPromises);
-                                                if (results) {
-                                                  toast
+                                                  getUrls(results, setUrls);
+                                                  console.log(
+                                                    "All files uploaded successfully:",
+                                                    results
+                                                  );
+                                                } catch (error) {
+                                                  console.error(
+                                                    "Error uploading files:",
+                                                    error
+                                                  );
                                                 }
-
-                                                getUrls(results, setUrls)
-                                                console.log("All files uploaded successfully:", results);
-                                              } catch (error) {
-                                                console.error("Error uploading files:", error);
-                                              }
-                                              console.log(urls)
-
-                                            }}>
+                                                console.log(urls);
+                                              }}
+                                            >
                                               Continue
                                             </AlertDialogAction>
                                           </AlertDialogFooter>
@@ -268,11 +299,17 @@ export default function AssignedTask_Archiving_tabs({
                                     </div>
                                   </DialogContent>
                                 </Dialog>
-                                <button onClick={async () => {
-                                  const res = await confirmUpload(urls)
-                                  console.log(res)
-
-                                }} className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
+                                <button
+                                  onClick={async () => {
+                                    const res = await confirmUpload(
+                                      urls,
+                                      fileInfo
+                                    );
+                                    console.log(res);
+                                    console.log(fileInfo);
+                                  }}
+                                  className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded"
+                                >
                                   Mark as done
                                 </button>
                               </div>
@@ -286,7 +323,7 @@ export default function AssignedTask_Archiving_tabs({
             </div>
           </div>
 
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md drop-shadow-xl">  
+          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md drop-shadow-xl">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               This week:
             </label>

@@ -65,21 +65,6 @@ const programs = [
   },
 ];
 
-const instructors = [
-  {
-    value: "test",
-    label: "Test",
-  },
-  {
-    value: "meow",
-    label: "Meow",
-  },
-  {
-    value: "aw",
-    label: "AwAw",
-  },
-];
-
 const filetypes = [
   {
     value: "pdf",
@@ -238,10 +223,10 @@ export function ComboboxProgram({ value, onChange }) {
 
 export function ComboboxInstructor({ value, onChange, instructors }) {
   const [open, setOpen] = React.useState(false);
-  const transformInstructor = instructors.map(item=>({
+  const transformInstructor = instructors.map((item) => ({
     label: item.name,
     value: item.email,
-}))
+  }));
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -253,7 +238,8 @@ export function ComboboxInstructor({ value, onChange, instructors }) {
           className="w-[200px] justify-between"
         >
           {value
-            ? transformInstructor.find((framework) => framework.value === value)?.label
+            ? transformInstructor.find((framework) => framework.value === value)
+                ?.label
             : "Select instructor.."}
           <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
@@ -381,7 +367,7 @@ export default function Date_Range({ className }) {
   );
 }
 
-export function DataTable({ columns, data, materials,instructors }) {
+export function DataTable({ columns, data, materials, instructors }) {
   const [sorting, setSorting] = useState([]);
   const [columnFilters, setColumnFilters] = useState([]);
 
@@ -420,7 +406,7 @@ export function DataTable({ columns, data, materials,instructors }) {
   };
 
   const handleComboBoxInstructorChange = (value) => {
-    table.getColumn("filename")?.setFilterValue(value);
+    table.getColumn("uploaderName")?.setFilterValue(value);
   };
 
   const handleComboBoxDateRangeChange = (value) => {
@@ -452,7 +438,7 @@ export function DataTable({ columns, data, materials,instructors }) {
           onChange={handleComboBoxProgramChange}
         />
         <ComboboxInstructor
-          value={table.getColumn("filename")?.getFilterValue() ?? ""}
+          value={table.getColumn("uploaderName")?.getFilterValue() ?? ""}
           onChange={handleComboBoxInstructorChange}
           instructors={instructors}
         />
