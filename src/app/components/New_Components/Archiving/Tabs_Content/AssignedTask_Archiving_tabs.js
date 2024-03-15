@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react"; // Import React and useState
+import React, { useState } from "react";
 
 import { confirmUpload } from "@/app/lib/actions/actions";
 import { useEdgeStore } from "@/app/lib/edgestore";
@@ -25,13 +25,7 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 import AddTask_Dialog from "./Dialogs/AddTask_Dialog/AddTask_Dialog";
 
-import { Button } from "@/components/ui/button";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
+import { Card, CardContent } from "@/components/ui/card";
 
 const togglePrivacy = [
   {
@@ -51,13 +45,13 @@ export default function AssignedTask_Archiving_tabs({
   courses,
 }) {
   console.log(materials);
-  const { toast } = useToast()
-  console.log(tasks);
+  const { toast } = useToast();
+  console.log("tasks", tasks);
   const { edgestore } = useEdgeStore();
   const [options, setOptions] = useState("");
-  const [uploadedFiles, setUploadedFiles] = useState([])
-  const [urls, setUrls] = useState([]); // Define uploadedFiles state here
-  // Define uploadedFiles state here
+  const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [urls, setUrls] = useState([]);
+  const [fileInfo, setFileInfo] = useState([]);
 
   const [openMaterials, setOpenMaterials] = React.useState(false);
   const [valueMaterials, setValueMaterials] = React.useState("");
@@ -70,11 +64,22 @@ export default function AssignedTask_Archiving_tabs({
     const files = event.target.files;
     const newFiles = [...uploadedFiles];
 
+    const fileName = [];
+
     for (let i = 0; i < files.length; i++) {
+      const file = files[i];
       newFiles.push(files[i]);
+
+      // Extract the file extension from the file name
+      const name = file.name;
+      const extension = file.name.split(".").pop();
+
+      fileName.push({ name, extension });
     }
 
     setUploadedFiles(newFiles);
+    setFileInfo(fileName);
+    console.log(fileInfo);
   };
 
   const handleRemoveFile = (indexToRemove) => {
@@ -84,13 +89,13 @@ export default function AssignedTask_Archiving_tabs({
   };
 
   const getUrls = (results, setUrls) => {
-    const extractUrls = results.map(result => result.url)
-    setUrls(extractUrls)
-  }
+    const extractUrls = results.map((result) => result.url);
+    setUrls(extractUrls);
+  };
 
   return (
     <>
-      <div className="flex flex-col mt-5 px-10">
+      <div className="flex flex-col mt-5 px-10 space">
         <h1 className="text-center text-[#5B0505] text-[45px] font-semibold md:shadow-zinc-400 mb-5">
           Assigned Tasks
         </h1>
@@ -107,7 +112,7 @@ export default function AssignedTask_Archiving_tabs({
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               No Due Date:
             </label>
-            <div className="w-full">
+            <div className="w-full space-y-2">
               <select
                 onChange={(e) => setOptions(e.target.value)}
                 className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
@@ -115,334 +120,204 @@ export default function AssignedTask_Archiving_tabs({
                 id="taskType"
               >
                 <option value="select"></option>
-                {tasks.noDue_Tasks.map((task) => (
+                {tasks.noDeadline.map((task) => (
                   <option key={task.id} value={task.id}>
                     {task.title}
                   </option>
                 ))}
               </select>
 
-              {tasks.noDue_Tasks.map(
-                (task) =>
+              {tasks.noDeadline.map(
+                (task, index) =>
                   options === String(task.id) && (
-                    <div key={task.id}>
+                    <div key={`${task.id}_${index}`}>
                       <div className="flex flex-row">
                         <div className="w-full p-0">
-                          <div className="flex flex-row border border-black text-xl text-black p-4 mt-4">
-                            <div className="w-full flex flex-col">
-                              <h1 className="text-2xl font-semibold mb-12">
-                                {task.title}
-                              </h1>
-                              <p className="mb-16 text-lg">
-                                {task.description}
-                              </p>
-                              <div>
-                                <h1 className="text-sm mb-0">
-                                  Date Posted:{" "}
-                                  {task.deadlineCreated.toLocaleString()}
-                                </h1>
-                              </div>
-                            </div>
-                            <div className="w-[60%]">
-                              <div className="flex flex-col bg-white p-4 gap-4 drop-shadow-2xl rounded-xl">
-                                <div className="flex flex-row gap-x-48">
-                                  <h1 className="text-md">Your work</h1>
-                                  <h1 className="text-sm text-green-600">
-                                    Assigned
+                          <Card className="w-full h-auto">
+                            <CardContent>
+                              <div className="flex flex-row text-xl text-black p-4 mt-4">
+                                <div className="w-full flex flex-col">
+                                  <h1 className="text-2xl font-semibold mb-12">
+                                    {task.title}
                                   </h1>
+                                  <p className="mb-16 text-lg">
+                                    {task.description}
+                                  </p>
+                                  <div>
+                                    <h1 className="text-sm mb-0">
+                                      Date Posted:{" "}
+                                      {task.deadlineCreated.toLocaleString()}
+                                    </h1>
+                                  </div>
                                 </div>
-                                <Dialog>
-                                  <DialogTrigger className="w-full h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer inline-flex items-center justify-center">
-                                    Upload Here
-                                  </DialogTrigger>
-                                  <DialogContent className="bg-white md:max-w-[1200px] h-[800px] py-6 px-6 mx-auto overflow-y-auto">
-                                    <DialogHeader>
-                                      <DialogTitle className="text-2xl">
-                                        Upload files
-                                      </DialogTitle>
-                                      <DialogDescription>
-                                        You can upload files here.
-                                      </DialogDescription>
-                                    </DialogHeader>
-                                    <div className="flex flex-col w-full">
-                                      {uploadedFiles.map((file, index) => (
-                                        <>
-                                          <div className="flex flex-row">
-                                            <div
-                                              className="flex border w-full h-auto border-black drop-shadow-2xl mb-2 rounded-lg overflow-x-hidden items-center"
-                                              key={index}
-                                            >
-                                              <div className="flex flex-row h-auto text-xl font-semibold justify-between items-center p-2 ">
-                                                <div>
-                                                  <p>{file.name}</p>
-                                                </div>
-                                                <div>
-                                                  <label
-                                                    className="cursor-pointer text-red-600"
-                                                    onClick={() =>
-                                                      handleRemoveFile(index)
-                                                    }
-                                                  >
-                                                    X
-                                                  </label>
+                                <div className="w-[60%]">
+                                  <div className="flex flex-col bg-white p-4 gap-4 drop-shadow-2xl rounded-xl">
+                                    <div className="flex flex-row gap-x-48">
+                                      <h1 className="text-md">Your work</h1>
+                                      <h1 className="text-sm text-green-600">
+                                        Assigned
+                                      </h1>
+                                    </div>
+                                    <Dialog>
+                                      <DialogTrigger className="w-full h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer inline-flex items-center justify-center">
+                                        Upload Here
+                                      </DialogTrigger>
+                                      <DialogContent className="bg-white max-w-[700px] max-h-[600px] h-auto py-6 px-6 mx-auto overflow-y-auto">
+                                        <DialogHeader>
+                                          <DialogTitle className="text-2xl">
+                                            Upload files
+                                          </DialogTitle>
+                                          <DialogDescription>
+                                            You can upload files here.
+                                          </DialogDescription>
+                                        </DialogHeader>
+                                        <div className="flex flex-col w-full">
+                                          {uploadedFiles.map((file, index) => (
+                                            <React.Fragment key={index}>
+                                              <div className="flex flex-row">
+                                                <div className="flex border w-full h-auto  drop-shadow-2xl mb-2 rounded-lg overflow-x-hidden items-center">
+                                                  <div className="flex flex-row h-auto text-xl font-semibold justify-between items-center p-2 w-full">
+                                                    <div>
+                                                      <p>{file.name}</p>
+                                                    </div>
+                                                    <div>
+                                                      <label
+                                                        className="cursor-pointer w-full text-red-600"
+                                                        onClick={() =>
+                                                          handleRemoveFile(
+                                                            index
+                                                          )
+                                                        }
+                                                      >
+                                                        X
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                                  <div />
                                                 </div>
                                               </div>
-                                              <div />
-                                            </div>
-                                            <div className="flex flex-row justify-items-center w-full">
-                                              <Popover
-                                                open={openMaterials}
-                                                onOpenChange={setOpenMaterials}
-                                              >
-                                                <PopoverTrigger asChild>
-                                                  <Button
-                                                    role="combobox"
-                                                    aria-expanded={
-                                                      openMaterials
-                                                    }
-                                                    className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded"
-                                                  >
-                                                    {valueMaterials
-                                                      ? materials.find(
-                                                          (framework) =>
-                                                            framework.value ===
-                                                            valueMaterials
-                                                        )?.label
-                                                      : "Materials..."}
-                                                    <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                                                  </Button>
-                                                </PopoverTrigger>
-                                                <PopoverContent className="w-[200px] p-0">
-                                                  <div>
-                                                    {materials.map(
-                                                      (framework) => (
-                                                        <div
-                                                          key={framework.value}
-                                                          onClick={() => {
-                                                            setValueMaterials(
-                                                              framework.value ===
-                                                                valueMaterials
-                                                                ? ""
-                                                                : framework.value
-                                                            );
-                                                            setOpenMaterials(
-                                                              false
-                                                            );
-                                                          }}
-                                                          className="flex items-center justify-between p-2 cursor-pointer hover:bg-gray-100"
-                                                        >
-                                                          <span>
-                                                            {framework.label}
-                                                          </span>
-                                                          {valueMaterials ===
-                                                            framework.value && (
-                                                            <CheckIcon className="ml-auto h-4 w-4 opacity-100" />
-                                                          )}
-                                                        </div>
-                                                      )
-                                                    )}
-                                                  </div>
-                                                </PopoverContent>
-                                              </Popover>{" "}
-                                              <Popover
-                                                open={openCourse}
-                                                onOpenChange={setOpenCourse}
-                                              >
-                                                <PopoverTrigger asChild>
-                                                  <Button
-                                                    role="combobox"
-                                                    aria-expanded={openCourse}
-                                                    className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded"
-                                                  >
-                                                    {valueCourse
-                                                      ? courses.find(
-                                                          (framework) =>
-                                                            framework.value ===
-                                                            valueCourse
-                                                        )?.label
-                                                      : "Courses..."}
-                                                    <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                                                  </Button>
-                                                </PopoverTrigger>
-                                                <PopoverContent className="w-[200px] p-0">
-                                                  <div>
-                                                    {courses.map(
-                                                      (framework) => (
-                                                        <div
-                                                          key={framework.value}
-                                                          onClick={() => {
-                                                            setValueCourse(
-                                                              framework.value ===
-                                                                valueCourse
-                                                                ? ""
-                                                                : framework.value
-                                                            );
-                                                            setOpenCourse(
-                                                              false
-                                                            );
-                                                          }}
-                                                          className="flex items-center justify-between p-2 cursor-pointer hover:bg-gray-100"
-                                                        >
-                                                          <span>
-                                                            {framework.label}
-                                                          </span>
-                                                          {valueCourse ===
-                                                            framework.value && (
-                                                            <CheckIcon className="ml-auto h-4 w-4 opacity-100" />
-                                                          )}
-                                                        </div>
-                                                      )
-                                                    )}
-                                                  </div>
-                                                </PopoverContent>
-                                              </Popover>{" "}
-                                              <Popover
-                                                open={openTogglePrivacy}
-                                                onOpenChange={
-                                                  setOpenTogglePrivacy
-                                                }
-                                              >
-                                                <PopoverTrigger asChild>
-                                                  <Button
-                                                    role="combobox"
-                                                    aria-expanded={
-                                                      openTogglePrivacy
-                                                    }
-                                                    className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded"
-                                                  >
-                                                    {valueTogglePrivacy
-                                                      ? togglePrivacy.find(
-                                                          (framework) =>
-                                                            framework.value ===
-                                                            valueTogglePrivacy
-                                                        )?.label
-                                                      : "Privacy..."}
-                                                    <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                                                  </Button>
-                                                </PopoverTrigger>
-                                                <PopoverContent className="w-[200px] p-0">
-                                                  <div>
-                                                    {togglePrivacy.map(
-                                                      (framework) => (
-                                                        <div
-                                                          key={framework.value}
-                                                          onClick={() => {
-                                                            setValueTogglePrivacy(
-                                                              framework.value ===
-                                                                togglePrivacy
-                                                                ? ""
-                                                                : framework.value
-                                                            );
-                                                            setOpenTogglePrivacy(
-                                                              false
-                                                            );
-                                                          }}
-                                                          className="flex items-center justify-between p-2 cursor-pointer hover:bg-gray-100"
-                                                        >
-                                                          <span>
-                                                            {framework.label}
-                                                          </span>
-                                                          {valueTogglePrivacy ===
-                                                            framework.value && (
-                                                              <CheckIcon className="ml-auto h-4 w-4 opacity-100" />
-                                                            )}
-                                                        </div>
-                                                      )
-                                                    )}
-                                                  </div>
-                                                </PopoverContent>
-                                              </Popover>{" "}
-                                            </div>
-                                          </div>
-                                        </>
-                                      ))}
-                                    </div>
-                                    <div className="flex flex-col items-center justify-center w-full">
-                                      <label
-                                        htmlFor="file-upload"
-                                        className="w-[30%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg"
-                                      >
-                                        Browse
-                                        <input
-                                          id="file-upload"
-                                          type="file"
-                                          className="hidden"
-                                          onChange={handleFileUpload}
-                                          multiple
-                                        />
-                                      </label>{" "}
-                                      <AlertDialog>
-                                        <AlertDialogTrigger asChild>
-                                          <button className="w-[30%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg">
-                                            Temporary Upload
-                                          </button>
-                                        </AlertDialogTrigger>
-                                        <AlertDialogContent>
-                                          <AlertDialogHeader>
-                                            <AlertDialogTitle>
-                                              Do you want to Proceed?
-                                            </AlertDialogTitle>
-                                            <AlertDialogDescription>
-                                              This action will upload your file temporarily. Mark it as done to confirm the upload.
-                                            </AlertDialogDescription>
-                                          </AlertDialogHeader>
-                                          <AlertDialogFooter className="items-center">
-                                            <AlertDialogCancel>
-                                              Cancel
-                                            </AlertDialogCancel>
-                                            <AlertDialogAction onClick={async () => {
-                                              console.log(uploadedFiles)
+                                            </React.Fragment>
+                                          ))}
+                                        </div>
+                                        <div className="flex flex-col bottom-0 items-center justify-center w-full h-auto">
+                                          <label
+                                            htmlFor="file-upload"
+                                            className="w-[40%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg"
+                                          >
+                                            Browse
+                                            <input
+                                              id="file-upload"
+                                              type="file"
+                                              className="hidden"
+                                              onChange={handleFileUpload}
+                                              multiple
+                                            />
+                                          </label>{" "}
+                                          <AlertDialog>
+                                            <AlertDialogTrigger asChild>
+                                              <button className="w-[40%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer items-center justify-center rounded-lg">
+                                                Upload
+                                              </button>
+                                            </AlertDialogTrigger>
+                                            <AlertDialogContent>
+                                              <AlertDialogHeader>
+                                                <AlertDialogTitle>
+                                                  Do you want to Proceed?
+                                                </AlertDialogTitle>
+                                                <AlertDialogDescription>
+                                                  This action will upload your
+                                                  file temporarily. Mark it as
+                                                  done to confirm the upload.
+                                                </AlertDialogDescription>
+                                              </AlertDialogHeader>
+                                              <AlertDialogFooter className="items-center">
+                                                <AlertDialogCancel>
+                                                  Cancel
+                                                </AlertDialogCancel>
+                                                <AlertDialogAction
+                                                  onClick={async () => {
+                                                    console.log(uploadedFiles);
 
-                                              try {
-                                                const uploadPromises = uploadedFiles.map(async (upFile) => {
-                                                  try {
-                                                    console.log("Upfile", upFile);
-                                                    const res = await edgestore.publicFiles1.upload({
-                                                      file: upFile,
-                                                      options: {
-                                                        manualFileName: upFile.name,
-                                                        temporary: false
+                                                    try {
+                                                      const uploadPromises =
+                                                        uploadedFiles.map(
+                                                          async (upFile) => {
+                                                            try {
+                                                              console.log(
+                                                                "Upfile",
+                                                                upFile
+                                                              );
+                                                              const res =
+                                                                await edgestore.publicFiles1.upload(
+                                                                  {
+                                                                    file: upFile,
+                                                                    options: {
+                                                                      manualFileName:
+                                                                        upFile.name,
+                                                                      temporary: true,
+                                                                    },
+                                                                  }
+                                                                );
+                                                              console.log(res);
+                                                              return res;
+                                                            } catch (error) {
+                                                              console.error(
+                                                                error
+                                                              );
+                                                              throw error; // rethrowing error to handle at the end
+                                                            }
+                                                          }
+                                                        );
+
+                                                      const results =
+                                                        await Promise.all(
+                                                          uploadPromises
+                                                        );
+                                                      if (results) {
+                                                        toast;
                                                       }
-                                                    });
-                                                    console.log(res);
-                                                    return res;
-                                                  } catch (error) {
-                                                    console.error(error);
-                                                    throw error; // rethrowing error to handle at the end
-                                                  }
-                                                });
 
-                                                const results = await Promise.all(uploadPromises);
-                                                if (results) {
-                                                  toast
-                                                }
-
-                                                getUrls(results, setUrls)
-                                                console.log("All files uploaded successfully:", results);
-                                              } catch (error) {
-                                                console.error("Error uploading files:", error);
-                                              }
-                                              console.log(urls)
-
-                                            }}>
-                                              Continue
-                                            </AlertDialogAction>
-                                          </AlertDialogFooter>
-                                        </AlertDialogContent>
-                                      </AlertDialog>{" "}
-                                    </div>
-                                  </DialogContent>
-                                </Dialog>
-                                <button onClick={async () => {
-                                  const res = await confirmUpload(urls)
-                                  console.log(res)
-
-                                }} className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded">
-                                  Mark as done
-                                </button>
+                                                      getUrls(results, setUrls);
+                                                      console.log(
+                                                        "All files uploaded successfully:",
+                                                        results
+                                                      );
+                                                    } catch (error) {
+                                                      console.error(
+                                                        "Error uploading files:",
+                                                        error
+                                                      );
+                                                    }
+                                                    console.log(urls);
+                                                  }}
+                                                >
+                                                  Continue
+                                                </AlertDialogAction>
+                                              </AlertDialogFooter>
+                                            </AlertDialogContent>
+                                          </AlertDialog>{" "}
+                                        </div>
+                                      </DialogContent>
+                                    </Dialog>
+                                    <button
+                                      onClick={async () => {
+                                        const res = await confirmUpload(
+                                          urls,
+                                          fileInfo,
+                                          task.id
+                                        );
+                                        console.log(res);
+                                        console.log(fileInfo);
+                                      }}
+                                      className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded"
+                                    >
+                                      Mark as done
+                                    </button>
+                                  </div>
+                                </div>
                               </div>
-                            </div>
-                          </div>
+                            </CardContent>
+                          </Card>
                         </div>
                       </div>
                     </div>
@@ -463,9 +338,11 @@ export default function AssignedTask_Archiving_tabs({
                 id="taskType"
               >
                 <option value="select"></option>
-                <option value="thisweek1">This week 1</option>
-                <option value="thisweek2">This week 2</option>
-                <option value="thisweek3">This week 3</option>
+                {tasks.thisWeek.map((task) => (
+                  <option key={task.id} value={task.id}>
+                    {task.title}
+                  </option>
+                ))}
               </select>
               {options === "thisweek1" && (
                 <div className="border border-black text-xl text-black p-4 mt-4">
