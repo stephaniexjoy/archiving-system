@@ -1,4 +1,4 @@
-import {
+    import {
     Dialog,
     DialogContent,
     DialogDescription,
@@ -19,7 +19,10 @@ export default function ForgotPassword_Dialog() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <b className="border-none ml-96 mt-2 text-2xl w-auto [text-decoration:underline] inline-block text-[#FF7E7E] cursor-pointer">Forgot Password?</b>
+                <span className="
+                border-none ml-96 mt-2 text-2xl w-auto [text-decoration:underline] inline-block text-[#FF7E7E] cursor-pointer
+                sm:border-none sm:ml-96 sm:mt-2 sm:text-lg sm:w-auto sm:[text-decoration:underline] sm:inline-block sm:text-[#FF7E7E] sm:cursor-pointer
+                ">Forgot Password?</span>
             </DialogTrigger>
             <DialogContent className="w-full p-8">
                 <DialogHeader className="space-y-6">
