@@ -35,7 +35,6 @@ export default async function dashboard() {
         />
       </div>
 
-     
       <div className="flex mt-[2%] px-10">
         <h1 className="text-black text-[20px] sm:text-sm md:text-md lg:text-lg">
           WELCOME, <br />{" "}
@@ -56,19 +55,15 @@ export default async function dashboard() {
       </div>
 
       <div className="flex flex-col items-center justify-center content-center -ml-[64%]">
-       <div className="text-center bg-[#B4ABAB] text-[#5B0505]  py-0 rounded-lg w-[20%]  h-96 ">
+        <div className="text-center bg-[#B4ABAB] text-[#5B0505]  py-0 rounded-lg w-[20%]  h-96 ">
           <p className="mt-7 text-2xl font-bold">ARCHIVED MATERIALS</p>
           <p className="mt-5 text-4xl text-[#5B0505] font-semibold">
             {fileCount}
           </p>
         </div>
 
-
         <div className=" -mt-[30%] ml-8 w-80 h-40 lg:w-[70px] lg:h-[70px] hidden md:block">
-          <img
-            src="../photos/ccsLogo.png"
-            alt="CCS Logo"
-          />
+          <img src="../photos/ccsLogo.png" alt="CCS Logo" />
         </div>
 
         <div className=" text-center bg-[#B4ABAB] text-[#5B0505] mt-4 py-0 rounded-lg w-[20%] h-[100%]">
@@ -76,22 +71,20 @@ export default async function dashboard() {
         </div>
       </div>
 
-      <div class="flex flex-col mt-[5%] w-[35%] ml-2">
-  <div class="flex flex-col sm:flex-row gap-4">
-    <div class="text-center bg-[#5B0505] text-white w-full sm:w-[300px] h-[90px] rounded-lg">
-      <button class="mt-2 text-4xl font-semibold sm:text-3xl">
-        <EditPrivacy_Dialog sessionUser={session.user} />
-      </button>
-    </div>
-    <div class="text-center bg-[#5B0505] text-white w-full sm:w-[300px] h-[90px] rounded-lg">
-      <button class="mt-1 text-4xl font-semibold sm:text-3xl">
-        <UploadMaterial_Dialog sessionUser={session.user} />
-      </button>
-    </div>
-  </div>
-</div>
-
-
+      <div className="flex flex-col mt-[5%] w-[35%] ml-2">
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="text-center bg-[#5B0505] text-white w-full sm:w-[300px] h-[90px] rounded-lg">
+            <button class="mt-2 text-4xl font-semibold sm:text-3xl">
+              <EditPrivacy_Dialog sessionUser={session.user} />
+            </button>
+          </div>
+          <div class="text-center bg-[#5B0505] text-white w-full sm:w-[300px] h-[90px] rounded-lg">
+            <button className="mt-1 text-4xl font-semibold sm:text-3xl">
+              <UploadMaterial_Dialog sessionUser={session.user} />
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
