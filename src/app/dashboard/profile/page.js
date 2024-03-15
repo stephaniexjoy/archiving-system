@@ -28,7 +28,7 @@ export default async function profile() {
         />
       </div>
 
-      <div className="bg-[#F5EEE6] overflow-scroll overflow-x-hidden w-xl sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl h-full my-6 rounded-t-lg rounded-b-lg shadow-2xl">
+      <div className="bg-[#F5EEE6] overflow-scroll overflow-x-hidden w-xl max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl h-full my-6 rounded-t-lg rounded-b-lg shadow-2xl">
         <div className="flex flex-row justify-center">
           <div className="mt-8 ml-6 basis-1/5 left-[10px] object-center" >
             <img
