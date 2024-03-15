@@ -27,7 +27,7 @@ export default async function dashboard() {
 
   return (
     <div className="flex flex-col w-auto h-full">
-      <div className="bg-[#AD5606] w-auto h-[80%] flex items-center justify-center">
+      <div className="bg-[#AD5606] w-auto h-[12%] flex items-center justify-center">
         <img
           className="w-[30%] h-[80%] sm:w-[35%] sm:h-[80%] md:w-[35%] md:h-[100%] lg:w-[27%] lg:h-[100%] object-cover flex items-center justify-center"
           alt="E-Archiving System"
@@ -35,6 +35,7 @@ export default async function dashboard() {
         />
       </div>
 
+     
       <div className="flex mt-[2%] px-10">
         <h1 className="text-black text-[20px] sm:text-sm md:text-md lg:text-lg">
           WELCOME, <br />{" "}
