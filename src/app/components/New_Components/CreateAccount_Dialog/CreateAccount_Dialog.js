@@ -18,7 +18,10 @@ function CreateAccount_Dialog({ sessionUser }) {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <b className='bg-transparent hover-transparent mt-2 text-3xl font-bold cursor-pointer'>CREATE ACCOUNT</b>
+                <b className='
+                bg-transparent hover-transparent mt-0 text-xl font-bold cursor-pointer
+                2xl:bg-transparent 2xl:hover-transparent 2xl:mt-2 2xl:text-3xl 2xl:font-bold 2xl:cursor-pointer
+                '>CREATE ACCOUNT</b>
             </DialogTrigger>
             <DialogContent className="p-16 md:max-w-[1000px]">
                 <Form sessionUser={sessionUser} />

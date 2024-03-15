@@ -555,3 +555,30 @@ export async function addToCompletedTask(taskId, sessionUser) {
     console.log(error);
   }
 }
+
+export async function getAllUsers() {
+  const users = await db.user.findMany({
+    select: {
+      employee_no: true,
+      position: true,
+      designation: true,
+      name: true,
+      email: true,
+      id: true,
+    },
+  });
+
+  revalidatePath("/secretary/dashboard/viewfaculty/");
+  return users;
+}
+
+export async function getCompletedTasksById(taskId) {
+ 
+    const getCompletedTasks = await db.completedTask.findMany({
+      where: {
+        taskId: taskId,
+      },
+    });
+    return getCompletedTasks;
+  
+}

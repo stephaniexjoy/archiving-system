@@ -1,19 +1,20 @@
-    import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 
-import { addCategory } from "next-auth/react"
+import { addCategory } from "next-auth/react";
 
-import React from 'react'
+import React from "react";
+import ForgotPassword_Form from "./Forgot_Password/ForgotPassword_Form";
 
 export default function ForgotPassword_Dialog() {
     return (

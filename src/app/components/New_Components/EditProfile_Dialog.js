@@ -17,7 +17,10 @@ function EditProfile_Dialog() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <b className="md:left-[1300px] text-center bg-transparent text-white text-3xl font-bold h-10 w-64 p-2 m-2 cursor-pointer">EDIT PROFILE</b>
+                <b className="
+                left-[1300px] text-center bg-transparent text-white text-xl font-bold h-10 w-44 p-2 m-2 cursor-pointer
+                2xl:left-[1300px] 2xl:text-center 2xl:bg-transparent 2xl:text-white 2xl:text-3xl 2xl:font-bold 2xl:h-10 2xl:w-64 2xl:p-2 2xl:m-2 2xl:cursor-pointer
+                ">EDIT PROFILE</b>
             </DialogTrigger>
             <DialogContent className="p-16 md:max-w-[1000px]">
                 <div className="grid gap-4 py-2">

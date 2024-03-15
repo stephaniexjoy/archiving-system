@@ -26,24 +26,28 @@ export default async function dashboard() {
   }));
 
   return (
-    <div className="flex flex-col w-auto h-full">
-      <div className="bg-[#AD5606] w-auto h-[12%] flex items-center justify-center">
+    <div className="flex flex-col w-[225%] h-[100%]">
+      <div className="bg-[#AD5606] w-[40%] h-[80%] flex items-center justify-center">
         <img
-          className="w-[30%] h-[80%] sm:w-[35%] sm:h-[80%] md:w-[35%] md:h-[100%] lg:w-[27%] lg:h-[100%] object-cover flex items-center justify-center"
+          className="w-[80%] h-[80%]
+          sm:w-[35%] sm:h-[80%] 
+          md:w-[35%] md:h-[100%] 
+          lg:w-[27%] lg:h-[100%] 
+          object-cover flex items-center justify-center"
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
         />
       </div>
 
-      <div className="flex mt-[2%] px-10">
-        <h1 className="text-black text-[20px] sm:text-sm md:text-md lg:text-lg">
+      <div className="flex mt-[2%] px-10 w-[25%] -ml-[4%]">
+        <h1 className="text-[#5B0505] text-[15px] font-semibold sm:text-sm md:text-md lg:text-lg">
           WELCOME, <br />{" "}
           <span className="text-[#5B0505] text-[20px] font-semibold -mt-4">
             FACULTY
           </span>
         </h1>
         <img
-          className=" h-[40%] w-[60%] mt-[1%] ml-[3%] sm:w-[70%] sm:h-[35%] md:w-[70%] md:h-[35%] lg:w-[70%] lg:h-[50%]"
+          className=" h-[40%] w-[300%] mt-[1%] ml-[28%] sm:w-[70%] sm:h-[35%] md:w-[70%] md:h-[35%] lg:w-[70%] lg:h-[50%]"
           alt="Filler"
           src="../photos/Filler.png"
         />
@@ -71,15 +75,15 @@ export default async function dashboard() {
         </div>
       </div>
 
-      <div className="flex flex-col mt-[5%] w-[35%] ml-2">
+      <div className="flex flex-col mt-[2%] w-[30%] h-[40%] ml-4">
         <div className="flex flex-col sm:flex-row gap-4">
-          <div className="text-center bg-[#5B0505] text-white w-full sm:w-[300px] h-[90px] rounded-lg">
-            <button class="mt-2 text-4xl font-semibold sm:text-3xl">
+          <div className="text-center bg-[#5B0505] text-white sm:w-[300px] h-[45%] rounded-lg -mt-2">
+            <button class="mt-2 text-[20px] font-semibold sm:text-3xl">
               <EditPrivacy_Dialog sessionUser={session.user} />
             </button>
           </div>
-          <div class="text-center bg-[#5B0505] text-white w-full sm:w-[300px] h-[90px] rounded-lg">
-            <button className="mt-1 text-4xl font-semibold sm:text-3xl">
+          <div class="text-center bg-[#5B0505] text-white  sm:w-[300px] h-[45%] rounded-lg -mt-3">
+            <button className="mt-1 text-2xl font-semibold sm:text-3xl">
               <UploadMaterial_Dialog sessionUser={session.user} />
             </button>
           </div>

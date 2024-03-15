@@ -1,7 +1,6 @@
-import { Table, TableCell, TableRow } from "@/components/ui/table";
+import ViewFaculty_Secretary from "@/app/components/NewTable/ViewFaculty_Table_Secretary/ViewFaculty_Secretary";
+import { getAllUsers } from "@/app/lib/actions/actions";
 import { revalidatePath } from "next/cache";
-import Link from "next/link";
-import { FaSearch } from "react-icons/fa";
 
 async function page() {
   async function getEmptyData() {
@@ -17,7 +16,8 @@ async function page() {
     revalidatePath("/secretary/dashboard/viewfaculty/");
     return res.json();
   }
-  const users = await getUsers();
+  const users = await getAllUsers();
+  console.log(users);
   return (
     <div className="flex flex-col w-screen h-screen">
       <div className="bg-[#AD5606] w-full h-auto flex items-center justify-center">
@@ -28,37 +28,10 @@ async function page() {
         />
       </div>
 
-      <div className="bg-[#5B0505] flex flex-row mb-5 md:h-20 px-10">
-        <h1 className="text-[#DABB9C] mt-2 w-auto text-[45px] font-semibold md:shadow-zinc-400 px-24">
-          FIND
-        </h1>
-        <div className="flex items-center">
-          <input
-            type="search"
-            name="find"
-            placeholder=""
-            className="mt-1 ml-2 mr-3 text-md text-[#242323] bg-[#D9D9D9] w-[1300px] h-[60px] md:text-shadow-inner"
-          />
-          <div className="mt-1 ml-4 text-white bg-[#6A6A6A] p-2 h-[60px] w-auto">
-            <FaSearch size="50" />
-          </div>
-        </div>
-        <div className="mt-3 bg-[#6A6A6A] p-2 h-[60px] w-[100px] ml-[1%]">
-          <button className="mt-2 ml-1 text-white text-[20px]">CREATE</button>
-        </div>
-        <div className="mt-3 bg-[#6A6A6A] p-2 h-[60px] w-[70px] ml-[1%]">
-          <img
-            className="h-auto w-auto mt-0 ml-0 object-cover"
-            alt="Notification Logo"
-            src="/photos/Notificationlogo.png"
-          />
-        </div>
-      </div>
-
       <div className=" text-[50px] mt-5 mb-5 font-semibold text-[#5B0505] text-center ">
         VIEW FACULTY
       </div>
-      <div>
+      {/*  <div>
         <div className="container flex justify-center mx-auto drop-shadow-2xl">
           <div className="flex flex-col">
             <div className="w-full">
@@ -74,8 +47,7 @@ async function page() {
                           {user.name}
                         </div>
                       </TableCell>
-                      {/* <TableCell></TableCell>
-                      <TableCell></TableCell> */}
+
                       <TableCell className="px-1 py-4">
                         <Link
                           href={`/secretary/dashboard/viewfaculty/view-user/${user.id}/`}
@@ -91,6 +63,9 @@ async function page() {
             </div>
           </div>
         </div>
+      </div> */}
+      <div>
+        <ViewFaculty_Secretary data={users} />
       </div>
     </div>
   );
