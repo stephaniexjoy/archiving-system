@@ -22,7 +22,7 @@ export default async function profile() {
     <div className="flex items-center flex-col w-screen h-screen ">
       <div className="bg-[#AD5606] w-full md:h-[12%] flex items-center justify-center">
         <img
-          className="sm:w-[27%] sm:h-[100%] md:w-[35%] md:h-[100%] lg:w-[27%] lg:h-[100%] object-cover flex items-center justify-center"
+          className=" sm:w-[27%] sm:h-[100%] md:w-[35%] md:h-[100%] lg:w-[27%] lg:h-[100%] object-cover flex items-center justify-center"
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
         />
@@ -37,7 +37,7 @@ export default async function profile() {
               src="/profile.jpg"
             />
           </div>
-          <div className="ml-5 basis-2/5 font-semibold text-[25px] text-black text-center sm:text-lg sm:text-left lg:text-left md:text-left lg:w-[900px] h-[30px] sm:w-[700px] ">
+          <div className="ml-5 basis-2/5 font-semibold text-[25px] text-black sm:text-lg sm:text-left lg:text-left md:text-left lg:w-[900px] h-[30px] sm:w-[700px] ">
             <div className="mt-6 sm:text-sm md:text-md lg:text-lg">Name: {user.name}</div>
             <div className="sm:text-sm md:text-md lg:text-lg">Position: {user.position}</div>
             <div className="sm:text-sm md:text-md lg:text-lg">Eligibility/Professional License: {user.license}</div>
