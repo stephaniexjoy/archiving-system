@@ -29,7 +29,7 @@ export default async function dashboard() {
     <div className="flex flex-col w-auto h-full">
       <div className="bg-[#AD5606] w-auto h-[80%] flex items-center justify-center">
         <img
-          className="sm:w-[27%] sm:h-[100%] md:w-[35%] md:h-[100%] lg:w-[27%] lg:h-[100%] object-cover flex items-center justify-center"
+          className="w-[30%] h-[80%] sm:w-[35%] sm:h-[80%] md:w-[35%] md:h-[100%] lg:w-[27%] lg:h-[100%] object-cover flex items-center justify-center"
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
         />
@@ -43,12 +43,12 @@ export default async function dashboard() {
           </span>
         </h1>
         <img
-          className="h-[50%] w-[90%] mt-[1%] ml-[3%] sm:w-[80%] sm:h-[40%] md:w-[80%] md:h-[40%] lg:w-[70%] lg:h-[50%]"
+          className=" h-[40%] w-[60%] mt-[1%] ml-[3%] sm:w-[70%] sm:h-[35%] md:w-[70%] md:h-[35%] lg:w-[70%] lg:h-[50%]"
           alt="Filler"
           src="../photos/Filler.png"
         />
         <img
-          className="h-[70%] w-[90px] mt-[.8%] ml-[2%] sm:w-[50%] sm:h-[50%] md:w-[60%] md:h-[50%] lg:w-[10%] lg:h-[50%]"
+          className="h-[40%] w-[90px] mt-[.8%] ml-[2%] sm:w-[50%] sm:h-[35%] md:w-[60%] md:h-[40%] lg:w-[10%] lg:h-[50%]"
           alt="Notification Logo"
           src="../photos/Notificationlogo.png"
         />
