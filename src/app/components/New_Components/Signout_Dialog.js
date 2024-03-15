@@ -14,16 +14,19 @@ import { FaBook, FaHome, FaSignOutAlt } from "react-icons/fa";
 
 import React from "react";
 
-export default function Signout_Dialog() {
+export default function Signout_Dialog({ isMinimized }) {
   return (
     <div>
       <AlertDialog>
-        <AlertDialogTrigger>
-          {" "}
-          <span className="">
-            <FaSignOutAlt className="text-white text-2xl center cursor-pointer" />
+        <AlertDialogTrigger
+          className={`flex items-center mb-2 hover:bg-[#9D9494] rounded h-10 px-2 ${
+            isMinimized ? "mt-4" : "mt-4"
+          }`}
+        >
+          <FaSignOutAlt className="text-white text-2xl center cursor-pointer" />
+          <span className={`${isMinimized ? "hidden" : "hidden"}`}>
+            Sign Out
           </span>
-          Sign Out
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
