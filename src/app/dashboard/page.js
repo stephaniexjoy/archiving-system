@@ -1,10 +1,8 @@
 import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
-import { getServerSession } from "next-auth/next";
 import { db } from "@/app/lib/prisma_db";
+import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
-import UploadMaterial_Dialog from "../components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog";
 import EditPrivacy_Dialog from "../components/New_Components/EditPrivacy_Dialog";
-import { Footer } from "flowbite-react";
 
 export default async function dashboard() {
   const session = await getServerSession(AuthOptions);
@@ -84,7 +82,7 @@ export default async function dashboard() {
           </div>
           <div class="text-center bg-[#5B0505] text-white  sm:w-[300px] h-[45%] rounded-lg -mt-3">
             <button className="mt-1 text-2xl font-semibold sm:text-3xl">
-              <UploadMaterial_Dialog sessionUser={session.user} />
+             {/*  <UploadMaterial_Dialog sessionUser={session.user} /> */}
             </button>
           </div>
         </div>

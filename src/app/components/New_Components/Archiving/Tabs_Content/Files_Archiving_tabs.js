@@ -1,14 +1,5 @@
-import FileTable from "@/app/components/FileTable";
-import UploadModal from "@/app/components/Modal/UploadModal";
-import AddCategory_Dialog from "@/app/components/New_Components/AddCategory_Dialog/AddCategory_Dialog";
-import SearchBar from "@/app/components/SearchBar";
-import Course_ComboBox from "./ComboBox/Course_ComboBox";
-import Date_Range from "./ComboBox/Date_Range";
-import FileType_ComboBox from "./ComboBox/FileType_ComboBox";
-import Instructor_ComboBox from "./ComboBox/Instructor_ComboBox";
-import Material_ComboBox from "./ComboBox/Material_ComboBox";
-import { DataTable } from "@/app/components/NewTable/data-table";
 import { columns } from "@/app/components/NewTable/columns";
+import { DataTable } from "@/app/components/NewTable/data-table";
 
 const programFrameworks = [
   {
