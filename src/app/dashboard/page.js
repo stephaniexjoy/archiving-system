@@ -26,10 +26,10 @@ export default async function dashboard() {
   }));
 
   return (
-    <div className='flex flex-col w-auto h-screen'>
-      <div className="bg-[#AD5606] w-auto h-[80%] flex items-center justify-center">
+    <div className="flex items-center flex-col w-screen h-screen ">
+      <div className="bg-[#AD5606] w-full md:h-[12%] flex items-center justify-center">
         <img
-          className="w-[30%] h-[100%] object-cover flex items-center justify-center sm:w-[50%] sm:h-[75%] md:w-[80%] md:h-[75%] lg:w-[60%] lg:h-[80%] "
+          className="sm:w-[27%] sm:h-[100%] md:w-[35%] md:h-[100%] lg:w-[27%] lg:h-[100%] object-cover flex items-center justify-center"
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
         />
@@ -42,16 +42,20 @@ export default async function dashboard() {
             FACULTY
           </span>
         </h1>
-        <img
-          className="h-[50%] w-[90%] mt-[1%] ml-[3%] sm:w-[80%] sm:h-[40%] md:w-[80%] md:h-[40%] lg:w-[70%] lg:h-[50%]"
-          alt="Filler"
-          src="../photos/Filler.png"
-        />
-        <img
-          className="h-[70%] w-[90px] mt-[.8%] ml-[2%] sm:w-[50%] sm:h-[50%] md:w-[60%] md:h-[50%] lg:w-[10%] lg:h-[50%]"
-          alt="Notification Logo"
-          src="../photos/Notificationlogo.png"
-        />
+        <div>
+          <img
+            className="h-[50%] w-[90%] mt-[1%] ml-[3%] sm:w-[80%] sm:h-[40%] md:w-[100%] md:h-[55%] md:mt-[1%] md:ml-[1%] lg:w-[95%] lg:h-[40%] lg:mt-[1%] lg:ml-[3%]"
+            alt="Filler"
+            src="../photos/Filler.png"
+          />
+        </div>
+        <div>
+          <img
+            className="h-[40%] w-[50%] mt-[2%] ml-[3%] sm:w-[50%] sm:h-[50%] md:w-[40px] md:h-[55%] md:mt-[10%] md:ml-[18%] lg:w-[100%] lg:h-[40%] lg:mt-[20%] lg:ml-[-1%]"
+            alt="Notification Logo"
+            src="../photos/Notificationlogo.png"
+          />
+        </div>
       </div>
 
       <div className="flex flex-col items-center justify-center content-center md:flex-row mt-[.5%] px-10 gap-x-12 ">
