@@ -7,6 +7,7 @@ import Files_Archiving_tabs from "./Tabs_Content/Files_Archiving_tabs";
 import MissingTask_Archiving_tabs from "./Tabs_Content/MissingTask_Archiving_tabs";
 import CompletedTask_Archiving_tabs from "./Tabs_Content/CompletedTask_Archiving_Tab";
 import { useSession } from "next-auth/react";
+import Monitoring_Table from "../../NewTable/Monitoring_Table/Monitoring_Table";
 
 function filterTasksByDate(tasks, completedTasks) {
   // Separate tasks into completed and incomplete categories
@@ -139,7 +140,10 @@ function ArchivingTab({
           <TabsTrigger value="missingtask">Missing Task</TabsTrigger>
           <TabsTrigger value="archivedtask">Archived Task</TabsTrigger>
           {session?.user?.position === "Secretary" && (
-            <TabsTrigger value="completedtask">Completed Task</TabsTrigger>
+            <>
+              <TabsTrigger value="completedtask">Completed Task</TabsTrigger>
+              <TabsTrigger value="monitor">Monitoring</TabsTrigger>
+            </>
           )}
         </TabsList>
         <TabsContent value="files">
@@ -168,9 +172,17 @@ function ArchivingTab({
           <ArchivedTask_Archiving_tabs />
         </TabsContent>
         {session?.user?.position === "Secretary" && (
-          <TabsContent value="completedtask">
-            <CompletedTask_Archiving_tabs tasks={filteredTasks.completed} />
-          </TabsContent>
+          <>
+            <TabsContent value="completedtask">
+              <CompletedTask_Archiving_tabs tasks={filteredTasks.completed} />
+            </TabsContent>
+            <TabsContent value="monitor">
+              <>
+                Monitoring
+                <Monitoring_Table />
+              </>
+            </TabsContent>
+          </>
         )}
       </Tabs>
     );

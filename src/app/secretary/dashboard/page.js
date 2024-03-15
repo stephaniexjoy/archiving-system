@@ -1,39 +1,38 @@
-import React from 'react'
-import { db } from '@/app/lib/prisma_db'
+import React from "react";
+import { db } from "@/app/lib/prisma_db";
 import { redirect } from "next/navigation";
 import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
-import { getServerSession } from "next-auth/next"
-import UploadMaterial_Dialog from '@/app/components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog';
-import CreateAccount_Dialog from '@/app/components/New_Components/CreateAccount_Dialog/CreateAccount_Dialog';
-import Link from 'next/link';
+import { getServerSession } from "next-auth/next";
+import UploadMaterial_Dialog from "@/app/components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog";
+import CreateAccount_Dialog from "@/app/components/New_Components/CreateAccount_Dialog/CreateAccount_Dialog";
+import Link from "next/link";
+import ActivityTable_Secretary from "@/app/components/NewTable/Dashboard/Secretary/ActivityTable_Secretary";
 
 async function page() {
-
-  const session = await getServerSession(AuthOptions)
+  const session = await getServerSession(AuthOptions);
 
   if (session.user.position === "Superadmin") {
-    redirect('/superadmin/dashboard/')
+    redirect("/superadmin/dashboard/");
   }
   if (session.user.position === "Faculty") {
-    redirect('/faculty/dashboard/')
+    redirect("/faculty/dashboard/");
   }
 
-  const fileCount = await db.file.count()
-  const userCount = await db.user.count()
+  const fileCount = await db.file.count();
+  const userCount = await db.user.count();
 
-  console.log(fileCount)
-  console.log(userCount)
+  console.log(fileCount);
+  console.log(userCount);
 
+  const activities = await db.activity.findMany();
+  console.log(activities);
 
-  const activities = await db.activity.findMany()
-  console.log(activities)
-
-  const activitiesFormatted = activities.map(activity => ({
+  const activitiesFormatted = activities.map((activity) => ({
     ...activity,
     createdAt: new Date(activity.createdAt).toLocaleString(),
   }));
   return (
-    <div className='flex flex-col w-screen h-screen overflow-y-auto'>
+    <div className="flex flex-col w-screen h-screen">
       <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
         <img
           className="
@@ -219,6 +218,6 @@ async function page() {
         </table>
       </div>
     </div>
-  )
+  );
 }
-export default page
+export default page;
