@@ -564,9 +564,21 @@ export async function getAllUsers() {
       designation: true,
       name: true,
       email: true,
+      id: true,
     },
   });
 
   revalidatePath("/secretary/dashboard/viewfaculty/");
   return users;
+}
+
+export async function getCompletedTasksById(taskId) {
+ 
+    const getCompletedTasks = await db.completedTask.findMany({
+      where: {
+        taskId: taskId,
+      },
+    });
+    return getCompletedTasks;
+  
 }

@@ -44,6 +44,20 @@ export const columns = [
     },
   },
   {
+    accessorKey: "employee_no",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Employee #
+          <LuArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+  },
+  {
     accessorKey: "fileRole",
     header: "Permissions",
     cell: ({ row }) => {
@@ -62,8 +76,13 @@ export const columns = [
     header: "Designation",
   },
   {
-    accessorKey: "status",
+    accessorKey: "isDone",
     header: "Status",
+    cell: ({ row }) => {
+      const isCompleted = row.getValue("isDone");
+      const formatted = isCompleted === true ? "Done" : "Not Done";
+      return <div className="">{formatted}</div>;
+    },
   },
   /* {
     accessorKey: "actions",

@@ -16,22 +16,9 @@ import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const tasks = [
-  {
-    value: "task 1",
-    label: "Task 1",
-  },
-  {
-    value: "task 2",
-    label: "Task 2",
-  },
-];
-
-const Tasks_ComboBox = ({ setSelectedTask }) => {
+const Tasks_ComboBox = ({ setSelectedTask, tasks }) => {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState();
-  
-  
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -60,7 +47,7 @@ const Tasks_ComboBox = ({ setSelectedTask }) => {
                 onSelect={(currentValue) => {
                   setValue(currentValue === value ? "" : currentValue);
                   setSelectedTask(
-                    currentValue === value ? "" : framework.label
+                    currentValue === value ? "" : framework.id
                   );
 
                   setOpen(false);
