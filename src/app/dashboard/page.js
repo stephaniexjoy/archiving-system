@@ -26,10 +26,10 @@ export default async function dashboard() {
   }));
 
   return (
-    <div className='flex flex-col w-auto h-screen'>
+    <div className="flex flex-col w-auto h-full">
       <div className="bg-[#AD5606] w-auto h-[80%] flex items-center justify-center">
         <img
-          className="w-[30%] h-[100%] object-cover flex items-center justify-center sm:w-[50%] sm:h-[75%] md:w-[80%] md:h-[75%] lg:w-[60%] lg:h-[80%] "
+          className="sm:w-[27%] sm:h-[100%] md:w-[35%] md:h-[100%] lg:w-[27%] lg:h-[100%] object-cover flex items-center justify-center"
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
         />
@@ -54,37 +54,43 @@ export default async function dashboard() {
         />
       </div>
 
-      <div className="flex flex-col items-center justify-center content-center md:flex-row mt-[.5%] px-10 gap-x-12 ">
-        <div className="text-center bg-[#B4ABAB] text-[#5B0505] w-[440px] h-[320px] py-0 rounded-lg sm:w-[500px] sm:h-[280px] md:w-[50%] md:h-[60%] lg:w-[110%] lg:h-[60%]">
+      <div className="flex flex-row items-center justify-center content-center sm:grid-row-2 gap-4 sm:mt-3 lg:mt-20 lg:ml-3">
+       <div className="text-center bg-[#B4ABAB] text-[#5B0505] w-[440px] h-[320px] py-0 rounded-lg sm:w-[300px] sm:h-[280px] md:w-[50%] md:h-[60%] lg:w-[50%] lg:h-[150%]">
           <p className="mt-8 text-4xl font-semibold">ARCHIVED MATERIALS</p>
-          <p className="mt-12 text-9xl text-[#5B0505] font-semibold">
+          <p className="mt-20 text-8xl text-[#5B0505] font-semibold">
             {fileCount}
           </p>
         </div>
-        <div>
+
+
+        <div className=" -mt-[30%] ml-8 w-80 h-40 lg:w-[70px] lg:h-[70px] hidden md:block">
           <img
-            className="ml-16 w-[325px] h-auto object-cover hidden sm:hidden md:h-[60%] lg:w-[110%] lg:h-[60%] "
             src="../photos/ccsLogo.png"
             alt="CCS Logo"
           />
         </div>
-        <div className=" text-center bg-[#B4ABAB] text-[#5B0505] w-[500px] sm:w-[500px] sm:h-[540px] mt-4 md:-0 md:w-full">
-          <p className=" mt-1 text-1xl font-bold">CALENDAR</p>
+
+        <div className=" text-center bg-[#B4ABAB] text-[#5B0505] ml-4 sm:w-[300px] sm:h-[280px] mt-4 md:-0 md:w-full lg:w-[50%] lg:h-[150%]">
+          <p className=" mt-1 text-4xl font-bold">CALENDAR</p>
         </div>
       </div>
 
-      <div className="flex flex-col -mt-[11%] w-[50%] px-10">
-        <div className="mt-[1%] text-center bg-[#5B0505] text-white h-[90px] rounded-lg">
-          <button className="mt-2 text-4xl font-semibold">
-            <EditPrivacy_Dialog sessionUser={session.user} />
-          </button>
-        </div>
-        <div className="mt-[2%] text-center bg-[#5B0505] text-white h-[90px] rounded-lg">
-          <button className="mt-4 text-4xl font-semibold">
-            <UploadMaterial_Dialog sessionUser={session.user} />
-          </button>
-        </div>
-      </div>
+      <div class="flex flex-col mt-[10%] w-full sm:w-[50%] gap-4 m-4">
+  <div class="flex flex-col sm:flex-row gap-4">
+    <div class="text-center bg-[#5B0505] text-white w-full sm:w-[300px] h-[90px] rounded-lg">
+      <button class="mt-2 text-4xl font-semibold sm:text-3xl">
+        <EditPrivacy_Dialog sessionUser={session.user} />
+      </button>
+    </div>
+    <div class="text-center bg-[#5B0505] text-white w-full sm:w-[300px] h-[90px] rounded-lg">
+      <button class="mt-1 text-4xl font-semibold sm:text-3xl">
+        <UploadMaterial_Dialog sessionUser={session.user} />
+      </button>
+    </div>
+  </div>
+</div>
+
+
     </div>
   );
 }

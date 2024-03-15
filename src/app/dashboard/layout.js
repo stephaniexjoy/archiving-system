@@ -13,7 +13,9 @@ export default function DashboardLayout({
             <Sidebar className="flex" />
             <main className=" ">{children}</main>
           </div>
-          <Footer />
+          <div className="">
+            <Footer />
+          </div>
         </div>
       </div>
     </>
