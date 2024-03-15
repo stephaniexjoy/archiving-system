@@ -11,6 +11,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { LuArrowUpDown } from "react-icons/lu";
+import RouterButton from "./RouterButton";
+
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 
@@ -74,6 +76,16 @@ export const columns = [
   {
     accessorKey: "designation",
     header: "Designation",
+  },
+
+  {
+    id: "actions",
+    header: "Action",
+    cell: ({ row }) => {
+      const userId = row.original.id;
+
+      return <RouterButton userId={userId}/>;
+    },
   },
   /*  {
     accessorKey: "isDone",
