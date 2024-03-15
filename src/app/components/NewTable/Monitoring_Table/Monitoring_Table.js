@@ -6,6 +6,7 @@ import Tasks_ComboBox from "../../New_Components/Archiving/Tabs_Content/ComboBox
 
 export default function Monitoring_Table() {
   const [users, setUsers] = useState([]);
+  const [selectedTask, setSelectedTask] = useState();
   const sampleData = [
     {
       email: "test",
@@ -26,11 +27,12 @@ export default function Monitoring_Table() {
   }, []);
 
   console.log("Users", users);
+  console.log(selectedTask);
   return (
     <div>
       Monitoring_Table
-      <br/>
-      <Tasks_ComboBox/>
+      <br />
+      <Tasks_ComboBox setSelectedTask={setSelectedTask} />
       <DataTable columns={columns} data={users} />
     </div>
   );

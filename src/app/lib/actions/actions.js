@@ -563,6 +563,7 @@ export async function getAllUsers() {
       position: true,
       designation: true,
       name: true,
+      email: true,
     },
   });
 

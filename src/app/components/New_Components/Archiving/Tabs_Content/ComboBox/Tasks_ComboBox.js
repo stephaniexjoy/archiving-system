@@ -9,6 +9,7 @@ import {
   Command,
   CommandEmpty,
   CommandGroup,
+  CommandInput,
   CommandItem,
 } from "@/components/ui/command";
 import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
@@ -17,18 +18,20 @@ import { cn } from "@/lib/utils";
 
 const tasks = [
   {
-    value: "task1",
+    value: "task 1",
     label: "Task 1",
   },
   {
-    value: "task2",
+    value: "task 2",
     label: "Task 2",
   },
 ];
 
-const Tasks_ComboBox = ({ setTask }) => {
+const Tasks_ComboBox = ({ setSelectedTask }) => {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState();
+  
+  
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -47,6 +50,7 @@ const Tasks_ComboBox = ({ setTask }) => {
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
+          <CommandInput placeholder="Search Tasks..." className="h-9" />
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
             {tasks.map((framework) => (
@@ -55,7 +59,10 @@ const Tasks_ComboBox = ({ setTask }) => {
                 value={framework.value}
                 onSelect={(currentValue) => {
                   setValue(currentValue === value ? "" : currentValue);
-                  setPermission(currentValue === value ? "" : framework.label);
+                  setSelectedTask(
+                    currentValue === value ? "" : framework.label
+                  );
+
                   setOpen(false);
                 }}
               >
