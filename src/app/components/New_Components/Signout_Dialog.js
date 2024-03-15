@@ -19,14 +19,18 @@ export default function Signout_Dialog({ isMinimized }) {
     <div>
       <AlertDialog>
         <AlertDialogTrigger
-          className={`flex items-center mb-2 hover:bg-[#9D9494] rounded h-10 px-2 ${
+          className={`flex items-center mb-2 ml-3 h-10 px-2 ${
             isMinimized ? "mt-4" : "mt-4"
           }`}
         >
-          <FaSignOutAlt className="text-white text-2xl center cursor-pointer" />
-          <span className={`${isMinimized ? "hidden" : "hidden"}`}>
-            Sign Out
-          </span>
+          <FaSignOutAlt className="text-white text-2xl  " />
+          <span className={`ml-4 ${isMinimized ? "hidden" : ""}`}>
+  SIGN OUT
+</span>
+
+
+
+          
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>

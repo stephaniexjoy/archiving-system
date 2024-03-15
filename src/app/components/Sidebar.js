@@ -23,7 +23,7 @@ const MenuItem = ({ path, icon, label, onClick, isMinimized }) => (
       </Link>
     )}
     {onClick && !isMinimized && (
-      <div className="ml-5 mt-1 font-medium" onClick={onClick}>
+      <div className="ml-3 mt-1 font-medium" onClick={onClick}>
         {label}
         <Signout_Dialog />
       </div>
@@ -74,7 +74,7 @@ const Sidebar = () => {
               }`}
               onClick={handleToggleMinimize}
             >
-              <IoMdMenu className="text-white text-2xl mt-2 " />
+              <IoMdMenu className="text-white text-2xl mt-2 ml-3" />
             </div>
             <div
               className={`h-10 text-center mt-4 py-2 text-base center ${
@@ -90,19 +90,19 @@ const Sidebar = () => {
               <>
                 <MenuItem
                   path="/dashboard"
-                  icon={<FaHome className="text-white text-2xl center" />}
+                  icon={<FaHome className="text-white text-2xl ml-5" />}
                   label="HOME"
                   isMinimized={isMinimized}
                 />
                 <MenuItem
                   path="/dashboard/profile"
-                  icon={<IoMdPerson className="text-white text-2xl center " />}
+                  icon={<IoMdPerson className="text-white text-2xl ml-5 " />}
                   label="PROFILE"
                   isMinimized={isMinimized}
                 />
                 <MenuItem
                   path="/dashboard/archiving"
-                  icon={<FaBook className="text-white text-2xl center" />}
+                  icon={<FaBook className="text-white text-2xl ml-5" />}
                   label="ARCHIVING"
                   isMinimized={isMinimized}
                 />
@@ -172,7 +172,7 @@ const Sidebar = () => {
                 
               </span> */}
 
-              <div className="ml-5 mt-1 font-medium">
+              <div className="ml-1 mt-1 font-medium ">
                 <Signout_Dialog isMinimized={isMinimized}/>
               </div>
             </li>
