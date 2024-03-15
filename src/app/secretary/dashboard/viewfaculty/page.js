@@ -1,10 +1,6 @@
-import React from "react";
-import { FaSearch } from "react-icons/fa";
-import CreateModal from "@/app/components/Modal/CreateModal";
-import DeleteModal from "@/app/components/Modal/DeleteModal";
+import ViewFaculty_Secretary from "@/app/components/NewTable/ViewFaculty_Table_Secretary/ViewFaculty_Secretary";
+import { getAllUsers } from "@/app/lib/actions/actions";
 import { revalidatePath } from "next/cache";
-import Link from "next/link";
-import { Table, TableCell, TableRow } from "@/components/ui/table";
 
 async function page() {
   async function getEmptyData() {
@@ -20,7 +16,8 @@ async function page() {
     revalidatePath("/secretary/dashboard/viewfaculty/");
     return res.json();
   }
-  const users = await getUsers();
+  const users = await getAllUsers();
+  console.log(users);
   return (
     <div className="flex flex-col w-screen h-screen">
       <div className="bg-[#AD5606] w-full h-[12%] flex items-center justify-center">
@@ -31,23 +28,10 @@ async function page() {
         />
       </div>
 
-      <div className="bg-[#5B0505] flex flex-row mb-5 md:h-20 px-10">
-        <div className="mt-3 bg-[#6A6A6A] p-2 h-[60px] w-[100px] ml-[1%]">
-          <button className="mt-2 ml-1 text-white text-[20px]">CREATE</button>
-        </div>
-        <div className="mt-3 bg-[#6A6A6A] p-2 h-[60px] w-[70px] ml-[1%]">
-          <img
-            className="h-auto w-auto mt-0 ml-0 object-cover"
-            alt="Notification Logo"
-            src="/photos/Notificationlogo.png"
-          />
-        </div>
-      </div>
-
       <div className=" text-[50px] mt-5 mb-5 font-semibold text-[#5B0505] text-center ">
         VIEW FACULTY
       </div>
-      <div>
+      {/*  <div>
         <div className="container flex justify-center mx-auto drop-shadow-2xl">
           <div className="flex flex-col">
             <div className="w-full">
@@ -63,8 +47,7 @@ async function page() {
                           {user.name}
                         </div>
                       </TableCell>
-                      {/* <TableCell></TableCell>
-                      <TableCell></TableCell> */}
+
                       <TableCell className="px-1 py-4">
                         <Link
                           href={`/secretary/dashboard/viewfaculty/view-user/${user.id}/`}
@@ -80,6 +63,9 @@ async function page() {
             </div>
           </div>
         </div>
+      </div> */}
+      <div>
+        <ViewFaculty_Secretary data={users} />
       </div>
     </div>
   );
