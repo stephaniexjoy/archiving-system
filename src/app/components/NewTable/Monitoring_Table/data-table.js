@@ -126,14 +126,14 @@ export function DataTable({ columns, data, materials, instructors }) {
   return (
     <>
       <div className="flex items-center py-4 space-x-1">
-        {/*  <Input
-          placeholder="Filter Filename..."
-          value={table.getColumn("filename")?.getFilterValue() ?? ""}
+        <Input
+          placeholder="Filter users..."
+          value={table.getColumn("name")?.getFilterValue() ?? ""}
           onChange={(event) =>
-            table.getColumn("filename")?.setFilterValue(event.target.value)
+            table.getColumn("name")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
-        /> */}
+        />
         {/*  <ComboboxPermission
           value={table.getColumn("fileRole")?.getFilterValue() ?? ""}
           onChange={handleComboBoxPermissionChange}
