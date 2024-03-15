@@ -106,14 +106,15 @@ const Sidebar = () => {
           <div className="">
             <li className={`flex items-center mb-2 hover:bg-[#9D9494] rounded h-10 px-2 ${isMinimized ? "mt-4" : "mt-4"}`}>
 
-              <span className="">
-                <FaSignOutAlt className="text-white text-2xl center" />
-              </span>
-              {!isMinimized && (
+              {/* <span className="">
+                <FaSignOutAlt className="text-white text-2xl center cursor-pointer" />
+                
+              </span> */}
+            
                 <div className="ml-5 mt-1 font-medium">
                   <Signout_Dialog />
                 </div>
-              )}
+            
             </li>
           </div>
         </nav>
