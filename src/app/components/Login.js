@@ -70,33 +70,35 @@ const Login = () => {
         />
       </div>
       <div className="flex flex-col items-center justify-center bg-white w-screen h-auto py-4 ">
-        <div className="bg-white items-center rounded-3xl w-[75%] h-full py-10 mt-5 sm:py-20 shadow-[0_0_15px_15px_rgba(0,_0,_0,_0.65)]">
+        <div className="
+        bg-white items-center rounded-3xl w-[80%] h-full py-10 mt-5 shadow-[0_0_15px_15px_rgba(0,_0,_0,_0.65)]
+        sm:bg-white sm:items-center sm:rounded-xl sm:w-[80%] sm:h-full sm:mt-5 sm:sm:py-20 sm:shadow-[0_0_10px_10px_rgba(0,_0,_0,_0.35)]">
           <img
             className="-mt-8 ml-[9%] mb-[2%] w-[85%] h-auto object-cover"
             alt="E-Archiving System Maroon"
             src="../photos/E-Archiving System Maroon.png"
           />
           <div className="text-center bg-[#AD5606] w-[100%] h-[9%]">
-            <h1 className="text-center text-2xl text-white font-semibold py-2 sm:text-3xl">
+            <h1
+              className="
+            text-center text-2xl text-white font-semibold py-2
+            sm:text-center sm:text-xl sm:text-white sm:font-semibold sm:py-2
+            "
+            >
               LOGIN
             </h1>
           </div>
           <div className="mx-auto mb-[5%] mt-[7%] bg-white w-[70%] h-[77px] md:md:h-20 border border-black">
             <div className="flex">
               <h1>
-                <FaUserAlt
-                  className="mt-3 ml-5"
-                  size="50"
-                  color="#000000"
-                  opacity="26%"
-                />
+                <FaUserAlt className="mt-4 ml-5 text-50 w-10 h-10 text-black opacity-25" />
               </h1>
               <input
                 type="text"
                 name="email"
                 placeholder="USERNAME"
-                className="mt-5 ml-8 text-xl border-none
-                            text-black  w-[83%] h-[37px] text-shadow-inner sm:text-2xl"
+                className="mt-5 ml-8 text-xl border-none text-black w-[83%] h-[37px] text-shadow-inner 
+                          sm:mt-5 sm:ml-8 sm:text-md sm:border-none sm:text-black sm:w-[73%] sm:h-[37px] sm:text-shadow-inner"
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
@@ -107,19 +109,15 @@ const Login = () => {
           <div className="mx-auto bg-white w-[70%] h-[77px] md:h-20 border border-slate-300">
             <div className="mt-4 flex">
               <h1>
-                <FaLock
-                  className="ml-5"
-                  size="50"
-                  color="#000000"
-                  opacity="26%"
-                  style={{ top: "675px", left: "870px" }}
-                />
+                <FaLock className="ml-5 text-50 w-10 h-10 text-black opacity-25" />
               </h1>
               <input
                 type="password"
                 name="password"
                 placeholder="PASSWORD"
-                className=" text-xl border-none text-black w-[83%] h-[37px] text-shadow-inner sm:text-2xl"
+                className="
+                text-xl border-none text-black w-[83%] h-[37px] text-shadow-inner
+                sm:mt-1 sm:ml-8 sm:text-md sm:border-none sm:text-black sm:w-[73%] sm:h-[37px] sm:text-shadow-inner"
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
@@ -127,7 +125,7 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="flex justify-end">
+          <div className="flex justify-center">
             <b className="mr-[15%] text-[#5B0505]">
               <ForgotPassword_Dialog />
             </b>
@@ -136,7 +134,9 @@ const Login = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="mt-[7%] bg-[#5B0505] rounded-3xl text-[25px] font-bold text-white text-center inline-block w-[300px] h-[50px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
+              className="
+              mt-[7%] bg-[#5B0505] rounded-3xl text-[25px] font-bold text-white text-center inline-block w-[300px] h-[50px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]
+              sm:mt-[7%] sm:bg-[#5B0505] sm:rounded-3xl sm:text-[20px] sm:font-bold sm:text-white sm:text-center sm:inline-block sm:w-[180px] sm:h-[40px] sm:[text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]"
               onClick={handleSubmit}
             >
               LOGIN
