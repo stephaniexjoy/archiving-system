@@ -1,5 +1,5 @@
 import React from "react";
-import { DataTable } from "./data-table";
+import { DataTable } from "../data-table";
 import { columns } from "../columns";
 
 export default function ActivityTable_Superadmin({activity}) {

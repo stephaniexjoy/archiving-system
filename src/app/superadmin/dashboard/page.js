@@ -101,28 +101,12 @@ async function page() {
         </div>
       </div>
 
-      <div className="flex mt-[1%] w-full h-screen items-center md:h-20 font-[Times New Roman] px-10">
-        {/* <table className="mt-10 table table-fixed md:table-fixed w-full text-center rounded-lg">
-          <thead className="bg-[#5B0505] text-2xl text-white">
-            <tr>
-              <th className="py-2">NAME</th>
-              <th>POSITION</th>
-              <th>LAST ACTIVITY</th>
-              <th>DATE AND TIME</th>
-            </tr>
-          </thead>
-          <tbody className="bg-[#B4ABAB] text-black text-xl">
-            {activitiesFormatted.map((activity) => (
-              <tr key={activity.id}>
-                <td className="py-2">{activity.name}</td>
-                <td>{activity.position}</td>
-                <td>{activity.type}</td>
-                <td>{activity.createdAt}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table> */}
-
+      <div
+        className="
+      -mt-60 w-full h-screen items-center font-[Times New Roman] rounded-lg px-10 overflow-y-auto
+      2xl:mt-8 2xl:w-full 2xl:h-screen 2xl:items-center 2xl:font-[Times New Roman] 2xl:rounded-lg 2xl:px-10 2xl:overflow-y-auto
+      "
+      >
         <ActivityTable_Superadmin activity={activitiesFormatted} />
       </div>
     </div>
