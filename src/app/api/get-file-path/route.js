@@ -11,6 +11,7 @@ export async function GET(req) {
         filename: true,
         uploadDate: true,
         uploaderName: true,
+        userId: true,
         fileRole: true,
         fileMaterial: true,
         fileProgram: true,
