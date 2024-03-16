@@ -1,4 +1,3 @@
-
 import React from "react";
 
 import { FaSearch } from "react-icons/fa";
@@ -14,16 +13,16 @@ export default async function page() {
   }
 
   async function getUsers() {
-    "use server"
-    const res = await fetch('http://localhost:3000/api/users/fetch-users',)
+    "use server";
+    const res = await fetch("http://localhost:3000/api/users/fetch-users");
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
-      return getEmptyData()
+      return getEmptyData();
     }
-    revalidatePath('/superadmin/dashboard/manageuser')
-    return res.json()
+    revalidatePath("/superadmin/dashboard/manageuser");
+    return res.json();
   }
-  const users = await getUsers()
+  const users = await getUsers();
   return (
     <div className="flex flex-col w-screen h-screen">
       <div className="bg-[#AD5606] w-full h-[12%] flex items-center justify-center">
@@ -60,29 +59,42 @@ export default async function page() {
         <div className="container flex justify-center mx-auto">
           <div className="flex flex-col">
             <div className="w-full">
-                <table className="divide-y divide-gray-300" style={{ borderCollapse: 'separate', borderSpacing: '0 30px' }}>
-                  <tbody className="bg-[#837979] divide-y divide-gray-300">
-                    {users.map((user) => (
-                      <tr key={user.id} className="whitespace-nowrap">
-                        <td className="px-6 py-4">
-                          <div className="mr-[800px] text-xl font-semibold text-white">
-                            {user.name}
-                          </div>
-                        </td>
-                        <td className="px-6 py-4">
-                          <Link href={`/superadmin/dashboard/manageuser/edit-user/${user.id}/`} className="px-8 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">EDIT</Link>
-                        </td>
-                        <td className="px-6 py-4">
-                          <Link href={`/superadmin/dashboard/manageuser/view-user/${user.id}/`} className="px-8 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</Link>
-                        </td>
-                        <td className="px-6 py-4">
-                          <Archive_Dialog userId={user.id} />
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              <table
+                className="divide-y divide-gray-300"
+                style={{ borderCollapse: "separate", borderSpacing: "0 30px" }}
+              >
+                <tbody className="bg-[#837979] divide-y divide-gray-300">
+                  {users.map((user) => (
+                    <tr key={user.id} className="whitespace-nowrap">
+                      <td className="px-6 py-4">
+                        <div className="mr-[800px] text-xl font-semibold text-white">
+                          {user.name}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4">
+                        <Link
+                          href={`/superadmin/dashboard/manageuser/edit-user/${user.id}/`}
+                          className="px-8 py-1 text-base font-semibold text-white bg-[#675454] rounded-md"
+                        >
+                          EDIT
+                        </Link>
+                      </td>
+                      <td className="px-6 py-4">
+                        <Link
+                          href={`/superadmin/dashboard/manageuser/view-user/${user.id}/`}
+                          className="px-8 py-1 text-base font-semibold text-white bg-[#675454] rounded-md"
+                        >
+                          VIEW
+                        </Link>
+                      </td>
+                      <td className="px-6 py-4">
+                        <Archive_Dialog userId={user.id} />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
