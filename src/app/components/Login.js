@@ -43,14 +43,12 @@ const Login = () => {
       if (result?.status === 401) {
         toast({
           description: "Invalid username or password.",
-          type: "error",
           variant: "destructive",
         });
       } else {
         router.push("/dashboard");
         toast({
           description: "Login Successful.",
-          type: "success",
           variant: "default",
         });
       }
@@ -61,7 +59,7 @@ const Login = () => {
 
   return (
     <div className="bg-slate-200 relative flex items-center justify-center flex-row h-auto overflow-hidden">
-    <div
+      <div
         className="
       w-[0%] h-auto
       sm:w-[0%] sm:h-auto

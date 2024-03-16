@@ -76,13 +76,13 @@ export default async function dashboard() {
       <div className="flex flex-col mt-[2%] w-[30%] h-[40%] ml-4">
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="text-center bg-[#5B0505] text-white sm:w-[300px] h-[45%] rounded-lg -mt-2">
-            <button class="mt-2 text-[20px] font-semibold sm:text-3xl">
+            <button className="mt-2 text-[20px] font-semibold sm:text-3xl">
               <EditPrivacy_Dialog sessionUser={session.user} />
             </button>
           </div>
-          <div class="text-center bg-[#5B0505] text-white  sm:w-[300px] h-[45%] rounded-lg -mt-3">
+          <div className="text-center bg-[#5B0505] text-white  sm:w-[300px] h-[45%] rounded-lg -mt-3">
             <button className="mt-1 text-2xl font-semibold sm:text-3xl">
-             {/*  <UploadMaterial_Dialog sessionUser={session.user} /> */}
+              {/*  <UploadMaterial_Dialog sessionUser={session.user} /> */}
             </button>
           </div>
         </div>
