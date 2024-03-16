@@ -1,11 +1,7 @@
-import React from "react";
-
-import { FaSearch } from "react-icons/fa";
-import CreateModal from "@/app/components/Modal/CreateModal";
-import DeleteModal from "@/app/components/Modal/DeleteModal";
+import Archive_Dialog from "@/app/components/New_Components/Archive_Dialog";
 import { revalidatePath } from "next/cache";
 import Link from "next/link";
-import Archive_Dialog from "@/app/components/New_Components/Archive_Dialog";
+import { FaSearch } from "react-icons/fa";
 
 export default async function page() {
   async function getEmptyData() {
