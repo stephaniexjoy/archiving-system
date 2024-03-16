@@ -39,7 +39,6 @@ async function page() {
           w-[60%] h-auto object-cover flex items-center justify-center
           sm:w-[30%] sm:h-[100%] sm:object-cover sm:flex sm:items-center sm:justify-center
           md:w-[30%] md:h-[100%] md:object-cover md:flex md:items-center md:justify-center
-
           2xl:w-[30%] 2xl:h-[100%] 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center
           "
           alt="E-Archiving System"

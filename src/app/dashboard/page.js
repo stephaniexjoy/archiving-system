@@ -26,14 +26,14 @@ export default async function dashboard() {
 
   return (
     <div className="flex flex-col w-screen h-screen">
-      <div className="bg-[#AD5606] w-[100%] h-[20%] flex items-center justify-center ">
+      <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center ">
         <img
-          className="w-[60%] h-full object-cover flex items-center justify-center
-          sm:w-[40%] sm:h-[100%] sm:object-cover sm:flex sm:items-center sm:justify-center
-          md:w-[40%] md:h-[100%] md:object-cover md:flex md:items-center md:justify-center
-          lg:w-[20%] lg:h-[100%] lg:object-cover lg:flex lg:items-center lg:justify-center
-          xl:w-[40%] xl:h-[100%] xl:object-cover xl:flex xl:items-center xl:justify-center
-          2xl:w-[40%] 2xl:h-[100%] 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center"
+          className="w-[60%] h-auto object-cover flex items-center justify-center
+          sm:w-[30%] sm:h-[100%] sm:object-cover sm:flex sm:items-center sm:justify-center
+          md:w-[30%] md:h-[100%] md:object-cover md:flex md:items-center md:justify-center
+          lg:w-[30%] lg:h-[100%] lg:object-cover lg:flex lg:items-center lg:justify-center
+          xl:w-[30%] xl:h-[100%] xl:object-cover xl:flex xl:items-center xl:justify-center
+          2xl:w-[30%] 2xl:h-[100%] 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center"
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
         />
@@ -48,45 +48,50 @@ export default async function dashboard() {
         </h1>
         <img
           className=" h-[50%] w-[45%] mt-[2%] ml-[2%]
-          sm:h-[40%] sm:w-[45%] sm:mt-[2%] sm:ml-[2%]
-          md:h-[40%] md:w-[45%] md:mt-[2%] md:ml-[2%]
+          2xl:h-[50%] 2xl:w-[90%] 2xl:mt-[1%] 2xl:ml-[3%]
          "
           alt="Filler"
           src="../photos/Filler.png"
         />
         <img
-          className="h-[40%] w-[90px] mt-[.8%] ml-[15%] sm:w-[50%] sm:h-[35%] md:w-[60%] md:h-[40%] lg:w-[10%] lg:h-[50%]"
+          className="h-[70%] w-[45px] mt-[.8%] ml-2
+          2xl:h-[70%] 2xl:w-[90px] 2xl:mt-[.8%] 2xl:ml-[2%]"
           alt="Notification Logo"
           src="../photos/Notificationlogo.png"
         />
       </div>
 
-      <div className="flex flex-col items-center justify-center content-center ml-3">
-        <div className="text-center bg-[#B4ABAB] text-[#5B0505] py-0 rounded-lg w-[70%] h-[100%]">
-          <p className="mt-7 text-3xl font-bold">ARCHIVED MATERIALS</p>
-          <p className="mt-5 text-4xl text-[#5B0505] font-semibold">
+      <div className="flex flex-col mt-[1%] items-center px-1 gap-x-12
+      2xl:flex-row 2xl:mt-[1%] 2xl:justify-center 2xl:gap-x-12">
+        <div className="text-center bg-[#B4ABAB] text-[#5B0505] w-[80%] h-[200px] py-2 rounded-lg
+        2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[440px] 2xl:h-[320px] 2xl:py-6 2xl:rounded-lg">
+          <p className="mt-4 text-xl font-semibold
+          2xl:mt-8 2xl:text-4xl 2xl:font-semibold">ARCHIVED MATERIALS</p>
+          <p className="mt-8 text-7xl text-[#5B0505] font-semibold">
             {fileCount}
           </p>
         </div>
 
-        <div className=" mt-8 ml-8 w-80 h-40 lg:w-[70px] lg:h-[70px] hidden md:hidden">
+        <div className="hidden 2xl:block 2xl:ml-9 2xl:w-36 2xl:h-auto 2xl:object-cover">
           <img src="../photos/ccsLogo.png" alt="CCS Logo" />
         </div>
 
-        <div className="text-center bg-[#B4ABAB] text-[#5B0505] mt-8 py-0 rounded-lg w-[70%] h-screen">
-          <p className="h-96 mt-1 text-3xl font-semibold">CALENDAR</p>
+        <div className="text-center bg-[#B4ABAB] text-[#5B0505] w-[80%] h-[200px] mt-4 rounded-lg
+        2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[440px] 2xl:h-[320px] 2xl:mt-4 2xl:rounded-lg">
+          <p className="mt-4 text-xl font-semibold
+          2xl:mt-8 2xl:text-4xl 2xl:font-semibold">CALENDAR</p>
         </div>
       </div>
 
-      <div className="flex flex-col w-[30%] h-[100%] ml-7">
-        <div className="flex flex-col sm:flex-row gap-4">
-          <div className="text-center bg-[#5B0505] text-white sm:w-[300px] h-[45%] rounded-lg -mt-2">
-            <button className="mt-2 text-[20px] font-semibold sm:text-3xl">
+      <div className="flex flex-col mt-[1%] items-center gap-4">
+        <div className="text-center bg-[#5B0505] text-white w-[60%] h-[80px] p-1 rounded-lg mt-9">
+          <div className="text-center bg-[#5B0505] text-white h-[45%] rounded-lg -mt-2">
+            <button className="mt-2 text-[20px] font-semibold">
               <EditPrivacy_Dialog sessionUser={session.user} />
             </button>
           </div>
-          <div className="text-center bg-[#5B0505] text-white  sm:w-[300px] h-[45%] rounded-lg -mt-3">
-            <button className="mt-1 text-2xl font-semibold sm:text-3xl">
+          <div className="text-center bg-[#5B0505] text-white w-[100%] h-[80px] p-1 rounded-lg mt-2">
+            <button className="mt-1 text-2xl font-semibold">
               <UploadMaterial_Dialog sessionUser={session.user} />
             </button>
           </div>
