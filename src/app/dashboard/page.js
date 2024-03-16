@@ -26,29 +26,31 @@ export default async function dashboard() {
 
   return (
     <div className="flex flex-col w-screen h-screen">
-      <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center ">
+      <div className="bg-[#AD5606] w-[100%] h-[20%] flex items-center justify-center ">
         <img
-          className="w-[60%] h-auto
-          sm:w-[40%] sm:h-[70%]
-          md:w-[40%] md:h-[70%]
-          lg:w-[35%] lg:h-[100%]
-          xl:w-[35%] xl:h-[100%]
-          2xl:w-[35%] 2xl:h-[100%]
-          object-cover flex items-center justify-center"
+          className="w-[60%] h-full object-cover flex items-center justify-center
+          sm:w-[40%] sm:h-[100%] sm:object-cover sm:flex sm:items-center sm:justify-center
+          md:w-[40%] md:h-[100%] md:object-cover md:flex md:items-center md:justify-center
+          lg:w-[20%] lg:h-[100%] lg:object-cover lg:flex lg:items-center lg:justify-center
+          xl:w-[40%] xl:h-[100%] xl:object-cover xl:flex xl:items-center xl:justify-center
+          2xl:w-[40%] 2xl:h-[100%] 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center"
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
         />
       </div>
 
-      <div className="flex mt-[2%] px-10 w-[55%] ml-0">
-        <h1 className="text-[#5B0505] text-[15px] font-semibold sm:text-sm md:text-md lg:text-lg">
+      <div className="flex mt-[2%] px-1">
+        <h1 className="text-black text-[15px] 2xl:text-black text:[20px]">
           WELCOME, <br />{" "}
-          <span className="text-[#5B0505] text-[20px] font-semibold -mt-4">
+          <span className="text-[#5B0505] text-[25px] font-semibold -mt-4 2xl:text-[#5B0505] 2xl:text-[50px] 2xl:font-semibold 2xl:-mt-4">
             FACULTY
           </span>
         </h1>
         <img
-          className=" h-[40%] w-[100%] mt-[1%] ml-[30%] sm:w-[70%] sm:h-[35%] md:w-[70%] md:h-[35%] lg:w-[70%] lg:h-[50%]"
+          className=" h-[50%] w-[45%] mt-[2%] ml-[2%]
+          sm:h-[40%] sm:w-[45%] sm:mt-[2%] sm:ml-[2%]
+          md:h-[40%] md:w-[45%] md:mt-[2%] md:ml-[2%]
+         "
           alt="Filler"
           src="../photos/Filler.png"
         />
