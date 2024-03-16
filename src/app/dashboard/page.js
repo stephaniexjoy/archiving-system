@@ -3,6 +3,7 @@ import { db } from "@/app/lib/prisma_db";
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
 import EditPrivacy_Dialog from "../components/New_Components/EditPrivacy_Dialog";
+import UploadMaterial_Dialog from "../components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog";
 
 export default async function dashboard() {
   const session = await getServerSession(AuthOptions);
@@ -24,13 +25,16 @@ export default async function dashboard() {
   }));
 
   return (
-    <div className="flex flex-col w-[225%] h-[100%]">
-      <div className="bg-[#AD5606] w-[40%] h-[80%] flex items-center justify-center">
+    <div className="flex flex-col w-[250%] h-[100%]
+                                                    ">
+      <div className="bg-[#AD5606] w-[40%] h-[80%] flex items-center justify-center sm:w-[40%] sm:h-[14%] md:w-[41%] md:h-[50%] xl:w-[41%] xl:h-[50%] 2xl:w-[41%] 2xl:h-[50%]">
         <img
-          className="w-[80%] h-[80%]
-          sm:w-[35%] sm:h-[80%] 
-          md:w-[35%] md:h-[100%] 
-          lg:w-[27%] lg:h-[100%] 
+          className="w-[60%] h-[100%]
+          sm:w-[40%] sm:h-[70%]
+          md:w-[40%] md:h-[70%]
+          lg:w-[35%] lg:h-[100%]
+          xl:w-[35%] xl:h-[100%]
+          2xl:w-[35%] 2xl:h-[100%]
           object-cover flex items-center justify-center"
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
@@ -45,18 +49,18 @@ export default async function dashboard() {
           </span>
         </h1>
         <img
-          className=" h-[40%] w-[300%] mt-[1%] ml-[28%] sm:w-[70%] sm:h-[35%] md:w-[70%] md:h-[35%] lg:w-[70%] lg:h-[50%]"
+          className=" h-[40%] w-[200%] mt-[1%] ml-[28%] sm:w-[70%] sm:h-[35%] md:w-[70%] md:h-[35%] lg:w-[70%] lg:h-[50%]"
           alt="Filler"
           src="../photos/Filler.png"
         />
         <img
-          className="h-[40%] w-[90px] mt-[.8%] ml-[2%] sm:w-[50%] sm:h-[35%] md:w-[60%] md:h-[40%] lg:w-[10%] lg:h-[50%]"
+          className="h-[40%] w-[90px] mt-[.8%] ml-[15%] sm:w-[50%] sm:h-[35%] md:w-[60%] md:h-[40%] lg:w-[10%] lg:h-[50%]"
           alt="Notification Logo"
           src="../photos/Notificationlogo.png"
         />
       </div>
 
-      <div className="flex flex-col items-center justify-center content-center -ml-[64%]">
+      <div className="flex flex-col items-center justify-center content-center -ml-[61%]">
         <div className="text-center bg-[#B4ABAB] text-[#5B0505]  py-0 rounded-lg w-[20%]  h-96 ">
           <p className="mt-7 text-2xl font-bold">ARCHIVED MATERIALS</p>
           <p className="mt-5 text-4xl text-[#5B0505] font-semibold">
@@ -64,7 +68,7 @@ export default async function dashboard() {
           </p>
         </div>
 
-        <div className=" -mt-[30%] ml-8 w-80 h-40 lg:w-[70px] lg:h-[70px] hidden md:block">
+        <div className=" -mt-[30%] ml-8 w-80 h-40 lg:w-[70px] lg:h-[70px] hidden md:hidden">
           <img src="../photos/ccsLogo.png" alt="CCS Logo" />
         </div>
 
@@ -73,7 +77,7 @@ export default async function dashboard() {
         </div>
       </div>
 
-      <div className="flex flex-col mt-[2%] w-[30%] h-[40%] ml-4">
+      <div className="flex flex-col mt-[3%] w-[30%] h-[60%] ml-7">
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="text-center bg-[#5B0505] text-white sm:w-[300px] h-[45%] rounded-lg -mt-2">
             <button class="mt-2 text-[20px] font-semibold sm:text-3xl">
@@ -82,7 +86,7 @@ export default async function dashboard() {
           </div>
           <div class="text-center bg-[#5B0505] text-white  sm:w-[300px] h-[45%] rounded-lg -mt-3">
             <button className="mt-1 text-2xl font-semibold sm:text-3xl">
-             {/*  <UploadMaterial_Dialog sessionUser={session.user} /> */}
+              <UploadMaterial_Dialog sessionUser={session.user} />
             </button>
           </div>
         </div>
