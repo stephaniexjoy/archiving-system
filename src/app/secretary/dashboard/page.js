@@ -188,11 +188,21 @@ async function page() {
             {userCount}
           </p>
         </div>
-        <div className="flex flex-col items-center w-full">
+        <div
+          className="
+        flex flex-col items-center w-full
+        sm:flex-col sm:items-center sm:w-full
+        2xl:flex-col 2xl:items-center
+
+        "
+        >
           <div
             className="
-          text-center bg-[#5B0505] text-[white] w-[130%] h-[80px] p-4 rounded-lg
-          sm:text-center sm:bg-[#5B0505] sm:text-[white] sm:w-[130%] sm:h-[80px] sm:p-4 sm:rounded-lg
+          text-center bg-[#5B0505] text-[white] w-[90%] h-[80px] p-4 rounded-lg
+          sm:text-center sm:bg-[#5B0505] sm:text-[white] sm:w-[80%] sm:h-[80px] sm:p-4 sm:rounded-lg
+          md:text-center md:bg-[#5B0505] md:text-[white] md:w-[70%] md:h-[80px] md:p-4 md:rounded-lg
+          lg:text-center lg:bg-[#5B0505] lg:text-[white] lg:w-[60%] lg:h-[80px] lg:p-4 lg:rounded-lg
+          xl:text-center xl:bg-[#5B0505] xl:text-[white] xl:w-[480px] xl:h-[80px] xl:p-4 xl:rounded-lg
           2xl:text-center 2xl:bg-[#5B0505] 2xl:text-[white] 2xl:w-[480px] 2xl:h-[90px] 2xl:p-4 2xl:mx-4 2xl:rounded-lg
           "
           >
@@ -200,7 +210,11 @@ async function page() {
           </div>
           <div
             className="
-          text-center bg-[#B4ABAB] text-[#5B0505] w-[130%] h-[80px] p-4 rounded-lg mt-4
+          text-center bg-[#B4ABAB] text-[#5B0505] w-[90%] h-[80px] p-4 rounded-lg mt-4
+          sm:text-center sm:bg-[#B4ABAB] sm:text-[#5B0505] sm:w-[80%] sm:h-[80px] sm:p-4 sm:rounded-lg sm:mt-4
+          md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-[80px] md:p-4 md:rounded-lg md:mt-4
+          lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-[80px] lg:p-4 lg:rounded-lg lg:mt-4
+          xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[480px] xl:h-[80px] xl:p-4 xl:rounded-lg xl:mt-4
           2xl:mt-6 2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[480px] 2xl:h-[90px] 2xl:p-4 2xl:mx-4 2xl:rounded-lg
           "
           >
@@ -208,6 +222,10 @@ async function page() {
               <button
                 className="
               mt-2 text-xl font-bold
+              sm:mt-2 sm:text-xl sm:font-bold
+              md:mt-2 md:text-2xl md:font-bold
+              lg:mt-2 lg:text-2xl lg:font-bold
+              xl:mt-2 xl:text-3xl xl:font-bold
               2xl:mt-2 2xl:text-3xl 2xl:font-bold
               "
               >
@@ -217,16 +235,24 @@ async function page() {
           </div>
           <div
             className="
-          text-center bg-[#5B0505] text-white w-[130%] h-[80px] p-4 rounded-lg mt-4
-          2xl:mt-6 2xl:text-center 2xl:bg-[#5B0505] 2xl:text-white 2xl:w-[480px] 2xl:h-[90px] 2xl:p-4 2xl:mx-4 2xl:rounded-lg
-          "
+            text-center bg-[#5B0505] text-white w-[90%] h-[80px] p-4 rounded-lg mt-4
+            sm:text-center sm:bg-[#5B0505] sm:text-white sm:w-[80%] sm:h-[80px] sm:p-4 sm:rounded-lg sm:mt-4
+            md:text-center md:bg-[#5B0505] md:text-white md:w-[70%] md:h-[80px] md:p-4 md:rounded-lg md:mt-4
+            lg:text-center lg:bg-[#5B0505] lg:text-white lg:w-[60%] lg:h-[80px] lg:p-4 lg:rounded-lg lg:mt-4
+            xl:text-center xl:bg-[#5B0505] xl:text-white xl:w-[480px] xl:h-[80px] xl:p-4 xl:rounded-lg xl:mt-4
+            2xl:mt-6 2xl:text-center 2xl:bg-[#5B0505] 2xl:text-white 2xl:w-[480px] 2xl:h-[90px] 2xl:p-4 2xl:mx-4 2xl:rounded-lg
+            "
           >
             <Link href={"/secretary/dashboard/viewfaculty"}>
               <button
                 className="
-              mt-2 text-xl font-bold
-              2xl:mt-2 2xl:text-3xl 2xl:font-bold
-              "
+                mt-2 text-xl font-bold
+                sm:mt-2 sm:text-xl sm:font-bold
+                md:mt-2 md:text-2xl md:font-bold
+                lg:mt-2 lg:text-2xl lg:font-bold
+                xl:mt-2 xl:text-3xl xl:font-bold
+                2xl:mt-2 2xl:text-3xl 2xl:font-bold
+                "
               >
                 VIEW FACULTY
               </button>
