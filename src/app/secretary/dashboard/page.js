@@ -270,55 +270,7 @@ async function page() {
       2xl:mt-8 2xl:w-full 2xl:h-screen 2xl:items-center 2xl:font-[Times New Roman] 2xl:rounded-lg 2xl:px-10 2xl:overflow-y-auto
       "
       >
-        <table
-          className="
-        min-w-full table-fixed w-full text-center
-        2xl:min-w-full 2xl:table-fixed 2xl:w-full 2xl:text-center
-        "
-        >
-          <thead
-            className="
-          bg-[#5B0505] text-white text-2xl
-          2xl:bg-[#5B0505] 2xl:text-white 2xl:text-2xl
-          "
-          >
-            <tr>
-              <th
-                className="
-              py-2
-              2xl:py-2
-              "
-              >
-                NAME
-              </th>
-              <th>POSITION</th>
-              <th>LAST ACTIVITY</th>
-              <th>DATE AND TIME</th>
-            </tr>
-          </thead>
-          <tbody
-            className="
-          bg-[#B4ABAB] text-black text-xl
-          2xl:bg-[#B4ABAB] 2xl:text-black 2xl:text-xl
-          "
-          >
-            {activitiesFormatted.map((activity) => (
-              <tr key={activity.id}>
-                <td
-                  className="
-                py-2
-                2xl:py-2
-                "
-                >
-                  {activity.name}
-                </td>
-                <td>{activity.position}</td>
-                <td>{activity.type}</td>
-                <td>{activity.createdAt}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <ActivityTable_Secretary activity={activitiesFormatted} />
       </div>
     </div>
   );

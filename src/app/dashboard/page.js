@@ -25,13 +25,10 @@ export default async function dashboard() {
   }));
 
   return (
-    <div
-      className="flex flex-col w-[250%] h-[100%]
-                                                    "
-    >
-      <div className="bg-[#AD5606] w-[40%] h-[80%] flex items-center justify-center sm:w-[40%] sm:h-[14%] md:w-[41%] md:h-[50%] xl:w-[41%] xl:h-[50%] 2xl:w-[41%] 2xl:h-[50%]">
+    <div className="flex flex-col w-screen h-screen">
+      <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center ">
         <img
-          className="w-[60%] h-[100%]
+          className="w-[60%] h-auto
           sm:w-[40%] sm:h-[70%]
           md:w-[40%] md:h-[70%]
           lg:w-[35%] lg:h-[100%]
@@ -43,7 +40,7 @@ export default async function dashboard() {
         />
       </div>
 
-      <div className="flex mt-[2%] px-10 w-[25%] -ml-[4%]">
+      <div className="flex mt-[2%] px-10 w-[55%] ml-0">
         <h1 className="text-[#5B0505] text-[15px] font-semibold sm:text-sm md:text-md lg:text-lg">
           WELCOME, <br />{" "}
           <span className="text-[#5B0505] text-[20px] font-semibold -mt-4">
@@ -51,7 +48,7 @@ export default async function dashboard() {
           </span>
         </h1>
         <img
-          className=" h-[40%] w-[200%] mt-[1%] ml-[28%] sm:w-[70%] sm:h-[35%] md:w-[70%] md:h-[35%] lg:w-[70%] lg:h-[50%]"
+          className=" h-[40%] w-[100%] mt-[1%] ml-[30%] sm:w-[70%] sm:h-[35%] md:w-[70%] md:h-[35%] lg:w-[70%] lg:h-[50%]"
           alt="Filler"
           src="../photos/Filler.png"
         />
@@ -62,24 +59,24 @@ export default async function dashboard() {
         />
       </div>
 
-      <div className="flex flex-col items-center justify-center content-center -ml-[61%]">
-        <div className="text-center bg-[#B4ABAB] text-[#5B0505]  py-0 rounded-lg w-[20%]  h-96 ">
-          <p className="mt-7 text-2xl font-bold">ARCHIVED MATERIALS</p>
+      <div className="flex flex-col items-center justify-center content-center ml-3">
+        <div className="text-center bg-[#B4ABAB] text-[#5B0505] py-0 rounded-lg w-[70%] h-[100%]">
+          <p className="mt-7 text-3xl font-bold">ARCHIVED MATERIALS</p>
           <p className="mt-5 text-4xl text-[#5B0505] font-semibold">
             {fileCount}
           </p>
         </div>
 
-        <div className=" -mt-[30%] ml-8 w-80 h-40 lg:w-[70px] lg:h-[70px] hidden md:hidden">
+        <div className=" mt-8 ml-8 w-80 h-40 lg:w-[70px] lg:h-[70px] hidden md:hidden">
           <img src="../photos/ccsLogo.png" alt="CCS Logo" />
         </div>
 
-        <div className=" text-center bg-[#B4ABAB] text-[#5B0505] mt-4 py-0 rounded-lg w-[20%] h-[100%]">
-          <p className=" mt-1 text-3xl font-semibold">CALENDAR</p>
+        <div className="text-center bg-[#B4ABAB] text-[#5B0505] mt-8 py-0 rounded-lg w-[70%] h-screen">
+          <p className="h-96 mt-1 text-3xl font-semibold">CALENDAR</p>
         </div>
       </div>
 
-      <div className="flex flex-col mt-[3%] w-[30%] h-[60%] ml-7">
+      <div className="flex flex-col w-[30%] h-[100%] ml-7">
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="text-center bg-[#5B0505] text-white sm:w-[300px] h-[45%] rounded-lg -mt-2">
             <button className="mt-2 text-[20px] font-semibold sm:text-3xl">

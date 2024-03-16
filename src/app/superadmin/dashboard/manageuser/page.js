@@ -1,24 +1,11 @@
+import ViewTable_Superadmin from "@/app/components/NewTable/ViewUser_Superadmin/ViewTable_Superadmin";
 import Archive_Dialog from "@/app/components/New_Components/Archive_Dialog";
-import { revalidatePath } from "next/cache";
+import { getAllUsers } from "@/app/lib/actions/actions";
 import Link from "next/link";
 import { FaSearch } from "react-icons/fa";
 
 export default async function page() {
-  async function getEmptyData() {
-    return Promise.resolve([]); // Returning an empty array
-  }
-
-  async function getUsers() {
-    "use server";
-    const res = await fetch("http://localhost:3000/api/users/fetch-users");
-    if (!res.ok) {
-      // This will activate the closest `error.js` Error Boundary
-      return getEmptyData();
-    }
-    revalidatePath("/superadmin/dashboard/manageuser");
-    return res.json();
-  }
-  const users = await getUsers();
+  const users = await getAllUsers();
   return (
     <div className="flex flex-col w-screen h-screen">
       <div className="bg-[#AD5606] w-full h-[12%] flex items-center justify-center">
@@ -29,31 +16,13 @@ export default async function page() {
         />
       </div>
 
-      {/* Search and Create Account Section */}
-      <div className="flex flex-row mt-5 mb-5 md:h-20 px-10">
-        <h1 className="text-[#5B0505] text-[45px] font-semibold md:shadow-zinc-400 mr-[2%]">
-          FIND
-        </h1>
-        <div className="relative">
-          <input
-            type="search"
-            name="find"
-            placeholder=""
-            className="text-md md:text-xl text-[#242323] bg-[#D9D9D9] w-[1600px] h-[60px] md:text-shadow-inner"
-          />
-        </div>
-        <div className="relative bg-[#6A6A6A] p-2 h-[60px] w-auto ml-[1%]">
-          <FaSearch size="50" />
-        </div>
-      </div>
-
       {/* Manage Accounts Section */}
       <div className="w-full md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-auto">
         <h1 className="text-[55px] font-semibold text-[#5B0505] text-center">
           MANAGE ACCOUNTS
         </h1>
         <div className="container flex justify-center mx-auto">
-          <div className="flex flex-col">
+          {/*   <div className="flex flex-col">
             <div className="w-full">
               <table
                 className="divide-y divide-gray-300"
@@ -91,7 +60,8 @@ export default async function page() {
                 </tbody>
               </table>
             </div>
-          </div>
+          </div> */}
+          <ViewTable_Superadmin users={users} />
         </div>
       </div>
     </div>

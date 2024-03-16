@@ -573,12 +573,20 @@ export async function getAllUsers() {
 }
 
 export async function getCompletedTasksById(taskId) {
- 
-    const getCompletedTasks = await db.completedTask.findMany({
-      where: {
-        taskId: taskId,
-      },
-    });
-    return getCompletedTasks;
-  
+  const getCompletedTasks = await db.completedTask.findMany({
+    where: {
+      taskId: taskId,
+    },
+  });
+  return getCompletedTasks;
+}
+
+export async function getUserInfo() {
+  const sessionUser = await getUserSession();
+
+  console.log(sessionUser);
+  const user = await db.user.findUnique({
+    where: { id: sessionUser.user.id },
+  });
+  return user;
 }
