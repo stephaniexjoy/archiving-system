@@ -26,7 +26,7 @@ export default async function dashboard() {
 
   return (
     <div
-      className="flex flex-col w-auto h-screen
+      className="flex flex-col w-auto h-full
                                                     "
     >
       <div className="bg-[#AD5606] flex items-center justify-center w-[100%] h-[10%] sm:w-[40%] sm:h-[14%] md:w-[41%] md:h-[50%] xl:w-[41%] xl:h-[50%] 2xl:w-[41%] 2xl:h-[50%]">
@@ -74,12 +74,12 @@ export default async function dashboard() {
           <img src="../photos/ccsLogo.png" alt="CCS Logo" />
         </div>
 
-        <div className="text-center bg-[#B4ABAB] text-[#5B0505] mt-8 py-0 rounded-lg w-[70%] h-[100%]">
-          <p className="mt-1 text-3xl font-semibold">CALENDAR</p>
+        <div className="text-center bg-[#B4ABAB] text-[#5B0505] mt-8 py-0 rounded-lg w-[70%] h-screen">
+          <p className="h-96 mt-1 text-3xl font-semibold">CALENDAR</p>
         </div>
       </div>
 
-      <div className="flex flex-col mt-[100%] w-[30%] h-[100%] ml-7">
+      <div className="flex flex-col w-[30%] h-[100%] ml-7">
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="text-center bg-[#5B0505] text-white sm:w-[300px] h-[45%] rounded-lg -mt-2">
             <button className="mt-2 text-[20px] font-semibold sm:text-3xl">
