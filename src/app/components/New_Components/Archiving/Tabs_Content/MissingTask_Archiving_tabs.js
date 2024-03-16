@@ -55,12 +55,21 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
   return (
     <>
       <div className="flex flex-col mt-5 px-10">
-        <h1 className="text-center text-[#5B0505] text-[45px] font-semibold md:shadow-zinc-400 mb-5">
+        <h1 className="
+        text-center text-[#5B0505] text-3xl font-semibold md:shadow-zinc-400 mb-5 mt-5
+        2xl:text-center 2xl:text-[#5B0505] 2xl:text-[45px] 2xl:font-semibold 2xl:md:shadow-zinc-400 2xl:mb-5
+        ">
           Missing Tasks
         </h1>
         <div className="flex flex-col items-center w-full">
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md">
-            <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
+          <div className="
+          flex flex-col bg-white w-[100%] p-4 rounded-md
+          2xl:flex 2xl:flex-col 2xl:bg-white 2xl:w-[60%] 2xl:p-4 2xl:rounded-md
+          ">
+            <label className="
+            w-full text-[#5B0505] text-md font-semibold mr-4
+            2xl:w-full 2xl:text-[#5B0505] 2xl:text-lg 2xl:font-semibold 2xl:mr-4
+            ">
               Missing:
             </label>
             <div className="w-full">

@@ -65,9 +65,15 @@ export default async function archiving({ searchParams }) {
   return (
     <>
       <div className="flex flex-col w-screen h-screen">
-        <div className="bg-[#AD5606] w-full h-[12%] flex items-center justify-center">
+        <div className="
+        bg-[#AD5606] w-[100%] h-[7%] flex items-center justify-center
+        2xl:bg-[#AD5606] 2xl:w-full 2xl:h-[12%] 2xl:flex 2xl:items-center 2xl:justify-center
+        ">
           <img
-            className="w-[27%] h-[100%] object-cover flex items-center justify-center"
+            className="
+            w-[60%] h-auto object-cover flex items-center justify-center
+            2xl:w-[27%] 2xl:h-[100%] 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center
+            "
             alt="E-Archiving System"
             src="/photos/E-Archiving System.png"
           />

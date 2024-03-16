@@ -134,7 +134,7 @@ function ArchivingTab({
   if (status === "authenticated") {
     return (
       <Tabs defaultValue="files" className="w-full">
-        <TabsList>
+        <TabsList className="grid grid-cols-3 ">
           <TabsTrigger value="files">All Files</TabsTrigger>
           <TabsTrigger value="assignedtask">Assigned Task</TabsTrigger>
           <TabsTrigger value="missingtask">Missing Task</TabsTrigger>
@@ -178,7 +178,14 @@ function ArchivingTab({
             </TabsContent>
             <TabsContent value="monitor">
               <>
-                Monitoring
+                <h1
+                  className="
+                  text-center text-[#5B0505] text-3xl font-semibold shadow-zinc-400 mt-10 mb-5
+                  2xl:text-center 2xl:text-[#5B0505] 2xl:text-[45px] 2xl:font-semibold 2xl:shadow-zinc-400 2xl:mb-5
+                  "
+                >
+                  Monitoring
+                </h1>
                 <Monitoring_Table />
               </>
             </TabsContent>

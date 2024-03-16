@@ -90,7 +90,10 @@ export function ComboboxPermission({ value, onChange }) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="
+          w-[200px] justify-between
+          2xl:w-[200px] 2xl:justify-between
+          "
         >
           {value
             ? permissions.find((framework) => framework.value === value)?.label
@@ -333,7 +336,7 @@ export default function Date_Range({ className }) {
             id="date"
             variant={"outline"}
             className={cn(
-              "text-sm w-[280px] cursor-pointer md:left-[1250px] h-[40px] shadow-lg rounded-sm px-2 py-1 ",
+              "text-sm w-[200px] 2xl:w-[280px] cursor-pointer md:left-[1250px] h-[40px] shadow-lg rounded-sm px-2 py-1",
               !date
             )}
           >
@@ -415,41 +418,49 @@ export function DataTable({ columns, data, materials, instructors }) {
 
   return (
     <>
-      <div className="flex items-center py-4 space-x-1">
+      <div
+        className="
+      flex flex-col items-center py-4 space-y-4
+      2xl:flex-row 2xl:items-center 2xl:py-4 2xl:space-x-1"
+      >
         <Input
           placeholder="Filter Filename..."
           value={table.getColumn("filename")?.getFilterValue() ?? ""}
           onChange={(event) =>
             table.getColumn("filename")?.setFilterValue(event.target.value)
           }
-          className="max-w-sm"
+          className="
+          w-full mt-4
+          2xl:max-w-sm"
         />
-        <ComboboxPermission
-          value={table.getColumn("fileRole")?.getFilterValue() ?? ""}
-          onChange={handleComboBoxPermissionChange}
-        />
-        <ComboboxMaterial
-          value={table.getColumn("fileMaterial")?.getFilterValue() ?? ""}
-          onChange={handleComboBoxMaterialChange}
-          materials={materials}
-        />
-        <ComboboxProgram
-          value={table.getColumn("filename")?.getFilterValue() ?? ""}
-          onChange={handleComboBoxProgramChange}
-        />
-        <ComboboxInstructor
-          value={table.getColumn("uploaderName")?.getFilterValue() ?? ""}
-          onChange={handleComboBoxInstructorChange}
-          instructors={instructors}
-        />
-        <ComboboxFileType
-          value={table.getColumn("filename")?.getFilterValue() ?? ""}
-          onChange={handleComboBoxFileTypeChange}
-        />
-        <Date_Range
-          value={table.getColumn("uploadDate")?.getFilterValue() ?? ""}
-          onChange={handleComboBoxDateRangeChange}
-        />
+        <div className="grid grid-cols-2 gap-x-2 w-auto">
+          <ComboboxPermission
+            value={table.getColumn("fileRole")?.getFilterValue() ?? ""}
+            onChange={handleComboBoxPermissionChange}
+          />
+          <ComboboxMaterial
+            value={table.getColumn("fileMaterial")?.getFilterValue() ?? ""}
+            onChange={handleComboBoxMaterialChange}
+            materials={materials}
+          />
+          <ComboboxProgram
+            value={table.getColumn("filename")?.getFilterValue() ?? ""}
+            onChange={handleComboBoxProgramChange}
+          />
+          <ComboboxInstructor
+            value={table.getColumn("uploaderName")?.getFilterValue() ?? ""}
+            onChange={handleComboBoxInstructorChange}
+            instructors={instructors}
+          />
+          <ComboboxFileType
+            value={table.getColumn("filename")?.getFilterValue() ?? ""}
+            onChange={handleComboBoxFileTypeChange}
+          />
+          <Date_Range
+            value={table.getColumn("uploadDate")?.getFilterValue() ?? ""}
+            onChange={handleComboBoxDateRangeChange}
+          />
+        </div>
       </div>
       <div className="rounded-md border">
         <Table>
