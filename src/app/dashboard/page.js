@@ -83,8 +83,8 @@ export default async function dashboard() {
         </div>
       </div>
 
-      <div className="flex flex-col mt-[1%] items-center gap-4">
-        <div className="text-center bg-[#5B0505] text-white w-[60%] h-[80px] p-1 rounded-lg mt-9">
+      <div className="flex flex-col mt-[1%] items-center">
+        <div className="text-center bg-[#5B0505] text-white w-[60%] h-[80px] p-1 rounded-lg mt-9 space-y-12">
           <div className="text-center bg-[#5B0505] text-white h-[45%] rounded-lg -mt-2">
             <button className="mt-2 text-[20px] font-semibold">
               <EditPrivacy_Dialog sessionUser={session.user} />
