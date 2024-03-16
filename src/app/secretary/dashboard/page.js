@@ -220,7 +220,7 @@ async function page() {
       2xl:mt-8 2xl:w-full 2xl:h-screen 2xl:items-center 2xl:font-[Times New Roman] 2xl:rounded-lg 2xl:px-10 2xl:overflow-y-auto
       "
       >
-        <table
+        {/*  <table
           className="
         min-w-full table-fixed w-full text-center
         2xl:min-w-full 2xl:table-fixed 2xl:w-full 2xl:text-center
@@ -268,7 +268,8 @@ async function page() {
               </tr>
             ))}
           </tbody>
-        </table>
+        </table> */}
+        <ActivityTable_Secretary activity={activitiesFormatted} />
       </div>
     </div>
   );
