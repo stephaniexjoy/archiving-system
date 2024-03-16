@@ -580,3 +580,13 @@ export async function getCompletedTasksById(taskId) {
   });
   return getCompletedTasks;
 }
+
+export async function getUserInfo() {
+  const sessionUser = await getUserSession();
+
+  console.log(sessionUser);
+  const user = await db.user.findUnique({
+    where: { id: sessionUser.user.id },
+  });
+  return user;
+}
