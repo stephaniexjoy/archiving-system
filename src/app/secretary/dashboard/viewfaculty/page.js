@@ -19,16 +19,25 @@ async function page() {
   const users = await getAllUsers();
   console.log(users);
   return (
-    <div className="flex flex-col w-screen h-screen">
-      <div className="bg-[#AD5606] w-full h-auto flex items-center justify-center">
+    <div className="flex flex-col w-screen h-screen overflow-y-auto">
+      <div className="
+      bg-[#AD5606] w-[100%] h-[7%] flex items-center justify-center
+      2xl:bg-[#AD5606] 2xl:w-full 2xl:h-auto 2xl:flex 2xl:items-center 2xl:justify-center
+      ">
         <img
-          className="w-auto h-[100%] object-cover flex items-center justify-center"
+          className="
+          w-[60%] h-[100%] object-cover flex items-center justify-center
+          2xl:w-auto 2xl:h-[100%] 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center
+          "
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
         />
       </div>
 
-      <div className=" text-[50px] mt-5 mb-5 font-semibold text-[#5B0505] text-center ">
+      <div className="
+      text-[30px] mt-5 mb-3 font-semibold text-[#5B0505] text-center
+      2xl:text-[50px] 2xl:mt-5 2xl:mb-5 2xl:font-semibold 2xl:text-[#5B0505] 2xl:text-center
+      ">
         VIEW FACULTY
       </div>
       {/*  <div>
