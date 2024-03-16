@@ -1,8 +1,12 @@
-"use client"
-import React from "react";
+"use client";
+import React, { useRef } from "react";
 import PDF from "./PDF";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 const PDFcontainer = () => {
+  const rootRef = useRef(null);
+
   const handleSavePage = async () => {
     try {
       const rootElement = rootRef.current;
@@ -13,7 +17,7 @@ const PDFcontainer = () => {
       const options = {
         scrollX: 0,
         scrollY: -window.scrollY,
-        windowWidth: document.documentElement.offsetWidth,
+        windowWidth: document.documentElement.scrollWidth,
         windowHeight: document.documentElement.offsetHeight,
         scale: 1, // Set the scale to 1 to capture the entire page content
       };
@@ -44,9 +48,16 @@ const PDFcontainer = () => {
       >
         Save as PDF
       </button>
-      <div id="myElementId">
-        <div>
-          <PDF />
+      <div
+        ref={rootRef}
+        style={{
+          width: "fit-content", // Ensure the container covers the entire width
+        }}
+      >
+        <div id="myElementId">
+          <div>
+            <PDF />
+          </div>
         </div>
       </div>
     </>
