@@ -25,8 +25,10 @@ export default async function dashboard() {
   }));
 
   return (
-    <div className="flex flex-col w-[250%] h-[100%]
-                                                    ">
+    <div
+      className="flex flex-col w-[250%] h-[100%]
+                                                    "
+    >
       <div className="bg-[#AD5606] w-[40%] h-[80%] flex items-center justify-center sm:w-[40%] sm:h-[14%] md:w-[41%] md:h-[50%] xl:w-[41%] xl:h-[50%] 2xl:w-[41%] 2xl:h-[50%]">
         <img
           className="w-[60%] h-[100%]
