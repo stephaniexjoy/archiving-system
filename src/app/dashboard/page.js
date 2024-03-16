@@ -24,7 +24,7 @@ export default async function dashboard() {
   }));
 
   return (
-    <div className="flex flex-col w-[225%] h-[100%]">
+    <div className="flex flex-col w-[250%] h-[100%]">
       <div className="bg-[#AD5606] w-[40%] h-[80%] flex items-center justify-center">
         <img
           className="w-[80%] h-[80%]
@@ -73,9 +73,9 @@ export default async function dashboard() {
         </div>
       </div>
 
-      <div className="flex flex-col mt-[2%] w-[30%] h-[40%] ml-4">
+      <div className="flex flex-col mt-[3%] w-[30%] h-[60%] ml-4">
         <div className="flex flex-col sm:flex-row gap-4">
-          <div className="text-center bg-[#5B0505] text-white sm:w-[300px] h-[45%] rounded-lg -mt-2">
+          <div className="text-center bg-[#5B0505] text-white sm:w-[300px] h-[90%] rounded-lg -mt-2">
             <button class="mt-2 text-[20px] font-semibold sm:text-3xl">
               <EditPrivacy_Dialog sessionUser={session.user} />
             </button>
