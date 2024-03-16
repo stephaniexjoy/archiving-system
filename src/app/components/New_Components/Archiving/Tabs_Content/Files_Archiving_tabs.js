@@ -63,7 +63,10 @@ export default function Files_Archiving_tabs({
         <AddCategory_Dialog category={"Course"} />
       </div> */}
 
-      <div className="w-full px-10">
+      <div className="
+      w-full px-0 overflow-auto
+      2xl:w-full 2xl:px-10
+      ">
         <DataTable
           columns={columns}
           data={dataWithFormattedDate}

@@ -39,7 +39,10 @@ export default function Material_ComboBox({ setMaterial }) {
             variant="outline"
             role="combobox"
             aria-expanded={openMaterial}
-            className="w-[200px] justify-between"
+            className="
+            w-[200px] justify-between
+            2xl:w-[200px] 2xl:justify-between
+            "
           >
             {valueMaterial
               ? materialFrameworks.find(

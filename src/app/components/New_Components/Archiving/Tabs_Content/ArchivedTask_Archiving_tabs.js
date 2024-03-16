@@ -99,8 +99,14 @@ export default function ArchivedTask_Archiving_tabs() {
             </div>
           </div>
 
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md">
-            <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
+          <div className="
+          flex flex-col bg-white w-[100%] p-4 rounded-md
+          2xl:flex 2xl:flex-col 2xl:bg-white 2xl:w-[60%] 2xl:p-4 2xl:rounded-md"
+          >
+            <label className="
+            w-full text-[#5B0505] text-md font-semibold mr-4
+            2xl:w-full 2xl:text-[#5B0505] 2xl:text-lg 2xl:font-semibold 2xl:mr-4
+            ">
               This week:
             </label>
             <div className="w-full">
@@ -151,8 +157,14 @@ export default function ArchivedTask_Archiving_tabs() {
             </div>
           </div>
 
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md">
-            <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
+          <div className="
+          flex flex-col bg-white w-[100%] p-4 rounded-md
+          2xl:flex 2xl:flex-col 2xl:bg-white 2xl:w-[60%] 2xl:p-4 2xl:rounded-md
+          ">
+            <label className="
+            w-full text-[#5B0505] text-md font-semibold mr-4
+            2xl:w-full 2xl:text-[#5B0505] 2xl:text-lg 2xl:font-semibold 2xl:mr-4
+            ">
               Next week:
             </label>
             <div className="w-full">

@@ -37,7 +37,10 @@ const Permission_ComboBox = ({ setPermission }) => {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="
+          w-[200px] justify-between
+          2xl:w-[200px] 2xl:justify-between
+          "
         >
           {value
             ? permissions.find((framework) => framework.value === value)?.label
@@ -45,7 +48,10 @@ const Permission_ComboBox = ({ setPermission }) => {
           <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="
+      w-[200px] p-0
+      2xl:w-[200px] 2xl:p-0
+      ">
         <Command>
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
