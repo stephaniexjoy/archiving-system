@@ -3,6 +3,7 @@ import { db } from "@/app/lib/prisma_db";
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
 import EditPrivacy_Dialog from "../components/New_Components/EditPrivacy_Dialog";
+import UploadMaterial_Dialog from "../components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog";
 
 export default async function dashboard() {
   const session = await getServerSession(AuthOptions);
@@ -78,6 +79,11 @@ export default async function dashboard() {
           <div className="text-center bg-[#5B0505] text-white sm:w-[300px] h-[90%] rounded-lg -mt-2">
             <button class="mt-2 text-[20px] font-semibold sm:text-3xl">
               <EditPrivacy_Dialog sessionUser={session.user} />
+            </button>
+          </div>
+          <div class="text-center bg-[#5B0505] text-white  sm:w-[300px] h-[45%] rounded-lg -mt-3">
+            <button className="mt-1 text-2xl font-semibold sm:text-3xl">
+              <UploadMaterial_Dialog sessionUser={session.user} />
             </button>
           </div>
         </div>
