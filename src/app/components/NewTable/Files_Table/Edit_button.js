@@ -59,7 +59,7 @@ const Edit_button = ({ filePath, fileOwner }) => {
           variant="outline"
           onClick={() => {
             toast({
-              title: "Can't Edit File ",
+              title: "Cannot Edit File ",
               variant: "destructive",
               description: "You do not own this file.",
             });
