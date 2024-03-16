@@ -573,12 +573,10 @@ export async function getAllUsers() {
 }
 
 export async function getCompletedTasksById(taskId) {
- 
-    const getCompletedTasks = await db.completedTask.findMany({
-      where: {
-        taskId: taskId,
-      },
-    });
-    return getCompletedTasks;
-  
+  const getCompletedTasks = await db.completedTask.findMany({
+    where: {
+      taskId: taskId,
+    },
+  });
+  return getCompletedTasks;
 }
