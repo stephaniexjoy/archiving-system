@@ -7,17 +7,13 @@ export default function DashboardLayout({
   return (
     <>
       <div className="flex">
-        <div className="flex flex-col min-h-screen">
-          {/* Include shared UI here e.g. a header or sidebar */}
-          <div className="flex ">
-            <Sidebar className="flex" />
-            <main className=" ">{children}</main>
-          </div>
-          <div className="">
-            <Footer />
-          </div>
+        <div className="flex">
+          <Sidebar />
         </div>
+
+        <div className="flex">{children}</div>
       </div>
+      <Footer />
     </>
   );
 }
