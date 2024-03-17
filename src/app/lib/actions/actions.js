@@ -625,3 +625,5 @@ export async function forgotPassword(email) {
     return "Error";
   }
 }
+
+export async function performForgotPassword(email, resetPasswordToken) {}
