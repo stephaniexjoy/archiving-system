@@ -120,14 +120,25 @@ export function DataTable({ columns, data, materials, instructors }) {
 
   return (
     <>
-      <div className="flex items-center py-4 space-x-1">
+      <div className="
+      flex items-center py-4 space-x-1
+      xl:flex xl:items-center xl:py-2 xl:space-x-1 w-full
+      2xl:flex 2xl:items-center 2xl:py-4 2xl:space-x-1
+      ">
         <Input
           placeholder="Filter users..."
           value={table.getColumn("name")?.getFilterValue() ?? ""}
           onChange={(event) =>
             table.getColumn("name")?.setFilterValue(event.target.value)
           }
-          className="max-w-sm"
+          className="
+          max-w-full
+          sm:max-w-full
+          md:max-w-full
+          lg:max-w-full
+          xl:max-w-lg
+          2xl:max-w-lg
+          "
         />
         {/*  <ComboboxPermission
           value={table.getColumn("fileRole")?.getFilterValue() ?? ""}
