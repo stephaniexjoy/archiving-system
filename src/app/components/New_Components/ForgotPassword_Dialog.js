@@ -7,6 +7,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import ForgotPassword_Form from "./Forgot_Password/ForgotPassword_Form";
 
 export default function ForgotPassword_Dialog() {
   0;
@@ -33,24 +34,7 @@ export default function ForgotPassword_Dialog() {
           </DialogTitle>
         </DialogHeader>
         <div className="flex flex-col justify-center w-full max-w-md items-center space-x-2 p-6">
-          <label
-            htmlFor="email"
-            className="block text-center text-gray-600 text-xl mb-2"
-          >
-            Enter Email:
-          </label>
-          <Input
-            type="email"
-            id="email"
-            placeholder="name@company.com"
-            className="w-full text-white bg-[#B5B5B5] border border-black mt-2 text-lg"
-            required
-          />
-          <div className="flex justify-center gap-4 mt-10">
-            <Button type="submit" className="bg-[#737373] w-36 font-bold">
-              REQUEST
-            </Button>
-          </div>
+          <ForgotPassword_Form />
         </div>
       </DialogContent>
     </Dialog>
