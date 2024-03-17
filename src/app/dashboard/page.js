@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
 import EditPrivacy_Dialog from "../components/New_Components/EditPrivacy_Dialog";
 import UploadMaterial_Dialog from "../components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog";
+import Notification_Panel from "../components/Notifications/Notification_Panel";
 
 export default async function dashboard() {
   const session = await getServerSession(AuthOptions);
@@ -78,16 +79,7 @@ export default async function dashboard() {
           alt="Filler"
           src="../photos/Filler.png"
         />
-        <img
-          className="h-[70%] w-[45px] mt-[.8%] ml-[1%]
-          sm:h-[70%] sm:w-[60px] sm:mt-[.8%] sm:ml-[1.3%]
-          md:h-[70%] md:w-[75px] md:mt-[.8%] md:ml-[1.6%]
-          lg:h-[70%] lg:w-[83px] lg:mt-[.8%] lg:ml-[1.8%]
-          xl:h-[70%] xl:w-[84px] xl:mt-[.8%] xl:ml-[1.8%]
-          2xl:h-[70%] 2xl:w-[85px] 2xl:mt-[.8%] 2xl:ml-[2%]"
-          alt="Notification Logo"
-          src="../photos/Notificationlogo.png"
-        />
+        <Notification_Panel />
       </div>
 
       <div
@@ -116,12 +108,14 @@ export default async function dashboard() {
           >
             ARCHIVED MATERIALS
           </p>
-          <p className="mt-8 text-7xl text-[#5B0505] font-semibold
+          <p
+            className="mt-8 text-7xl text-[#5B0505] font-semibold
           sm:mt-9 sm:text-7xl sm:text-[#5B0505] sm:font-semibold
           md:mt-10 md:text-8xl md:text-[#5B0505] md:font-semibold
           lg:mt-11 lg:text-8xl lg:text-[#5B0505] lg:font-semibold
           xl:mt-11 xl:text-8xl xl:text-[#5B0505] xl:font-semibold
-          2xl:mt-12 2xl:text-9xl 2xl:text-[#5B0505] 2xl:font-semibold">
+          2xl:mt-12 2xl:text-9xl 2xl:text-[#5B0505] 2xl:font-semibold"
+          >
             {fileCount}
           </p>
         </div>
