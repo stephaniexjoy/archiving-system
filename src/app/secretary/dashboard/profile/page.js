@@ -43,8 +43,8 @@ async function page() {
       <Card
         className="
         flex w-[90%] h-auto mt-4 items-center justify-center
-        sm:flex sm:w-[90%]sm: sm:h-auto sm:mt-4 sm:items-center sm:justify-center
-        md:flex md:w-[90%] md:h-auto md:mt-4 md:items-center md:justify-center
+        sm:flex sm:w-[80%] sm:h-auto sm:mt-4 sm:items-center sm:justify-center
+        md:flex md:w-[80%] md:h-auto md:mt-4 md:items-center md:justify-center
         lg:flex lg:w-[70%] lg:h-auto lg:mt-4 lg:items-center lg:justify-center
         xl:flex xl:w-[70%] xl:h-auto xl:mt-4 xl:items-center xl:justify-center
         2xl:flex 2xl:w-[60%] 2xl:mt-4 2xl:items-center 2xl:justify-center
