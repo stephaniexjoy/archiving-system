@@ -54,7 +54,7 @@ async function EditPrivacy_Dialog() {
           EDIT PRIVACY
         </b>
       </DialogTrigger>
-      <DialogContent className="p- md:max-w-[1000px]">
+      <DialogContent className="p-16 md:max-w-[1000px]">
         <form>
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
