@@ -22,189 +22,119 @@ async function page() {
   });
   return (
     <div className="flex flex-col w-screen h-screen items-center overflow-y-auto">
-      <div className="
+      <div
+        className="
       bg-[#AD5606] w-[100%] h-[7%] flex items-center justify-center
-      2xl:bg-[#AD5606] 2xl:w-[100%] 2xl:h-[12%] 2xl:flex 2xl:items-center 2xl:justify-center">
+      2xl:bg-[#AD5606] 2xl:w-[100%] 2xl:h-[12%] 2xl:flex 2xl:items-center 2xl:justify-center"
+      >
         <img
           className="
           w-[60%] h-auto object-cover flex items-center justify-center
-          2xl:w-[30%] 2xl:h-[100%] 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center
+          sm:w-[45%] sm:h-auto sm:object-cover sm:flex sm:items-center sm:justify-center
+          md:w-[40%] md:h-auto md:object-cover md:flex md:items-center md:justify-center
+          lg:w-[30%] lg:h-auto lg:object-cover lg:flex lg:items-center lg:justify-center
+          xl:w-[25%] xl:h-auto xl:object-cover xl:flex xl:items-center xl:justify-center
+          2xl:w-[30%] 2xl:h-auto 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center
           "
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
         />
       </div>
-      <Card className="
-      flex w-[90%] h-auto mt-4
-      2xl:flex 2xl:max-w-[1000px] 2xl:mt-4
-      ">
-        <CardContent className="
-        w-auto h-auto
-        2xl:w-auto 2xl:h-auto
-        ">
-          <div className="
-          flex flex-col w-auto items-center py-1
-          2xl:flex 2xl:flex-col 2xl:w-auto 2xl:items-center 2xl:py-1
-          ">
+      <Card
+        className="
+        flex w-[90%] h-auto mt-4 items-center justify-center
+        sm:flex sm:w-[90%]sm: sm:h-auto sm:mt-4 sm:items-center sm:justify-center
+        md:flex md:w-[90%] md:h-auto md:mt-4 md:items-center md:justify-center
+        lg:flex lg:w-[70%] lg:h-auto lg:mt-4 lg:items-center lg:justify-center
+        xl:flex xl:w-[70%] xl:h-auto xl:mt-4 xl:items-center xl:justify-center
+        2xl:flex 2xl:w-[60%] 2xl:mt-4 2xl:items-center 2xl:justify-center
+        "
+      >
+        <CardContent
+          className="
+          w-auto h-auto
+          sm:w-auto sm:h-auto
+          md:w-auto md:h-auto
+          lg:w-auto lg:h-auto
+          xl:w-auto xl:h-auto
+          2xl:w-auto 2xl:h-auto
+          "
+        >
+          <div
+            className="
+            flex flex-col w-auto items-center py-1
+            sm:flex sm:flex-col sm:w-auto sm:items-center sm:py-1
+            md:flex md:flex-col md:w-auto md:items-center md:py-1
+            lg:flex lg:flex-col lg:w-auto lg:items-center lg:py-1
+            xl:flex xl:flex-col xl:w-auto xl:items-center xl:py-1
+            2xl:flex 2xl:flex-col 2xl:w-auto 2xl:items-center 2xl:py-1
+            "
+          >
             <img
               className="
               mt-16 rounded-full w-[60%] h-auto object-cover mb-0
-              2xl:mt-16 2xl:rounded-full 2xl:w-40 2xl:h-40 2xl:object-cover 2xl:mb-5
+              sm:mt-16 sm:rounded-full sm:w-[50%] sm:h-auto sm:object-cover sm:mb-0
+              md:mt-16 md:rounded-full md:w-[50%] md:h-auto md:object-cover md:mb-0
+              lg:mt-16 lg:rounded-full lg:w-[50%] lg:h-auto lg:object-cover lg:mb-0
+              xl:mt-16 xl:rounded-full xl:w-[50%] xl:h-auto xl:object-cover xl:mb-0
+              2xl:mt-16 2xl:rounded-full 2xl:w-[35%] 2xl:h-auto 2xl:object-cover 2xl:mb-5
               "
               alt="profile"
               src="/profile.jpg"
             />
           </div>
 
-          <div className="
-          flex flex-col w-full items-center
-          2xl:flex 2xl:flex-col 2xl:w-full 2xl:items-center
-          ">
-            <div className="
-            flex flex-col columns-2
-            2xl:flex 2xl:flex-col 2xl:columns-2
+          <div 
+            className="
+            grid grid-cols-2 gap-4 mt-16
+            sm:grid-cols-2 sm:gap-4 sm:mt-16
+            md:grid-cols-2 md:gap-4 md:mt-16
+            lg:grid-cols-2 lg:gap-4 lg:mt-16
+            xl:grid-cols-2 xl:gap-4 xl:mt-16
+            2xl:grid-cols-2 2xl:gap-4 2xl:mt-16 2xl:text-start
             ">
-              <div className="
-              flex flex-row gap-x-0 text-[#5B0505] ml-4 h-20 mt-16
-              2xl:flex 2xl:flex-row 2xl:gap-x-8 2xl:text-[#5B0505] 2xl:ml-10 2xl:h-20 2xl:mt-16
-              ">
-                <div>
-                  <h1 className="
-                  text-[15px]
-                  2xl:text-[25px]
-                  ">Name:</h1>
-                </div>
-                <div>
-                  <h1 className="
-                  text-[15px] ml-24 font-bold uppercase
-                  2xl:text-[25px] 2xl:ml-[141px] 2xl:font-bold 2xl:uppercase
+            {[
+              { label: "Name", value: user.name },
+              { label: "Age", value: user.age },
+              { label: "Sex", value: user.sex },
+              { label: "Employee No", value: user.employee_no },
+              { label: "Department", value: "College of Computer Studies" },
+              { label: "Designation", value: user.designation },
+              { label: "Institutional Email", value: user.email },
+            ].map((item, index) => (
+              <React.Fragment key={index}>
+                <div 
+                  className="
+                  text-[15px] text-[#5B0505]
+                  sm:text-[17px] sm:text-[#5B0505]
+                  md:text-[19px] md:text-[#5B0505]
+                  lg:text-[21px] lg:text-[#5B0505]
+                  xl:text-[23px] xl:text-[#5B0505]
+                  2xl:text-[25px] 2xl:text-[#5B0505]
                   ">
-                    {user.name}
-                  </h1>
-                </div>
-              </div>
-              <div className="
-              -mt-14 flex flex-row text-[#5B0505] gap-x-8 ml-4 h-20
-              2xl:-mt-10 2xl:flex 2xl:flex-row 2xl:text-[#5B0505] 2xl:gap-x-8 2xl:ml-10 2xl:h-20
-              ">
-                <div>
-                  <h1 className=" 
-                  text-[15px]
-                  2xl:text-[25px]
-                  ">Age:</h1>
-                </div>
-                <div>
-                  <h1 className="
-                  text-[15px] ml-20 font-bold
-                  2xl:text-[25px] 2xl:ml-[163px] 2xl:font-bold
+                  {item.label}:
+                </div>  
+                <div 
+                  className="
+                  text-[15px] text-[#5B0505] font-bold
+                  sm:text-[17px] sm:text-[#5B0505]
+                  md:text-[19px] md:text-[#5B0505]
+                  lg:text-[21px] lg:text-[#5B0505]
+                  xl:text-[23px] xl:text-[#5B0505]
+                  2xl:text-[25px] 2xl:text-[#5B0505]
                   ">
-                    {user.age}
-                  </h1>
-                </div>
-              </div>
-              <div className="
-              -mt-14 flex flex-row gap-x-8 text-[#5B0505] ml-4 h-20
-              2xl:-mt-10 2xl:flex 2xl:flex-row 2xl:gap-x-8 2xl:text-[#5B0505] 2xl:ml-10 2xl:h-20
-              ">
-                <div>
-                  <h1 className="
-                  text-[15px]
-                  2xl:text-[25px]
-                  ">Sex:</h1>
-                </div>
-                <div>
-                  <h1 className="
-                  text-[15px] ml-20 font-bold uppercase
-                  2xl:text-[25px] 2xl:ml-[166px] 2xl:font-bold 2xl:uppercase
-                  ">
-                    {user.sex}
-                  </h1>
-                </div>
-              </div>
-              <div className="
-              -mt-14 flex flex-row gap-x-8 text-[#5B0505] ml-4 h-20
-              2xl:-mt-10 2xl:flex 2xl:flex-row 2xl:gap-x-8 2xl:text-[#5B0505] 2xl:ml-10 2xl:h-20
-              ">
-                <div>
-                  <h1 className=" 
-                  text-[15px]
-                  2xl:text-[25px]
-                  ">Employee No:</h1>
-                </div>
-                <div>
-                  <h1 className="
-                  text-[15px] ml-2 font-bold uppercase
-                  2xl:text-[25px] 2xl:ml-[55px] 2xl:font-bold 2xl:uppercase
-                  ">
-                    {user.employee_no}
-                  </h1>
-                </div>
-              </div>
-              <div className="
-              -mt-14 flex flex-row gap-x-8 text-[#5B0505] ml-4 h-20
-              2xl:-mt-10 2xl:flex 2xl:flex-row 2xl:gap-x-8 2xl:text-[#5B0505] 2xl:ml-10 2xl:h-20
-              ">
-                <div>
-                  <h1 className="
-                  text-[15px]
-                  2xl:text-[25px]
-                  ">Department:</h1>
-                </div>
-                <div>
-                  <h1 className="
-                  text-[15px] ml-4 font-bold uppercase
-                  2xl:text-[25px] 2xl:ml-[69px] 2xl:font-bold 2xl:uppercase
-                  ">
-                    College of Computer Studies
-                  </h1>
-                </div>
-              </div>
-              <div className="
-              -mt-0 flex flex-row gap-x-8 text-[#5B0505] ml-4 h-20
-              2xl:-mt-10 2xl:flex 2xl:flex-row 2xl:gap-x-8 2xl:text-[#5B0505] 2xl:ml-10 2xl:h-20
-              ">
-                <div>
-                  <h1 className="
-                  text-[15px]
-                  2xl:text-[25px]
-                  ">Designation:</h1>
-                </div>
-                <div>
-                  <h1 className="
-                  text-[15px] ml-4 font-bold uppercase
-                  2xl:text-[25px] 2xl:ml-[70px] 2xl:font-bold 2xl:uppercase
-                  ">
-                    {user.designation}
-                  </h1>
-                </div>
-              </div>
-              <div className="
-              -mt-14 flex flex-row gap-x-8 text-[#5B0505] ml-4 h-20
-              2xl:-mt-10 2xl:flex 2xl:flex-row 2xl:gap-x-8 2xl:text-[#5B0505] 2xl:ml-10 2xl:h-20
-              ">
-                <div>
-                  <h1 className="
-                  text-[15px]
-                  2xl:text-[25px]
-                  ">Institutional Email:</h1>
-                </div>
-                <div>
-                  <h1 className="
-                  text-[15px] ml-4 font-bold
-                  2xl:text-[25px] 2xl:ml-[3px] 2xl:font-bold
-                  ">
-                    {user.email}
-                  </h1>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#AD5606] mb-5 rounded-lg">
-              <EditProfile_Dialog />
-            </div>
-            <div className="bg-[#AD5606] rounded-lg">
-              <EditPrivacy_Dialog />
-            </div>
+                    {item.value}</div>
+              </React.Fragment>
+            ))}
           </div>
+          <div className="flex flex-col items-center">
+              <div className="bg-[#AD5606] rounded-lg mt-16">
+                <EditProfile_Dialog />
+              </div>
+              <div className="bg-[#AD5606] rounded-lg mt-5">
+                <EditPrivacy_Dialog />
+              </div>
+            </div>
         </CardContent>
       </Card>
     </div>
