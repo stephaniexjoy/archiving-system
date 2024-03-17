@@ -97,12 +97,12 @@ export default async function dashboard() {
         </div>
       </div>
 
-      <div className="flex flex-col items-center mt-4 px-0 gap-x-0">
-        <div className=" text-center bg-[#5B0505] text-[white] w-[90%] h-[80px] p-2 rounded-lg space-y-12">
-          <div className="text-center bg-[#5B0505] text-white h-[45%] rounded-lg mt-2">
+      <div className="flex flex-col items-center mt-6 px-0 gap-x-2">
+        <div className=" text-center bg-[#5B0505] text-[white] h-[40px] rounded-lg space-y-3">
+          <div className="text-center bg-[#5B0505] text-white rounded-lg mt-1">
             <EditPrivacy_Dialog sessionUser={session.user} />
           </div>
-          <div className="text-center bg-[#5B0505] text-white w-[90%] h-[80px] p-4 rounded-lg">
+          <div className="text-center bg-[#5B0505] text-white p-3 rounded-lg">
             <UploadMaterial_Dialog sessionUser={session.user} />
           </div>
         </div>
