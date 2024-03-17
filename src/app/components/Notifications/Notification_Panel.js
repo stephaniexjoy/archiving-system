@@ -18,10 +18,43 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import Notifcations from "./Notifcations";
+import { getActivities } from "@/app/lib/actions/actions";
+import NotificationHolder from "./NotificationHolder";
 
-const Notification_Panel = () => {
+function filterByDate(activities) {
+  const filteredActivities = {
+    new: [],
+    past: [],
+  };
+
+  const today = new Date();
+  const oneDayAgo = new Date(today);
+  oneDayAgo.setDate(today.getDate() - 1);
+
+  console.log(today);
+
+  activities.forEach((activity) => {
+    const createdAtDate = new Date(activity.createdAt);
+    if (createdAtDate >= oneDayAgo && createdAtDate <= today) {
+      filteredActivities.new.push(activity);
+    } else {
+      filteredActivities.past.push(activity);
+    }
+  });
+
+  return filteredActivities;
+}
+
+const Notification_Panel = async () => {
+  const activities = await getActivities();
+  const notifications = filterByDate(activities);
+
+  console.log(notifications);
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -43,23 +76,7 @@ const Notification_Panel = () => {
           <DialogTitle>Notification Panel</DialogTitle>
           <DialogDescription>View Notifications here.</DialogDescription>
         </DialogHeader>
-
-        <Card>
-          <CardContent className="mt-2 space-y-2">
-            <Card>
-              <CardHeader>
-                <CardTitle>Card Title</CardTitle>
-                <CardDescription>Card Description</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>Card Content</p>
-              </CardContent>
-              <CardFooter>
-                <p>Card Footer</p>
-              </CardFooter>
-            </Card>
-          </CardContent>
-        </Card>
+        <NotificationHolder notifications={notifications} />
 
         <DialogFooter></DialogFooter>
       </DialogContent>

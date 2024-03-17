@@ -682,3 +682,8 @@ export async function getUpdatedPassword(newPassword, userInfo) {
     console.log(error);
   }
 }
+
+export async function getActivities() {
+  const activities = await db.activity.findMany({});
+  if (activities) return activities;
+}
