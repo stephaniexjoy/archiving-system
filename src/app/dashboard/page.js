@@ -61,12 +61,20 @@ export default async function dashboard() {
         />
       </div>
 
-      <div className="flex flex-col mt-[1%] items-center px-1 gap-x-12
-      2xl:flex-row 2xl:mt-[1%] 2xl:justify-center 2xl:gap-x-12">
-        <div className="text-center bg-[#B4ABAB] text-[#5B0505] w-[80%] h-[200px] py-2 rounded-lg
-        2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[440px] 2xl:h-[320px] 2xl:py-6 2xl:rounded-lg">
-          <p className="mt-4 text-xl font-semibold
-          2xl:mt-8 2xl:text-4xl 2xl:font-semibold">ARCHIVED MATERIALS</p>
+      <div
+        className="flex flex-col mt-[1%] items-center px-1 gap-x-12
+      2xl:flex-row 2xl:mt-[1%] 2xl:justify-center 2xl:gap-x-12"
+      >
+        <div
+          className="text-center bg-[#B4ABAB] text-[#5B0505] w-[80%] h-[200px] py-2 rounded-lg
+        2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[440px] 2xl:h-[320px] 2xl:py-6 2xl:rounded-lg"
+        >
+          <p
+            className="mt-4 text-xl font-semibold
+          2xl:mt-8 2xl:text-4xl 2xl:font-semibold"
+          >
+            ARCHIVED MATERIALS
+          </p>
           <p className="mt-8 text-7xl text-[#5B0505] font-semibold">
             {fileCount}
           </p>
@@ -76,24 +84,26 @@ export default async function dashboard() {
           <img src="../photos/ccsLogo.png" alt="CCS Logo" />
         </div>
 
-        <div className="text-center bg-[#B4ABAB] text-[#5B0505] w-[80%] h-[200px] mt-4 rounded-lg
-        2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[440px] 2xl:h-[320px] 2xl:mt-4 2xl:rounded-lg">
-          <p className="mt-4 text-xl font-semibold
-          2xl:mt-8 2xl:text-4xl 2xl:font-semibold">CALENDAR</p>
+        <div
+          className="text-center bg-[#B4ABAB] text-[#5B0505] w-[80%] h-[200px] mt-4 rounded-lg
+        2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[440px] 2xl:h-[320px] 2xl:mt-4 2xl:rounded-lg"
+        >
+          <p
+            className="mt-4 text-xl font-semibold
+          2xl:mt-8 2xl:text-4xl 2xl:font-semibold"
+          >
+            CALENDAR
+          </p>
         </div>
       </div>
 
-      <div className="flex flex-col mt-[1%] items-center">
-        <div className="text-center bg-[#5B0505] text-white w-[60%] h-[80px] p-1 rounded-lg mt-9 space-y-12">
-          <div className="text-center bg-[#5B0505] text-white h-[45%] rounded-lg -mt-2">
-            <button className="mt-2 text-[20px] font-semibold">
-              <EditPrivacy_Dialog sessionUser={session.user} />
-            </button>
+      <div className="flex flex-col mt-[1%] h-auto items-center">
+        <div className="text-center bg-[#5B0505] text-white w-[60%] h-[80px] p-1 rounded-lg  space-y-12">
+          <div className="text-center bg-[#5B0505] text-white h-[45%] rounded-lg mt-2">
+            <EditPrivacy_Dialog sessionUser={session.user} />
           </div>
           <div className="text-center bg-[#5B0505] text-white w-[100%] h-[80px] p-1 rounded-lg mt-2">
-            <button className="mt-1 text-2xl font-semibold">
-              <UploadMaterial_Dialog sessionUser={session.user} />
-            </button>
+            <UploadMaterial_Dialog sessionUser={session.user} />
           </div>
         </div>
       </div>

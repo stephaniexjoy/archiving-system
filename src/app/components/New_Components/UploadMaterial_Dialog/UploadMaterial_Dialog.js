@@ -27,7 +27,7 @@ export default async function UploadMaterial_Dialog({ sessionUser }) {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <b className='left-[1300px] text-center bg-transparent text-white text-xl font-bold h-10 w-44 p-2 m-2 cursor-pointer'>UPLOAD MATERIAL</b>
+                <button className=' text-center bg-transparent text-white text-xl font-bold h-auto w-44 p-2 m-2 cursor-pointer'>UPLOAD MATERIAL</button>
             </DialogTrigger>
             <DialogContent className="md:max-w-[1025px]">
                 <Form sessionUser={sessionUser} />
