@@ -8,6 +8,8 @@ import { getServerSession } from "next-auth/next";
 
 import { unstable_noStore as noStore, revalidatePath } from "next/cache";
 
+import crypto from "crypto";
+
 function getDateNow() {
   const dateString = new Date();
   const dateObject = new Date(dateString);
@@ -590,3 +592,38 @@ export async function getUserInfo() {
   });
   return user;
 }
+
+export async function forgotPassword(email) {
+  try {
+    const findUser = await db.user.findUnique({
+      where: {
+        email: email,
+      },
+    });
+    console.log(findUser);
+
+    if (findUser) {
+      const resetPasswordToken = crypto.randomBytes(32).toString("base64url");
+      const today = new Date();
+      const expiryTime = new Date(today.getTime() + 20 * 60000);
+
+      const hashedToken = await bcrypt.hash(resetPasswordToken, 12);
+
+      console.log(resetPasswordToken);
+      console.log(hashedToken);
+      console.log(expiryTime);
+
+      /*  const pasokba = await bcrypt.compare(resetPasswordToken, hashedToken);
+      console.log(pasokba); */
+
+      return "User_Found";
+    } else {
+      return "Error";
+    }
+  } catch (error) {
+    console.log(error);
+    return "Error";
+  }
+}
+
+export async function performForgotPassword(email, resetPasswordToken) {}

@@ -58,6 +58,10 @@ model User {
   profile_photo_path String?
   certifications     String?
 
+  // Reset Password Tokens and Expiry
+  resetPasswordToken String?   @unique
+  tokenExpiry        DateTime?
+
   // Relationship to the educational details
   education User_Education?
 
