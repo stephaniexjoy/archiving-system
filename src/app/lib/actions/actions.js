@@ -615,8 +615,22 @@ export async function forgotPassword(email) {
 
       /*  const pasokba = await bcrypt.compare(resetPasswordToken, hashedToken);
       console.log(pasokba); */
+      try {
+        const updateUser = await db.user.update({
+          where: { email: email },
+          data: {
+            resetPasswordToken: hashedToken,
+            tokenExpiry: expiryTime,
+          },
+        });
+        if (updateUser) {
+          return "User_Found";
+        }
+      } catch (error) {
+        console.log(error);
+      }
 
-      return "User_Found";
+      return "Error";
     } else {
       return "Error";
     }
@@ -626,4 +640,45 @@ export async function forgotPassword(email) {
   }
 }
 
-export async function performForgotPassword(email, resetPasswordToken) {}
+export async function performForgotPassword(resetObject) {
+  console.log(resetObject);
+  const dateNow = new Date();
+
+  try {
+    const findUserbyEmail = await db.user.findUnique({
+      where: { email: resetObject.email },
+    });
+
+    if (
+      findUserbyEmail &&
+      (await bcrypt.compare(
+        resetObject.resetPasswordToken,
+        findUserbyEmail.resetPasswordToken
+      )) &&
+      dateNow <= findUserbyEmail.tokenExpiry
+    ) {
+      console.log("Pasok");
+      return true;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    console.log(error);
+    return "Error";
+  }
+}
+
+export async function getUpdatedPassword(newPassword, userInfo) {
+  console.log(newPassword, userInfo);
+  const hashedPassword = await bcrypt.hash(newPassword, 12);
+
+  try {
+    const updatePassword = await db.user.update({
+      where: { email: userInfo.email },
+      data: { password: hashedPassword },
+    });
+    return updatePassword;
+  } catch (error) {
+    console.log(error);
+  }
+}
