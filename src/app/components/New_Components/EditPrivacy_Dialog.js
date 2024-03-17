@@ -43,14 +43,14 @@ async function EditPrivacy_Dialog() {
       <DialogTrigger asChild>
         <b
           className="
-                left-[1300px] text-center bg-transparent text-white text-xl font-bold h-10 w-44 p-2 m-2 cursor-pointer
+                bg-transparent text-white text-xl mt-2 font-bold cursor-pointer
                 2xl:left-[1300px] 2xl:text-center 2xl:bg-transparent 2xl:text-white 2xl:text-3xl 2xl:font-bold 2xl:h-12 2xl:w-64 2xl:p-2 2xl:m-2 2xl:cursor-pointer
                 "
         >
           EDIT PRIVACY
         </b>
       </DialogTrigger>
-      <DialogContent className="p- md:max-w-[1000px]">
+      <DialogContent className="md:max-w-[1000px]">
         <form>
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
