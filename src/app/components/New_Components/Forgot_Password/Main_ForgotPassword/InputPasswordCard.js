@@ -13,16 +13,18 @@ const InputPasswordCard = async ({ userInfo }) => {
     "use server";
   };
   return (
-    <div>
-      <Card>
+    <div class="flex justify-center items-center m-auto">
+    <div class="py-40 px-4">
+        <Card className="w-96 bg-slate-200 h-auto py-4">
         <CardHeader>
-          <CardTitle>Reset Password</CardTitle>
-          <CardDescription>Set your new Password</CardDescription>
+          <CardTitle className= "text-center">Reset Password</CardTitle>
+          <CardDescription className = "text-center">Set your new Password</CardDescription>
         </CardHeader>
         <CardContent>
           <Form userInfo={userInfo} />
         </CardContent>
       </Card>
+    </div>
     </div>
   );
 };
