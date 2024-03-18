@@ -52,7 +52,6 @@ async function page() {
         />
       </div>
 
-
       <div
         className="
       flex mt-[2%] px-1 gap-x-5
@@ -113,9 +112,7 @@ async function page() {
         />
       </div>
 
-      <div
-
-      >
+      <div>
         <div
           className="
           flex flex-col items-center mt-4 px-0 gap-x-0
@@ -139,8 +136,10 @@ async function page() {
             <CreateAccount_Dialog />
           </div>
 
-          <div
-            className="
+          {/* Added flex-col for calendar and logo */}
+          <div className="grid flex-col">
+            <div
+              className="
           text-center bg-[#B4ABAB] text-[#5B0505] w-[90%] h-56 mt-4 rounded-lg
           sm:text-center sm:bg-[#B4ABAB] sm:text-[#5B0505] sm:w-[80%] sm:h-56 sm:mt-4 sm:rounded-lg
           md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-56 md:mt-4 md:rounded-lg
@@ -148,9 +147,9 @@ async function page() {
           xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[88%] xl:h-36 xl:mt-0 xl:rounded-lg xl:-ml-8
           2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[70%] 2xl:h-80 2xl:mt-0 2xl:-ml-4
           "
-          >
-            <p
-              className="
+            >
+              <p
+                className="
             mt-10 text-xl font-bold
             sm:mt-10 sm:text-xl sm:font-bold
             md:mt-10 md:text-2xl md:font-bold
@@ -158,12 +157,12 @@ async function page() {
             xl:mt-10 xl:text-3xl xl:font-bold
             2xl:mt-10 2xl:text-3xl 2xl:font-bold
             "
-            >
-              CALENDAR
-            </p>
-          </div>
-          <div
-            className="
+              >
+                CALENDAR
+              </p>
+            </div>
+            <div
+              className="
           w-auto h-auto items-center mt-4
           sm:w-auto sm:h-auto sm:items-center sm:mt-4
           md:w-auto md:h-auto md:items-center md:mt-4
@@ -171,9 +170,9 @@ async function page() {
           xl:w-auto xl:h-auto xl:items-center xl:mt-4
           2xl:w-auto 2xl:h-auto
           "
-          >
-            <img
-              className="
+            >
+              <img
+                className="
               w-52 h-auto object-cover
               sm:w-52 sm:h-auto sm:object-cover
               md:w-52 md:h-auto md:object-cover
@@ -181,21 +180,23 @@ async function page() {
               xl:-ml-4 xl:w-40 xl:h-auto xl:object-cover
               2xl:ml-4 2xl:w-56 2xl:h-auto 2xl:object-cover
               "
-              src="../photos/ccsLogo.png"
-              alt="CCS Logo"
-            />
+                src="../photos/ccsLogo.png"
+                alt="CCS Logo"
+              />
+            </div>
           </div>
         </div>
 
-
-        <div className="
+        <div
+          className="
         flex flex-col items-center mt-4 gap-y-5 
         sm:flex sm:flex-col sm:items-center sm:mt-4 
         md:flex md:flex-col md:items-center md:mt-4 
         lg:flex lg:flex-col lg:items-center lg:mt-4 
         xl:flex-row xl:items-center xl:mt-4 xl:px-10 xl:gap-x-8
         2xl:flex-row 2xl:mt-[1%] 2xl:gap-x-8
-        ">
+        "
+        >
           <div
             className="
             text-center bg-[#B4ABAB] text-[#5B0505] w-[90%] h-[200px] py-2 rounded-lg
@@ -266,7 +267,6 @@ async function page() {
               {userCount}
             </p>
           </div>
-
 
           <div
             className="
