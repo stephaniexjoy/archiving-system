@@ -32,7 +32,7 @@ export default function Form({ sessionUser }) {
           }
         }}
       >
-        <div 
+        <div
           className="
           grid grid-cols-1 gap-1 py-3 px-0          
           sm:grid sm:grid-cols-1 sm:gap-1 sm:py-3 sm:px-0 
@@ -41,7 +41,8 @@ export default function Form({ sessionUser }) {
           xl:grid xl:grid-cols-2 xl:gap-4 xl:py-3 xl:px-0 
           2xl:grid 2xl:grid-cols-2 2xl:gap-4 2xl:py-3 2xl:px-0 
 
-          ">
+          "
+        >
           {[
             { label: "Name", type: "text", id: "name" },
             { label: "Age", type: "number", id: "age" },
@@ -55,7 +56,7 @@ export default function Form({ sessionUser }) {
             {
               label: "Category",
               type: "select",
-              id: "category",
+              id: "cat",
               options: [
                 "Select Category",
                 "Associate Dean",
@@ -65,15 +66,20 @@ export default function Form({ sessionUser }) {
                 "Coordinator",
               ],
             },
-            { label: "Specialization", type: "text", id: "specialization" },
+            { label: "Specialization", type: "text", id: "spec" },
             {
               label: "Eligibility/Professional License",
               type: "text",
-              id: "eligibility/professionallicense",
+              id: "lic",
             },
             { label: "Employee Number", type: "text", id: "employeeNo" },
-            { label: "Email", type: "email", id: "email" },
-            { label: "Password", type: "password", id: "password" },
+            { label: "Email", type: "email", id: "email", name: "emailInput" },
+            {
+              label: "Password",
+              type: "password",
+              id: "pass",
+              name: "passInput",
+            },
           ].map((field, index) => (
             <React.Fragment key={index}>
               <Label
@@ -126,14 +132,16 @@ export default function Form({ sessionUser }) {
           ))}
         </div>
 
-        <div className="
+        <div
+          className="
         flex justify-center gap-4 gap-x-16 mt-4
         sm:flex sm:justify-center sm:gap-4 sm:gap-x-16 sm:mt-4
         md:flex md:justify-center md:gap-4 md:gap-x-16 md:mt-8
         lg:flex lg:justify-center lg:gap-4 lg:gap-x-16 lg:mt-12
         xl:flex xl:justify-center xl:gap-4 xl:gap-x-16 xl:mt-16
         2xl:flex 2xl:justify-center 2xl:gap-4 2xl:gap-x-16 2xl:mt-20
-        ">
+        "
+        >
           <Button
             type="submit"
             className="
