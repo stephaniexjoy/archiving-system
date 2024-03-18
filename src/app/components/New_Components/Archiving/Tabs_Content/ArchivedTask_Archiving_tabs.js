@@ -11,7 +11,7 @@ export default function ArchivedTask_Archiving_tabs() {
 
   return (
     <>
-      <div className="flex flex-col mt-10  px-10">
+      <div className="flex flex-col mt-16 px-10">
         <h1 className="text-center text-[#5B0505] text-[28px]  sm:text-[32px] md:text-[36px] lg:text-[45px] font-bold md:shadow-zinc-400 mb-5">
           Archived Tasks
         </h1>

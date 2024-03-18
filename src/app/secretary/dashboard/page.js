@@ -7,6 +7,7 @@ import UploadMaterial_Dialog from "@/app/components/New_Components/UploadMateria
 import CreateAccount_Dialog from "@/app/components/New_Components/CreateAccount_Dialog/CreateAccount_Dialog";
 import Link from "next/link";
 import ActivityTable_Secretary from "@/app/components/NewTable/Dashboard/Secretary/ActivityTable_Secretary";
+import CalendarComponent from "@/app/components/Calendar";
 
 async function page() {
   const session = await getServerSession(AuthOptions);
@@ -110,13 +111,13 @@ async function page() {
 
       <div
         className="
-      flex flex-col items-center mt-4 px-0 gap-x-0
-      sm:flex sm:flex-col sm:items-center sm:mt-4 sm:px-0 sm:gap-x-0
-      md:flex md:flex-col md:items-center md:mt-4 md:px-0 md:gap-x-0
-      lg:flex lg:flex-col lg:items-center lg:mt-4 lg:px-0 lg:gap-x-0
-      xl:flex-row xl:items-center xl:mt-4 xl:px-10 xl:gap-x-8
-      2xl:flex-row 2xl:mt-[1%] 2xl:gap-x-8
-      "
+        flex flex-col items-center mt-4 px-0 gap-x-0
+        sm:flex sm:flex-col sm:items-center sm:mt-4 sm:px-0 sm:gap-x-0
+        md:flex md:flex-col md:items-center md:mt-4 md:px-0 md:gap-x-0
+        lg:flex lg:flex-col lg:items-center lg:mt-4 lg:px-0 lg:gap-x-0
+        xl:flex-row xl:items-center xl:mt-4 xl:px-10 xl:gap-x-8
+        2xl:flex-row 2xl:mt-[1%] 2xl:gap-x-8
+        "
       >
         <div
           className="
@@ -281,7 +282,7 @@ async function page() {
           2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[70%] 2xl:h-80 2xl:mt-0 2xl:-ml-4
           "
           >
-            <p
+            {/* <p
               className="
             mt-10 text-xl font-bold
             sm:mt-10 sm:text-xl sm:font-bold
@@ -292,7 +293,8 @@ async function page() {
             "
             >
               CALENDAR
-            </p>
+            </p> */}
+            <CalendarComponent />
           </div>
           <div
             className="

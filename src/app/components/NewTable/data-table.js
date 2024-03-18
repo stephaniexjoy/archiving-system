@@ -91,7 +91,7 @@ export function ComboboxPermission({ value, onChange }) {
           role="combobox"
           aria-expanded={open}
           className="
-          w-[170px] sm:w-auto md:w-auto lg:w-auto justify-between
+          w-[200px] sm:w-auto md:w-auto lg:w-auto justify-between
           2xl:w-[200px] 2xl:justify-between
           "
         >
@@ -142,7 +142,14 @@ export function ComboboxMaterial({ value, onChange, materials }) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[170px] sm:w-auto md:w-auto lg:w-auto ml-0.5 justify-between"
+          className="
+          w-[200px] 
+          sm:[200px]
+          md:[200px]
+          lg:[200px]
+          xl:[200px]
+          2xl:[200px]
+          "
         >
           {value
             ? materials.find((framework) => framework.value === value)?.label
@@ -189,7 +196,14 @@ export function ComboboxProgram({ value, onChange }) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className=" mt-2 w-[170px] sm:w-auto md:w-auto lg:w-auto justify-between"
+          className="
+          w-[200px]
+          sm:w-[200px]
+          md:w-[200px] 
+          lg:w-[200px] 
+          xl:w-[200px] 
+          2xl:w-[200px] 
+          "
         >
           {value
             ? programs.find((framework) => framework.value === value)?.label
@@ -240,7 +254,14 @@ export function ComboboxInstructor({ value, onChange, instructors }) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[170px] sm:w-auto md:w-auto lg:w-auto ml-0.5 mt-2 justify-between"
+          className="
+          w-[200px] justify-between
+          sm:w-[200px] 
+          md:w-[200px] 
+          lg:w-[200px] 
+          xl:w-[200px] 
+          2xl:w-[200px] 
+          "
         >
           {value
             ? transformInstructor.find((framework) => framework.value === value)
@@ -288,7 +309,14 @@ export function ComboboxFileType({ value, onChange }) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="mt-2 w-[170px] sm:w-auto md:w-auto lg:w-auto justify-between"
+          className="
+          w-[200px] 
+          sm:w-[200px] 
+          md:w-[200px]  
+          lg:w-[200px] 
+          xl:w-[200px]
+          2xl:w-[200px]  
+          "
         >
           {value
             ? filetypes.find((framework) => framework.value === value)?.label
@@ -338,7 +366,7 @@ export default function Date_Range({ className }) {
             id="date"
             variant={"outline"}
             className={cn(
-              "text-sm  w-[170px] sm:w-auto md:w-auto lg:w-auto ml-0.5 mt-2 2xl:w-[280px] cursor-pointer md:left-[1250px] h-[40px] rounded-sm px-2 py-1",
+              "text-sm w-[200px] sm:w-auto md:w-auto lg:w-auto 2xl:w-[200px] cursor-pointer md:left-[1250px] h-[40px] rounded-sm px-0 py-1",
               !date
             )}
           >
@@ -425,9 +453,13 @@ export function DataTable({ columns, data, materials, instructors }) {
     <>
       <div
         className="
-      flex flex-col items-center py-4 space-y-4
-      2xl:flex-row 2xl:items-center 2xl:py-4 2xl:space-x-1"
-      >
+        grid flex-col items-center py-4 space-y-4
+        sm:grid sm:flex-col sm:items-center sm:py-4 sm:space-y-4
+        md:grid md:flex-col md:items-center md:py-4 md:space-y-4
+        lg:grid lg:flex-col lg:items-center lg:py-4 lg:space-y-4
+        xl:flex-col xl:items-center xl:py-4 xl:space-x-1
+        2xl:flex-col 2xl:items-center 2xl:py-4 2xl:space-x-1"
+        >
         <Input
           placeholder="Filter Filename..."
           value={table.getColumn("filename")?.getFilterValue() ?? ""}
@@ -435,10 +467,23 @@ export function DataTable({ columns, data, materials, instructors }) {
             table.getColumn("filename")?.setFilterValue(event.target.value)
           }
           className="
-          lg:w-[900px] md:w-[500px] sm:w-[400px] w-[300px] mt-4 
-          2xl:max-w-sm"
+          max-w-full mt-10
+          sm:max-w-full
+          md:max-w-full  
+          lg:max-w-lg  
+          xl:max-w-xl     
+          2xl:max-w-2xl
+          "
         />
-        <div className="grid grid-cols-2 gap-x-2 w-auto">
+        <div 
+          className="
+          grid grid-cols-2 gap-x-2 w-full
+          sm:grid sm:grid-cols-2 sm:gap-x-2 sm:w-full
+          md:grid md:grid-cols-3 md:grid-rows-2 md:gap-x-0 md:w-full
+          lg:grid lg:grid-cols-7 lg:gap-x-2 lg:w-full
+          xl:grid xl:grid-cols-7 xl:gap-x-2 xl:w-full
+          2xl:grid 2xl:grid-cols-7 2xl:gap-x-2 2xl:w-full
+          ">
           <ComboboxPermission 
             value={table.getColumn("fileRole")?.getFilterValue() ?? ""}
             onChange={handleComboBoxPermissionChange}
