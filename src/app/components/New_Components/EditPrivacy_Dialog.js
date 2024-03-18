@@ -43,7 +43,7 @@ async function EditPrivacy_Dialog() {
       <DialogTrigger asChild>
         <b
           className="
-          text-center bg-transparent text-white text-lg font-bold h-10 w-36 p-2 m-2 cursor-pointer
+          text-center bg-transparent text-white text-lg font-bold h-8 w-36 p-2 m-2 cursor-pointer
           sm:text-center sm:bg-transparent sm:text-white sm:text-lg sm:font-bold sm:h-10 sm:w-44 sm:p-2 sm:m-2 sm:cursor-pointer
           md:text-center md:bg-transparent md:text-white md:text-lg md:font-bold md:h-10 md:w-52 md:p-2 md:m-2 md:cursor-pointer
           lg:text-center lg:bg-transparent lg:text-white lg:text-xl lg:font-bold lg:h-10 lg:w-56 lg:p-2 lg:m-2 lg:cursor-pointer
@@ -54,70 +54,98 @@ async function EditPrivacy_Dialog() {
           EDIT PRIVACY
         </b>
       </DialogTrigger>
-      <DialogContent className="md:max-w-[1000px]">
+      <DialogContent
+        className="
+        p-10 max-w-[90%] max-h-[70%] overflow-y-auto rounded-lg
+        sm:p-10 sm:max-w-[80%] sm:max-h-[70%] sm:overflow-y-auto sm:rounded-lg
+        md:p-12 md:max-w-[70%] md:max-h-[70%] md:overflow-y-auto md:rounded-lg
+        lg:p-14 lg:max-w-[70%] lg:max-h-[70%] lg:overflow-y-auto lg:rounded-lg
+        xl:p-16 xl:max-w-[70%] xl:max-h-[70%] xl:overflow-y-auto xl:rounded-lg
+        2xl:p-12 2xl:max-w-[50%] 2xl:max-h-[80%] 2xl:overflow-y-auto 2xl:rounded-lg
+        "
+      >
         <form>
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label
-                htmlFor="name"
-                className="font-semibold text-[25px] text-left"
-              >
-                Email:
-              </Label>
-              <Input
-                id="email"
-                name="emailUpd"
-                type="text"
-                className="bg-[#837979] text-white text-[20px] col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label
-                htmlFor="employeeNo"
-                className="font-semibold text-[25px] text-left"
-              >
-                Current Password:
-              </Label>
-              <Input
-                id="currentPassword"
-                name="currentPass"
-                type="password"
-                className="bg-[#837979] text-white text-[20px] col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label
-                htmlFor="department"
-                className="font-semibold text-[25px] text-left"
-              >
-                New Password:
-              </Label>
-              <Input
-                id="newPassword"
-                name="newPass"
-                type="password"
-                className="bg-[#837979] text-white text-[20px] col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label
-                htmlFor="designation"
-                className="font-semibold text-[25px] text-left"
-              >
-                Confirm Password:
-              </Label>
-              <Input
-                id="confirmPassword"
-                name="newPassConfirm"
-                type="password"
-                className="bg-[#837979] text-white text-[20px] col-span-3"
-              />
-            </div>
+          <div
+            className="
+            grid gap-2 py-8 grid-cols-1
+            sm:grid sm:gap-2 sm:py-8 sm:grid-cols-1
+            md:grid md:gap-4 md:py-8 md:grid-cols-2
+            lg:grid lg:gap-5 lg:py-8 lg:grid-cols-2
+            xl:grid xl:gap-5 xl:py-8 xl:grid-cols-2
+            2xl:grid 2xl:gap-6 2xl:py-8 2xl:grid-cols-2
+            "
+          >
+            {[
+              { label: "Email:", id: "email", type: "text", name: "emailUpd" },
+              {
+                label: "Current Password:",
+                id: "currentPassword",
+                type: "password",
+                name: "currentPass",
+              },
+              {
+                label: "New Password:",
+                id: "newPassword",
+                type: "password",
+                name: "newPass",
+              },
+              {
+                label: "Confirm Password:",
+                id: "confirmPassword",
+                type: "password",
+                name: "newPassConfirm",
+              },
+            ].map((field, index) => (
+              <React.Fragment key={index}>
+                <Label
+                  htmlFor={field.id}
+                  className="
+                  font-semibold text-[15px] text-left
+                  sm:font-semibold sm:text-[17px] sm:text-left
+                  md:font-semibold md:text-[19px] md:text-left
+                  lg:font-semibold lg:text-[21px] lg:text-left
+                  xl:font-semibold xl:text-[23px] xl:text-left
+                  2xl:font-semibold 2xl:text-[25px] 2xl:ext-left
+                  "
+                >
+                  {field.label}
+                </Label>
+                <Input
+                  id={field.id}
+                  name={field.name}
+                  type={field.type}
+                  className="
+                  bg-[#837979] text-white text-[15px]
+                  sm:bg-[#837979] sm:text-white sm:text-[17px]
+                  md:bg-[#837979] md:text-white md:text-[19px]
+                  lg:bg-[#837979] lg:text-white lg:text-[21px]
+                  xl:bg-[#837979] xl:text-white xl:text-[23px]
+                  2xl:bg-[#837979] 2xl:text-white 2xl:text-[25px]
+                  "
+                />
+              </React.Fragment>
+            ))}
           </div>
-          <div className="mt-6 flex justify-center">
+          <div
+            className="
+            mt-12 flex justify-center
+            sm:mt-12 sm:flex sm:justify-center
+            md:mt-14 md:flex md:justify-center
+            lg:mt-14 lg:flex lg:justify-center
+            xl:mt-16 xl:flex xl:justify-center
+            2xl:mt-16 2xl:flex 2xl:justify-center
+            "
+          >
             <Button
               type="submit"
-              className="bg-[#8F8F8F] text-white text-[20px] w-[300px]"
+              className="
+              bg-[#8F8F8F] text-white text-[15px] w-[200px]
+              sm:bg-[#8F8F8F] sm:text-white sm:text-[17px] sm:w-[220px]
+              md:bg-[#8F8F8F] md:text-white md:text-[19px] md:w-[250px]
+              lg:bg-[#8F8F8F] lg:text-white lg:text-[21px] lg:w-[260px]
+              xl:bg-[#8F8F8F] xl:text-white xl:text-[23px] xl:w-[265px]
+              2xl:bg-[#8F8F8F] 2xl:text-white 2xl:text-[25px] 2xl:w-[270px]
+              "
             >
               Save
             </Button>
