@@ -26,7 +26,7 @@ export default async function dashboard() {
   }));
 
   return (
-    <div className="flex flex-col w-screen h-screen">
+    <div className="flex flex-col w-screen h-screen overflow-y-auto">
       <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center ">
         <img
           className="w-[60%] h-auto object-cover flex items-center justify-center
@@ -83,12 +83,12 @@ export default async function dashboard() {
       </div>
 
       <div
-        className="flex flex-col items-center px-0 gap-x-0
-      sm:flex sm:flex-col sm:items-center sm:mt-4 sm:px-0 sm:gap-x-0
+        className="flex flex-col items-center px-0 gap-x-0 gap-y-4
+      sm:flex sm:flex-col sm:items-center sm:mt-4 sm:px-0 sm:gap-x-
       md:flex md:flex-col md:items-center md:mt-4 md:px-0 md:gap-x-0
       lg:flex lg:flex-col lg:items-center lg:mt-4 lg:px-0 lg:gap-x-0
       xl:flex xl:flex-row xl:items-center xl:mt-4 xl:px-10 xl:gap-x-12
-      2xl:flex-row 2xl:mt-[1%] 2xl:justify-center 2xl:gap-x-12"
+      2xl:flex-row 2xl:mt-[1%] 2xl:px-10 2xl:gap-x-12"
       >
         <div
           className="text-center bg-[#B4ABAB] text-[#5B0505] w-[90%] h-[200px] py-2 rounded-lg
@@ -96,7 +96,7 @@ export default async function dashboard() {
           md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-[260px] md:py-4 md:rounded-lg
           lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-[290px] lg:py-5 lg:rounded-lg
           xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[50%] xl:h-[310px] xl:py-5 xl:rounded-lg
-          2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[440px] 2xl:h-[320px] 2xl:py-6 2xl:rounded-lg"
+          2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[460px] 2xl:h-[360px] 2xl:py-6 2xl:rounded-lg"
         >
           <p
             className="mt-4 text-xl font-semibold
@@ -120,17 +120,13 @@ export default async function dashboard() {
           </p>
         </div>
 
-        <div className="hidden 2xl:block 2xl:ml-9 2xl:w-36 2xl:h-auto 2xl:object-cover">
-          <img src="../photos/ccsLogo.png" alt="CCS Logo" />
-        </div>
-
         <div
-          className="text-center bg-[#B4ABAB] text-[#5B0505] w-[90%] h-[200px] mt-4 rounded-lg
-          sm:text-center sm:bg-[#B4ABAB] sm:text-[#5B0505] sm:w-[80%] sm:h-[230px] sm:mt-4 sm:rounded-lg
-          md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-[260px] md:mt-4 md:rounded-lg
-          lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-[290px] lg:mt-4 lg:rounded-lg
-          xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[50%] xl:h-[310px] xl:mt-4 xl:rounded-lg
-          2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[440px] 2xl:h-[320px] 2xl:mt-4 2xl:rounded-lg"
+          className="text-center bg-[#B4ABAB] text-[#5B0505] w-[90%] h-[200px] mt-0 rounded-lg
+          sm:text-center sm:bg-[#B4ABAB] sm:text-[#5B0505] sm:w-[80%] sm:h-[230px] sm:mt-0 sm:rounded-lg
+          md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-[260px] md:mt-0 md:rounded-lg
+          lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-[290px] lg:mt-0 lg:rounded-lg
+          xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[50%] xl:h-[310px] xl:mt-0 xl:rounded-lg
+          2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[460px] 2xl:h-[360px] 2xl:mt-0 2xl:rounded-lg"
         >
           <p
             className="mt-4 text-xl font-semibold
@@ -139,14 +135,32 @@ export default async function dashboard() {
             CALENDAR
           </p>
         </div>
-      </div>
 
-      <div className="flex flex-col items-center mt-6 px-0 gap-x-2">
-        <div className=" text-center bg-[#5B0505] text-[white] h-[40px] rounded-lg space-y-3">
-          <div className="text-center bg-[#5B0505] text-white rounded-lg mt-1">
+        <div className="flex flex-col items-center space-y-8 mb-11">
+          <img
+            className="w-48 h-auto object-cover
+            2xl:ml-9 2xl:w-36 2xl:h-auto 2xl:object-cover"
+            src="../photos/ccsLogo.png"
+            alt="CCS Logo"
+          />
+          <div
+            className="text-center bg-[#5B0505] text-white w-[90%] h-[80px] p-4 rounded-lg
+          sm:text-center sm:bg-[#5B0505] sm:text-white sm:w-[80%] sm:h-[80px] sm:p-4 sm:rounded-lg sm:mt-4
+          md:text-center md:bg-[#5B0505] md:text-white md:w-[70%] md:h-[80px] md:p-4 md:rounded-lg md:mt-4
+          lg:text-center lg:bg-[#5B0505] lg:text-white lg:w-[60%] lg:h-[80px] lg:p-4 lg:rounded-lg lg:mt-4
+          xl:text-center xl:bg-[#5B0505] xl:text-white xl:w-[480px] xl:h-[80px] xl:p-4 xl:rounded-lg xl:mt-4
+          2xl:mt-6 2xl:text-center 2xl:bg-[#5B0505] 2xl:text-white 2xl:w-[480px] 2xl:h-[90px] 2xl:p-4 2xl:mx-4 2xl:rounded-lg"
+          >
             <EditPrivacy_Dialog sessionUser={session.user} />
           </div>
-          <div className="text-center bg-[#5B0505] text-white p-3 rounded-lg">
+          <div
+            className="text-center bg-[#5B0505] text-white w-[90%] h-[80px] p-4 rounded-lg 
+          sm:text-center sm:bg-[#5B0505] sm:text-white sm:w-[80%] sm:h-[80px] sm:p-4 sm:rounded-lg sm:mt-4
+          md:text-center md:bg-[#5B0505] md:text-white md:w-[70%] md:h-[80px] md:p-4 md:rounded-lg md:mt-4
+          lg:text-center lg:bg-[#5B0505] lg:text-white lg:w-[60%] lg:h-[80px] lg:p-4 lg:rounded-lg lg:mt-4
+          xl:text-center xl:bg-[#5B0505] xl:text-white xl:w-[480px] xl:h-[80px] xl:p-4 xl:rounded-lg xl:mt-4
+          2xl:mt-6 2xl:text-center 2xl:bg-[#5B0505] 2xl:text-white 2xl:w-[480px] 2xl:h-[90px] 2xl:p-4 2xl:mx-4 2xl:rounded-lg"
+          >
             <UploadMaterial_Dialog sessionUser={session.user} />
           </div>
         </div>
