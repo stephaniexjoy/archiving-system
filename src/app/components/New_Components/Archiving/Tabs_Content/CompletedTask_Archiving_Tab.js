@@ -11,13 +11,8 @@ export default function CompletedTask_Archiving_tabs() {
 
   return (
     <>
-      <div className="flex flex-col mt-5 px-10">
-        <h1
-          className="
-        text-center text-[#5B0505] text-3xl font-semibold md:shadow-zinc-400 mb-5 mt-5
-        2xl:text-center 2xl:text-[#5B0505] 2xl:text-[45px] 2xl:font-semibold 2xl:md:shadow-zinc-400 2xl:mb-5
-        "
-        >
+      <div className="flex flex-col mt-16 px-10">
+        <h1 className="text-center text-[#5B0505] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[45px] font-bold md:shadow-zinc-400 mb-5">
           Completed Tasks
         </h1>
         <div className="flex items-center justify-center"></div>

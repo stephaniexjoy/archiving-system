@@ -133,16 +133,106 @@ function ArchivingTab({
 
   if (status === "authenticated") {
     return (
-      <Tabs defaultValue="files" className="w-full text-center text-lg mt-2 xs:text-xs sm:text-sm md:text-md lg:text-lg">
-        <TabsList className ="" >
-        <TabsTrigger value="files" className=" font-bold font-arial sm:w-16 md:w-24 lg:w-auto text-[11px] xs:text-xs sm:text-sm md:text-md lg:text-lg">All Files</TabsTrigger>
-          <TabsTrigger value="assignedtask"className="font-bold font-arial sm:w-26 md:w-28 lg:w-auto text-[11px] xs:text-xs sm:text-sm md:text-md lg:text-lg">Assigned Task</TabsTrigger>
-          <TabsTrigger value="missingtask"className="font-bold font-arial sm:w-26 md:w-28 lg:w-auto text-[11px] xs:text-xs sm:text-sm md:text-md lg:text-lg">Missing Task</TabsTrigger>
-          <TabsTrigger value="archivedtask"className="font-bold font-arial sm:w-26  md:w-28 lg:w-auto text-[11px] xs:text-xs sm:text-sm md:text-md lg:text-lg">Archived Task</TabsTrigger>
+      <Tabs
+        defaultValue="files"
+        className="
+        font-bold font-arial text-xs text-center
+        sm:w-16 sm:text-sm 
+        md:w-24 md:text-md 
+        lg:w-auto lg:text-lg
+        xl:w-auto xl:text-xl
+        2xl:w-auto 2xl:text-xl
+        "
+      >
+        <TabsList 
+          className="
+          grid grid-cols-3 grid-rows-2
+          sm:grid sm:grid-cols-3 sm:grid-rows-2
+          md:grid md:grid-cols-3 md:grid-rows-2
+          lg:grid lg:grid-cols-3 lg:grid-rows-2
+          xl:grid xl:grid-cols-6 xl:grid-rows-1
+          2xl:grid 2xl:grid-cols-6 2xl:grid-rows-1"
+          >
+          <TabsTrigger
+            value="files"
+            className="
+            font-bold font-arial text-md 
+            sm:w-16 sm:text-md 
+            md:w-24 md:text-lg 
+            lg:w-auto lg:text-lg
+            xl:w-auto xl:text-xl
+            2xl:w-auto 2xl:text-xl
+            "
+            >
+            All Files
+          </TabsTrigger>
+          <TabsTrigger
+            value="assignedtask"
+            className="
+            font-bold font-arial text-md 
+            sm:w-16 sm:text-md 
+            md:w-24  md:text-lg 
+            lg:w-auto lg:text-lg
+            xl:w-auto xl:text-xl
+            2xl:w-auto 2xl:text-xl
+            "
+          >
+            Assigned Task
+          </TabsTrigger>
+          <TabsTrigger
+            value="missingtask"
+            className="
+            font-bold font-arial text-md 
+            sm:w-16 sm:text-md 
+            md:w-24  md:text-lg 
+            lg:w-auto lg:text-lg
+            xl:w-auto xl:text-xl
+            2xl:w-auto 2xl:text-xl
+            "
+          >
+            Missing Task
+          </TabsTrigger>
+          <TabsTrigger
+            value="archivedtask"
+            className="
+            font-bold font-arial text-md 
+            sm:w-16 sm:text-md 
+            md:w-24  md:text-lg 
+            lg:w-auto lg:text-lg
+            xl:w-auto xl:text-xl
+            2xl:w-auto 2xl:text-xl
+            "
+          >
+            Archived Task
+          </TabsTrigger>
           {session?.user?.position === "Secretary" && (
             <>
-              <TabsTrigger value="completedtask">Completed Task</TabsTrigger>
-              <TabsTrigger value="monitor">Monitoring</TabsTrigger>
+              <TabsTrigger
+                value="completedtask"
+                className="
+                font-bold font-arial text-md 
+                sm:w-16 sm:text-md 
+                md:w-24  md:text-lg 
+                lg:w-auto lg:text-lg
+                xl:w-auto xl:text-xl
+                2xl:w-auto 2xl:text-xl
+                "
+              >
+                Completed Task
+              </TabsTrigger>
+              <TabsTrigger
+                value="monitor"
+                className="
+                font-bold font-arial text-md 
+                sm:w-16 sm:text-md 
+                md:w-24  md:text-lg 
+                lg:w-auto lg:text-lg
+                xl:w-auto xl:text-xl
+                2xl:w-auto 2xl:text-xl
+                "
+              >
+                Monitoring
+              </TabsTrigger>
             </>
           )}
         </TabsList>
@@ -178,15 +268,19 @@ function ArchivingTab({
             </TabsContent>
             <TabsContent value="monitor">
               <>
-                <h1
-                  className="
-                  text-center text-[#5B0505] text-3xl font-semibold shadow-zinc-400 mt-10 mb-5
-                  2xl:text-center 2xl:text-[#5B0505] 2xl:text-[45px] 2xl:font-semibold 2xl:shadow-zinc-400 2xl:mb-5
-                  "
-                >
-                  Monitoring
-                </h1>
-                <Monitoring_Table />
+                <div className="flex flex-col mt-16 px-10">
+                  <h1
+                    className="
+                    text-center text-[#5B0505] text-[28px] font-bold mb-5
+                    sm:text-[32px] 
+                    md:text-[36px]  md:shadow-zinc-400
+                    lg:text-[45px] 
+                    "
+                  >
+                    Monitoring
+                  </h1>
+                  <Monitoring_Table />
+                </div>
               </>
             </TabsContent>
           </>

@@ -16,21 +16,6 @@ const programFrameworks = [
   },
 ];
 
-/* const instructorFrameworks = [
-  {
-    value: "prince andres",
-    label: "Prince Andres",
-  },
-  {
-    value: "John Ryan Ual",
-    label: "John Ryan Ual",
-  },
-  {
-    value: "Marco Del Rosario",
-    label: "Marco Del Rosario",
-  },
-]; */
-
 const filetypeFrameworks = [
   {
     value: "pdf",
@@ -58,15 +43,15 @@ export default function Files_Archiving_tabs({
 
   return (
     <>
-      {/*  <div className="flex flex-row ml-12 gap-x-48">
-        <AddCategory_Dialog category={"Material"} />
-        <AddCategory_Dialog category={"Course"} />
-      </div> */}
-
-      <div className="
-      w-full px-0 overflow-auto
-      2xl:w-full 2xl:px-10
-      ">
+      <div 
+        className="
+        w-full px-0 overflow-auto
+        sm:w-full sm:px-0 sm:overflow-auto
+        md:w-full md:px-0 md:overflow-auto
+        lg:w-fulllg: lg:px-0 lg:overflow-auto
+        xl:w-full xl:px-0 xl:overflow-auto
+        2xl:w-full 2xl:px-10
+        ">
         <DataTable
           columns={columns}
           data={dataWithFormattedDate}
