@@ -68,14 +68,12 @@ export default function Monitoring_Table() {
     dataMapping();
   }, [selectedTask]);
 
-  console.log("Users", users);
+  console.log("Users", users);    
   console.log(selectedTask);
   console.log(tasksForComboBox);
   console.log(tasks);
   return (
     <div>
-      Monitoring_Table
-      <br />
       <Tasks_ComboBox
         setSelectedTask={setSelectedTask}
         tasks={tasksForComboBox}

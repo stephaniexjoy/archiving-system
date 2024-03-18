@@ -2,18 +2,38 @@ import React from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { forgotPassword } from "@/app/lib/actions/actions";
+import { useToast } from "@/components/ui/use-toast";
 const ForgotPassword_Form = () => {
+  const { toast } = useToast();
+
   return (
     <div>
       <form
         action={async (formData) => {
           const email = formData.get("email");
           console.log(email);
+          const getUserEmail = await forgotPassword(email);
+          console.log(getUserEmail);
+
+          if (getUserEmail === "Error" || getUserEmail === null) {
+            toast({
+              title: "Error",
+              description: "Invalid Email / User Not found.",
+              variant: "destructive",
+            });
+          } else {
+            toast({
+              title: "Reset Password Successfully Sent.",
+              description: "Please check your email.",
+              variant: "default",
+            });
+          }
         }}
       >
-        <label className="block text-center text-gray-600 text-xl mb-2">
+        <Label className="block text-center text-gray-600 text-xl mb-2">
           Enter Email:
-        </label>
+        </Label>
         <Input
           type="email"
           id="email"

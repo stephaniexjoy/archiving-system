@@ -95,27 +95,30 @@ export default function AssignedTask_Archiving_tabs({
 
   return (
     <>
-      <div className="flex flex-col mt-5 px-10 space">
-        <h1 className="text-center text-[#5B0505] text-[45px] font-semibold md:shadow-zinc-400 mb-5">
+      <div className="flex flex-col mt-10 px-10 space">
+        <h1 className="text-center text-[#5B0505] text-[45px] font-semibold md:shadow-zinc-400 mb-5 ">
           Assigned Tasks
         </h1>
         {position === "Secretary" && (
           <div className="flex items-center justify-center">
-            <button className="bg-[#AD5606] text-white text-center items-center w-[15%] h-12 border border-black text-xl rounded-lg">
+            <button className="
+            bg-[#AD5606] text-white text-center items-center w-36 h-10 border border-black text-lg rounded-lg mb-5
+            2xl:bg-[#AD5606] 2xl:text-white 2xl:text-center 2xl:items-center 2xl:w-[15%] 2xl:h-12 2xl:border 2xl:border-black 2xl:text-xl 2xl:rounded-lg
+            ">
               <AddTask_Dialog />
             </button>
           </div>
         )}
 
         <div className="flex flex-col items-center w-full">
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md drop-shadow-xl">
+          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md ">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               No Due Date:
             </label>
             <div className="w-full space-y-2">
               <select
                 onChange={(e) => setOptions(e.target.value)}
-                className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
+                className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1 border border-orange-900"
                 name="taskType"
                 id="taskType"
               >
@@ -137,20 +140,32 @@ export default function AssignedTask_Archiving_tabs({
                             <CardContent>
                               <div className="flex flex-row text-xl text-black p-4 mt-4">
                                 <div className="w-full flex flex-col">
-                                  <h1 className="text-2xl font-semibold mb-12">
+                                  <h1 className="
+                                  text-lg font-semibold mb-12
+                                  2xl:text-2xl 2xl:font-semibold 2xl:mb-12
+                                  ">
                                     {task.title}
                                   </h1>
-                                  <p className="mb-16 text-lg">
+                                  <p className="
+                                  mb-16 text-sm
+                                  2xl:mb-16 2xl:text-lg
+                                  ">
                                     {task.description}
                                   </p>
                                   <div>
-                                    <h1 className="text-sm mb-0">
+                                    <h1 className="
+                                    text-xs mb-0
+                                    2xl:text-sm 2xl:mb-0
+                                    ">
                                       Date Posted:{" "}
                                       {task.deadlineCreated.toLocaleString()}
                                     </h1>
                                   </div>
                                 </div>
-                                <div className="w-[60%]">
+                                <div className="
+                                w-[60%]
+                                2xl:w-[60%]
+                                ">
                                   <div className="flex flex-col bg-white p-4 gap-4 drop-shadow-2xl rounded-xl">
                                     <div className="flex flex-row gap-x-48">
                                       <h1 className="text-md">Your work</h1>
@@ -178,7 +193,7 @@ export default function AssignedTask_Archiving_tabs({
                                                 <div className="flex border w-full h-auto  drop-shadow-2xl mb-2 rounded-lg overflow-x-hidden items-center">
                                                   <div className="flex flex-row h-auto text-xl font-semibold justify-between items-center p-2 w-full">
                                                     <div>
-                                                      <p>{file.name}</p>
+                                                      <p>{file.name}</p>s
                                                     </div>
                                                     <div>
                                                       <label
@@ -326,14 +341,14 @@ export default function AssignedTask_Archiving_tabs({
             </div>
           </div>
 
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md drop-shadow-xl">
+          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               This week:
             </label>
             <div className="w-full">
               <select
                 onChange={(e) => setOptions(e.target.value)}
-                className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
+                className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1 border border-orange-900"
                 name="taskType"
                 id="taskType"
               >
@@ -380,14 +395,14 @@ export default function AssignedTask_Archiving_tabs({
             </div>
           </div>
 
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md drop-shadow-xl">
+          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               Next week:
             </label>
             <div className="w-full">
               <select
                 onChange={(e) => setOptions(e.target.value)}
-                className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
+                className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1 border border-orange-900"
                 name="taskType"
                 id="taskType"
               >
@@ -432,14 +447,14 @@ export default function AssignedTask_Archiving_tabs({
             </div>
           </div>
 
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md drop-shadow-xl">
+          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               Later:
             </label>
             <div className="w-full">
               <select
                 onChange={(e) => setOptions(e.target.value)}
-                className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
+                className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1 border border-orange-900"
                 name="taskType"
                 id="taskType"
               >

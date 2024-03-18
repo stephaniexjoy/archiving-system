@@ -8,6 +8,8 @@ import { getServerSession } from "next-auth/next";
 
 import { unstable_noStore as noStore, revalidatePath } from "next/cache";
 
+import crypto from "crypto";
+
 function getDateNow() {
   const dateString = new Date();
   const dateObject = new Date(dateString);
@@ -573,12 +575,115 @@ export async function getAllUsers() {
 }
 
 export async function getCompletedTasksById(taskId) {
- 
-    const getCompletedTasks = await db.completedTask.findMany({
+  const getCompletedTasks = await db.completedTask.findMany({
+    where: {
+      taskId: taskId,
+    },
+  });
+  return getCompletedTasks;
+}
+
+export async function getUserInfo() {
+  const sessionUser = await getUserSession();
+
+  console.log(sessionUser);
+  const user = await db.user.findUnique({
+    where: { id: sessionUser.user.id },
+  });
+  return user;
+}
+
+export async function forgotPassword(email) {
+  try {
+    const findUser = await db.user.findUnique({
       where: {
-        taskId: taskId,
+        email: email,
       },
     });
-    return getCompletedTasks;
-  
+    console.log(findUser);
+
+    if (findUser) {
+      const resetPasswordToken = crypto.randomBytes(32).toString("base64url");
+      const today = new Date();
+      const expiryTime = new Date(today.getTime() + 20 * 60000);
+
+      const hashedToken = await bcrypt.hash(resetPasswordToken, 12);
+
+      console.log(resetPasswordToken);
+      console.log(hashedToken);
+      console.log(expiryTime);
+
+      /*  const pasokba = await bcrypt.compare(resetPasswordToken, hashedToken);
+      console.log(pasokba); */
+      try {
+        const updateUser = await db.user.update({
+          where: { email: email },
+          data: {
+            resetPasswordToken: hashedToken,
+            tokenExpiry: expiryTime,
+          },
+        });
+        if (updateUser) {
+          return "User_Found";
+        }
+      } catch (error) {
+        console.log(error);
+      }
+
+      return "Error";
+    } else {
+      return "Error";
+    }
+  } catch (error) {
+    console.log(error);
+    return "Error";
+  }
+}
+
+export async function performForgotPassword(resetObject) {
+  console.log(resetObject);
+  const dateNow = new Date();
+
+  try {
+    const findUserbyEmail = await db.user.findUnique({
+      where: { email: resetObject.email },
+    });
+
+    if (
+      findUserbyEmail &&
+      (await bcrypt.compare(
+        resetObject.resetPasswordToken,
+        findUserbyEmail.resetPasswordToken
+      )) &&
+      dateNow <= findUserbyEmail.tokenExpiry
+    ) {
+      console.log("Pasok");
+      return true;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    console.log(error);
+    return "Error";
+  }
+}
+
+export async function getUpdatedPassword(newPassword, userInfo) {
+  console.log(newPassword, userInfo);
+  const hashedPassword = await bcrypt.hash(newPassword, 12);
+
+  try {
+    const updatePassword = await db.user.update({
+      where: { email: userInfo.email },
+      data: { password: hashedPassword },
+    });
+    return updatePassword;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getActivities() {
+  const activities = await db.activity.findMany({});
+  if (activities) return activities;
 }

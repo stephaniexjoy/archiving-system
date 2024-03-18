@@ -37,7 +37,9 @@ export default function Course_ComboBox({ setProgram }) {
             variant="outline"
             role="combobox"
             aria-expanded={openCourse}
-            className="w-[200px] justify-between"
+            className="
+            w-[180px] justify-between
+            2xl:w-[200px] 2xl:justify-between            "
           >
             {valueCourse
               ? programFrameworks.find(

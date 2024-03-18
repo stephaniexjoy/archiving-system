@@ -133,12 +133,12 @@ function ArchivingTab({
 
   if (status === "authenticated") {
     return (
-      <Tabs defaultValue="files" className="w-full">
+      <Tabs defaultValue="files" className="w-full text-center mt-2 xs:text-xs sm:text-sm md:text-md lg:text-lg">
         <TabsList>
-          <TabsTrigger value="files">All Files</TabsTrigger>
-          <TabsTrigger value="assignedtask">Assigned Task</TabsTrigger>
-          <TabsTrigger value="missingtask">Missing Task</TabsTrigger>
-          <TabsTrigger value="archivedtask">Archived Task</TabsTrigger>
+        <TabsTrigger value="files" className=" font-bold font-arial xs:text-xs sm:text-sm md:text-md lg:text-lg">All Files</TabsTrigger>
+          <TabsTrigger value="assignedtask"className="font-bold font-arial xs:text-xs sm:text-sm md:text-md lg:text-lg">Assigned Task</TabsTrigger>
+          <TabsTrigger value="missingtask"className="font-bold font-arial xs:text-xs sm:text-sm md:text-md lg:text-lg">Missing Task</TabsTrigger>
+          <TabsTrigger value="archivedtask"className="font-bold font-arial xs:text-xs sm:text-sm md:text-md lg:text-lg">Archived Task</TabsTrigger>
           {session?.user?.position === "Secretary" && (
             <>
               <TabsTrigger value="completedtask">Completed Task</TabsTrigger>
@@ -178,7 +178,14 @@ function ArchivingTab({
             </TabsContent>
             <TabsContent value="monitor">
               <>
-                Monitoring
+                <h1
+                  className="
+                  text-center text-[#5B0505] text-3xl font-semibold shadow-zinc-400 mt-10 mb-5
+                  2xl:text-center 2xl:text-[#5B0505] 2xl:text-[45px] 2xl:font-semibold 2xl:shadow-zinc-400 2xl:mb-5
+                  "
+                >
+                  Monitoring
+                </h1>
                 <Monitoring_Table />
               </>
             </TabsContent>

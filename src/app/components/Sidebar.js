@@ -172,7 +172,7 @@ const Sidebar = () => {
                 
               </span> */}
 
-              <div className="ml-1 mt-1 font-medium ">
+              <div className="ml-1 -mt-1 font-medium ">
                 <Signout_Dialog isMinimized={isMinimized}/>
               </div>
             </li>

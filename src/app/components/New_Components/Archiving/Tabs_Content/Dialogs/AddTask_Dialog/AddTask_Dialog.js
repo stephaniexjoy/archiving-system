@@ -23,7 +23,10 @@ function AddTask_Dialog({ sessionUser }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <b className="bg-transparent hover-transparent text-3xl font-bold">
+        <b className="
+        bg-transparent hover-transparent text-xl font-bold
+        2xl:bg-transparent 2xl:hover-transparent 2xl:text-3xl 2xl:font-bold
+        ">
           Add Task
         </b>
       </DialogTrigger>

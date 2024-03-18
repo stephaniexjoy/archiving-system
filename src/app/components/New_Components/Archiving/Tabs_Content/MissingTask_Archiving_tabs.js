@@ -54,19 +54,19 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
 
   return (
     <>
-      <div className="flex flex-col mt-5 px-10">
+      <div className="flex flex-col mt-10 px-10">
         <h1 className="text-center text-[#5B0505] text-[45px] font-semibold md:shadow-zinc-400 mb-5">
           Missing Tasks
         </h1>
         <div className="flex flex-col items-center w-full">
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md">
+          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md ">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               Missing:
             </label>
             <div className="w-full">
               <select
                 onChange={(e) => setOptions(e.target.value)}
-                className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1"
+                className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1 border border-orange-900"
                 name="taskType"
                 id="taskType"
               >
