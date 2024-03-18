@@ -91,14 +91,16 @@ export function ComboboxPermission({ value, onChange }) {
           role="combobox"
           aria-expanded={open}
           className="
-          w-[200px] justify-between
+          w-[170px] sm:w-auto md:w-auto lg:w-auto justify-between
           2xl:w-[200px] 2xl:justify-between
           "
         >
           {value
             ? permissions.find((framework) => framework.value === value)?.label
             : "Select permissions..."}
-          <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+
+
+          <CaretSortIcon className="-ml-1 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
@@ -140,12 +142,12 @@ export function ComboboxMaterial({ value, onChange, materials }) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-[170px] sm:w-auto md:w-auto lg:w-auto ml-0.5 justify-between"
         >
           {value
             ? materials.find((framework) => framework.value === value)?.label
             : "Select material.."}
-          <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          <CaretSortIcon className="ml-5 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
@@ -187,12 +189,12 @@ export function ComboboxProgram({ value, onChange }) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className=" mt-2 w-[170px] sm:w-auto md:w-auto lg:w-auto justify-between"
         >
           {value
             ? programs.find((framework) => framework.value === value)?.label
             : "Select program.."}
-          <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          <CaretSortIcon className="ml-5 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
@@ -238,13 +240,13 @@ export function ComboboxInstructor({ value, onChange, instructors }) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-[170px] sm:w-auto md:w-auto lg:w-auto ml-0.5 mt-2 justify-between"
         >
           {value
             ? transformInstructor.find((framework) => framework.value === value)
                 ?.label
             : "Select instructor.."}
-          <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          <CaretSortIcon className="ml-3 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
@@ -286,12 +288,12 @@ export function ComboboxFileType({ value, onChange }) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="mt-2 w-[170px] sm:w-auto md:w-auto lg:w-auto justify-between"
         >
           {value
             ? filetypes.find((framework) => framework.value === value)?.label
             : "Select file type..."}
-          <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          <CaretSortIcon className="ml-5 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
@@ -329,29 +331,32 @@ export default function Date_Range({ className }) {
     to: addDays(new Date(2022, 0, 20), 20),
   });
   return (
-    <div className={cn("grid gap-2", className)}>
+    <div className={cn("grid gap-2 ", className)}>
       <Popover>
         <PopoverTrigger asChild>
           <Button
             id="date"
             variant={"outline"}
             className={cn(
-              "text-sm w-[200px] 2xl:w-[280px] cursor-pointer md:left-[1250px] h-[40px] shadow-lg rounded-sm px-2 py-1",
+              "text-sm  w-[170px] sm:w-auto md:w-auto lg:w-auto ml-0.5 mt-2 2xl:w-[280px] cursor-pointer md:left-[1250px] h-[40px] rounded-sm px-2 py-1",
               !date
             )}
           >
-            <CalendarIcon className="mr-2 h-4 w-4" />
+            <CalendarIcon className="-mt-1 mr-2 h-4 w-4 " />
             {date?.from ? (
               date.to ? (
                 <>
-                  {format(date.from, "LLL dd, y")} -{" "}
-                  {format(date.to, "LLL dd, y")}
+               
+               <span className="text-[11px] font-bold">{format(date.from, "LLL dd, y")}</span> -{" "}
+            <span className="text-[11px] font-bold">{format(date.to, "LLL dd, y")}</span>
+                 
                 </>
               ) : (
                 format(date.from, "LLL dd, y")
               )
             ) : (
               <span>Pick a date</span>
+              
             )}
           </Button>
         </PopoverTrigger>
@@ -430,11 +435,11 @@ export function DataTable({ columns, data, materials, instructors }) {
             table.getColumn("filename")?.setFilterValue(event.target.value)
           }
           className="
-          w-full mt-4
+          lg:w-[900px] md:w-[500px] sm:w-[400px] w-[300px] mt-4 
           2xl:max-w-sm"
         />
         <div className="grid grid-cols-2 gap-x-2 w-auto">
-          <ComboboxPermission
+          <ComboboxPermission 
             value={table.getColumn("fileRole")?.getFilterValue() ?? ""}
             onChange={handleComboBoxPermissionChange}
           />

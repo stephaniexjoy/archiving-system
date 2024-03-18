@@ -55,11 +55,11 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
   return (
     <>
       <div className="flex flex-col mt-10 px-10">
-        <h1 className="text-center text-[#5B0505] text-[45px] font-semibold md:shadow-zinc-400 mb-5">
+        <h1 className="text-center text-[#5B0505] text-[28px]  sm:text-[32px] md:text-[36px] lg:text-[45px] font-bold md:shadow-zinc-400 mb-5">
           Missing Tasks
         </h1>
         <div className="flex flex-col items-center w-full">
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md ">
+          <div className="flex flex-col bg-white w-[80%] lg:w-[60%] md:w-[60%] sm:[60%] p-4 rounded-md ">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               Missing:
             </label>
@@ -84,14 +84,14 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
                     <div key={`${task.id}_${index}`}>
                       <div className="flex flex-row">
                         <div className="w-full p-0">
-                          <Card className="w-full h-auto">
+                          <Card className="flex items-center w-full h-auto">
                             <CardContent>
                               <div className="flex flex-row text-xl text-black p-4 mt-4">
                                 <div className="w-full flex flex-col">
                                   <h1 className="text-4xl font-semibold mb-48">
                                     {task.title}
                                   </h1>
-                                  <p className="mb-48 text-2xl">
+                                  <p className="w-[500px]mb-48 text-2xl">
                                     {task.description}
                                   </p>
                                   <div>
@@ -102,7 +102,7 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
                                   </div>
                                 </div>
                                 <div className="w-[80%]">
-                                  <div className="flex flex-col bg-white p-4 gap-4 drop-shadow-2xl rounded-xl">
+                                  <div className="flex flex-row bg-white p-4 gap-4 drop-shadow-2xl rounded-xl">
                                     <div className="flex flex-row gap-x-60">
                                       <h1 className="text-xl">Your work</h1>
                                       <h1 className="text-lg text-red-600">
