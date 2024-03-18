@@ -2,10 +2,10 @@ import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 import { db } from "@/app/lib/prisma_db";
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
+import CalendarComponent from "../components/Calendar";
 import EditPrivacy_Dialog from "../components/New_Components/EditPrivacy_Dialog";
 import UploadMaterial_Dialog from "../components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog";
 import Notification_Panel from "../components/Notifications/Notification_Panel";
-import Dashboard_Skeleton from "../components/Skeletons/Faculty/Dashboard/Dashboard_Skeleton";
 
 export default async function dashboard() {
   const session = await getServerSession(AuthOptions);
@@ -122,19 +122,20 @@ export default async function dashboard() {
         </div>
 
         <div
-          className="text-center bg-[#B4ABAB] text-[#5B0505] w-[90%] h-[200px] mt-0 rounded-lg
+          className="text-center items-center content-center bg-[#B4ABAB] text-[#5B0505] w-[90%] h-[200px] mt-0 rounded-lg
           sm:text-center sm:bg-[#B4ABAB] sm:text-[#5B0505] sm:w-[80%] sm:h-[230px] sm:mt-0 sm:rounded-lg
           md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-[260px] md:mt-0 md:rounded-lg
           lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-[290px] lg:mt-0 lg:rounded-lg
           xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[50%] xl:h-[310px] xl:mt-0 xl:rounded-lg
           2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[460px] 2xl:h-[360px] 2xl:mt-0 2xl:rounded-lg"
         >
-          <p
+          {/* <p
             className="mt-4 text-xl font-semibold
           2xl:mt-8 2xl:text-4xl 2xl:font-semibold"
           >
             CALENDAR
-          </p>
+          </p> */}
+          <CalendarComponent />
         </div>
 
         <div className="flex flex-col items-center space-y-8 mb-11">
@@ -167,6 +168,6 @@ export default async function dashboard() {
         </div>
       </div>
     </div>
-/*      <Dashboard_Skeleton /> */
+    /*      <Dashboard_Skeleton /> */
   );
 }

@@ -55,7 +55,7 @@ const Form = ({ userInfo }) => {
           type="password"
           placeholder="Confirm New Password"
         />
-        <Button type="submit">Update Password</Button>
+        <Button className="flex justify-center items-center m-auto mt-6 mb-2 py-4 px-6" type="submit">Update Password</Button>
       </form>
     </div>
   );

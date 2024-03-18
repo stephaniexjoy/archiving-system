@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import CreateAccount_Dialog from "@/app/components/New_Components/CreateAccount_Dialog/CreateAccount_Dialog";
 import ActivityTable_Superadmin from "@/app/components/NewTable/Dashboard/Superadmin/ActivityTable_Superadmin";
 import Image from "next/image";
+import CalendarComponent from "@/app/components/Calendar";
 
 async function page() {
   const session = await getServerSession(AuthOptions);
@@ -79,9 +80,10 @@ async function page() {
           <CreateAccount_Dialog />
         </div>
         <div className="text-center bg-[#B4ABAB] text-[#5B0505] w-96 h-20">
-          <p className="mt-5 text-1xl font-bold sm:text-sm md:text-md lg:text-lg">
+          {/*  <p className="mt-5 text-1xl font-bold sm:text-sm md:text-md lg:text-lg">
             CALENDAR
-          </p>
+          </p> */}
+          <CalendarComponent />
         </div>
       </div>
 
