@@ -7,6 +7,7 @@ import UploadMaterial_Dialog from "@/app/components/New_Components/UploadMateria
 import CreateAccount_Dialog from "@/app/components/New_Components/CreateAccount_Dialog/CreateAccount_Dialog";
 import Link from "next/link";
 import ActivityTable_Secretary from "@/app/components/NewTable/Dashboard/Secretary/ActivityTable_Secretary";
+import CalendarComponent from "@/app/components/Calendar";
 
 async function page() {
   const session = await getServerSession(AuthOptions);
@@ -281,7 +282,7 @@ async function page() {
           2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[70%] 2xl:h-80 2xl:mt-0 2xl:-ml-4
           "
           >
-            <p
+            {/* <p
               className="
             mt-10 text-xl font-bold
             sm:mt-10 sm:text-xl sm:font-bold
@@ -292,7 +293,8 @@ async function page() {
             "
             >
               CALENDAR
-            </p>
+            </p> */}
+            <CalendarComponent />
           </div>
           <div
             className="
