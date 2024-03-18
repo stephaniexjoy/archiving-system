@@ -9,6 +9,7 @@ import {
   getTasks,
   getCompletedTasks,
 } from "@/app/lib/actions/actions";
+import Image from "next/image";
 
 async function getSearchData(query) {
   if (query) {
@@ -65,17 +66,21 @@ export default async function archiving({ searchParams }) {
   return (
     <>
       <div className="flex flex-col w-screen h-screen">
-        <div className="
+        <div
+          className="
         bg-[#AD5606] w-[100%] h-[7%] flex items-center justify-center
         2xl:bg-[#AD5606] 2xl:w-full 2xl:h-[12%] 2xl:flex 2xl:items-center 2xl:justify-center
-        ">
-          <img
+        "
+        >
+          <Image
             className="
             w-[60%] h-auto object-cover flex items-center justify-center
             2xl:w-[27%] 2xl:h-[100%] 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center
             "
             alt="E-Archiving System"
             src="/photos/E-Archiving System.png"
+            width={300}
+            height={100}
           />
         </div>
 

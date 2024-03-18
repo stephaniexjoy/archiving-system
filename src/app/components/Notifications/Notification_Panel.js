@@ -25,6 +25,7 @@ import { Label } from "@/components/ui/label";
 import Notifcations from "./Notifcations";
 import { getActivities } from "@/app/lib/actions/actions";
 import NotificationHolder from "./NotificationHolder";
+import Image from "next/image";
 
 function filterByDate(activities) {
   const filteredActivities = {
@@ -59,7 +60,7 @@ const Notification_Panel = async () => {
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="ghost">
-          <img
+          <Image
             className="h-[70%] w-[45px] mt-[.8%] ml-[1%]
           sm:h-[70%] sm:w-[60px] sm:mt-[.8%] sm:ml-[1.3%]
           md:h-[70%] md:w-[75px] md:mt-[.8%] md:ml-[1.6%]
@@ -67,7 +68,9 @@ const Notification_Panel = async () => {
           xl:h-[70%] xl:w-[84px] xl:mt-[.8%] xl:ml-[1.8%]
           2xl:h-[70%] 2xl:w-[85px] 2xl:mt-[.8%] 2xl:ml-[2%]"
             alt="Notification Logo"
-            src="../photos/Notificationlogo.png"
+            src="/photos/Notificationlogo.png"
+            width={300}
+            height={100}
           />
         </Button>
       </DialogTrigger>
