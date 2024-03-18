@@ -12,12 +12,12 @@ export default function ArchivedTask_Archiving_tabs() {
   return (
     <>
       <div className="flex flex-col mt-10  px-10">
-        <h1 className="text-center text-[#5B0505] text-[45px] font-semibold md:shadow-zinc-400 mb-5">
+        <h1 className="text-center text-[#5B0505] text-[28px]  sm:text-[32px] md:text-[36px] lg:text-[45px] font-bold md:shadow-zinc-400 mb-5">
           Archived Tasks
         </h1>
         <div className="flex items-center justify-center"></div>
         <div className="flex flex-col items-center w-full ">
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md ">
+          <div className="flex flex-col bg-white w-[80%] lg:w-[60%] md:w-[60%] sm:[60%] p-4 rounded-md ">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               No Due Date:
             </label>
@@ -99,14 +99,9 @@ export default function ArchivedTask_Archiving_tabs() {
             </div>
           </div>
 
-          <div className="
-          flex flex-col bg-white w-[100%] p-4 rounded-md
-          2xl:flex 2xl:flex-col 2xl:bg-white 2xl:w-[60%] 2xl:p-4 2xl:rounded-md"
-          >
-            <label className="
-            w-full text-[#5B0505] text-md font-semibold mr-4
-            2xl:w-full 2xl:text-[#5B0505] 2xl:text-lg 2xl:font-semibold 2xl:mr-4
-            ">
+
+          <div className="flex flex-col bg-white w-[80%] lg:w-[60%] md:w-[60%] sm:[60%] p-4 rounded-md ">
+            <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               This week:
             </label>
             <div className="w-full">
@@ -146,7 +141,7 @@ export default function ArchivedTask_Archiving_tabs() {
               {options === "thisweek3" && (
                 <div className="border border-black text-xl text-black p-4 mt-4">
                   <h1 className="text-2xl font-semibold mb-2">
-                    This wwek 3 Title
+                    This week 3 Title
                   </h1>
                   <p className="mb-4 text-lg">This week 3 Instructions.</p>
                   <div>
@@ -157,14 +152,8 @@ export default function ArchivedTask_Archiving_tabs() {
             </div>
           </div>
 
-          <div className="
-          flex flex-col bg-white w-[100%] p-4 rounded-md
-          2xl:flex 2xl:flex-col 2xl:bg-white 2xl:w-[60%] 2xl:p-4 2xl:rounded-md
-          ">
-            <label className="
-            w-full text-[#5B0505] text-md font-semibold mr-4
-            2xl:w-full 2xl:text-[#5B0505] 2xl:text-lg 2xl:font-semibold 2xl:mr-4
-            ">
+         <div className="flex flex-col bg-white w-[80%] lg:w-[60%] md:w-[60%] sm:[60%] p-4 rounded-md ">
+            <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               Next week:
             </label>
             <div className="w-full">
@@ -215,7 +204,7 @@ export default function ArchivedTask_Archiving_tabs() {
             </div>
           </div>
 
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md  ">
+          <div className="flex flex-col bg-white w-[80%] lg:w-[60%] md:w-[60%] sm:[60%] p-4 rounded-md  ">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               Later:
             </label>

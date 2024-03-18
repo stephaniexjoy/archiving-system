@@ -96,7 +96,7 @@ export default function AssignedTask_Archiving_tabs({
   return (
     <>
       <div className="flex flex-col mt-10 px-10 space">
-        <h1 className="text-center text-[#5B0505] text-[45px] font-semibold md:shadow-zinc-400 mb-5 ">
+        <h1 className="text-center text-[#5B0505] text-[28px]  sm:text-[32px] md:text-[36px] lg:text-[45px] font-bold md:shadow-zinc-400 mb-5 ">
           Assigned Tasks
         </h1>
         {position === "Secretary" && (
@@ -111,7 +111,7 @@ export default function AssignedTask_Archiving_tabs({
         )}
 
         <div className="flex flex-col items-center w-full">
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md ">
+          <div className="flex flex-col bg-white w-[80%] lg:w-[60%] md:w-[60%] sm:[60%] p-4 rounded-md ">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               No Due Date:
             </label>
@@ -134,27 +134,27 @@ export default function AssignedTask_Archiving_tabs({
                 (task, index) =>
                   options === String(task.id) && (
                     <div key={`${task.id}_${index}`}>
-                      <div className="flex flex-row">
+                      <div className="flex flex-row items-center">
                         <div className="w-full p-0">
-                          <Card className="w-full h-auto">
-                            <CardContent>
-                              <div className="flex flex-row text-xl text-black p-4 mt-4">
+                          <Card className="lg:w-full w-[330px] h-auto">
+                            <CardContent >
+                              <div className="flex flex-row text-xl  text-black  mt-4">
                                 <div className="w-full flex flex-col">
                                   <h1 className="
-                                  text-lg font-semibold mb-12
+                                  text-lg ml-20 font-semibold mb-12
                                   2xl:text-2xl 2xl:font-semibold 2xl:mb-12
                                   ">
                                     {task.title}
                                   </h1>
                                   <p className="
-                                  mb-16 text-sm
+                                  mb-16 text-sm ml-20
                                   2xl:mb-16 2xl:text-lg
                                   ">
                                     {task.description}
                                   </p>
                                   <div>
                                     <h1 className="
-                                    text-xs mb-0
+                                    text-xs mb-0 ml-20
                                     2xl:text-sm 2xl:mb-0
                                     ">
                                       Date Posted:{" "}
@@ -164,12 +164,12 @@ export default function AssignedTask_Archiving_tabs({
                                 </div>
                                 <div className="
                                 w-[60%]
-                                2xl:w-[60%]
+                                2xl:w-[60%] items-center
                                 ">
-                                  <div className="flex flex-col bg-white p-4 gap-4 drop-shadow-2xl rounded-xl">
+                                  <div className="flex flex-col mt-48 -ml-40 bg-white p-4 gap-4 drop-shadow-2xl rounded-xl">
                                     <div className="flex flex-row gap-x-48">
                                       <h1 className="text-md">Your work</h1>
-                                      <h1 className="text-sm text-green-600">
+                                      <h1 className="text-sm -ml-5 text-green-600">
                                         Assigned
                                       </h1>
                                     </div>
@@ -310,7 +310,7 @@ export default function AssignedTask_Archiving_tabs({
                                                 </AlertDialogAction>
                                               </AlertDialogFooter>
                                             </AlertDialogContent>
-                                          </AlertDialog>{" "}
+                                          </AlertDialog>
                                         </div>
                                       </DialogContent>
                                     </Dialog>
@@ -341,7 +341,7 @@ export default function AssignedTask_Archiving_tabs({
             </div>
           </div>
 
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md">
+          <div className="flex flex-col bg-white w-[80%] lg:w-[60%] md:w-[60%] sm:[60%] p-4 rounded-md">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               This week:
             </label>
@@ -384,7 +384,7 @@ export default function AssignedTask_Archiving_tabs({
               {options === "thisweek3" && (
                 <div className="border border-black text-xl text-black p-4 mt-4">
                   <h1 className="text-2xl font-semibold mb-2">
-                    This wwek 3 Title
+                    This week 3 Title
                   </h1>
                   <p className="mb-4 text-lg">This week 3 Instructions.</p>
                   <div>
@@ -395,7 +395,7 @@ export default function AssignedTask_Archiving_tabs({
             </div>
           </div>
 
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md">
+          <div className="flex flex-col bg-white w-[80%] lg:w-[60%] md:w-[60%] sm:[60%] p-4 rounded-md">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               Next week:
             </label>
@@ -447,7 +447,7 @@ export default function AssignedTask_Archiving_tabs({
             </div>
           </div>
 
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md">
+          <div className="flex flex-col bg-white w-[80%] lg:w-[60%] md:w-[60%] sm:[60%] p-4 rounded-md">
             <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
               Later:
             </label>

@@ -133,12 +133,12 @@ function ArchivingTab({
 
   if (status === "authenticated") {
     return (
-      <Tabs defaultValue="files" className="w-full text-center mt-2 xs:text-xs sm:text-sm md:text-md lg:text-lg">
-        <TabsList>
-        <TabsTrigger value="files" className=" font-bold font-arial xs:text-xs sm:text-sm md:text-md lg:text-lg">All Files</TabsTrigger>
-          <TabsTrigger value="assignedtask"className="font-bold font-arial xs:text-xs sm:text-sm md:text-md lg:text-lg">Assigned Task</TabsTrigger>
-          <TabsTrigger value="missingtask"className="font-bold font-arial xs:text-xs sm:text-sm md:text-md lg:text-lg">Missing Task</TabsTrigger>
-          <TabsTrigger value="archivedtask"className="font-bold font-arial xs:text-xs sm:text-sm md:text-md lg:text-lg">Archived Task</TabsTrigger>
+      <Tabs defaultValue="files" className="w-full text-center text-lg mt-2 xs:text-xs sm:text-sm md:text-md lg:text-lg">
+        <TabsList className ="" >
+        <TabsTrigger value="files" className=" font-bold font-arial sm:w-16 md:w-24 lg:w-auto text-[11px] xs:text-xs sm:text-sm md:text-md lg:text-lg">All Files</TabsTrigger>
+          <TabsTrigger value="assignedtask"className="font-bold font-arial sm:w-26 md:w-28 lg:w-auto text-[11px] xs:text-xs sm:text-sm md:text-md lg:text-lg">Assigned Task</TabsTrigger>
+          <TabsTrigger value="missingtask"className="font-bold font-arial sm:w-26 md:w-28 lg:w-auto text-[11px] xs:text-xs sm:text-sm md:text-md lg:text-lg">Missing Task</TabsTrigger>
+          <TabsTrigger value="archivedtask"className="font-bold font-arial sm:w-26  md:w-28 lg:w-auto text-[11px] xs:text-xs sm:text-sm md:text-md lg:text-lg">Archived Task</TabsTrigger>
           {session?.user?.position === "Secretary" && (
             <>
               <TabsTrigger value="completedtask">Completed Task</TabsTrigger>
