@@ -33,29 +33,26 @@ export default async function page({ searchParams }) {
           />
         </div>
 
-        
-    
-      {Object.entries(searchParams).length > 0 ? (
-        <>
-          {perform === true ? (
-            <div>
+        {Object.entries(searchParams).length > 0 ? (
+          <>
+            {perform === true ? (
               <div>
-                <InputPasswordCard userInfo={searchParamsObject} />
+                <div>
+                  <InputPasswordCard userInfo={searchParamsObject} />
+                </div>
               </div>
-            </div>
-          ) : (
-            <>Token Expired / Token not found</>
-          )}
-        </>
-      ) : (
-        <div>
-          <p>Forgot Password page</p>
+            ) : (
+              <>Token Expired / Token not found</>
+            )}
+          </>
+        ) : (
+          <div>
+            <p>Forgot Password page</p>
 
-          <div>Missing Search Paramas</div>
-        </div>
-      )}
-      
-        </div>
+            <div>Missing Search Paramas</div>
+          </div>
+        )}
+      </div>
     </>
   );
 }

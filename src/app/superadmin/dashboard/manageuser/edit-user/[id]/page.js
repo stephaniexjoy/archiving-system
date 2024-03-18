@@ -1,11 +1,17 @@
-import React from "react";
-import { FaUserAlt } from "react-icons/fa";
-import { FaLock } from "react-icons/fa";
-import { IoMdEyeOff } from "react-icons/io";
-import { HiPencilAlt } from "react-icons/hi";
 import { db } from "@/app/lib/prisma_db";
 import bcrypt from "bcrypt";
 import Image from "next/image";
+import { FaLock, FaUserAlt } from "react-icons/fa";
+import { HiPencilAlt } from "react-icons/hi";
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const page = async ({ params }) => {
   const user = await db.user.findUnique({
@@ -49,6 +55,17 @@ const page = async ({ params }) => {
             height={100}
           />
         </div>
+
+        <Card>
+          <CardHeader>
+            <CardTitle></CardTitle>
+            <CardDescription></CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>Card Content</p>
+          </CardContent>
+          <CardFooter></CardFooter>
+        </Card>
 
         <div className="w-auto mx-auto mt-[10%]">
           <h1 className="text-[60px] mt-2 mb-5 font-semibold text-[#5B0505] text-center">
