@@ -5,6 +5,7 @@ import { IoMdEyeOff } from "react-icons/io";
 import { HiPencilAlt } from "react-icons/hi";
 import { db } from "@/app/lib/prisma_db";
 import bcrypt from "bcrypt";
+import Image from "next/image";
 
 const page = async ({ params }) => {
   const user = await db.user.findUnique({
@@ -38,12 +39,14 @@ const page = async ({ params }) => {
 
   return (
     <>
-      <div className='flex flex-col w-screen h-screen'>
+      <div className="flex flex-col w-screen h-screen">
         <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
-          <img
+          <Image
             className="w-[27%] h-[100%] object-cover flex items-center justify-center"
             alt="E-Archiving System"
             src="/photos/E-Archiving System.png"
+            width={300}
+            height={100}
           />
         </div>
 

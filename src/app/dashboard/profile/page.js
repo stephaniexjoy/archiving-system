@@ -3,6 +3,7 @@ import EditProfileFaculty_Dialog from "@/app/components/New_Components/EditProfi
 import { db } from "@/app/lib/prisma_db";
 import { Button } from "@/components/ui/button";
 import { getServerSession } from "next-auth/next";
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function profile() {
@@ -19,20 +20,24 @@ export default async function profile() {
   return (
     <div className="flex items-center flex-col w-screen h-screen ">
       <div className="bg-[#AD5606] w-screen  h-[12%] flex items-center justify-center">
-        <img
+        <Image
           className=" sm:w-[27%] sm:h-[100%] md:w-[60%] md:h-[100%] lg:w-[40%] lg:h-[90%] object-cover flex items-center justify-center"
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
+          width={300}
+          height={100}
         />
       </div>
 
       <div className="bg-[#F5EEE6] overflow-scroll overflow-x-hidden ml-4 w-full md:w-3/4 lg:w-3/3 xl:w-3/4 2xl:w-4/5 md:mx-24 h-full my-6 rounded-t-lg rounded-b-lg shadow-2xl">
         <div className="flex flex-row justify-center">
           <div className="mt-8 ml-6 basis-1/5 left-[10px] object-center">
-            <img
+            <Image
               className="rounded-[50%] w-[80px] h-[60px] sm:w-[130px] sm:h-[80px] md:w-[120px] md:h-[80px] lg:w-[100px] lg:h-[160px]object-cover mb-5"
               alt="Profile"
               src="/profile.jpg"
+              width={300}
+              height={100}
             />
           </div>
           <div className="ml-5 mt-7 sm:mt-7 md:mt-7 lg:mt-6 basis-3/5 font-semibold text-[9.5px] text-black text-lg sm:text-left lg:text-left md:text-left lg:w-[900px] h-[30px] sm:w-[700px] ">
@@ -71,7 +76,7 @@ export default async function profile() {
                 Baccalaureate Degree: {user.education.bacDegree}
               </div>
               <div className="sm:text-sm md:text-md lg:text-lg">
-                Master's Degree:{user.education.masDegree}
+                Master&apos;s Degree:{user.education.masDegree}
               </div>
               <div className="sm:text-sm md:text-md lg:text-lg">
                 Doctorate Degree:{user.education.doccDegree}

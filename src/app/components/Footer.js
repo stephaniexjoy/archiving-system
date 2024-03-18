@@ -1,4 +1,5 @@
-import React from 'react';
+import Image from "next/image";
+import React from "react";
 
 const Footer = () => {
   return (
@@ -7,36 +8,83 @@ const Footer = () => {
         <div className="flex flex-col md:flex-col md:w-1/2">
           <div className="flex flex-col">
             <div className="flex items-start justify-start mb-4 md:mb-0 mr-0 md:mr-4">
-              <img src="/photos/lspuLogo.png" alt="LSPU Logo" className="w-0 h-0" />
+              <Image
+                src="/photos/lspuLogo.png"
+                alt="LSPU Logo"
+                className="w-0 h-0"
+                width={300}
+                height={100}
+              />
             </div>
             <div className="flex items-start justify-start mb-4 md:mb-0">
-              <img src="/photos/ccsLogo.png" alt="CCS Logo" className="w-0 h-0" />
+              <Image
+                src="/photos/ccsLogo.png"
+                alt="CCS Logo"
+                className="w-0 h-0"
+                width={300}
+                height={100}
+              />
             </div>
           </div>
           <div className="flex flex-col md:flex-row w-full md:w-1/2">
             <div className="w-full md:w-1/2 flex flex-col items-start justify-start -mt-[5%]">
-              <p className="text-[#5B0505] text-lg font-semibold mr-2">CONTACT US</p>
+              <p className="text-[#5B0505] text-lg font-semibold mr-2">
+                CONTACT US
+              </p>
               <div className="flex flex-col">
                 <div className="flex items-start justify-start mb-2">
-                  <img src="/photos/callLogo.png" alt="Call Logo" className="w-7 h-auto" />
-                  <p className="ml-1 text-white text-[12px] font-semibold">(049) 554-3033</p>
+                  <Image
+                    src="/photos/callLogo.png"
+                    alt="Call Logo"
+                    className="w-7 h-auto"
+                    width={300}
+                    height={100}
+                  />
+                  <p className="ml-1 text-white text-[12px] font-semibold">
+                    (049) 554-3033
+                  </p>
                 </div>
                 <div className="flex items-start justify-start mb-2">
-                  <img src="/photos/emailLogo.png" alt="Email Logo" className="w-7 h-auto" />
-                  <p className="ml-1 text-white text-[12px] font-semibold">ccs_spc@lspu.edu.ph</p>
+                  <Image
+                    src="/photos/emailLogo.png"
+                    alt="Email Logo"
+                    className="w-7 h-auto"
+                    width={300}
+                    height={100}
+                  />
+                  <p className="ml-1 text-white text-[12px] font-semibold">
+                    ccs_spc@lspu.edu.ph
+                  </p>
                 </div>
                 <div className="flex items-start justify-start">
-                  <img src="/photos/locationLogo.png" alt="Location Logo" className="w-7 h-auto" />
-                  <p className="ml-1 text-white text-[12px] font-semibold">Brgy. Del Remedio, San Pablo City, Philippines</p>
+                  <Image
+                    src="/photos/locationLogo.png"
+                    alt="Location Logo"
+                    className="w-7 h-auto"
+                    width={300}
+                    height={100}
+                  />
+                  <p className="ml-1 text-white text-[12px] font-semibold">
+                    Brgy. Del Remedio, San Pablo City, Philippines
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div className="flex flex-col w-full md:w-1/2">
-          <div className="text-[#5B0505] text-lg font-semibold mb-2 mt-2">ABOUT</div>
+          <div className="text-[#5B0505] text-lg font-semibold mb-2 mt-2">
+            ABOUT
+          </div>
           <p className="text-white text-[12px] md:text-base mb-4 text-justify">
-            The E-Archiving System endeavors to address the challenges posed by traditional document storage and retrieval methods, aiming to streamline processes, improve efficiency, and provide a comprehensive solution for the dynamic environment of the CCS. Recognizing the significance of accessible and organized data, our team has rallied with a shared commitment to bring forth a solution that not only meets the current needs of the faculty but also anticipates future demands.
+            The E-Archiving System endeavors to address the challenges posed by
+            traditional document storage and retrieval methods, aiming to
+            streamline processes, improve efficiency, and provide a
+            comprehensive solution for the dynamic environment of the CCS.
+            Recognizing the significance of accessible and organized data, our
+            team has rallied with a shared commitment to bring forth a solution
+            that not only meets the current needs of the faculty but also
+            anticipates future demands.
           </p>
         </div>
       </div>
