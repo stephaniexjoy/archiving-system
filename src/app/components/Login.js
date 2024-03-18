@@ -1,11 +1,11 @@
 "use client";
-import { signIn } from "next-auth/react";
-import React, { useState } from "react";
-import { FaLock, FaUserAlt } from "react-icons/fa";
-import { IoMdEyeOff } from "react-icons/io";
-import ForgotPassword_Dialog from "./New_Components/ForgotPassword_Dialog";
 import { useToast } from "@/components/ui/use-toast";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { FaLock, FaUserAlt } from "react-icons/fa";
+import ForgotPassword_Dialog from "./New_Components/ForgotPassword_Dialog";
+import Image from "next/image";
 
 const Login = () => {
   const { toast } = useToast(); // Get the toast function
@@ -68,10 +68,12 @@ const Login = () => {
       xl:w-[50%] xl:h-auto
       2xl:w-[40%] 2xl:h-auto bg-slate-200 rounded-[10%] "
       >
-        <img
+        <Image
           className="w-screen h-screen object-cover opacity-100"
           alt="CCS Logo Half"
-          src="../photos/ccsLogoHalf.png"
+          src="/photos/ccsLogoHalf.png"
+          width={300}
+          height={100}
         />
       </div>
       <div className="flex flex-col items-center justify-center bg-slate-200 w-screen h-auto py-4 ">
@@ -84,10 +86,12 @@ const Login = () => {
         xl:bg-white xl:items-center xl:rounded-xl xl:w-[80%] xl:h-full xl:mt-5 xl:py-14 xl:shadow-[0_0_10px_10px_rgba(0,_0,_0,_0.35}]
         2xl:bg-white 2xl:items-center 2xl:rounded-xl 2xl:w-[80%] 2xl:h-full 2xl:mt-5 2xl:py-16 2xl:shadow-[0_0_10px_10px_rgba(0,_0,_0,_0.35}]"
         >
-          <img
+          <Image
             className="-mt-8 ml-[9%] mb-[2%] w-[85%] h-auto object-cover"
             alt="E-Archiving System Maroon"
             src="../photos/E-Archiving System Maroon.png"
+            width={300}
+            height={100}
           />
           <div
             className="

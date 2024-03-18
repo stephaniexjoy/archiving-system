@@ -2,6 +2,7 @@ import React from "react";
 import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
 import { db } from "@/app/lib/prisma_db";
+import Image from "next/image";
 
 export default async function page() {
   const session = await getServerSession(AuthOptions);
@@ -63,10 +64,12 @@ export default async function page() {
   return (
     <div className="flex flex-auto w-auto h-screen">
       <div className="flex flex-col w-full h-screen items-center">
-        <img
+        <Image
           className="mr-20 w-full md:w-[400px] h-[100px] object-cover"
           alt=""
           src="/photos/E-Archiving System.png"
+          width={300}
+          height={100}
         />
 
         <div className="border m-4 bg-[#AD5606] w-auto h-[85%] rounded-lg shadow-lg">
@@ -77,10 +80,12 @@ export default async function page() {
             <div className="m-5">
               <div className="flex flex-row gap-x-10 justify-center ">
                 <div className="ml-10 mt-10 basis-1/4 left-[10px]">
-                  <img
+                  <Image
                     className="rounded-full w-40 h-40 object-cover mb-5"
                     alt=""
                     src="/profile.jpg"
+                    width={300}
+                    height={100}
                   />
                 </div>
                 <div className="basis-1/4 text-[#000000]">
@@ -164,7 +169,7 @@ export default async function page() {
                     <p className="mt-10  md:text-[19px]">
                       Baccalaureate Degree:
                     </p>
-                    <p className="mt-2 md:text-[19px]">Master's Degree:</p>
+                    <p className="mt-2 md:text-[19px]">Master&apos;s Degree:</p>
                     <p className="mt-2  md:text-[19px]">Doctorate Degree:</p>
                   </div>
                   <div className="">
