@@ -631,7 +631,7 @@ export async function forgotPassword(email) {
         if (updateUser) {
           const url = `http://localhost:3000/forgot-password?email=${email}&resetPasswordToken=${resetPasswordToken}`;
           await sendMail({
-            to: "matienzonoreenma.patrice@gmail.com",
+            to: email,
             name: "ccs",
             subject: "Requested to change forgotten password",
             body: compileEmailTemplate(email, url),
