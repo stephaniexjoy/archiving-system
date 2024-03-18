@@ -32,8 +32,8 @@ export async function sendMail({ to, name, subject, body }) {
   }
 }
 
-export function compileEmailTemplate(name, url) {
+export function compileEmailTemplate(email, url) {
   const template = handlebars.compile(emailTempalte);
-  const htmlBody = template({ name, url });
+  const htmlBody = template({ email, url });
   return htmlBody;
 }

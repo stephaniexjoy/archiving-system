@@ -89,7 +89,7 @@ const Login = () => {
           <Image
             className="-mt-8 ml-[9%] mb-[2%] w-[85%] h-auto object-cover"
             alt="E-Archiving System Maroon"
-            src="../photos/E-Archiving System Maroon.png"
+            src="/photos/E-Archiving System Maroon.png"
             width={300}
             height={100}
           />

@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import EditPrivacy_Dialog from "../components/New_Components/EditPrivacy_Dialog";
 import UploadMaterial_Dialog from "../components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog";
 import Notification_Panel from "../components/Notifications/Notification_Panel";
+import Dashboard_Skeleton from "../components/Skeletons/Faculty/Dashboard/Dashboard_Skeleton";
 
 export default async function dashboard() {
   const session = await getServerSession(AuthOptions);
@@ -166,5 +167,6 @@ export default async function dashboard() {
         </div>
       </div>
     </div>
+/*      <Dashboard_Skeleton /> */
   );
 }
