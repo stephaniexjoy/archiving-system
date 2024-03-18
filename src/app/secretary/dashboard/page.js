@@ -110,13 +110,13 @@ async function page() {
 
       <div
         className="
-      flex flex-col items-center mt-4 px-0 gap-x-0
-      sm:flex sm:flex-col sm:items-center sm:mt-4 sm:px-0 sm:gap-x-0
-      md:flex md:flex-col md:items-center md:mt-4 md:px-0 md:gap-x-0
-      lg:flex lg:flex-col lg:items-center lg:mt-4 lg:px-0 lg:gap-x-0
-      xl:flex-row xl:items-center xl:mt-4 xl:px-10 xl:gap-x-8
-      2xl:flex-row 2xl:mt-[1%] 2xl:gap-x-8
-      "
+        flex flex-col items-center mt-4 px-0 gap-x-0
+        sm:flex sm:flex-col sm:items-center sm:mt-4 sm:px-0 sm:gap-x-0
+        md:flex md:flex-col md:items-center md:mt-4 md:px-0 md:gap-x-0
+        lg:flex lg:flex-col lg:items-center lg:mt-4 lg:px-0 lg:gap-x-0
+        xl:flex-row xl:items-center xl:mt-4 xl:px-10 xl:gap-x-8
+        2xl:flex-row 2xl:mt-[1%] 2xl:gap-x-8
+        "
       >
         <div
           className="
