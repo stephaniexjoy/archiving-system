@@ -45,11 +45,11 @@ export default function Files_Archiving_tabs({
     <>
       <div 
         className="
-        w-full px-0 overflow-auto
-        sm:w-full sm:px-0 sm:overflow-auto
-        md:w-full md:px-0 md:overflow-auto
-        lg:w-fulllg: lg:px-0 lg:overflow-auto
-        xl:w-full xl:px-0 xl:overflow-auto
+        w-full px-2 overflow-auto
+        sm:w-full sm:px-4 sm:overflow-auto
+        md:w-full md:px-5 md:overflow-auto
+        lg:w-full lg:px-10
+        xl:w-full xl:px-5
         2xl:w-full 2xl:px-10
         ">
         <DataTable

@@ -129,12 +129,6 @@ export default async function dashboard() {
           xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[50%] xl:h-[310px] xl:mt-0 xl:rounded-lg
           2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[460px] 2xl:h-[360px] 2xl:mt-0 2xl:rounded-lg"
         >
-          {/* <p
-            className="mt-4 text-xl font-semibold
-          2xl:mt-8 2xl:text-4xl 2xl:font-semibold"
-          >
-            CALENDAR
-          </p> */}
           <CalendarComponent />
         </div>
 
@@ -168,6 +162,5 @@ export default async function dashboard() {
         </div>
       </div>
     </div>
-    /*      <Dashboard_Skeleton /> */
   );
 }
