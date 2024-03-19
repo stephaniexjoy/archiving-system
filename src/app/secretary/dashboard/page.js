@@ -32,7 +32,7 @@ async function page() {
     createdAt: new Date(activity.createdAt).toLocaleString(),
   }));
   return (
-    <div className="flex flex-col w-screen h-screen overflow-y-auto">
+    <div className="flex flex-col w-screen h-screen overflow-y-auto bg-slate-50">
       <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
         <Image
           className="
@@ -52,13 +52,13 @@ async function page() {
 
       <div
         className="
-      flex mt-[2%] px-1
-      sm:flex sm:mt-[2%] sm:px-2
-      md:flex md:mt-[2%] md:px-4
-      lg:flex lg:mt-[2%] lg:px-6
-      xl:flex xl:mt-[2%] xl:px-8
-      2xl:flex 2xl:mt-[2%] 2xl:px-10
-      "
+        flex mt-[2%] px-1
+        sm:flex sm:mt-[2%] sm:px-2
+        md:flex md:mt-[2%] md:px-4
+        lg:flex lg:mt-[2%] lg:px-6
+        xl:flex xl:mt-[2%] xl:px-8
+        2xl:flex 2xl:mt-[2%] 2xl:px-10
+        "
       >
         <h1
           className="

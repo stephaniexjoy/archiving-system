@@ -132,12 +132,12 @@ export function DataTable({ columns, data, materials, instructors }) {
             table.getColumn("name")?.setFilterValue(event.target.value)
           }
           className="
-          max-w-full
+          max-w-full bg-slate-50 border border-slate-400
           sm:max-w-full
           md:max-w-full
           lg:max-w-full
-          xl:max-w-lg
-          2xl:max-w-lg
+          xl:max-w-2xl
+          2xl:max-w-2xl
           "
         />
         {/*  <ComboboxPermission
