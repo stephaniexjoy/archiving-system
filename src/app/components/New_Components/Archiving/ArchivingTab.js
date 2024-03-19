@@ -144,7 +144,7 @@ function ArchivingTab({
         2xl:w-auto 2xl:text-xl
         "
       >
-        <TabsList 
+        <TabsList
           className="
           grid grid-cols-3 grid-rows-2
           sm:grid sm:grid-cols-3 sm:grid-rows-2
@@ -152,7 +152,7 @@ function ArchivingTab({
           lg:grid lg:grid-cols-3 lg:grid-rows-2
           xl:grid xl:grid-cols-6 xl:grid-rows-1
           2xl:grid 2xl:grid-cols-6 2xl:grid-rows-1"
-          >
+        >
           <TabsTrigger
             value="files"
             className="
@@ -163,7 +163,7 @@ function ArchivingTab({
             xl:w-auto xl:text-xl
             2xl:w-auto 2xl:text-xl
             "
-            >
+          >
             All Files
           </TabsTrigger>
           <TabsTrigger
@@ -193,23 +193,8 @@ function ArchivingTab({
             Missing Task
           </TabsTrigger>
           <TabsTrigger
-            value="archivedtask"
+            value="completedtask"
             className="
-            font-bold font-arial text-md 
-            sm:w-16 sm:text-md 
-            md:w-24  md:text-lg 
-            lg:w-auto lg:text-lg
-            xl:w-auto xl:text-xl
-            2xl:w-auto 2xl:text-xl
-            "
-          >
-            Archived Task
-          </TabsTrigger>
-          {session?.user?.position === "Secretary" && (
-            <>
-              <TabsTrigger
-                value="completedtask"
-                className="
                 font-bold font-arial text-md 
                 sm:w-16 sm:text-md 
                 md:w-24  md:text-lg 
@@ -217,9 +202,26 @@ function ArchivingTab({
                 xl:w-auto xl:text-xl
                 2xl:w-auto 2xl:text-xl
                 "
+          >
+            Completed Task
+          </TabsTrigger>
+
+          {session?.user?.position === "Secretary" && (
+            <>
+              <TabsTrigger
+                value="archivedtask"
+                className="
+            font-bold font-arial text-md 
+            sm:w-16 sm:text-md 
+            md:w-24  md:text-lg 
+            lg:w-auto lg:text-lg
+            xl:w-auto xl:text-xl
+            2xl:w-auto 2xl:text-xl
+            "
               >
-                Completed Task
+                Archived Task
               </TabsTrigger>
+
               <TabsTrigger
                 value="monitor"
                 className="
@@ -237,13 +239,12 @@ function ArchivingTab({
           )}
         </TabsList>
         <TabsContent value="files">
-          {" "}
           <Files_Archiving_tabs
             dataWithFormattedDate={datas}
             materials={materials}
             courses={courses}
             instructors={instructors}
-          />{" "}
+          />
         </TabsContent>
         <TabsContent value="assignedtask">
           <AssignedTask_Archiving_tabs
@@ -258,13 +259,14 @@ function ArchivingTab({
             tasks={filteredTasks.incomplete.pastDue}
           />
         </TabsContent>
-        <TabsContent value="archivedtask">
-          <ArchivedTask_Archiving_tabs />
+        <TabsContent value="completedtask">
+          <CompletedTask_Archiving_tabs tasks={filteredTasks.completed} />
         </TabsContent>
+
         {session?.user?.position === "Secretary" && (
           <>
-            <TabsContent value="completedtask">
-              <CompletedTask_Archiving_tabs tasks={filteredTasks.completed} />
+            <TabsContent value="archivedtask">
+              <ArchivedTask_Archiving_tabs />
             </TabsContent>
             <TabsContent value="monitor">
               <>
