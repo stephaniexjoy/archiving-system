@@ -1,17 +1,9 @@
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
+  DialogTrigger
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 
-import React from "react";
 import Form from "./Form";
 
 function CreateAccount_Dialog({ sessionUser }) {
@@ -31,7 +23,7 @@ function CreateAccount_Dialog({ sessionUser }) {
           CREATE ACCOUNT
         </b>
       </DialogTrigger>
-      <DialogContent 
+      <DialogContent
         className="
         grid flex-row items-center justify-center p-6 max-w-[80%] max-h-[60%] text-center overflow-x-auto rounded-lg bg-slate-50
         sm:grid sm:flex-row sm:items-center sm:justify-center sm:p-6 sm:max-w-[53%] sm:max-h-[60%] sm:text-start sm:overflow-x-auto sm:rounded-lg 
@@ -41,9 +33,8 @@ function CreateAccount_Dialog({ sessionUser }) {
         2xl:p-10 2xl:max-w-[50%] 2xl:max-h-[78%] 2xl:text-start 2xl:overflow-y-auto 2xl:rounded-lg 
       "
       >
-  <Form sessionUser={sessionUser} />
-</DialogContent>
-
+        <Form sessionUser={sessionUser} />
+      </DialogContent>
     </Dialog>
   );
 }

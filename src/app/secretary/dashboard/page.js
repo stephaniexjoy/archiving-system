@@ -1,14 +1,12 @@
-import React from "react";
-import { db } from "@/app/lib/prisma_db";
-import { redirect } from "next/navigation";
 import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
-import { getServerSession } from "next-auth/next";
-import UploadMaterial_Dialog from "@/app/components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog";
-import CreateAccount_Dialog from "@/app/components/New_Components/CreateAccount_Dialog/CreateAccount_Dialog";
-import Link from "next/link";
-import ActivityTable_Secretary from "@/app/components/NewTable/Dashboard/Secretary/ActivityTable_Secretary";
 import CalendarComponent from "@/app/components/Calendar";
+import ActivityTable_Secretary from "@/app/components/NewTable/Dashboard/Secretary/ActivityTable_Secretary";
+import CreateAccount_Dialog from "@/app/components/New_Components/CreateAccount_Dialog/CreateAccount_Dialog";
+import { db } from "@/app/lib/prisma_db";
+import { getServerSession } from "next-auth/next";
 import Image from "next/image";
+import Link from "next/link";
+import { redirect } from "next/navigation";
 
 async function page() {
   const session = await getServerSession(AuthOptions);
@@ -289,18 +287,6 @@ async function page() {
           2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[70%] 2xl:h-80 2xl:mt-0 2xl:-ml-4
           "
           >
-            {/* <p
-              className="
-            mt-10 text-xl font-bold
-            sm:mt-10 sm:text-xl sm:font-bold
-            md:mt-10 md:text-2xl md:font-bold
-            lg:mt-10 lg:text-2xl lg:font-bold
-            xl:mt-10 xl:text-3xl xl:font-bold
-            2xl:mt-10 2xl:text-3xl 2xl:font-bold
-            "
-            >
-              CALENDAR
-            </p> */}
             <CalendarComponent />
           </div>
           <div

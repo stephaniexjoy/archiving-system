@@ -1,11 +1,9 @@
 "use client";
-import React from "react";
+import { updateUser } from "@/app/lib/actions/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { db } from "@/app/lib/prisma_db";
 import { useToast } from "@/components/ui/use-toast";
-import { updateUser } from "@/app/lib/actions/actions";
 import Image from "next/image";
 
 export default function Form({ sessionUser }) {
