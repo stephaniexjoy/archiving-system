@@ -86,24 +86,31 @@ export function ComboboxPermission({ value, onChange }) {
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
+       
         <Button
           variant="outline"
           role="combobox"
           aria-expanded={open}
           className="
-          w-[200px] sm:w-auto md:w-auto lg:w-auto justify-between
-          2xl:w-[200px] 2xl:justify-between
+          w-[200px]  
+          sm:w-[260px] sm:h-[50px]
+          md:w-[265px] md:h-[60px]
+          lg:w-[275px] lg:h-[85px] lg:font-bold lg:text-lg
+          xl:w-[325px] xl:h-[95px] xl:font-bold xl:text-lg
+          2xl:w-[325px] 2xl:h-[95px] 2xl:font-bold 2xl:text-2xl
+
+          
           "
         >
           {value
             ? permissions.find((framework) => framework.value === value)?.label
-            : "Select permissions..."}
+            : "Select permissions.."}
 
 
-          <CaretSortIcon className="-ml-1 h-4 w-4 shrink-0 opacity-50" />
+          <CaretSortIcon className="ml-4 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-[200px] sm:w-[260px] md:w-[265px] lg:w-[275px] xl:w-[325px] 2xl:w-[325px] p-0">
         <Command>
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
@@ -143,21 +150,21 @@ export function ComboboxMaterial({ value, onChange, materials }) {
           role="combobox"
           aria-expanded={open}
           className="
-          w-[200px] 
-          sm:[200px]
-          md:[200px]
-          lg:[200px]
-          xl:[200px]
-          2xl:[200px]
+          w-[180px] 
+          sm:w-[260px] sm:h-[50px] 
+          md:w-[265px] md:h-[60px]
+          lg:w-[275px] lg:h-[85px] lg:font-bold lg:text-lg
+          xl:w-[325px] xl:h-[95px] xl:font-extrabold xl:text-lg
+          2xl:w-[325px] 2xl:h-[95px] 2xl:font-bold 2xl:text-2xl
           "
         >
           {value
             ? materials.find((framework) => framework.value === value)?.label
             : "Select material.."}
-          <CaretSortIcon className="ml-5 h-4 w-4 shrink-0 opacity-50" />
+          <CaretSortIcon className="ml-9 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-[200px] sm:w-[260px]  md:w-[265px] lg:w-[275px] xl:w-[325px] 2xl:w-[325px] p-0">
         <Command>
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
@@ -198,20 +205,20 @@ export function ComboboxProgram({ value, onChange }) {
           aria-expanded={open}
           className="
           w-[200px]
-          sm:w-[200px]
-          md:w-[200px] 
-          lg:w-[200px] 
-          xl:w-[200px] 
-          2xl:w-[200px] 
+          sm:w-[260px] sm:h-[50px]
+          md:w-[265px] md:h-[60px] 
+          lg:w-[275px] lg:h-[85px] lg:font-bold lg:text-lg
+          xl:w-[325px] xl:h-[95px] xl:font-bold xl:text-lg
+          2xl:w-[325px] 2xl:h-[95px] 2xl:font-bold 2xl:text-2xl
           "
         >
           {value
             ? programs.find((framework) => framework.value === value)?.label
             : "Select program.."}
-          <CaretSortIcon className="ml-5 h-4 w-4 shrink-0 opacity-50" />
+          <CaretSortIcon className="ml-10 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-[200px] sm:w-[260px]  md:w-[265px]  lg:w-[275px] xl:w-[325px] 2xl:w-[325px] p-0">
         <Command>
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
@@ -255,22 +262,22 @@ export function ComboboxInstructor({ value, onChange, instructors }) {
           role="combobox"
           aria-expanded={open}
           className="
-          w-[200px] justify-between
-          sm:w-[200px] 
-          md:w-[200px] 
-          lg:w-[200px] 
-          xl:w-[200px] 
-          2xl:w-[200px] 
+          w-[180px] 
+          sm:w-[260px] sm:h-[50px]
+          md:w-[265px] md:h-[60px]
+          lg:w-[275px] lg:h-[85px] lg:font-bold lg:text-lg
+          xl:w-[325px] xl:h-[95px] xl:font-extrabold xl:text-lg
+          2xl:w-[325px] 2xl:h-[95px] 2xl:font-bold 2xl:text-2xl 
           "
         >
           {value
             ? transformInstructor.find((framework) => framework.value === value)
                 ?.label
             : "Select instructor.."}
-          <CaretSortIcon className="ml-3 h-4 w-4 shrink-0 opacity-50" />
+          <CaretSortIcon className="ml-7 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-[200px] md:w-[265px] sm:w-[260px] lg:w-[275px] xl:w-[325px] 2xl:[325px] p-0">
         <Command>
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
@@ -311,20 +318,20 @@ export function ComboboxFileType({ value, onChange }) {
           aria-expanded={open}
           className="
           w-[200px] 
-          sm:w-[200px] 
-          md:w-[200px]  
-          lg:w-[200px] 
-          xl:w-[200px]
-          2xl:w-[200px]  
+          sm:w-[260px] sm:h-[50px]
+          md:w-[265px] md:h-[60px]
+          lg:w-[275px] lg:h-[85px] lg:font-bold lg:text-lg
+          xl:w-[325px] xl:h-[95px] xl:font-extrabold xl:text-lg
+          2xl:w-[325px] 2xl:h-[95px] 2xl:font-bold 2xl:text-2xl  
           "
         >
           {value
             ? filetypes.find((framework) => framework.value === value)?.label
             : "Select file type..."}
-          <CaretSortIcon className="ml-5 h-4 w-4 shrink-0 opacity-50" />
+          <CaretSortIcon className="ml-10 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-[200px] sm:w-[260px]  md:w-[265px] lg:w-[275px] xl:w-[325px] 2xl:w-[325px] p-0">
         <Command>
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
@@ -366,17 +373,17 @@ export default function Date_Range({ className }) {
             id="date"
             variant={"outline"}
             className={cn(
-              "text-sm w-[200px] sm:w-auto md:w-auto lg:w-auto 2xl:w-[200px] cursor-pointer md:left-[1250px] h-[40px] rounded-sm px-0 py-1",
+              "text-sm w-[180px] sm:h-[50px] sm:w-[260px] md:w-[265px] md:h-[60px]  lg:w-[275px] lg:h-[85px] xl:w-[325px] xl:h-[95px] 2xl:w-[325px] 2xl:h-[95px] cursor-pointer md:left-[1250px] h-[40px] rounded-sm px-0 py-1",
               !date
             )}
           >
-            <CalendarIcon className="-mt-1 mr-2 h-4 w-4 " />
+            <CalendarIcon className="-mt-0.5 mr-1 h-10 w-10 sm:-mt-0.5 sm:h-8 sm:w-8 2xl:h-[10px] 2xl:w-[10px]" />
             {date?.from ? (
               date.to ? (
                 <>
                
-               <span className="text-[11px] font-bold">{format(date.from, "LLL dd, y")}</span> -{" "}
-            <span className="text-[11px] font-bold">{format(date.to, "LLL dd, y")}</span>
+               <span className="text-xs font-semibold sm:text-[15px] sm:font-semibold md:font-semibold lg:font-bold xl:font-bold xl:text-lg 2xl:font-bold 2xl:text-2xl ">{format(date.from, "LLL dd, y")}-{" "}</span> 
+            <span className="text-xs font-semibold sm:text-[15px] md:font-semibold lg:font-bold xl:font-bold xl:text-lg 2xl:font-bold 2xl:text-2xl ">{format(date.to, "LLL dd, y")}</span>
                  
                 </>
               ) : (
@@ -458,7 +465,7 @@ export function DataTable({ columns, data, materials, instructors }) {
         md:grid md:flex-col md:items-center md:py-4 md:space-y-4
         lg:grid lg:flex-col lg:items-center lg:py-4 lg:space-y-4
         xl:flex-col xl:items-center xl:py-4 xl:space-x-1
-        2xl:flex-col 2xl:items-center 2xl:py-4 2xl:space-x-1"
+        2xl:flex-col 2xl:items-center 2xl:py-4 2xl:space-x-1 "
         >
         <Input
           placeholder="Filter Filename..."
@@ -466,13 +473,13 @@ export function DataTable({ columns, data, materials, instructors }) {
           onChange={(event) =>
             table.getColumn("filename")?.setFilterValue(event.target.value)
           }
-          className="
-          max-w-full mt-10
-          sm:max-w-full
-          md:max-w-full  
-          lg:max-w-lg  
-          xl:max-w-xl     
-          2xl:max-w-2xl
+          className=" 
+          max-w-xs mt-3
+          sm:max-w-md
+          md:max-w-lg   
+          lg:max-w-xl  
+          xl:max-w-3xl     
+          2xl:max-w-5xl 2xl:font-bold
           "
         />
         <div 
@@ -480,9 +487,9 @@ export function DataTable({ columns, data, materials, instructors }) {
           grid grid-cols-2 gap-x-2 w-full
           sm:grid sm:grid-cols-2 sm:gap-x-2 sm:w-full
           md:grid md:grid-cols-3 md:grid-rows-2 md:gap-x-0 md:w-full
-          lg:grid lg:grid-cols-7 lg:gap-x-2 lg:w-full
-          xl:grid xl:grid-cols-7 xl:gap-x-2 xl:w-full
-          2xl:grid 2xl:grid-cols-7 2xl:gap-x-2 2xl:w-full
+          lg:grid lg:grid-cols-3 lg:gap-x-2 lg:w-full
+          xl:grid xl:grid-cols-3 xl:gap-x-2 xl:w-full
+          2xl:grid 2xl:grid-cols-3 2xl:gap-x-2 2xl:w-full
           ">
           <ComboboxPermission 
             value={table.getColumn("fileRole")?.getFilterValue() ?? ""}
