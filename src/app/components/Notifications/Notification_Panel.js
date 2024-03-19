@@ -61,12 +61,13 @@ const Notification_Panel = async () => {
       <DialogTrigger asChild>
         <Button variant="ghost">
           <Image
-            className="h-[70%] w-[45px] mt-[.8%] ml-[1%]
-          sm:h-[70%] sm:w-[60px] sm:mt-[.8%] sm:ml-[1.3%]
-          md:h-[70%] md:w-[75px] md:mt-[.8%] md:ml-[1.6%]
-          lg:h-[70%] lg:w-[83px] lg:mt-[.8%] lg:ml-[1.8%]
-          xl:h-[70%] xl:w-[84px] xl:mt-[.8%] xl:ml-[1.8%]
-          2xl:h-[70%] 2xl:w-[85px] 2xl:mt-[.8%] 2xl:ml-[2%]"
+            className="
+            lg:h-[50px] lg:w-[450px] lg:mt-[.8%] lg:ml-[1%] 
+            h-[50px] w-[450px] mt-[.8%] ml-[1%] 
+            sm:h-auto sm:w-[60px] sm:mt-[.8%] sm:ml-[1.3%] 
+            md:h-auto md:w-[75px] md:mt-[.8%] md:ml-[1.6%] 
+            xl:h-auto xl:w-[450px] xl:mt-[.8%] xl:ml-[1.8%] 
+            2xl:h-auto 2xl:w-[90px] 2xl:mt-[.8%] 2xl:ml-[2%]"
             alt="Notification Logo"
             src="/photos/Notificationlogo.png"
             width={300}
@@ -74,10 +75,12 @@ const Notification_Panel = async () => {
           />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[1225px] sm:max-h-[750px]">
+      <DialogContent className="max-w-[500px] max-h-[800px] sm:max-w-[600px] sm:max-h-[700px] md:max-w-[600px] md:max-h-[700px] lg:max-w-[800px] lg:max-h-[900px] xl:max-w-[800px] xl:max-h-[900px] 2xl:max-w-[800px] 2xl:max-h-[900px] ">
         <DialogHeader>
-          <DialogTitle>Notification Panel</DialogTitle>
-          <DialogDescription>View Notifications here.</DialogDescription>
+          <DialogTitle className="font-bold">Notification Panel</DialogTitle>
+          <DialogDescription className="font-bold">
+            View Notifications here.
+          </DialogDescription>
         </DialogHeader>
         <NotificationHolder notifications={notifications} />
 
