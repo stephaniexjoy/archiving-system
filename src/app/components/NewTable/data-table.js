@@ -86,6 +86,7 @@ export function ComboboxPermission({ value, onChange }) {
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
+       
         <Button
           variant="outline"
           role="combobox"
@@ -101,7 +102,7 @@ export function ComboboxPermission({ value, onChange }) {
           >
           {value
             ? permissions.find((framework) => framework.value === value)?.label
-            : "Select permissions..."}
+            : "Select permissions.."}
 
           <CaretSortIcon 
             className="
@@ -459,7 +460,7 @@ export default function Date_Range({ className }) {
               !date
             )}
           >
-            <CalendarIcon className="-mt-1 mr-2 h-4 w-4 " />
+            <CalendarIcon className="-mt-0.5 mr-1 h-10 w-10 sm:-mt-0.5 sm:h-8 sm:w-8 2xl:h-[10px] 2xl:w-[10px]" />
             {date?.from ? (
               date.to ? (
                 <>

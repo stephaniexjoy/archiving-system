@@ -141,7 +141,7 @@ function ArchivingTab({
         md:w-auto md:text-sm 
         lg:w-auto lg:text-lg
         xl:w-auto xl:text-xl
-        2xl:w-auto 2xl:text-xl
+        2xl:w-auto 2xl:text-2xl
         "
       >
         <TabsList 
@@ -216,7 +216,7 @@ function ArchivingTab({
                 md:w-auto md:text-lg
                 lg:w-auto lg:text-lg
                 xl:w-auto xl:text-xl
-                2xl:w-auto 2xl:text-xl
+                2xl:mt-0 2xl:w-auto 2xl:text-xl
                 "
               >
                 Completed Task
@@ -229,7 +229,7 @@ function ArchivingTab({
                 md:w-auto md:text-lg
                 lg:w-auto lg:text-lg
                 xl:w-auto xl:text-xl
-                2xl:w-auto 2xl:text-xl
+                2xl:mt-0 2xl:w-auto 2xl:text-xl
                 "
               >
                 Monitoring
