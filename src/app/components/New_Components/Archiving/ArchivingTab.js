@@ -146,9 +146,9 @@ function ArchivingTab({
       >
         <TabsList 
           className="
-          grid grid-cols-3 grid-rows-2 w-auto h-auto items-center justify-center text-center
+          grid grid-cols-2 grid-rows-2 w-auto h-auto items-center justify-center text-center
           sm:grid sm:grid-cols-3 sm:grid-rows-2 sm:w-auto sm:h-auto sm:items-center sm:justify-center sm:text-center
-          md:grid md:grid-cols-3 md:grid-rows-2 md:w-auto md:h-auto md:items-center md:justify-center md:text-center
+          md:grid md:w-auto md:h-auto md:items-center md:justify-center md:text-center
           lg:inline-flex lg:grid-cols-3 lg:grid-rows-2 lg:items-center lg:justify-center lg:text-center lg:w-auto
           xl:inline-flex xl:grid-cols-6 xl:grid-rows-1 xl:items-center xl:justify-center xl:text-center xl:w-auto
           2xl:inline-flex 2xl:grid-cols-6 2xl:grid-rows-1 2xl:items-center 2xl:justify-center 2xl:text-center 2xl:w-auto
