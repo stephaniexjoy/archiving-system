@@ -74,6 +74,7 @@ const Login = () => {
           src="/photos/ccsLogoHalf.png"
           width={300}
           height={100}
+          priority={true}
         />
       </div>
       <div className="flex flex-col items-center justify-center bg-slate-200 w-screen h-auto py-4 ">
@@ -90,8 +91,8 @@ const Login = () => {
             className="-mt-8 ml-[9%] mb-[2%] w-[85%] h-auto object-cover"
             alt="E-Archiving System Maroon"
             src="/photos/E-Archiving System Maroon.png"
-            width={300}
-            height={100}
+            width={500}
+            height={200}
           />
           <div
             className="

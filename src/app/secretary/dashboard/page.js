@@ -8,6 +8,7 @@ import CreateAccount_Dialog from "@/app/components/New_Components/CreateAccount_
 import Link from "next/link";
 import ActivityTable_Secretary from "@/app/components/NewTable/Dashboard/Secretary/ActivityTable_Secretary";
 import CalendarComponent from "@/app/components/Calendar";
+import Image from "next/image";
 
 async function page() {
   const session = await getServerSession(AuthOptions);
@@ -95,7 +96,7 @@ async function page() {
           alt="Filler"
           src="../photos/Filler.png"
         />
-        <img
+        <Image
           className="
           h-[70%] w-[45px] mt-[.8%] ml-[1%]
           sm:h-[70%] sm:w-[60px] sm:mt-[.8%] sm:ml-[1.3%]
@@ -105,7 +106,9 @@ async function page() {
           2xl:h-[70%] 2xl:w-[90px] 2xl:mt-[.8%] 2xl:ml-[2%]
           "
           alt="Notification Logo"
-          src="../photos/Notificationlogo.png"
+          src="/photos/Notificationlogo.png"
+          height={300}
+          width={100}
         />
       </div>
 
@@ -306,7 +309,7 @@ async function page() {
           2xl:w-auto 2xl:h-auto
           "
           >
-            <img
+            <Image
               className="
               w-52 h-auto object-cover
               sm:w-52 sm:h-auto sm:object-cover
@@ -315,8 +318,10 @@ async function page() {
               xl:-ml-4 xl:w-40 xl:h-auto xl:object-cover
               2xl:ml-4 2xl:w-56 2xl:h-auto 2xl:object-cover
               "
-              src="../photos/ccsLogo.png"
+              src="/photos/ccsLogo.png"
               alt="CCS Logo"
+              height={300}
+              width={100}
             />
           </div>
         </div>
