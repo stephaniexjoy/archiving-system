@@ -47,11 +47,11 @@ export default function Dashboard_Skeleton() {
           {/* ccs logo */}
           <div className="w-32 h-32 ml-4 -mt-3 rounded-full bg-gray-400"></div>
           {/* edit privacy */}
-          <div className="mt-6 bg-[#5B0505] w-[480px] h-[90px] p-4 mx-4 rounded-lg">
+          <div className="mt-6 bg-gray-400 w-[480px] h-[90px] p-4 mx-4 rounded-lg">
             <Skeleton className="h-10 w-48 ml-32 mt-2 bg-red-400" />
           </div>
           {/* upload materials */}
-          <div className="mt-6 bg-[#5B0505] w-[480px] h-[90px] p-4 mx-4 rounded-lg">
+          <div className="mt-6 bg-gray-400 w-[480px] h-[90px] p-4 mx-4 rounded-lg">
             <Skeleton className="h-10 w-[50%] ml-28 mt-2 bg-red-400" />
           </div>
         </div>
