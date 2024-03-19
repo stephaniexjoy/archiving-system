@@ -449,7 +449,7 @@ export default function Date_Range({ className }) {
     to: addDays(new Date(2022, 0, 20), 20),
   });
   return (
-    <div className={cn("grid gap-2 ", className)}>
+    <div className={cn("grid gap-10 ", className)}>
       <Popover>
         <PopoverTrigger asChild>
           <Button
