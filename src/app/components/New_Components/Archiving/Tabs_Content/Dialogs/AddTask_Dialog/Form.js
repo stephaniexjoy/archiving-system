@@ -46,11 +46,11 @@ export default function Form() {
             xl:flex xl:flex-col xl:text-3xl
             2xl:flex 2xl:flex-col 2xl:text-3xl
             ">
-            <Label className="text-left font-semibold">Title</Label>
+            <Label className="text-start font-semibold">Title</Label>
             <Input
               name="titleInput"
               className="
-              my-3 h-16 text-lg
+              my-3 h-16 text-xl bg-slate-200
               "
               type="text"
               placeholder=""
@@ -59,7 +59,7 @@ export default function Form() {
             <textarea
               name="instructionInput"
               className="
-              my-3 h-48 text-lg border rounded-lg resize-none
+              my-3 h-48 text-lg border rounded-xl resize-none bg-slate-200
               "
               type="text"
               placeholder=""
@@ -82,13 +82,13 @@ export default function Form() {
               </label>
             </div>
             {!isNoDueDate && (
-              <div className="flex flex-col justify-start">
+              <div className="flex flex-col justify-start ">
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button
                       variant={"outline"}
                       className={cn(
-                        "my-4 w-[310px] justify-start text-left font-normal",
+                        "bg-slate-200 my-4 w-[310px] justify-start text-left font-normal",
                         !date && "text-muted-foreground"
                       )}
                     >
@@ -109,7 +109,7 @@ export default function Form() {
                 <input
                   name="time"
                   type="time"
-                  className=" my-0 w-[310px] border border-black text-xl rounded-lg cursor-pointer"
+                  className="bg-slate-200 my-0 w-[310px] border border-black text-xl rounded-lg cursor-pointer"
                 />
               </div>
             )}
