@@ -136,29 +136,30 @@ function ArchivingTab({
       <Tabs
         defaultValue="files"
         className="
-        font-bold font-arial text-xs text-center
-        sm:w-16 sm:text-sm 
-        md:w-24 md:text-md 
+        font-bold font-arial text-center
+        sm:w-auto sm:text-sm 
+        md:w-auto md:text-sm 
         lg:w-auto lg:text-lg
         xl:w-auto xl:text-xl
-        2xl:w-auto 2xl:text-xl
+        2xl:w-auto 2xl:text-2xl
         "
       >
         <TabsList 
           className="
-          grid grid-cols-3 grid-rows-2
-          sm:grid sm:grid-cols-3 sm:grid-rows-2
-          md:grid md:grid-cols-3 md:grid-rows-2
-          lg:grid lg:grid-cols-3 lg:grid-rows-2
-          xl:grid xl:grid-cols-6 xl:grid-rows-1
-          2xl:grid 2xl:grid-cols-6 2xl:grid-rows-1"
+          grid grid-cols-2 grid-rows-2 w-auto h-auto items-center justify-center text-center
+          sm:grid sm:grid-cols-3 sm:grid-rows-2 sm:w-auto sm:h-auto sm:items-center sm:justify-center sm:text-center
+          md:grid md:w-auto md:h-auto md:items-center md:justify-center md:text-center
+          lg:inline-flex lg:grid-cols-3 lg:grid-rows-2 lg:items-center lg:justify-center lg:text-center lg:w-auto
+          xl:inline-flex xl:grid-cols-6 xl:grid-rows-1 xl:items-center xl:justify-center xl:text-center xl:w-auto
+          2xl:inline-flex 2xl:grid-cols-6 2xl:grid-rows-1 2xl:items-center 2xl:justify-center 2xl:text-center 2xl:w-auto
+          "
           >
           <TabsTrigger
             value="files"
             className="
             font-bold font-arial text-md 
-            sm:w-16 sm:text-md 
-            md:w-24 md:text-lg 
+            sm:w-auto sm:text-md 
+            md:w-auto md:text-lg
             lg:w-auto lg:text-lg
             xl:w-auto xl:text-xl
             2xl:w-auto 2xl:text-xl
@@ -170,8 +171,8 @@ function ArchivingTab({
             value="assignedtask"
             className="
             font-bold font-arial text-md 
-            sm:w-16 sm:text-md 
-            md:w-24  md:text-lg 
+            sm:w-auto sm:text-md 
+            md:w-auto md:text-lg
             lg:w-auto lg:text-lg
             xl:w-auto xl:text-xl
             2xl:w-auto 2xl:text-xl
@@ -183,8 +184,8 @@ function ArchivingTab({
             value="missingtask"
             className="
             font-bold font-arial text-md 
-            sm:w-16 sm:text-md 
-            md:w-24  md:text-lg 
+            sm:w-auto sm:text-md 
+            md:w-auto md:text-lg
             lg:w-auto lg:text-lg
             xl:w-auto xl:text-xl
             2xl:w-auto 2xl:text-xl
@@ -196,8 +197,8 @@ function ArchivingTab({
             value="archivedtask"
             className="
             font-bold font-arial text-md 
-            sm:w-16 sm:text-md 
-            md:w-24  md:text-lg 
+            sm:w-auto sm:text-md 
+            md:w-auto md:text-lg
             lg:w-auto lg:text-lg
             xl:w-auto xl:text-xl
             2xl:w-auto 2xl:text-xl
@@ -211,11 +212,11 @@ function ArchivingTab({
                 value="completedtask"
                 className="
                 font-bold font-arial text-md 
-                sm:w-16 sm:text-md 
-                md:w-24  md:text-lg 
+                sm:w-auto sm:text-md 
+                md:w-auto md:text-lg
                 lg:w-auto lg:text-lg
                 xl:w-auto xl:text-xl
-                2xl:w-auto 2xl:text-xl
+                2xl:mt-0 2xl:w-auto 2xl:text-xl
                 "
               >
                 Completed Task
@@ -224,11 +225,11 @@ function ArchivingTab({
                 value="monitor"
                 className="
                 font-bold font-arial text-md 
-                sm:w-16 sm:text-md 
-                md:w-24  md:text-lg 
+                sm:w-auto sm:text-md 
+                md:w-auto md:text-lg
                 lg:w-auto lg:text-lg
                 xl:w-auto xl:text-xl
-                2xl:w-auto 2xl:text-xl
+                2xl:mt-0 2xl:w-auto 2xl:text-xl
                 "
               >
                 Monitoring
