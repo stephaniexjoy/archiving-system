@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Dashboard_Skeleton() {
   return (
-    <div className="flex flex-col w-screen h-screen">
+    <div className="flex flex-col w-screen h-screen overflow-y-auto">
       {/* parent div */}
       <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center py-1 ">
         <Skeleton className="h-full w-96 bg-gray-400 rounded-lg" />
@@ -31,29 +31,28 @@ export default function Dashboard_Skeleton() {
         </div>
       </div>
 
-      {/* parent div */}
-      <div className="flex flex-row mt-[1%] px-10 space-x-20">
+      {/* parent div of archived materials, calendar, ccs logo, edit privacy, and upload material */}
+      <div className="flex flex-row mt-16 px-10 gap-x-12">
         {/* archived materials */}
-        <div>
-          <Skeleton className="ml-1 mt-20 h-[80%] w-[10500%] bg-gray-400" />
+        <div className="bg-gray-400 w-[460px] h-[360px] py-6 rounded-lg">
+          <Skeleton className="h-10 w-[95%] ml-3 mt-9 bg-red-400" />
+          <Skeleton className="h-24 w-20 ml-44 mt-14 bg-red-400" />
         </div>
+
         {/* calendar */}
-        <div>
-          <Skeleton className="ml-96 mt-20 h-[80%] w-[112%] bg-gray-400" />
-        </div>
-        {/* parent div */}
+        <div className="bg-gray-400 w-[460px] h-[360px] rounded-lg"></div>
+
+        {/* parent div of ccs logo, edit privacy, and upload materials */}
         <div className="flex flex-col items-center space-y-8 mb-11">
-          {/* ccs logp */}
-          <div>
-            <Skeleton className="ml-96 mt-20 h-[140%] w-[33%] bg-gray-400 rounded-full" />
-          </div>
+          {/* ccs logo */}
+          <div className="w-32 h-32 ml-4 -mt-3 rounded-full bg-gray-400"></div>
           {/* edit privacy */}
-          <div>
-            <Skeleton className="ml-96 mt-28 h-[70%] w-[120%] bg-gray-400" />
+          <div className="mt-6 bg-gray-400 w-[480px] h-[90px] p-4 mx-4 rounded-lg">
+            <Skeleton className="h-10 w-48 ml-32 mt-2 bg-red-400" />
           </div>
           {/* upload materials */}
-          <div>
-            <Skeleton className="ml-96 mt-20 h-[90%] w-[120%] bg-gray-400" />
+          <div className="mt-6 bg-gray-400 w-[480px] h-[90px] p-4 mx-4 rounded-lg">
+            <Skeleton className="h-10 w-[50%] ml-28 mt-2 bg-red-400" />
           </div>
         </div>
       </div>
