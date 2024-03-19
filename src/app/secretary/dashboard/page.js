@@ -36,7 +36,7 @@ async function page() {
   return (
     <div className="flex flex-col w-screen h-screen overflow-y-auto">
       <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
-        <img
+        <Image
           className="
           w-[60%] h-auto object-cover flex items-center justify-center
           sm:w-[60%] sm:h-[100%] sm:object-cover sm:flex sm:items-center sm:justify-center
@@ -47,6 +47,8 @@ async function page() {
           "
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
+          height={499}
+          width={2125}
         />
       </div>
 
@@ -84,7 +86,7 @@ async function page() {
             SECRETARY
           </span>
         </h1>
-        <img
+        <Image
           className="
           h-[50%] w-[45%] mt-[2%] ml-[2%] 
           sm:h-[50%] sm:w-[60%] sm:mt-[2%] sm:ml-[2%]
@@ -94,7 +96,9 @@ async function page() {
           2xl:h-[50%] 2xl:w-[90%] 2xl:mt-[1%] 2xl:ml-[3%]
           "
           alt="Filler"
-          src="../photos/Filler.png"
+          src="/photos/Filler.png"
+          height={44}
+          width={992}
         />
         <Image
           className="
@@ -107,8 +111,8 @@ async function page() {
           "
           alt="Notification Logo"
           src="/photos/Notificationlogo.png"
-          height={300}
-          width={100}
+          height={108}
+          width={121}
         />
       </div>
 
@@ -320,8 +324,8 @@ async function page() {
               "
               src="/photos/ccsLogo.png"
               alt="CCS Logo"
-              height={300}
-              width={100}
+              height={2201}
+              width={2201}
             />
           </div>
         </div>
