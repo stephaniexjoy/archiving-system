@@ -98,18 +98,7 @@ async function page() {
           alt="Filler"
           src="../photos/Filler.png"
         />
-        <img
-          className="
-          h-[70%] w-[45px] mt-[.8%] ml-[1%]
-          sm:h-[70%] sm:w-[60px] sm:mt-[.8%] sm:ml-[1.3%]
-          md:h-[70%] md:w-[75px] md:mt-[.8%] md:ml-[1.6%]
-          lg:h-[70%] lg:w-[80px] lg:mt-[.8%] lg:ml-[1.8%]
-          xl:h-[70%] xl:w-[85px] xl:mt-[.8%] xl:ml-[1.8%]
-          2xl:h-[70%] 2xl:w-[90px] 2xl:mt-[.8%] 2xl:ml-[2%]
-          "
-          alt="Notification Logo"
-          src="../photos/Notificationlogo.png"
-        />
+        
       </div>
 
       <div>
@@ -125,76 +114,26 @@ async function page() {
         >
           <div
             className="
-          text-center bg-[#5B0505] text-[white] w-[90%] h-[80px] p-4 rounded-lg
+          text-center bg-[#5B0505] text-[white] w-[90%] h-[80px] p-4 rounded-lg mb-5
           sm:text-center sm:bg-[#5B0505] sm:text-[white] sm:w-[80%] sm:h-[80px] sm:p-4 sm:rounded-lg
           md:text-center md:bg-[#5B0505] md:text-[white] md:w-[70%] md:h-[80px] md:p-4 md:rounded-lg
           lg:text-center lg:bg-[#5B0505] lg:text-[white] lg:w-[60%] lg:h-[80px] lg:p-4 lg:rounded-lg
           xl:text-center xl:bg-[#5B0505] xl:text-[white] xl:w-[88%] xl:h-[80px] xl:p-4 xl:rounded-lg
-          2xl:text-center 2xl:bg-[#5B0505] 2xl:text-[white] 2xl:w-[70%] 2xl:h-[90px] 2xl:p-4 2xl:mx-4 2xl:rounded-lg
+          2xl:text-center 2xl:bg-[#5B0505] 2xl:text-[white] 2xl:w-[72.5%] 2xl:h-[90px] 2xl:p-4 2xl:mx-4 2xl:rounded-lg
           "
           >
             <CreateAccount_Dialog />
-          </div>
-
-          {/* Added flex-col for calendar and logo */}
-          <div className="grid flex-col">
-            <div
-              className="
-          text-center bg-[#B4ABAB] text-[#5B0505] w-[90%] h-56 mt-4 rounded-lg
-          sm:text-center sm:bg-[#B4ABAB] sm:text-[#5B0505] sm:w-[80%] sm:h-56 sm:mt-4 sm:rounded-lg
-          md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-56 md:mt-4 md:rounded-lg
-          lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-56 lg:mt-4 lg:rounded-lg
-          xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[88%] xl:h-36 xl:mt-0 xl:rounded-lg xl:-ml-8
-          2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[70%] 2xl:h-80 2xl:mt-0 2xl:-ml-4
-          "
-            >
-              <p
-                className="
-            mt-10 text-xl font-bold
-            sm:mt-10 sm:text-xl sm:font-bold
-            md:mt-10 md:text-2xl md:font-bold
-            lg:mt-10 lg:text-2xl lg:font-bold
-            xl:mt-10 xl:text-3xl xl:font-bold
-            2xl:mt-10 2xl:text-3xl 2xl:font-bold
-            "
-              >
-                CALENDAR
-              </p>
-            </div>
-            <div
-              className="
-          w-auto h-auto items-center mt-4
-          sm:w-auto sm:h-auto sm:items-center sm:mt-4
-          md:w-auto md:h-auto md:items-center md:mt-4
-          lg:w-auto lg:h-auto lg:items-center lg:mt-4
-          xl:w-auto xl:h-auto xl:items-center xl:mt-4
-          2xl:w-auto 2xl:h-auto
-          "
-            >
-              <img
-                className="
-              w-52 h-auto object-cover
-              sm:w-52 sm:h-auto sm:object-cover
-              md:w-52 md:h-auto md:object-cover
-              lg:w-52 lg:h-auto lg:object-cover
-              xl:-ml-4 xl:w-40 xl:h-auto xl:object-cover
-              2xl:ml-4 2xl:w-56 2xl:h-auto 2xl:object-cover
-              "
-                src="../photos/ccsLogo.png"
-                alt="CCS Logo"
-              />
-            </div>
           </div>
         </div>
 
         <div
           className="
-        flex flex-col items-center mt-4 gap-y-5 
-        sm:flex sm:flex-col sm:items-center sm:mt-4 
-        md:flex md:flex-col md:items-center md:mt-4 
-        lg:flex lg:flex-col lg:items-center lg:mt-4 
-        xl:flex-row xl:items-center xl:mt-4 xl:px-10 xl:gap-x-8
-        2xl:flex-row 2xl:mt-[1%] 2xl:gap-x-8
+        flex flex-col items-center gap-y-5 
+        sm:flex sm:flex-col sm:items-center
+        md:flex md:flex-col md:items-center 
+        lg:flex lg:flex-col lg:items-center 
+        xl:flex-row xl:items-center  xl:px-10 xl:gap-x-8
+        2xl:flex-row  2xl:gap-x-8 2xl:-mt-20
         "
         >
           <div
@@ -204,7 +143,7 @@ async function page() {
             md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-[260px] md:py-4 md:rounded-lg
             lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-[290px] lg:py-5 lg:rounded-lg
             xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[80%] xl:h-[310px] xl:py-5 xl:rounded-lg
-            2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[70%] 2xl:h-[320px] 2xl:py-8 2xl:rounded-lg
+            2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[40%] 2xl:h-[320px] 2xl:py-8 2xl:rounded-lg 2xl:ml-5
             "
           >
             <p
@@ -239,7 +178,7 @@ async function page() {
             md:text-center md:bg-[#5B0505]  md:w-[70%] md:h-[260px] md:py-4 md:rounded-lg
             lg:text-center lg:bg-[#5B0505]  lg:w-[60%] lg:h-[290px] lg:py-5 lg:rounded-lg
             xl:text-center xl:bg-[#5B0505]  xl:w-[80%] xl:h-[310px] xl:py-5 xl:rounded-lg
-            2xl:text-center 2xl:bg-[#5B0505]  2xl:w-[70%] 2xl:h-[320px] 2xl:py-8 2xl:rounded-lg
+            2xl:text-center 2xl:bg-[#5B0505]  2xl:w-[40%] 2xl:h-[320px] 2xl:py-8 2xl:rounded-lg
             "
           >
             <p
@@ -266,6 +205,43 @@ async function page() {
             >
               {userCount}
             </p>
+          </div>
+          <div className="grid flex-col place-items-center"> 
+          <div
+            className="
+          text-center bg-[#B4ABAB] text-[#5B0505] w-[100%] h-56 rounded-lg
+          sm:text-center sm:bg-[#B4ABAB] sm:text-[#5B0505] sm:w-[100%] sm:h-[350px] sm:mt-4 sm:rounded-lg
+          md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-56 md:mt-4 md:rounded-lg
+          lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-56 lg:mt-4 lg:rounded-lg
+          xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[100%] xl:h-36 xl:mt-0 xl:rounded-lg xl:-ml-8
+          2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[100%] 2xl:h-[350px] 2xl:ml-4 2xl:-mt-8
+          "
+          >
+            <CalendarComponent />
+          </div>
+            <div
+              className="
+              w-auto h-auto items-center mt-4
+              sm:w-auto sm:h-auto sm:items-center sm:mt-4
+              md:w-auto md:h-auto md:items-center md:mt-4
+              lg:w-auto lg:h-auto lg:items-center lg:mt-4
+              xl:w-auto xl:h-auto xl:items-center xl:mt-4
+              2xl:w-auto 2xl:h-auto
+              "
+            >
+              <img
+                className="
+              w-52 h-auto object-cover
+              sm:w-52 sm:h-auto sm:object-cover
+              md:w-52 md:h-auto md:object-cover
+              lg:w-52 lg:h-auto lg:object-cover
+              xl:-ml-4 xl:w-40 xl:h-auto xl:object-cover
+              2xl:ml-4 2xl:w-56 2xl:h-auto 2xl:object-cover 2xl:-mb-20
+              "
+                src="../photos/ccsLogo.png"
+                alt="CCS Logo"
+              />
+            </div>
           </div>
 
           <div
