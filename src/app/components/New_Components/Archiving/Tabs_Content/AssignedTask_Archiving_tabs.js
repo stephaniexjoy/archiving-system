@@ -1,43 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 
-import { confirmUpload } from "@/app/lib/actions/actions";
-import { useEdgeStore } from "@/app/lib/edgestore";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { useToast } from "@/components/ui/use-toast";
 import AddTask_Dialog from "./Dialogs/AddTask_Dialog/AddTask_Dialog";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { UseMultiFile } from "../../File_Upload/UseMultiFile";
-
-const togglePrivacy = [
-  {
-    value: "for all",
-    label: "For All",
-  },
-  {
-    value: "for secretary",
-    label: "For Secretary",
-  },
-];
+import File_Upload_Card from "./File_Upload_Component/File_Upload_Card";
 
 export default function AssignedTask_Archiving_tabs({
   position,
@@ -45,21 +12,7 @@ export default function AssignedTask_Archiving_tabs({
   materials,
   courses,
 }) {
-  console.log(materials);
-  const { toast } = useToast();
-  console.log("tasks", tasks);
-  const { edgestore } = useEdgeStore();
   const [options, setOptions] = useState("");
-  const [uploadedFiles, setUploadedFiles] = useState([]);
-  const [urls, setUrls] = useState([]);
-  const [fileInfo, setFileInfo] = useState([]);
-
-  const [openMaterials, setOpenMaterials] = React.useState(false);
-  const [valueMaterials, setValueMaterials] = React.useState("");
-  const [openCourse, setOpenCourse] = React.useState(false);
-  const [valueCourse, setValueCourse] = React.useState("");
-  const [openTogglePrivacy, setOpenTogglePrivacy] = React.useState(false);
-  const [valueTogglePrivacy, setValueTogglePrivacy] = React.useState("");
 
   const handleFileUpload = (event) => {
     const files = event.target.files;
@@ -96,7 +49,7 @@ export default function AssignedTask_Archiving_tabs({
 
   return (
     <>
-      <div 
+      <div
         className="
         flex flex-col mt-16 px-4 space h-auto overflow-y-auto
         sm:flex sm:flex-col sm:mt-16 sm:px-10 sm:space sm:h-auto sm:overflow-y-auto
@@ -104,7 +57,8 @@ export default function AssignedTask_Archiving_tabs({
         lg:flex lg:flex-col lg:mt-16 lg:px-10 lg:space lg:h-auto lg:overflow-y-auto
         xl:flex xl:flex-col xl:mt-16 xl:px-10 xl:space xl:h-auto xl:overflow-y-auto
         2xl:flex 2xl:flex-col 2xl:mt-16 2xl:px-10 2xl:space 2xl:h-auto 2xl:overflow-y-auto
-        ">
+        "
+      >
         <h1 className="text-center text-[#5B0505] text-[28px]  sm:text-[32px] md:text-[36px] lg:text-[45px] font-bold md:shadow-zinc-400 mb-5 ">
           Assigned Tasks
         </h1>
@@ -126,7 +80,7 @@ export default function AssignedTask_Archiving_tabs({
         )}
 
         <div className="flex flex-col items-center w-full h-full overflow-y-auto">
-          <div 
+          <div
             className="
             flex flex-col w-[100%] p-4 rounded-md 
             sm:[60%]
@@ -134,7 +88,8 @@ export default function AssignedTask_Archiving_tabs({
             lg:w-[60%]
             xl:w-[60%] 
             2xl:w-[60%] 
-            ">
+            "
+          >
             <label className="w-full text-[#5B0505] text-xl text-start font-semibold mr-4">
               No Due Date:
             </label>
@@ -157,241 +112,15 @@ export default function AssignedTask_Archiving_tabs({
                 (task, index) =>
                   options === String(task.id) && (
                     <div key={`${task.id}_${index}`}>
-                      <div 
+                      <div
                         className="
                         flex flex-row items-center
                         xl:flex xl:flex-col xl:items-center
                         2xl:flex 2xl:flex-row 2xl:items-center
-                        ">
+                        "
+                      >
                         <div className="w-full p-0">
-                          <Card 
-                            className="
-                            w-full h-auto
-                            sm:w-full sm:h-auto
-                            md:w-full md:h-auto
-                            lg:w-full lg:h-auto
-                            xl:w-full xl:h-auto
-                            2xl:w-full 2xl:h-auto
-                            ">
-                            <CardContent>
-                              <div 
-                                className="
-                                flex flex-row text-xl text-black mt-4
-                                xl:flex xl:flex-col xl:text-xl xl:text-black xl:mt-4
-                                2xl:flex 2xl:flex-row 2xl:text-xl 2xl:text-black 2xl:mt-4
-                                ">
-                                <div 
-                                  className="
-                                  w-full flex flex-col                                         
-                                  sm:w-full sm:flex sm:flex-col
-                                  md:w-full md:flex md:flex-col
-                                  lg:w-full lg:flex lg:flex-col
-                                  xl:w-full xl:flex xl:flex-col xl:items-center
-                                  2xl:w-full 2xl:flex 2xl:flex-col
-                                  ">
-                                  <h1
-                                    className="
-                                  text-lg ml-20 font-semibold mb-12
-                                  xl:text-lg xl:ml-0 xl:font-semibold xl:mb-12
-                                  2xl:text-2xl 2xl:font-semibold 2xl:mb-12
-                                  "
-                                  >
-                                    {task.title}
-                                  </h1>
-                                  <p
-                                    className="
-                                  mb-16 text-sm ml-20
-                                  2xl:mb-16 2xl:text-lg
-                                  "
-                                  >
-                                    {task.description}
-                                  </p>
-                                  <div>
-                                    <h1
-                                      className="
-                                    text-xs mb-0 ml-20
-                                    2xl:text-sm 2xl:mb-0
-                                    "
-                                    >
-                                      Date Posted:{" "}
-                                      {task.deadlineCreated.toLocaleString()}
-                                    </h1>
-                                  </div>
-                                </div>
-                                <div
-                                  className="
-                                  w-[60%]
-                                  2xl:w-[60%] items-center
-                                  "
-                                  >
-                                  <div className="flex flex-col mt-48 -ml-40 bg-white p-4 gap-4 drop-shadow-2xl rounded-xl">
-                                    <div className="flex flex-row gap-x-48">
-                                      <h1 className="text-md">Your work</h1>
-                                      <h1 className="text-sm -ml-5 text-green-600">
-                                        Assigned
-                                      </h1>
-                                    </div>
-                                    <Dialog>
-                                      <DialogTrigger className="w-full h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer inline-flex items-center justify-center">
-                                        Upload Here
-                                      </DialogTrigger>
-                                      <DialogContent className="bg-white max-w-[700px] max-h-[600px] h-auto py-6 px-6 mx-auto overflow-y-auto">
-                                        <DialogHeader>
-                                          <DialogTitle className="text-2xl">
-                                            Upload files
-                                          </DialogTitle>
-                                          <DialogDescription>
-                                            You can upload files here.
-                                          </DialogDescription>
-                                        </DialogHeader>
-                                        <div className="flex flex-col w-full">
-                                          <UseMultiFile />
-                                          {uploadedFiles.map((file, index) => (
-                                            <React.Fragment key={index}>
-                                              <div className="flex flex-row">
-                                                <div className="flex border w-full h-auto  drop-shadow-2xl mb-2 rounded-lg overflow-x-hidden items-center">
-                                                  <div className="flex flex-row h-auto text-xl font-semibold justify-between items-center p-2 w-full">
-                                                    <div>
-                                                      <p>{file.name}</p>s
-                                                    </div>
-                                                    <div>
-                                                      <label
-                                                        className="cursor-pointer w-full text-red-600"
-                                                        onClick={() =>
-                                                          handleRemoveFile(
-                                                            index
-                                                          )
-                                                        }
-                                                      >
-                                                        X
-                                                      </label>
-                                                    </div>
-                                                  </div>
-                                                  <div />
-                                                </div>
-                                              </div>
-                                            </React.Fragment>
-                                          ))}
-                                        </div>
-                                        <div className="flex flex-col bottom-0 items-center justify-center w-full h-auto">
-                                          <label
-                                            htmlFor="file-upload"
-                                            className="w-[40%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg"
-                                          >
-                                            Browse
-                                            <input
-                                              id="file-upload"
-                                              type="file"
-                                              className="hidden"
-                                              onChange={handleFileUpload}
-                                              multiple
-                                            />
-                                          </label>{" "}
-                                          <AlertDialog>
-                                            <AlertDialogTrigger asChild>
-                                              <button className="w-[40%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer items-center justify-center rounded-lg">
-                                                Upload
-                                              </button>
-                                            </AlertDialogTrigger>
-                                            <AlertDialogContent>
-                                              <AlertDialogHeader>
-                                                <AlertDialogTitle>
-                                                  Do you want to Proceed?
-                                                </AlertDialogTitle>
-                                                <AlertDialogDescription>
-                                                  This action will upload your
-                                                  file temporarily. Mark it as
-                                                  done to confirm the upload.
-                                                </AlertDialogDescription>
-                                              </AlertDialogHeader>
-                                              <AlertDialogFooter className="items-center">
-                                                <AlertDialogCancel>
-                                                  Cancel
-                                                </AlertDialogCancel>
-                                                <AlertDialogAction
-                                                  onClick={async () => {
-                                                    console.log(uploadedFiles);
-
-                                                    try {
-                                                      const uploadPromises =
-                                                        uploadedFiles.map(
-                                                          async (upFile) => {
-                                                            try {
-                                                              console.log(
-                                                                "Upfile",
-                                                                upFile
-                                                              );
-                                                              const res =
-                                                                await edgestore.publicFiles1.upload(
-                                                                  {
-                                                                    file: upFile,
-                                                                    options: {
-                                                                      manualFileName:
-                                                                        upFile.name,
-                                                                      temporary: true,
-                                                                    },
-                                                                  }
-                                                                );
-                                                              console.log(res);
-                                                              return res;
-                                                            } catch (error) {
-                                                              console.error(
-                                                                error
-                                                              );
-                                                              throw error; // rethrowing error to handle at the end
-                                                            }
-                                                          }
-                                                        );
-
-                                                      const results =
-                                                        await Promise.all(
-                                                          uploadPromises
-                                                        );
-                                                      if (results) {
-                                                        toast;
-                                                      }
-
-                                                      getUrls(results, setUrls);
-                                                      console.log(
-                                                        "All files uploaded successfully:",
-                                                        results
-                                                      );
-                                                    } catch (error) {
-                                                      console.error(
-                                                        "Error uploading files:",
-                                                        error
-                                                      );
-                                                    }
-                                                    console.log(urls);
-                                                  }}
-                                                >
-                                                  Continue
-                                                </AlertDialogAction>
-                                              </AlertDialogFooter>
-                                            </AlertDialogContent>
-                                          </AlertDialog>
-                                        </div>
-                                      </DialogContent>
-                                    </Dialog>
-                                    <button
-                                      onClick={async () => {
-                                        const res = await confirmUpload(
-                                          urls,
-                                          fileInfo,
-                                          task.id
-                                        );
-                                        console.log(res);
-                                        console.log(fileInfo);
-                                      }}
-                                      className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded"
-                                    >
-                                      Mark as done
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </CardContent>
-                          </Card>
+                          <File_Upload_Card task={task} />
                         </div>
                       </div>
                     </div>
@@ -419,255 +148,17 @@ export default function AssignedTask_Archiving_tabs({
                 ))}
               </select>
 
-              {tasks.noDeadline.map(
+              {tasks.thisWeek.map(
                 (task, index) =>
                   options === String(task.id) && (
                     <div key={`${task.id}_${index}`}>
                       <div className="flex flex-row items-center">
                         <div className="w-full p-0">
-                          <Card className="lg:w-full w-[330px] h-auto">
-                            <CardContent>
-                              <div className="flex flex-row text-xl  text-black  mt-4">
-                                <div className="w-full flex flex-col">
-                                  <h1
-                                    className="
-                                  text-lg ml-20 font-semibold mb-12
-                                  2xl:text-2xl 2xl:font-semibold 2xl:mb-12
-                                  "
-                                  >
-                                    {task.title}
-                                  </h1>
-                                  <p
-                                    className="
-                                  mb-16 text-sm ml-20
-                                  2xl:mb-16 2xl:text-lg
-                                  "
-                                  >
-                                    {task.description}
-                                  </p>
-                                  <div>
-                                    <h1
-                                      className="
-                                    text-xs mb-0 ml-20
-                                    2xl:text-sm 2xl:mb-0
-                                    "
-                                    >
-                                      Date Posted:
-                                      {task.deadlineCreated.toLocaleString()}
-                                    </h1>
-                                  </div>
-                                </div>
-                                <div
-                                  className="
-                                w-[60%]
-                                2xl:w-[60%] items-center
-                                "
-                                >
-                                  <div className="flex flex-col mt-48 -ml-40 bg-white p-4 gap-4 drop-shadow-2xl rounded-xl">
-                                    <div className="flex flex-row gap-x-48">
-                                      <h1 className="text-md">Your work</h1>
-                                      <h1 className="text-sm -ml-5 text-green-600">
-                                        Assigned
-                                      </h1>
-                                    </div>
-                                    <Dialog>
-                                      <DialogTrigger className="w-full h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer inline-flex items-center justify-center">
-                                        Upload Here
-                                      </DialogTrigger>
-                                      <DialogContent className="bg-white max-w-[700px] max-h-[600px] h-auto py-6 px-6 mx-auto overflow-y-auto">
-                                        <DialogHeader>
-                                          <DialogTitle className="text-2xl">
-                                            Upload files
-                                          </DialogTitle>
-                                          <DialogDescription>
-                                            You can upload files here.
-                                          </DialogDescription>
-                                        </DialogHeader>
-                                        <div className="flex flex-col w-full">
-                                          <UseMultiFile />
-                                          {uploadedFiles.map((file, index) => (
-                                            <React.Fragment key={index}>
-                                              <div className="flex flex-row">
-                                                <div className="flex border w-full h-auto  drop-shadow-2xl mb-2 rounded-lg overflow-x-hidden items-center">
-                                                  <div className="flex flex-row h-auto text-xl font-semibold justify-between items-center p-2 w-full">
-                                                    <div>
-                                                      <p>{file.name}</p>s
-                                                    </div>
-                                                    <div>
-                                                      <label
-                                                        className="cursor-pointer w-full text-red-600"
-                                                        onClick={() =>
-                                                          handleRemoveFile(
-                                                            index
-                                                          )
-                                                        }
-                                                      >
-                                                        X
-                                                      </label>
-                                                    </div>
-                                                  </div>
-                                                  <div />
-                                                </div>
-                                              </div>
-                                            </React.Fragment>
-                                          ))}
-                                        </div>
-                                        <div className="flex flex-col bottom-0 items-center justify-center w-full h-auto">
-                                          <label
-                                            htmlFor="file-upload"
-                                            className="w-[40%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg"
-                                          >
-                                            Browse
-                                            <input
-                                              id="file-upload"
-                                              type="file"
-                                              className="hidden"
-                                              onChange={handleFileUpload}
-                                              multiple
-                                            />
-                                          </label>{" "}
-                                          <AlertDialog>
-                                            <AlertDialogTrigger asChild>
-                                              <button className="w-[40%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer items-center justify-center rounded-lg">
-                                                Upload
-                                              </button>
-                                            </AlertDialogTrigger>
-                                            <AlertDialogContent>
-                                              <AlertDialogHeader>
-                                                <AlertDialogTitle>
-                                                  Do you want to Proceed?
-                                                </AlertDialogTitle>
-                                                <AlertDialogDescription>
-                                                  This action will upload your
-                                                  file temporarily. Mark it as
-                                                  done to confirm the upload.
-                                                </AlertDialogDescription>
-                                              </AlertDialogHeader>
-                                              <AlertDialogFooter className="items-center">
-                                                <AlertDialogCancel>
-                                                  Cancel
-                                                </AlertDialogCancel>
-                                                <AlertDialogAction
-                                                  onClick={async () => {
-                                                    console.log(uploadedFiles);
-
-                                                    try {
-                                                      const uploadPromises =
-                                                        uploadedFiles.map(
-                                                          async (upFile) => {
-                                                            try {
-                                                              console.log(
-                                                                "Upfile",
-                                                                upFile
-                                                              );
-                                                              const res =
-                                                                await edgestore.publicFiles1.upload(
-                                                                  {
-                                                                    file: upFile,
-                                                                    options: {
-                                                                      manualFileName:
-                                                                        upFile.name,
-                                                                      temporary: true,
-                                                                    },
-                                                                  }
-                                                                );
-                                                              console.log(res);
-                                                              return res;
-                                                            } catch (error) {
-                                                              console.error(
-                                                                error
-                                                              );
-                                                              throw error; // rethrowing error to handle at the end
-                                                            }
-                                                          }
-                                                        );
-
-                                                      const results =
-                                                        await Promise.all(
-                                                          uploadPromises
-                                                        );
-                                                      if (results) {
-                                                        toast;
-                                                      }
-
-                                                      getUrls(results, setUrls);
-                                                      console.log(
-                                                        "All files uploaded successfully:",
-                                                        results
-                                                      );
-                                                    } catch (error) {
-                                                      console.error(
-                                                        "Error uploading files:",
-                                                        error
-                                                      );
-                                                    }
-                                                    console.log(urls);
-                                                  }}
-                                                >
-                                                  Continue
-                                                </AlertDialogAction>
-                                              </AlertDialogFooter>
-                                            </AlertDialogContent>
-                                          </AlertDialog>
-                                        </div>
-                                      </DialogContent>
-                                    </Dialog>
-                                    <button
-                                      onClick={async () => {
-                                        const res = await confirmUpload(
-                                          urls,
-                                          fileInfo,
-                                          task.id
-                                        );
-                                        console.log(res);
-                                        console.log(fileInfo);
-                                      }}
-                                      className="w-full h-10 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded"
-                                    >
-                                      Mark as done
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </CardContent>
-                          </Card>
+                          <File_Upload_Card task={task} />
                         </div>
                       </div>
                     </div>
                   )
-              )}
-              {options === "thisweek1" && (
-                <div className="border border-black text-xl text-black p-4 mt-4">
-                  <h1 className="text-2xl font-semibold mb-2">
-                    This week 1 Title
-                  </h1>
-                  <p className="mb-4 text-lg">This week 1 Instructions.</p>
-                  <div>
-                    <h1 className="text-sm mb-2">Post Today</h1>
-                  </div>
-                </div>
-              )}
-              {options === "thisweek2" && (
-                <div className="border border-black text-xl text-black p-4 mt-4">
-                  <h1 className="text-2xl font-semibold mb-2">
-                    This week 2 Title
-                  </h1>
-                  <p className="mb-4 text-lg">This week 2 Instructions.</p>
-                  <div>
-                    <h1 className="text-sm mb-2">Post Today</h1>
-                  </div>
-                </div>
-              )}
-              {options === "thisweek3" && (
-                <div className="border border-black text-xl text-black p-4 mt-4">
-                  <h1 className="text-2xl font-semibold mb-2">
-                    This week 3 Title
-                  </h1>
-                  <p className="mb-4 text-lg">This week 3 Instructions.</p>
-                  <div>
-                    <h1 className="text-sm mb-2">Post Today</h1>
-                  </div>
-                </div>
               )}
             </div>
           </div>
@@ -691,38 +182,17 @@ export default function AssignedTask_Archiving_tabs({
                 ))}
               </select>
 
-              {options === "nextweek1" && (
-                <div className="border border-black text-xl text-black p-4 mt-4">
-                  <h1 className="text-2xl font-semibold mb-2">
-                    Next week 1 Title
-                  </h1>
-                  <p className="mb-4 text-lg">Next week 1 Instructions.</p>
-                  <div>
-                    <h1 className="text-sm mb-2">Post Today</h1>
-                  </div>
-                </div>
-              )}
-              {options === "nextweek2" && (
-                <div className="border border-black text-xl text-black p-4 mt-4">
-                  <h1 className="text-2xl font-semibold mb-2">
-                    Next week 2 Title
-                  </h1>
-                  <p className="mb-4 text-lg">Next week 2 Instructions.</p>
-                  <div>
-                    <h1 className="text-sm mb-2">Post Today</h1>
-                  </div>
-                </div>
-              )}
-              {options === "nextweek3" && (
-                <div className="border border-black text-xl text-black p-4 mt-4">
-                  <h1 className="text-2xl font-semibold mb-2">
-                    Next week 3 Title
-                  </h1>
-                  <p className="mb-4 text-lg">Next week 3 Instructions.</p>
-                  <div>
-                    <h1 className="text-sm mb-2">Post Today</h1>
-                  </div>
-                </div>
+              {tasks.nextWeek.map(
+                (task, index) =>
+                  options === String(task.id) && (
+                    <div key={`${task.id}_${index}`}>
+                      <div className="flex flex-row items-center">
+                        <div className="w-full p-0">
+                          <File_Upload_Card task={task} />
+                        </div>
+                      </div>
+                    </div>
+                  )
               )}
             </div>
           </div>
@@ -744,34 +214,19 @@ export default function AssignedTask_Archiving_tabs({
                     {task.title}
                   </option>
                 ))}
-              
               </select>
-              {options === "later1" && (
-                <div className="border border-black text-xl text-black p-4 mt-4">
-                  <h1 className="text-2xl font-semibold mb-2">Later 1 Title</h1>
-                  <p className="mb-4 text-lg">Later 1 Instructions.</p>
-                  <div>
-                    <h1 className="text-sm mb-2">Post Today</h1>
-                  </div>
-                </div>
-              )}
-              {options === "later2" && (
-                <div className="border border-black text-xl text-black p-4 mt-4">
-                  <h1 className="text-2xl font-semibold mb-2">Later 2 Title</h1>
-                  <p className="mb-4 text-lg">Later 2 Instructions.</p>
-                  <div>
-                    <h1 className="text-sm mb-2">Post Today</h1>
-                  </div>
-                </div>
-              )}
-              {options === "later3" && (
-                <div className="border border-black text-xl text-black p-4 mt-4">
-                  <h1 className="text-2xl font-semibold mb-2">Later 3 Title</h1>
-                  <p className="mb-4 text-lg">Later 3 Instructions.</p>
-                  <div>
-                    <h1 className="text-sm mb-2">Post Today</h1>
-                  </div>
-                </div>
+
+              {tasks.laterThanNextWeek.map(
+                (task, index) =>
+                  options === String(task.id) && (
+                    <div key={`${task.id}_${index}`}>
+                      <div className="flex flex-row items-center">
+                        <div className="w-full p-0">
+                          <File_Upload_Card task={task} />
+                        </div>
+                      </div>
+                    </div>
+                  )
               )}
             </div>
           </div>
