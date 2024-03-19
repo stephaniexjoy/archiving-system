@@ -10,9 +10,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { signOut } from "next-auth/react";
-import { FaBook, FaHome, FaSignOutAlt } from "react-icons/fa";
-
-import React from "react";
+import { FaSignOutAlt } from "react-icons/fa";
 
 export default function Signout_Dialog({ isMinimized }) {
   return (
@@ -25,12 +23,8 @@ export default function Signout_Dialog({ isMinimized }) {
         >
           <FaSignOutAlt className="text-white text-2xl  " />
           <span className={`ml-4 ${isMinimized ? "hidden" : ""}`}>
-  SIGN OUT
-</span>
-
-
-
-          
+            SIGN OUT
+          </span>
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>

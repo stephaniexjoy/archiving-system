@@ -92,7 +92,7 @@ export function ComboboxPermission({ value, onChange }) {
           role="combobox"
           aria-expanded={open}
           className="
-          w-full
+          w-full bg-slate-50 border border-slate-400
           sm:w-full
           md:full
           lg:w-full
@@ -164,7 +164,7 @@ export function ComboboxMaterial({ value, onChange, materials }) {
           role="combobox"
           aria-expanded={open}
           className="
-          w-full
+          w-full bg-slate-50 border border-slate-400
           sm:w-full
           md:w-full
           lg:w-full
@@ -236,7 +236,7 @@ export function ComboboxProgram({ value, onChange }) {
           role="combobox"
           aria-expanded={open}
           className="
-          w-full
+          w-full bg-slate-50 border border-slate-400
           sm:w-full
           md:w-full
           lg:w-full
@@ -311,7 +311,7 @@ export function ComboboxInstructor({ value, onChange, instructors }) {
           role="combobox"
           aria-expanded={open}
           className="
-          w-full
+          w-full bg-slate-50 border border-slate-400
           sm:w-full
           md:w-full
           lg:w-full
@@ -383,7 +383,7 @@ export function ComboboxFileType({ value, onChange }) {
           role="combobox"
           aria-expanded={open}
           className="
-          w-full
+          w-full bg-slate-50 border border-slate-400
           sm:w-full
           md:w-full
           lg:w-full
@@ -449,14 +449,14 @@ export default function Date_Range({ className }) {
     to: addDays(new Date(2022, 0, 20), 20),
   });
   return (
-    <div className={cn("grid gap-2 ", className)}>
+    <div className={cn("grid gap-10 ", className)}>
       <Popover>
         <PopoverTrigger asChild>
           <Button
             id="date" 
             variant={"outline"}
             className={cn(
-              "text-[5px] w-full sm:w-full md:w-full lg:w-full xl:w-full 2xl:w-full cursor-pointer h-[40px] rounded-sm px-0 py-1",
+              "bg-slate-50 border border-slate-400 text-[5px] w-full sm:w-full md:w-full lg:w-full xl:w-full 2xl:w-full cursor-pointer h-[40px] rounded-sm px-0 py-1",
               !date
             )}
           >
@@ -560,7 +560,7 @@ export function DataTable({ columns, data, materials, instructors }) {
             table.getColumn("filename")?.setFilterValue(event.target.value)
           }
           className="
-          max-w-full mt-10
+          max-w-full mt-10 bg-slate-50 border border-slate-400
           sm:max-w-full
           md:max-w-full  
           lg:max-w-lg  

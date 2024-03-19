@@ -144,7 +144,7 @@ function ArchivingTab({
         2xl:w-auto 2xl:text-2xl
         "
       >
-        <TabsList 
+        <TabsList
           className="
           grid grid-cols-2 grid-rows-2 w-auto h-auto items-center justify-center text-center
           sm:grid sm:grid-cols-3 sm:grid-rows-2 sm:w-auto sm:h-auto sm:items-center sm:justify-center sm:text-center
@@ -164,7 +164,7 @@ function ArchivingTab({
             xl:w-auto xl:text-xl
             2xl:w-auto 2xl:text-xl
             "
-            >
+          >
             All Files
           </TabsTrigger>
           <TabsTrigger
@@ -194,7 +194,7 @@ function ArchivingTab({
             Missing Task
           </TabsTrigger>
           <TabsTrigger
-            value="archivedtask"
+            value="completedtask"
             className="
             font-bold font-arial text-md 
             sm:w-auto sm:text-md 
@@ -204,12 +204,13 @@ function ArchivingTab({
             2xl:w-auto 2xl:text-xl
             "
           >
-            Archived Task
+            Completed Task
           </TabsTrigger>
+
           {session?.user?.position === "Secretary" && (
             <>
               <TabsTrigger
-                value="completedtask"
+                value="archivedtask"
                 className="
                 font-bold font-arial text-md 
                 sm:w-auto sm:text-md 
@@ -219,8 +220,9 @@ function ArchivingTab({
                 2xl:mt-0 2xl:w-auto 2xl:text-xl
                 "
               >
-                Completed Task
+                Archived Task
               </TabsTrigger>
+
               <TabsTrigger
                 value="monitor"
                 className="
@@ -238,13 +240,12 @@ function ArchivingTab({
           )}
         </TabsList>
         <TabsContent value="files">
-          {" "}
           <Files_Archiving_tabs
             dataWithFormattedDate={datas}
             materials={materials}
             courses={courses}
             instructors={instructors}
-          />{" "}
+          />
         </TabsContent>
         <TabsContent value="assignedtask">
           <AssignedTask_Archiving_tabs
@@ -259,13 +260,14 @@ function ArchivingTab({
             tasks={filteredTasks.incomplete.pastDue}
           />
         </TabsContent>
-        <TabsContent value="archivedtask">
-          <ArchivedTask_Archiving_tabs />
+        <TabsContent value="completedtask">
+          <CompletedTask_Archiving_tabs tasks={filteredTasks.completed} />
         </TabsContent>
+
         {session?.user?.position === "Secretary" && (
           <>
-            <TabsContent value="completedtask">
-              <CompletedTask_Archiving_tabs tasks={filteredTasks.completed} />
+            <TabsContent value="archivedtask">
+              <ArchivedTask_Archiving_tabs />
             </TabsContent>
             <TabsContent value="monitor">
               <>

@@ -140,7 +140,7 @@ export function DataTable({ columns, data, materials, instructors }) {
             table.getColumn("name")?.setFilterValue(event.target.value)
           }
           className="
-          max-w-sm          
+          max-w-sm bg-slate-50 border border-slate-400         
           sm:max-w-md
           md:max-w-lg
           lg:max-w-xl

@@ -99,12 +99,12 @@ export default function Form({ sessionUser }) {
                   name={`${field.id}Input`}
                   id={field.id}
                   className="
-                  ml-0 bg-[#837979] w-[345px] text-white text-[15px]
-                  sm:ml-0 sm:bg-[#837979] sm:w-[335px] sm:text-white sm:text-[17px]
-                  md:ml-0 md:bg-[#837979] md:w-[375px] md:text-white md:text-[19px]
-                  lg:ml-0 lg:bg-[#837979] lg:w-[265px] lg:text-white lg:text-[21px]
-                  xl:ml-0 xl:bg-[#837979] xl:w-[330px] xl:text-white xl:text-[23px]
-                  2xl:ml-12 2xl:bg-[#837979] 2xl:w-[370px] 2xl:text-white 2xl:text-[25px]
+                  ml-0 bg-slate-300 w-[345px] text-black text-[15px]
+                  sm:ml-0 sm:bg-slate-300 sm:w-[335px] sm:text-black sm:text-[17px]
+                  md:ml-0 md:bg-slate-300 md:w-[375px] md:text-black md:text-[19px]
+                  lg:ml-0 lg:bg-slate-300 lg:w-[265px] lg:text-black lg:text-[21px]
+                  xl:ml-0 xl:bg-slate-300 xl:w-[330px] xl:text-black xl:text-[23px]
+                  2xl:ml-12 2xlbg-slate-300 2xl:w-[370px] 2xl:text-black 2xl:text-[25px]
                   "
                 >
                   {field.options.map((option, optionIndex) => (
@@ -119,12 +119,12 @@ export default function Form({ sessionUser }) {
                   id={field.id}
                   type={field.type}
                   className="
-                  ml-0 bg-[#837979] w-[345px] text-white text-[15px]
-                  sm:ml-0 sm:bg-[#837979] sm:w-[335px] sm:text-white sm:text-[17px]
-                  md:ml-0 md:bg-[#837979] md:w-[375px] md:text-white md:text-[19px]
-                  lg:ml-0 lg:bg-[#837979] lg:w-[265px] lg:text-white lg:text-[21px]
-                  xl:ml-0 xl:bg-[#837979] xl:w-[330px] xl:text-white xl:text-[23px]
-                  2xl:ml-12 2xl:bg-[#837979] 2xl:w-[370px] 2xl:text-white 2xl:text-[25px]
+                  ml-0 bg-slate-300 w-[345px] text-black text-[15px]
+                  sm:ml-0 sm:bg-slate-300 sm:w-[335px] sm:text-black sm:text-[17px]
+                  md:ml-0 md:bg-slate-300 md:w-[375px] md:text-black md:text-[19px]
+                  lg:ml-0 lg:bg-slate-300 lg:w-[265px] lg:text-black lg:text-[21px]
+                  xl:ml-0 xl:bg-slate-300 xl:w-[330px] xl:text-black xl:text-[23px]
+                  2xl:ml-12 2xl:bg-slate-300 2xl:w-[370px] 2xl:text-black 2xl:text-[25px]
                   "
                 />
               )}
@@ -134,23 +134,23 @@ export default function Form({ sessionUser }) {
 
         <div
           className="
-        flex justify-center gap-4 gap-x-16 mt-4
-        sm:flex sm:justify-center sm:gap-4 sm:gap-x-16 sm:mt-4
-        md:flex md:justify-center md:gap-4 md:gap-x-16 md:mt-8
-        lg:flex lg:justify-center lg:gap-4 lg:gap-x-16 lg:mt-12
-        xl:flex xl:justify-center xl:gap-4 xl:gap-x-16 xl:mt-16
-        2xl:flex 2xl:justify-center 2xl:gap-4 2xl:gap-x-16 2xl:mt-20
-        "
+          flex justify-center gap-4 gap-x-16 mt-4
+          sm:flex sm:justify-center sm:gap-4 sm:gap-x-16 sm:mt-4
+          md:flex md:justify-center md:gap-4 md:gap-x-16 md:mt-8
+          lg:flex lg:justify-center lg:gap-4 lg:gap-x-16 lg:mt-12
+          xl:flex xl:justify-center xl:gap-4 xl:gap-x-16 xl:mt-16
+          2xl:flex 2xl:justify-center 2xl:gap-4 2xl:gap-x-16 2xl:mt-20
+          "
         >
           <Button
             type="submit"
             className="
-            bg-[#737373] text-white text-[15px] w-32 font-bold
-            sm:bg-[#737373] sm:text-white sm:text-[17px] sm:w-36 sm:font-bold
-            md:bg-[#737373] md:text-white md:text-[19px] md:w-48 md:font-bold
-            lg:bg-[#737373] lg:text-white lg:text-[21px] lg:w-56 lg:font-bold
-            xl:bg-[#737373] xl:text-white xl:text-[23px] xl:w-64 xl:font-bold
-            2xl:bg-[#737373] 2xl:text-white 2xl:text-[25px] 2xl:w-72 2xl:font-bold
+            bg-[#AD5606] text-white text-[15px] w-32 font-bold
+            sm:bg-[#AD5606] sm:text-white sm:text-[17px] sm:w-36 sm:font-bold
+            md:bg-[#AD5606] md:text-white md:text-[19px] md:w-48 md:font-bold
+            lg:bg-[#AD5606] lg:text-white lg:text-[21px] lg:w-56 lg:font-bold
+            xl:bg-[#AD5606] xl:text-white xl:text-[23px] xl:w-64 xl:font-bold
+            2xl:bg-[#AD5606] 2xl:text-white 2xl:text-[25px] 2xl:w-72 2xl:font-bold
             "
           >
             CREATE

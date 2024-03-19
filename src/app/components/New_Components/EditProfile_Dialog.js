@@ -1,13 +1,5 @@
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -19,25 +11,25 @@ function EditProfile_Dialog() {
       <DialogTrigger asChild>
         <b
           className="
-                text-center bg-transparent text-white text-lg font-bold h-8 w-36 p-2 m-2 cursor-pointer
-                sm:text-center sm:bg-transparent sm:text-white sm:text-lg sm:font-bold sm:h-10 sm:w-44 sm:p-2 sm:m-2 sm:cursor-pointer
-                md:text-center md:bg-transparent md:text-white md:text-lg md:font-bold md:h-10 md:w-52 md:p-2 md:m-2 md:cursor-pointer
-                lg:text-center lg:bg-transparent lg:text-white lg:text-xl lg:font-bold lg:h-10 lg:w-56 lg:p-2 lg:m-2 lg:cursor-pointer
-                xl:text-center xl:bg-transparent xl:text-white xl:text-2xl xl:font-bold xl:h-10 xl:w-60 xl:p-2 xl:m-2 xl:cursor-pointer
-                2xl:text-center 2xl:bg-transparent 2xl:text-white 2xl:text-2xl 2xl:font-bold 2xl:h-10 2xl:w-64 2xl:p-2 2xl:m-2 2xl:cursor-pointer
-                "
+          text-center bg-transparent text-white text-lg font-bold h-8 w-36 p-2 m-2 cursor-pointer
+          sm:text-center sm:bg-transparent sm:text-white sm:text-lg sm:font-bold sm:h-10 sm:w-44 sm:p-2 sm:m-2 sm:cursor-pointer
+          md:text-center md:bg-transparent md:text-white md:text-lg md:font-bold md:h-10 md:w-52 md:p-2 md:m-2 md:cursor-pointer
+          lg:text-center lg:bg-transparent lg:text-white lg:text-xl lg:font-bold lg:h-10 lg:w-56 lg:p-2 lg:m-2 lg:cursor-pointer
+          xl:text-center xl:bg-transparent xl:text-white xl:text-2xl xl:font-bold xl:h-10 xl:w-60 xl:p-2 xl:m-2 xl:cursor-pointer
+          2xl:text-center 2xl:bg-transparent 2xl:text-white 2xl:text-2xl 2xl:font-bold 2xl:h-10 2xl:w-64 2xl:p-2 2xl:m-2 2xl:cursor-pointer
+          "
         >
           EDIT PROFILE
         </b>
       </DialogTrigger>
       <DialogContent
         className="
-        p-10 max-w-[90%] max-h-[70%] overflow-y-auto rounded-lg
+        p-10 max-w-[90%] max-h-[70%] overflow-y-auto rounded-lg bg-slate-50
         sm:p-10 sm:max-w-[80%] sm:max-h-[70%] sm:overflow-y-auto sm:rounded-lg
         md:p-12 md:max-w-[70%] md:max-h-[70%] md:overflow-y-auto md:rounded-lg
         lg:p-14 lg:max-w-[70%] lg:max-h-[70%] lg:overflow-y-auto lg:rounded-lg
         xl:p-16 xl:max-w-[70%] xl:max-h-[70%] xl:overflow-y-auto xl:rounded-lg
-        2xl:p-16 2xl:max-w-[50%] 2xl:max-h-[80%] 2xl:overflow-y-auto 2xl:rounded-lg
+        2xl:p-16 2xl:max-w-[50%] 2xl:max-h-[80%] 2xl:overflow-y-auto 2xl:rounded-lg 
         "
       >
         <div
@@ -78,12 +70,12 @@ function EditProfile_Dialog() {
                 id={field.id}
                 type={field.type}
                 className="
-                bg-[#837979] text-white text-[15px]
-                sm:bg-[#837979] sm:text-white sm:text-[17px]
-                md:bg-[#837979] md:text-white md:text-[19px]
-                lg:bg-[#837979] lg:text-white lg:text-[21px]
-                xl:bg-[#837979] xl:text-white xl:text-[23px]
-                2xl:bg-[#837979] 2xl:text-white 2xl:text-[25px]
+                bg-slate-300 text-black text-[15px]
+                sm:bg-slate-300 sm:text-black sm:text-[17px]
+                md:bg-slate-300 md:text-black md:text-[19px]
+                lg:bg-slate-300 lg:text-black lg:text-[21px]
+                xl:bg-slate-300 xl:text-black xl:text-[23px]
+                2xl:bg-slate-300 2xl:text-black 2xl:text-[25px]
                 "
               />
             </React.Fragment>
@@ -102,12 +94,12 @@ function EditProfile_Dialog() {
           <Button
             type="submit"
             className="
-            bg-[#8F8F8F] text-white text-[15px] w-[200px]
-            sm:bg-[#8F8F8F] sm:text-white sm:text-[17px] sm:w-[220px]
-            md:bg-[#8F8F8F] md:text-white md:text-[19px] md:w-[250px]
-            lg:bg-[#8F8F8F] lg:text-white lg:text-[21px] lg:w-[260px]
-            xl:bg-[#8F8F8F] xl:text-white xl:text-[23px] xl:w-[265px]
-            2xl:bg-[#8F8F8F] 2xl:text-white 2xl:text-[25px] 2xl:w-[270px]
+            bg-[#AD5606] text-white text-[15px] w-[200px]
+            sm:bg-[#AD5606] sm:text-white sm:text-[17px] sm:w-[220px]
+            md:bg-[#AD5606] md:text-white md:text-[19px] md:w-[250px]
+            lg:bg-[#AD5606] lg:text-white lg:text-[21px] lg:w-[260px]
+            xl:bg-[#AD5606] xl:text-white xl:text-[23px] xl:w-[265px]
+            2xl:bg-[#AD5606] 2xl:text-white 2xl:text-[25px] 2xl:w-[270px]
             "
           >
             Save

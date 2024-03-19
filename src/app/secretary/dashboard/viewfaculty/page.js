@@ -1,6 +1,7 @@
 import ViewFaculty_Secretary from "@/app/components/NewTable/ViewFaculty_Table_Secretary/ViewFaculty_Secretary";
 import { getAllUsers } from "@/app/lib/actions/actions";
 import { revalidatePath } from "next/cache";
+import Image from "next/image";
 
 async function page() {
   async function getEmptyData() {
@@ -19,12 +20,12 @@ async function page() {
   const users = await getAllUsers();
   console.log(users);
   return (
-    <div className="flex flex-col w-screen h-screen overflow-y-auto">
+    <div className="flex flex-col w-screen h-screen overflow-y-auto bg-slate-50">
       <div className="
       bg-[#AD5606] w-[100%] h-[7%] flex items-center justify-center
       2xl:bg-[#AD5606] 2xl:w-full 2xl:h-auto 2xl:flex 2xl:items-center 2xl:justify-center
       ">
-        <img
+        <Image
           className="
           w-[60%] h-auto object-cover flex items-center justify-center
           sm:w-[45%] sm:h-auto sm:object-cover sm:flex sm:items-center sm:justify-center
@@ -35,6 +36,8 @@ async function page() {
           "
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
+          width={2125}
+          height={499}
         />
       </div>
 
