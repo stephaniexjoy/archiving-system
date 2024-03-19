@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -6,7 +5,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
 import ForgotPassword_Form from "./Forgot_Password/ForgotPassword_Form";
 
 export default function ForgotPassword_Dialog() {
