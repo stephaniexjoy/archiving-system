@@ -12,7 +12,7 @@ export default function Dashboard_Skeleton() {
       <div className="flex mt-[2%] px-10 w-full">
         {/* welcome */}
         <div>
-          <Skeleton className="ml-2 mt-0 h-8 w-20 bg-gray-400" />
+          <Skeleton className="ml-2 h-8 w-20 bg-gray-400" />
         </div>
 
         {/* faculty */}
@@ -35,16 +35,25 @@ export default function Dashboard_Skeleton() {
       <div className="flex flex-row mt-[1%] px-10 space-x-20">
         {/* archived materials */}
         <div>
-          <Skeleton className="ml-1 mt-20 h-[270%] w-[10500%] bg-gray-400" />
+          <Skeleton className="ml-1 mt-20 h-[80%] w-[10500%] bg-gray-400" />
         </div>
         {/* calendar */}
         <div>
-          <Skeleton className="ml-96 mt-20 h-[270%] w-[112%] bg-gray-400" />
+          <Skeleton className="ml-96 mt-20 h-[80%] w-[112%] bg-gray-400" />
         </div>
         {/* parent div */}
         <div className="flex flex-col items-center space-y-8 mb-11">
+          {/* ccs logp */}
           <div>
-            <Skeleton className="ml-96 mt-20 h-[170%] w-[40%] bg-gray-400 rounded-full" />
+            <Skeleton className="ml-96 mt-20 h-[140%] w-[33%] bg-gray-400 rounded-full" />
+          </div>
+          {/* edit privacy */}
+          <div>
+            <Skeleton className="ml-96 mt-28 h-[70%] w-[120%] bg-gray-400" />
+          </div>
+          {/* upload materials */}
+          <div>
+            <Skeleton className="ml-96 mt-20 h-[90%] w-[120%] bg-gray-400" />
           </div>
         </div>
       </div>
