@@ -50,7 +50,12 @@ export default function Form() {
             <Input
               name="titleInput"
               className="
-              my-3 h-16 text-xl bg-slate-200
+              my-1 h-16 text-xl bg-slate-200 w-[220px]                 
+              sm:my-3 sm:h-16 sm:text-xl sm:bg-slate-200 sm:w-[350px]
+              md:my-3 md:h-16 md:text-xl md:bg-slate-200 md:w-[430px]
+              lg:my-3 lg:h-16 lg:text-xl lg:g-slate-200 lg:w-[360px]
+              xl:my-3 xl:h-16 xl:text-xl xl:bg-slate-200 xl:w-[460px]
+              2xl:my-3 2xl:h-16 2xl:text-xl 2xl:bg-slate-200 2xl:-[250px]
               "
               type="text"
               placeholder=""
@@ -59,7 +64,12 @@ export default function Form() {
             <textarea
               name="instructionInput"
               className="
-              my-3 h-48 text-lg border rounded-xl resize-none bg-slate-200
+              my-3 h-48 text-lg border rounded-lg resize-none bg-slate-200 w-[220px]   
+              sm:w-[350px]
+              md:w-[430px]
+              lg:w-[360px]
+              xl:w-[460px]
+              2xl:-[250px]
               "
               type="text"
               placeholder=""
@@ -88,7 +98,7 @@ export default function Form() {
                     <Button
                       variant={"outline"}
                       className={cn(
-                        "bg-slate-200 my-4 w-[310px] justify-start text-left font-normal",
+                        "bg-slate-200 my-4 w-[220px] sm:w-[350px] md:w-[430px] lg:w-[360px] 2xl:w-[310px] justify-start text-left font-normal",
                         !date && "text-muted-foreground"
                       )}
                     >
@@ -109,7 +119,7 @@ export default function Form() {
                 <input
                   name="time"
                   type="time"
-                  className="bg-slate-200 my-0 w-[310px] border border-black text-xl rounded-lg cursor-pointer"
+                  className="bg-slate-200 my-0 w-[220px] sm:w-[350px] md:w-[430px] lg:w-[360px] 2xl:w-[310px] border border-black text-xl rounded-lg cursor-pointer"
                 />
               </div>
             )}

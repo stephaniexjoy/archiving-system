@@ -96,7 +96,7 @@ export default function AssignedTask_Archiving_tabs({
             <div className="w-full space-y-2">
               <select
                 onChange={(e) => setOptions(e.target.value)}
-                className="relative flex text-xl font-bold w-full cursor-pointe h-[40px] shadow-lg rounded-sm px-2 py-2 border border-orange-900"
+                className="relative flex text-xl font-bold w-full cursor-pointer h-[40px] shadow-lg rounded-sm px-2 py-2 border border-orange-900"
                 name="taskType"
                 id="taskType"
               >
