@@ -24,6 +24,7 @@ import { UseMultiFile } from "./../../File_Upload/UseMultiFile";
 
 import { useState } from "react";
 import React from "react";
+import MissingTask_Table from "@/app/components/NewTable/TasksTable/MissingTaskTable/MissingTask_Table";
 export default function MissingTask_Archiving_tabs({ tasks }) {
   const [options, setOptions] = useState("");
   const [uploadedFiles, setUploadedFiles] = useState([]);
@@ -50,9 +51,7 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
     console.log(fileInfo);
   };
 
-  function onCloseModal() {
-    setOpenModal(false);
-  }
+  console.log(tasks);
 
   return (
     <>
@@ -80,6 +79,7 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
             2xl:w-[60%] 
             "
           >
+            <MissingTask_Table tasks={tasks} />
             <label className="w-full text-[#5B0505] text-xl text-start font-semibold mr-4">
               Missing:
             </label>
