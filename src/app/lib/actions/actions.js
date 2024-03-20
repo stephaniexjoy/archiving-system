@@ -700,3 +700,16 @@ export async function getActivities() {
   const activities = await db.activity.findMany({});
   if (activities) return activities;
 }
+
+export async function getTaskById(taskId) {
+  try {
+    const getTask = await db.tasks.findUnique({
+      where: { id: parseInt(taskId) },
+    });
+    if (getTask) {
+      return getTask;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
