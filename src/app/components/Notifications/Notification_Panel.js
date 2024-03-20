@@ -59,7 +59,7 @@ const Notification_Panel = async () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="ghost">
+        <button >
           <Image
             className="
             lg:h-[50px] lg:w-[450px] lg:mt-[.8%] lg:ml-[1%] 
@@ -73,7 +73,7 @@ const Notification_Panel = async () => {
             width={121}
             height={108}
           />
-        </Button>
+        </button>
       </DialogTrigger>
       <DialogContent className="max-w-[500px] max-h-[800px] sm:max-w-[600px] sm:max-h-[700px] md:max-w-[600px] md:max-h-[700px] lg:max-w-[800px] lg:max-h-[900px] xl:max-w-[800px] xl:max-h-[900px] 2xl:max-w-[800px] 2xl:max-h-[900px] ">
         <DialogHeader>
