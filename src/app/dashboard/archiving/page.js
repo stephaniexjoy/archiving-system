@@ -56,6 +56,7 @@ export default async function archiving({ searchParams }) {
   }
 
   const data = await getData();
+  console.log(data)
 
   const dataWithFormattedDate = data.map((file) => ({
     ...file,
@@ -69,7 +70,7 @@ export default async function archiving({ searchParams }) {
     })); */
 
   // const fetchMaterials = await getMaterials()
-  // console.log(fetchMaterials)
+   console.log(dataWithFormattedDate)
 
   return (
     <>
