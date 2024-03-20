@@ -47,21 +47,21 @@ const File_Upload_Card = ({ task }) => {
           2xl:flex 2xl:flex-row 2xl:text-xl 2xl:text-black 2xl:mt-4
           "
         >
-          <div
+          <divs
             className="
             w-full flex flex-col                                         
             sm:w-full sm:flex sm:flex-col
             md:w-full md:flex md:flex-col
-            lg:w-full lg:flex lg:flex-col lg:items-center
-            xl:w-full xl:flex xl:flex-col xl:items-center
-            2xl:w-full 2xl:flex 2xl:flex-col
+            lg:w-full lg:flex lg:flex-col lg:items-start
+            xl:w-full xl:flex xl:flex-col xl:items-start
+            2xl:w-full 2xl:flex 2xl:flex-col 2xl:text-start
             "
           >
             <h1
               className="
               text-lg ml-0 font-semibold mb-16
               xl:text-lg xl:ml-0 xl:font-semibold xl:mb-12
-              2xl:text-2xl 2xl:font-semibold 2xl:mb-12
+              2xl:text-2xl 2xl:font-semibold 2xl:mb-12 2xl:text-left
               "
             >
               {task.title}
@@ -84,7 +84,7 @@ const File_Upload_Card = ({ task }) => {
                 Date Posted: {task.deadlineCreated.toLocaleString()}
               </h1>
             </div>
-          </div>
+          </divs>
           <div
             className="
             flex w-full justify-center items-center
@@ -92,7 +92,7 @@ const File_Upload_Card = ({ task }) => {
             md:w-full
             lg:w-full
             xl:w-full
-            2xl:w-full 
+            2xl:w-[90%] 
             "
           >
             <div
