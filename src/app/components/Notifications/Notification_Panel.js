@@ -70,8 +70,8 @@ const Notification_Panel = async () => {
             2xl:h-auto 2xl:w-[90px] 2xl:mt-[.8%] 2xl:ml-[2%]"
             alt="Notification Logo"
             src="/photos/Notificationlogo.png"
-            width={300}
-            height={100}
+            width={121}
+            height={108}
           />
         </Button>
       </DialogTrigger>

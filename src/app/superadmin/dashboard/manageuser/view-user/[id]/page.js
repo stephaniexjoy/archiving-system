@@ -11,7 +11,7 @@ const page = async ({ params }) => {
   return (
     <div className="flex flex-col w-screen h-screen overflow-y-auto items-center">
       <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
-        <img
+        <Image
           className="
           w-[60%] h-auto object-cover flex items-center justify-center
           sm:w-[60%] sm:h-[100%] sm:object-cover sm:flex sm:items-center sm:justify-center
@@ -22,6 +22,8 @@ const page = async ({ params }) => {
           "
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
+          width={2125}
+          height={499}
         />
       </div>
 
@@ -51,7 +53,7 @@ const page = async ({ params }) => {
             2xl:mt-8 2xl:mr-20
             "
           >
-            <img
+            <Image
               className="
               rounded-full w-36 h-auto object-cover mb-5
               sm:rounded-full sm:w-44 sm:h-auto sm:object-cover sm:mb-5
@@ -62,6 +64,8 @@ const page = async ({ params }) => {
               "
               alt="Profile"
               src="/profile.jpg"
+              width={474}
+              height={474}
             />
           </div>
 
@@ -207,17 +211,18 @@ const page = async ({ params }) => {
 
           <div
             className="
-            flex flex-col w-full
-            sm:flex sm:w-full
+            flex flex-col w-full 
+            sm:flex sm:w-full 
             md:flex md:flex-col md:w-full
             lg:flex lg:w-full
             xl:flex xl:w-full
-            2xl:flex 2xl:flex-row 2xl:w-full
+            2xl:flex 2xl:flex-row 2xl:w-full 
             "
           >
             <div
               className="
-              top-[420px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px] mb-16 mt-4
+              top-[420px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-auto mb-16 mt-4 px-2
+              sm:h-[30px]
               2xl:top-[420px] 2xl:font-semibold 2xl:text-[20px] 2xl:bg-[#8F8F8F] 2xl:[backdrop-filter:blur(4px)] 2xl:text-white 2xl:text-center 2xl:w-full 2xl:h-[30px]
               "
             >
@@ -237,7 +242,7 @@ const page = async ({ params }) => {
           </div>
         </div>
         <div>
-          <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
+          <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[60px] sm:h-[30px]">
             SUBJECTS HANDLED (DESCRIPTIVE TITLE)
           </h1>
         </div>
@@ -300,8 +305,8 @@ const page = async ({ params }) => {
 
           <h1
             className="
-            mt-4 top-[285px] font-semibold text-[15px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-start w-full h-[30px]
-            sm:mt-4 sm:top-[285px] sm:font-semibold sm:text-[17px] sm:bg-[#8F8F8F] sm:[backdrop-filter:blur(4px)] sm:text-white sm:text-start sm:w-full sm:h-[30px]
+            mt-4 top-[285px] font-semibold text-[15px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-start w-full h-[30px] px-3 py-1
+            sm:mt-4 sm:top-[285px] sm:font-semibold sm:text-[17px] sm:bg-[#8F8F8F] sm:[backdrop-filter:blur(4px)] sm:text-white sm:text-start sm:w-full sm:h-[30px] 
             md:mt-4 md:top-[285px] md:font-semibold md:text-[19px] md:bg-[#8F8F8F] md:[backdrop-filter:blur(4px)] md:text-white md:text-start md:w-full md:h-[30px]
             lg:mt-4 lg:top-[285px] lg:font-semibold lg:text-[21px] lg:bg-[#8F8F8F] lg:[backdrop-filter:blur(4px)] lg:text-white lg:text-start lg:w-full lg:h-[30px]
             xl:mt-4 xl:top-[285px] xl:font-semibold xl:text-[23px] xl:bg-[#8F8F8F] xl:[backdrop-filter:blur(4px)] xl:text-white xl:text-start xl:w-full xl:h-[30px] xl:hidden
@@ -312,7 +317,7 @@ const page = async ({ params }) => {
           </h1>
           <h1
             className="
-            mt-28 top-[285px] font-semibold text-[15px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-start w-full h-[30px]
+            mt-28 top-[285px] font-semibold text-[15px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-start w-full h-[30px] px-3 py-1
             sm:mt-28 sm:top-[285px] sm:font-semibold sm:text-[17px] sm:bg-[#8F8F8F] sm:[backdrop-filter:blur(4px)] sm:text-white sm:text-start sm:w-full sm:h-[30px]
             md:mt-28 md:top-[285px] md:font-semibold md:text-[19px] md:bg-[#8F8F8F] md:[backdrop-filter:blur(4px)] md:text-white md:text-start md:w-full md:h-[30px]
             lg:mt-28 lg:top-[285px] lg:font-semibold lg:text-[21px] lg:bg-[#8F8F8F] lg:[backdrop-filter:blur(4px)] lg:text-white lg:text-start lg:w-full lg:h-[30px]
@@ -324,7 +329,7 @@ const page = async ({ params }) => {
           </h1>
           <h1
             className="
-            mt-28 top-[285px] font-semibold text-[15px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-start w-full h-[30px]
+            mt-28 top-[285px] font-semibold text-[15px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-start w-full h-[30px] px-3 py-1
             sm:mt-28 sm:top-[285px] sm:font-semibold sm:text-[17px] sm:bg-[#8F8F8F] sm:[backdrop-filter:blur(4px)] sm:text-white sm:text-start sm:w-full sm:h-[30px]
             md:mt-28 md:top-[285px] md:font-semibold md:text-[19px] md:bg-[#8F8F8F] md:[backdrop-filter:blur(4px)] md:text-white md:text-start md:w-full md:h-[30px]
             lg:mt-28 lg:top-[285px] lg:font-semibold lg:text-[21px] lg:bg-[#8F8F8F] lg:[backdrop-filter:blur(4px)] lg:text-white lg:text-start lg:w-full lg:h-[30px]
@@ -357,6 +362,7 @@ const page = async ({ params }) => {
             2xl:flex 2xl:w-full 2xl:h-auto 2xl:items-center 2xl:justify-evenly
             "
           >
+            <div className="flex flex-row">
             <div className="flex items-center">
               <button
                 type="submit"
@@ -372,20 +378,7 @@ const page = async ({ params }) => {
                 BACK
               </button>
             </div>
-            <div className="flex items-center">
-              <button
-                type="submit"
-                className="
-                bg-[#5B0505] text-[15px] text-white text-center w-[100px] h-[30px]
-                sm:bg-[#5B0505] sm:text-[17px] sm:text-white sm:text-center sm:w-[130px] sm:h-[32px]
-                md:bg-[#5B0505] md:text-[19px] md:text-white md:text-center md:w-[130px] md:h-[34px]
-                lg:bg-[#5B0505] lg:text-[21px] lg:text-white lg:text-center lg:w-[180px] lg:h-[36px]
-                xl:bg-[#5B0505] xl:text-[23px] xl:text-white xl:text-center xl:w-[220px] xl:h-[38px]
-                2xl:bg-[#5B0505] 2xl:text-[25px] 2xl:text-white 2xl:text-center 2xl:w-[250px] 2xl:h-[40px]
-                "
-              >
-                DOWNLOAD
-              </button>
+            
             </div>
             <div className="flex items-center">
               <button
@@ -402,10 +395,11 @@ const page = async ({ params }) => {
                 PRINT
               </button>
             </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+   
   );
 };
 

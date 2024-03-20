@@ -43,8 +43,8 @@ const Sidebar = () => {
     <Image
       className="h-20 w-20 rounded-full mx-auto mb-3"
       src={session.user.image}
-      width={200}
-      height={200}
+      width={1000}
+      height={1000}
       alt={"none"}
       priority={true}
     />
@@ -52,8 +52,8 @@ const Sidebar = () => {
     <Image
       className="h-20 w-20 rounded-full mx-auto mb-3"
       src="/photos/ccsLogo.png"
-      width={200}
-      height={200}
+      width={2201}
+      height={2201}
       alt={"none"}
       priority={true}
     />
@@ -64,7 +64,7 @@ const Sidebar = () => {
       <aside
         className={`flex place-content-center bg-[#5B0505] text-white ${
           isMinimized ? "w-[10vh]" : "w-[24vh]"
-        } h-full transition-all`}
+        } h-auto transition-all`}
       >
         <nav>
           <div>

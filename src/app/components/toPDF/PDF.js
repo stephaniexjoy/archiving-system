@@ -51,8 +51,8 @@ const PDF = () => {
                   src="/profile.jpg"
                   alt="Image"
                   className="max-width-100 height-400 border border-solid border-black p-1 mt-10 ml-24 object-fit-fill"
-                  width={400}
-                  height={400}
+                  width={474}
+                  height={474}
                 />
               </div>
               <div className="relative left-[30px] top-[70px] text-black text-[25px] font-[Calibri]">
