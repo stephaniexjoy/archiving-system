@@ -45,26 +45,21 @@ const page = async ({ params }) => {
 
   return (
     <>
-      <div className="flex flex-col w-screen h-auto items-center overflow-y-auto bg-slate-50">
-        <div
-          className="
-      bg-[#AD5606] w-[100%] h-[7%] flex items-center justify-center
-      2xl:bg-[#AD5606] 2xl:w-[100%] 2xl:h-[12%] 2xl:flex 2xl:items-center 2xl:justify-center"
-        >
+      <div className="flex flex-col w-screen h-screen overflow-y-auto items-center">
+        <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
           <Image
             className="
           w-[60%] h-auto object-cover flex items-center justify-center
-          sm:w-[45%] sm:h-auto sm:object-cover sm:flex sm:items-center sm:justify-center
-          md:w-[40%] md:h-auto md:object-cover md:flex md:items-center md:justify-center
-          lg:w-[30%] lg:h-auto lg:object-cover lg:flex lg:items-center lg:justify-center
-          xl:w-[25%] xl:h-auto xl:object-cover xl:flex xl:items-center xl:justify-center
-          2xl:w-[30%] 2xl:h-auto 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center
+          sm:w-[60%] sm:h-[100%] sm:object-cover sm:flex sm:items-center sm:justify-center
+          md:w-[60%] md:h-[100%] md:object-cover md:flex md:items-center md:justify-center
+          lg:w-[40%] lg:h-[100%] lg:object-cover lg:flex lg:items-center lg:justify-center
+          xl:w-[35%] xl:h-[100%] xl:object-cover xl:flex xl:items-center xl:justify-center
+          2xl:w-[30%] 2xl:h-[100%] 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center
           "
             alt="E-Archiving System"
             src="/photos/E-Archiving System.png"
             width={2125}
             height={499}
-            
           />
         </div>
 
@@ -74,7 +69,7 @@ const page = async ({ params }) => {
         md:flex md:w-[80%] md:h-auto md:mt-4 md:items-center md:justify-center
         lg:flex lg:w-[70%] lg:h-auto lg:mt-4 lg:items-center lg:justify-center
         xl:flex xl:w-[70%] xl:h-auto xl:mt-4 xl:items-center xl:justify-center
-        2xl:flex 2xl:w-[60%] 2xl:mt-4 2xl:items-center 2xl:justify-center
+        2xl:flex 2xl:w-[60%] 2xl:mt-10 2xl:items-center 2xl:justify-center
         ">
           <CardContent >
             <div className="
@@ -96,195 +91,234 @@ const page = async ({ params }) => {
                 {user.name} {params.id}
               </h1>
 
-              {/* <form action={updateUser} className="flex flex-col w-auto h-[93%] overflow-x-hidden">
-                <div className='m-5 flex flex-auto w-auto h-screen'>
-                  <div className="grid grid-cols-2 gap-4 mt-16
-                      sm:grid-cols-2 sm:gap-4 sm:mt-16
-                      md:grid-cols-2 md:gap-4 md:mt-16
-                      lg:grid-cols-2 lg:gap-4 lg:mt-16
-                      xl:grid-cols-2 xl:gap-4 xl:mt-16
-                      2xl:grid-cols-2 2xl:gap-4 2xl:mt-16 2xl:text-start">
-                    <div className="text-[#000000] overflow-x-hidden">
-                      <p className="mt-10 text-[14px] md:text-[23px]">Position:</p>
-                      <p className="mt-5 text-[14px] md:text-[23px]">Current Password:</p>
-                      <p className="mt-5 text-[14px] md:text-[23px]">New Password:</p>
-                      <p className="mt-5 text-[14px] md:text-[23px]">Confirm Password:</p>
-                    </div>
-
-
-                    <div className=" w-auto h-auto 
-                  text-start py-2 rounded-lg
-                  sm:text-start  sm:w-[800px] sm:h-[77px] sm:py-3 sm:rounded-lg
-                  md:text-start  md:w-[800px] md:h-[77px] md:py-4 md:rounded-lg
-                  lg:text-start  lg:w-[800px] lg:h-[77px] lg:py-5 lg:rounded-lg
-                  xl:text-start  xl:w-[800px] xl:h-[77px] xl:py-5 xl:rounded-lg
-                  2xl:text-start 2xl:w-auto 2xl:h-[30px]  2xl:rounded-lg mt-9 ">
-
-                    <select
-                      className="font-semibold text-[25px] text-[#5B0505] text-start bg-transparent py-3 w-72 border-solid border-2 outline-[#737373] -mt-40
-                      sm:font-semibold sm:text-[20px]
-                      md:font-semibold md:text-[19px]
-                      lg:font-semibold lg:text-[21px]
-                      xl:font-semibold xl:text-[23px] 
-                      2xl:font-semibold 2xl:text-[25px]   
-                      "
-                      name="position"
-                      id="position"
-                    >
-                      <option value={user.position}>{user.position}</option>
-                      <option value="Associate Dean">Associate Dean</option>
-                      <option value="Secretary">Secretary</option>
-                      <option value="Faculty">Faculty</option>
-                      <option value="Unit Head">Unit Head</option>
-                      <option value="Coordinator">Coordinator</option>
-                    </select>
-                    {/* <input type="email" name='emailUpd' placeholder="" className="mt-10 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[800px] h-[35px] md:text-shadow-inner
-                      2xl:flex 2xl:w-full 2xl:items-center 2xl:justify-center" /> */}
-                      {/* <input type="password" name='currentPass' placeholder="" className="mt-5 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[800px] h-[35px] md:text-shadow-inner
-                      2xl:flex 2xl:w-full 2xl:items-center 2xl:justify-center" />
-                      <input type="password" name='newPass' placeholder="" className="mt-5 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[800px] h-[35px] md:text-shadow-inner
-                      2xl:flex 2xl:w-full 2xl:items-center 2xl:justify-center" />
-                      <input type="password" name='newPassConfirm' placeholder="" className="mt-5 top-[125px] left-[10px] md:left-[430px] text-md md:text-xl text-[#242323] bg-[#D9D9D9] inline-block w-[full] md:w-[800px] h-[35px] md:text-shadow-inner
-                      2xl:flex 2xl:w-full 2xl:items-center 2xl:justify-center" />
-
-                    </div>
-                  </div> */} 
-                  <form action={updateUser}>
+              <form action={updateUser}>
                 <div className="flex justify-center">
-                  <div className="border-solid border-2 outline-[#737373] w-[800px] h-[77px] 
-                  text-center py-2 rounded-lg
-                  sm:text-center  sm:w-[800px] sm:h-[77px] sm:py-3 sm:rounded-lg
-                  md:text-center  md:w-[800px] md:h-[77px] md:py-4 md:rounded-lg
-                  lg:text-center  lg:w-[800px] lg:h-[77px] lg:py-5 lg:rounded-lg
-                  xl:text-center  xl:w-[800px] xl:h-[77px] xl:py-5 xl:rounded-lg
+                  <div className="
+                  sm:text-center sm:w-[800px] sm:h-[77px] sm:py-3 sm:rounded-lg
+                  md:text-center md:w-[800px] md:h-[77px] md:py-4 md:rounded-lg
+                  lg:text-center lg:w-[800px] lg:h-[77px] lg:py-5 lg:rounded-lg
+                  xl:text-center xl:w-[800px] xl:h-[77px] xl:py-5 xl:rounded-lg
                   2xl:text-center 2xl:w-[800px] 2xl:h-[77px] 2xl:py-8 2xl:rounded-lg">
-                    <select
-                      className="-mt-10 font-semibold w-10/12 text-[25px] text-[#5B0505]
-                      sm:font-semibold sm:text-[20px]
+                    <div className="
+                      w-auto h-auto
+                      sm:w-auto sm:h-auto
+                      md:w-auto md:h-auto
+                      lg:w-auto lg:h-auto
+                      xl:w-auto xl:h-auto
+                      2xl:w-auto 2xl:h-auto
+                      ">
+                      <select
+                        className="-mt-10 ml-10 font-semibold w-[250px] h-10 text-[20px] text-[#5B0505] bg-transparent rounded-lg border-solid border-2 outline-[#737373]
+                      sm:font-semibold sm:text-[20px] 
                       md:font-semibold md:text-[19px]
                       lg:font-semibold lg:text-[21px] lg:ml-24
                       xl:font-semibold xl:text-[23px] xl:ml-24
                       2xl:font-semibold 2xl:text-[25px] 2xl:ml-24
                       "
-                      name="position"
-                      id="position"
-                    >
-                      <option value={user.position}>{user.position}</option>
-                      <option value="Associate Dean">Associate Dean</option>
-                      <option value="Secretary">Secretary</option>
-                      <option value="Faculty">Faculty</option>
-                      <option value="Unit Head">Unit Head</option>
-                      <option value="Coordinator">Coordinator</option>
-                    </select>
-                    <h1>
-                      <HiPencilAlt
-                        className="ml-4 -mt-[50px] 
-                        sm:w-[65px] sm:h-[65px]
+                        name="position"
+                        id="position"
+                      >
+                        <option value={user.position}>{user.position}</option>
+                        <option value="Associate Dean">Associate Dean</option>
+                        <option value="Secretary">Secretary</option>
+                        <option value="Faculty">Faculty</option>
+                        <option value="Unit Head">Unit Head</option>
+                        <option value="Coordinator">Coordinator</option>
+                      </select>
+                      <h1>
+                        <HiPencilAlt
+                          className="-ml-[10px] -mt-[40px] w-[40px] h-[40px]
+                        sm:w-[40px] sm:h-[65px] sm:ml-[250px] sm:-mt-[55px]
                         md:w-[800px] md:h-[77px]
                         lg:w-[800px] lg:h-[77px]
                         xl:w-[800px] xl:h-[77px]
-                        2xl:w-[65px] 2xl:h-[65px]"
-                        color="#000000"
-                        opacity="26%"
-                      />
-                    </h1>
+                        2xl:w-[55px] 2xl:h-[65px] 2xl:ml-64 2xl:-mt-[55px]"
+                          color="#000000"
+                          opacity="26%"
+                        />
+                      </h1>
+                    </div>
                   </div>
                 </div>
-                <div className="mt-4 border-solid border-2 outline-[#737373] w-[800px] h-[77px] 
-                  text-center py-2 rounded-lg
+
+                <div className="flex justify-center">
+                  <div className="w-10 h-10 mt-4
+                  text-center py-2 rounded-lg 
                   sm:text-center  sm:w-[800px] sm:h-[77px] sm:py-3 sm:rounded-lg
                   md:text-center  md:w-[800px] md:h-[77px] md:py-4 md:rounded-lg
                   lg:text-center  lg:w-[800px] lg:h-[77px] lg:py-5 lg:rounded-lg
                   xl:text-center  xl:w-[800px] xl:h-[77px] xl:py-5 xl:rounded-lg
                   2xl:text-center 2xl:w-[800px] 2xl:h-[77px] 2xl:py-8 2xl:rounded-lg">
-                  <div className="-mt-10 font-semibold w-10/12 text-[25px] text-[#5B0505]
-                      sm:font-semibold sm:text-[20px]
-                      md:font-semibold md:text-[19px]
-                      lg:font-semibold lg:text-[21px] lg:ml-24
-                      xl:font-semibold xl:text-[23px] xl:ml-24
-                      2xl:font-semibold 2xl:text-[25px] 2xl:ml-24">
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder={`${user.email}`}
-                      className="mt-4 text-xl 
-                      text-[#5B0505] w-[650px] h-[50px]  border-none"
-                    />
-                    <h1>
-                      <FaUserAlt
-                        className="-mt-[50px] 
-                        sm:w-[65px] sm:h-[65px]
+                    <div className="
+                      w-auto h-auto
+                      sm:w-auto sm:h-auto
+                      md:w-auto md:h-auto
+                      lg:w-auto lg:h-auto
+                      xl:w-auto xl:h-auto
+                      2xl:w-auto 2xl:h-auto
+                      ">
+                      <input contextMenu=""
+                        type="email"
+                        name="email"
+                        placeholder={`${user.email}`}
+                        className="-mt-10 font-semibold w-[250px] text-[20px] text-[#5B0505] bg-transparent border-solid border-2 outline-[#737373] -ml-[85px] py-1 rounded-lg
+                          sm:font-semibold sm:text-[20px] sm:ml-10 sm:-mt-10
+                          md:font-semibold md:text-[19px]
+                          lg:font-semibold lg:text-[21px] lg:ml-24
+                          xl:font-semibold xl:text-[23px] xl:ml-24
+                          2xl:font-semibold 2xl:text-[25px] 2xl:ml-24 2xl:-mt-10
+                          "
+                      />
+                      <h1>
+                        <FaUserAlt
+                          className="-ml-[130px] -mt-[37px] w-[30px] h-[30px]
+                        sm:w-[30px] sm:h-[65px] sm:ml-[250px] sm:-mt-[100px]
                         md:w-[800px] md:h-[77px]
                         lg:w-[800px] lg:h-[77px]
                         xl:w-[800px] xl:h-[77px]
-                        2xl:w-[65px] 2xl:h-[65px]"
-                        color="#000000"
-                        opacity="26%"
-                        
-                      />
-                    </h1>
+                        2xl:w-[45px] 2xl:h-[45px] 2xl:-mt-[50px] 2xl:ml-64"
+                          color="#000000"
+                          opacity="26%"
+                        />
+                      </h1>
+                    </div>
                   </div>
                 </div>
-                <div className="mt-4 flex justify-center">
-                  <div className=" bg-[#BCBCBC] w-[800px] h-[77px] md:h-20">
-                    <input
-                      type="password"
-                      name="password"
-                      placeholder=" PASSWORD"
-                      className="mt-4 ml-28 text-xl 
-                      text-[#5B0505] inline-block justify-around  w-[650px] h-[50px] text-shadow-inner border-none"
-                    />
-                    <h1>
-                      <FaLock
-                        className="-mt-14 ml-6"
-                        size="50"
-                        color="#000000"
-                        opacity="26%"
-                      />
-                    </h1>
-                  </div>
-                </div>
-                <div className="mt-4 flex justify-center">
-                  <div className=" bg-[#BCBCBC] w-[800px] h-[77px] md:h-20">
-                    <input
-                      type="password"
-                      name="passwordconfirm"
-                      placeholder="CONFIRM PASSWORD"
-                      className="mt-4 ml-28 text-xl 
-                      text-[#5B0505]  w-[650px] h-[50px] text-shadow-inner border-none"
-                    />
-                    <h1>
-                      <FaLock
-                        className="-mt-14 ml-6"
-                        size="50"
-                        color="#000000"
-                        opacity="26%"
-                      />
-                    </h1>
-                  </div>
-                </div>
-                <div className=" mt-10 flex justify-center  ">
-                  <button
-                    type="submit"
-                    className=" bg-[#737373] text-[20px] font-bold text-white text-center inline-block w-[300px] h-[38px]  hover:bg-gray-400"
-                  >
-                    CONFIRM
-                  </button>
 
-                  <button
-                    type="confirm"
-                    className="ml-5 bg-[#737373] text-[20px] font-bold text-white text-center inline-block w-[300px] h-[38px]  hover:bg-gray-400"
-                  >
-                    BACK
-                  </button>
+
+                <div className="flex justify-center">
+                  <div className="w-10 h-10 mt-4
+                  text-center py-2 rounded-lg 
+                  sm:text-center  sm:w-[800px] sm:h-[77px] sm:py-3 sm:rounded-lg
+                  md:text-center  md:w-[800px] md:h-[77px] md:py-4 md:rounded-lg
+                  lg:text-center  lg:w-[800px] lg:h-[77px] lg:py-5 lg:rounded-lg
+                  xl:text-center  xl:w-[800px] xl:h-[77px] xl:py-5 xl:rounded-lg
+                  2xl:text-center 2xl:w-[800px] 2xl:h-[77px] 2xl:py-8 2xl:rounded-lg">
+                    <div className="
+                      w-auto h-auto
+                      sm:w-auto sm:h-auto
+                      md:w-auto md:h-auto
+                      lg:w-auto lg:h-auto
+                      xl:w-auto xl:h-auto
+                      2xl:w-auto 2xl:h-auto
+                      ">
+                      <input
+                        type="password"
+                        name="password"
+                        placeholder=" Password"
+                        className="-mt-2 font-semibold w-[250px] text-[20px] text-[#5B0505] bg-transparent border-solid border-2 outline-[#737373] -ml-[65px] rounded-lg
+                      sm:font-semibold sm:text-[20px] sm:ml-[695px] sm:-mt-96
+                      md:font-semibold md:text-[19px]
+                      lg:font-semibold lg:text-[21px] lg:ml-24
+                      xl:font-semibold xl:text-[23px] xl:ml-24
+                      2xl:font-semibold 2xl:text-[25px] 2xl:ml-[730px]
+                      "
+                      />
+                      <h1>
+                        <FaLock
+                          className="-ml-[111px] -mt-[37px] w-[30px] h-[30px]
+                        sm:w-[30px] sm:h-[65px] sm:ml-[650px] sm:-mt-[50px]
+                        md:w-[800px] md:h-[77px]
+                        lg:w-[800px] lg:h-[77px]
+                        xl:w-[800px] xl:h-[77px]
+                        2xl:w-[45px] 2xl:h-[45px] 2xl:ml-[658px] 2xl:-mt-10"
+                          color="#000000"
+                          opacity="26%"
+                        />
+                      </h1>
+                    </div>
+                  </div>
+
+
+                  <div className="flex justify-center">
+                    <div className="w-10 h-10 mt-4
+                  text-center py-2 rounded-lg mb-3
+                  sm:text-center  sm:w-[800px] sm:h-[77px] sm:py-3 sm:rounded-lg
+                  md:text-center  md:w-[800px] md:h-[77px] md:py-4 md:rounded-lg
+                  lg:text-center  lg:w-[800px] lg:h-[77px] lg:py-5 lg:rounded-lg
+                  xl:text-center  xl:w-[800px] xl:h-[77px] xl:py-5 xl:rounded-lg
+                  2xl:text-center 2xl:w-[800px] 2xl:h-[77px] 2xl:py-8 2xl:rounded-lg">
+                      <div className="
+                      w-auto h-auto
+                      sm:w-auto sm:h-auto
+                      md:w-auto md:h-auto
+                      lg:w-auto lg:h-auto
+                      xl:w-auto xl:h-auto
+                      2xl:w-auto 2xl:h-auto
+                      ">
+                        <input
+                          type="password"
+                          name="passwordconfirm"
+                          placeholder="Confirm Password"
+                          className="mt-12 font-semibold w-[250px] text-[20px] text-[#5B0505] bg-transparent border-solid border-2 outline-[#737373] -ml-[103px] rounded-lg
+                      sm:font-semibold sm:text-[20px] sm:-ml-[750px] sm:-mt-42
+                      md:font-semibold md:text-[19px]
+                      lg:font-semibold lg:text-[21px] lg:ml-24
+                      xl:font-semibold xl:text-[23px] xl:ml-24
+                      2xl:font-semibold 2xl:text-[25px] 2xl:-ml-[700px]
+                      "
+                        />
+                        <h1>
+                          <FaLock
+                            className="-ml-[150px] -mt-[37px] w-[30px] h-[30px]
+                        sm:w-[30px] sm:h-[65px]  sm:-mt-14
+                        md:w-[800px] md:h-[77px]
+                        lg:w-[800px] lg:h-[77px]
+                        xl:w-[800px] xl:h-[77px]
+                        2xl:w-[45px] 2xl:h-[45px] 2xl:-mt-[50px] 2xl:-ml-[140px]"
+                            color="#000000"
+                            opacity="26%"
+                          />
+                        </h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div className="
+                  flex w-full h-auto items-center justify-evenly 
+                  sm:flex sm:w-full sm:h-auto sm:items-center sm:justify-evenly 
+                  md:flex md:w-full md:h-auto md:items-center md:justify-evenly
+                  lg:flex lg:w-full lg:h-auto lg:items-center lg:justify-evenly
+                  xl:flex xl:w-full xl:h-auto xl:items-center xl:justify-evenly
+                  2xl:flex 2xl:w-full 2xl:h-auto 2xl:items-center 2xl:justify-evenly
+                  ">
+                  <div className="flex flex-row">
+                    <div className="flex items-center">
+                      <button
+                        type="submit"
+                        className="mt-20 bg-[#737373] text-[15px] text-white text-center w-[100px] h-[30px] hover:bg-gray-400
+                        sm:bg-[#737373] sm:text-[17px] sm:text-white sm:text-center sm:w-[130px] sm:h-[32px]
+                        md:bg-[#737373] md:text-[19px] md:text-white md:text-center md:w-[130px] md:h-[34px]
+                        lg:bg-[#737373] lg:text-[21px] lg:text-white lg:text-centerlg: lg:w-[180px] lg:h-[36px]
+                        xl:bg-[#737373] xl:text-[23px] xl:text-white xl:text-center xl:w-[220px] xl:h-[38px]
+                        2xl:bg-[#737373] 2xl:text-[25px] 2xl:text-white 2xl:text-center 2xl:w-[250px] 2xl:h-[40px]
+                          "
+                      >
+                        CONFIRM
+                      </button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <button
+                      type="confirm"
+                      className="mt-20 bg-[#737373] text-[15px] text-white text-center w-[100px] h-[30px] hover:bg-gray-400
+                      sm:bg-[#737373] sm:text-[17px] sm:text-white sm:text-center sm:w-[130px] sm:h-[32px]
+                      md:bg-[#737373] md:text-[19px] md:text-white md:text-center md:w-[130px] md:h-[34px]
+                      lg:bg-[#737373] lg:text-[21px] lg:text-white lg:text-centerlg: lg:w-[180px] lg:h-[36px]
+                      xl:bg-[#737373] xl:text-[23px] xl:text-white xl:text-center xl:w-[220px] xl:h-[38px]
+                      2xl:bg-[#737373] 2xl:text-[25px] 2xl:text-white 2xl:text-center 2xl:w-[250px] 2xl:h-[40px]
+                        "
+                    >
+                      BACK
+                    </button>
+                  </div>
                 </div>
               </form>
-                </div>
-              {/* </form> */}
-            {/* </div> */}
-          
+            </div>
           </CardContent>
-
         </Card>
 
 
