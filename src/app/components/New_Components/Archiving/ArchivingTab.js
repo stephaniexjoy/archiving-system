@@ -271,7 +271,15 @@ function ArchivingTab({
             </TabsContent>
             <TabsContent value="monitor">
               <>
-                <div className="flex flex-col mt-16 px-10">
+                <div 
+                  className="
+                  flex flex-col mt-16 px-4
+                  sm:flex sm:flex-col sm:mt-16 sm:px-4
+                  md:flex md:flex-col md:mt-16 md:px-4
+                  lg:flex lg:flex-col lg:mt-16 lg:px-4
+                  xl:flex xl:flex-col xl:mt-16 xl:px-4
+                  2xl:flex 2xl:flex-col 2xl:mt-16 2xl:px-4
+                  ">
                   <h1
                     className="
                     text-center text-[#5B0505] text-[28px] font-bold mb-5

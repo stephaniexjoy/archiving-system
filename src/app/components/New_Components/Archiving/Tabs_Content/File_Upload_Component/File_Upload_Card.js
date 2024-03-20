@@ -64,7 +64,7 @@ const File_Upload_Card = ({ task }) => {
           >
             <h1
               className="
-              text-lg ml-0 font-semibold mb-12
+              text-lg ml-0 font-semibold mb-16
               xl:text-lg xl:ml-0 xl:font-semibold xl:mb-12
               2xl:text-2xl 2xl:font-semibold 2xl:mb-12
               "
@@ -73,7 +73,7 @@ const File_Upload_Card = ({ task }) => {
             </h1>
             <p
               className="
-              mb-16 text-sm ml-0
+              text-sm mb-16
               2xl:mb-16 2xl:text-lg
               "
             >
@@ -82,7 +82,7 @@ const File_Upload_Card = ({ task }) => {
             <div>
               <h1
                 className="
-                text-xs mb-5 ml-0
+                text-xs mb-5
                 2xl:text-sm 2xl:mb-0
                 "
               >
@@ -96,30 +96,33 @@ const File_Upload_Card = ({ task }) => {
             2xl:w-[60%] items-center
             "
           >
-            <div 
+            <div
               className="
-              flex flex-col bg-white p-2 gap-4 drop-shadow-2xl rounded-xl mt-4
-              xl:flex xl:flex-col xl:mt-48 xl:-ml-40 xl:bg-white xl:p-4 xl:gap-4 xl:drop-shadow-2xl xl:rounded-xl
-              2xl:flex 2xl:flex-col 2xl:mt-48 2xl:-ml-40 2xl:bg-white 2xl:p-4 2xl:gap-4 2xl:drop-shadow-2xl 2xl:rounded-xl
-
-              ">
-              <div 
+              flex flex-col bg-slate-100 p-4 gap-2 shadow-2xl rounded-xl mt-4
+              xl:flex xl:flex-col xl:mt-48 xl:-ml-40 xl:p-4 xl:gap-4 xl:drop-shadow-2xl xl:rounded-xl
+              2xl:flex 2xl:flex-col 2xl:mt-48 2xl:-ml-40 2xl:p-4 2xl:gap-4 2xl:drop-shadow-2xl 2xl:rounded-xl
+              "
+            >
+              <div
                 className="
-                flex flex-row gap-x-28
+                flex flex-row gap-x-32
                 sm:flex sm:flex-row sm:gap-x-0
                 md:flex md:flex-row md:gap-x-0
                 lg:flex lg:flex-row lg:gap-x-0
                 xl:flex xl:flex-row xl:gap-x-0
                 2xl:flex 2xl:flex-row 2xl:gap-x-0
-                ">
-                <h1 className="text-sm sm:text-md md:text-md lg:text-md xl:text-md 2xl:text-md">Your work</h1>
+                "
+              >
+                <h1 className="text-sm sm:text-md md:text-md lg:text-md xl:text-md 2xl:text-md">
+                  Your work
+                </h1>
                 <h1 className="text-sm -ml-5 text-green-600">Assigned</h1>
               </div>
-              <Dialog >
-              <DialogTrigger className="flex mx-auto w-[80%] h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer items-center justify-center sm:w-full">
-                Upload Here
-              </DialogTrigger>
-                <DialogContent className="bg-white max-w-[700px] max-h-[600px] h-auto py-6 px-6 mx-auto overflow-y-auto">
+              <Dialog>
+                <DialogTrigger className="flex mx-auto w-[80%] h-10 border bg-[#AD5606] hover:bg-gray-100 text-white font-bold rounded cursor-pointer items-center justify-center mt-8 sm:w-full">
+                  Upload Here
+                </DialogTrigger>
+                <DialogContent className="bg-slate-50 w-[90%] h-auto py-6 px-6 mx-auto overflow-y-auto">
                   <DialogHeader>
                     <DialogTitle className="text-2xl">Upload files</DialogTitle>
                     <DialogDescription>
@@ -132,11 +135,11 @@ const File_Upload_Card = ({ task }) => {
                   <div className="flex flex-col bottom-0 items-center justify-center w-full h-auto">
                     <AlertDialog>
                       <AlertDialogTrigger asChild>
-                        <button className="w-[40%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer items-center justify-center rounded-lg">
+                        <button className="w-[40%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-lg text-white font-semibold py-1 px-4 my-2 cursor-pointer items-center justify-center rounded-lg">
                           Upload
                         </button>
                       </AlertDialogTrigger>
-                      <AlertDialogContent>
+                      <AlertDialogContent className="w-[90%] h-auto">
                         <AlertDialogHeader>
                           <AlertDialogTitle>
                             Do you want to Proceed?
@@ -147,8 +150,11 @@ const File_Upload_Card = ({ task }) => {
                           </AlertDialogDescription>
                         </AlertDialogHeader>
                         <AlertDialogFooter className="items-center">
-                          <AlertDialogCancel>Cancel</AlertDialogCancel>
+                          <AlertDialogCancel className="w-[40%]">
+                            Cancel
+                          </AlertDialogCancel>
                           <AlertDialogAction
+                            className="bg-[#AD5606] w-[40%]"
                             onClick={async () => {
                               console.log(uploadedFiles);
 
@@ -206,7 +212,7 @@ const File_Upload_Card = ({ task }) => {
                   console.log(res);
                   console.log(fileInfo);
                 }}
-                className="flex mx-auto w-[80%] h-10 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer items-center justify-center sm:w-full"
+                className="flex mx-auto w-[80%] h-10 border bg-[#AD5606] hover:bg-gray-100 text-white font-bold py-1 px-4 rounded my-2 cursor-pointer items-center justify-center sm:w-full"
               >
                 Mark as done
               </button>

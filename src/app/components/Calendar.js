@@ -11,16 +11,19 @@ const CalendarComponent = () => {
       showOutsideDays
       selected={date}
       onSelect={setDate}
-      className="items-center rounded-md w-full"
+      className="
+      items-center rounded-md w-full h-10
+      "
       styles={{
         head_cell: {
-          width: "50px",
+          width: "100%",
         },
         table: {
           maxWidth: "100%",
         },
         day: {
           margin: "7px",
+
         },
       }}
     />

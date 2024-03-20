@@ -82,11 +82,11 @@ export default function AssignedTask_Archiving_tabs({
         <div className="flex flex-col items-center w-full h-full overflow-y-auto">
           <div
             className="
-            flex flex-col w-[100%] p-4 rounded-md 
-            sm:[60%]
-            md:w-[60%] 
-            lg:w-[60%]
-            xl:w-[60%] 
+            flex flex-col w-[100%] p-0 rounded-md 
+            sm:w-[90%]
+            md:w-[80%] 
+            lg:w-[80%]
+            xl:w-[70%]  
             2xl:w-[60%] 
             "
           >
@@ -96,7 +96,7 @@ export default function AssignedTask_Archiving_tabs({
             <div className="w-full space-y-2">
               <select
                 onChange={(e) => setOptions(e.target.value)}
-                className="relative flex text-xl font-bold w-full cursor-pointer h-[40px] shadow-lg rounded-sm px-2 py-2 border border-orange-900"
+                className="relative flex text-xl font-bold w-full cursor-pointer h-[40px] shadow-lg rounded-sm px-1 py-1 border border-orange-900"
                 name="taskType"
                 id="taskType"
               >
@@ -128,8 +128,16 @@ export default function AssignedTask_Archiving_tabs({
               )}
             </div>
           </div>
-
-          <div className="flex flex-col bg-white w-[80%] lg:w-[60%] md:w-[60%] sm:[60%] p-4 rounded-md">
+          <div
+            className="
+            flex flex-col w-[100%] p-0 rounded-md mt-8
+            sm:w-[90%]
+            md:w-[80%] 
+            lg:w-[80%]
+            xl:w-[70%]  
+            2xl:w-[60%] 
+            "
+          >
             <label className="w-full text-[#5B0505] text-xl text-start font-semibold mr-4">
               This Week:
             </label>
@@ -163,7 +171,16 @@ export default function AssignedTask_Archiving_tabs({
             </div>
           </div>
 
-          <div className="flex flex-col bg-white w-[80%] lg:w-[60%] md:w-[60%] sm:[60%] p-4 rounded-md">
+          <div
+            className="
+            flex flex-col w-[100%] p-0 rounded-md mt-8
+            sm:w-[90%]
+            md:w-[80%] 
+            lg:w-[80%]
+            xl:w-[70%]  
+            2xl:w-[60%] 
+            "
+          >
             <label className="w-full text-[#5B0505] text-xl text-start font-semibold mr-4">
               Next week:
             </label>
@@ -197,7 +214,16 @@ export default function AssignedTask_Archiving_tabs({
             </div>
           </div>
 
-          <div className="flex flex-col bg-white w-[80%] lg:w-[60%] md:w-[60%] sm:[60%] p-4 rounded-md">
+          <div
+            className="
+            flex flex-col w-[100%] p-0 rounded-md mt-8
+            sm:w-[90%]
+            md:w-[80%] 
+            lg:w-[80%]
+            xl:w-[70%]  
+            2xl:w-[60%] 
+            "
+          >
             <label className="w-full text-[#5B0505] text-xl text-start font-semibold mr-4">
               Later:
             </label>
