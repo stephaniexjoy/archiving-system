@@ -118,7 +118,9 @@ const File_Upload_Card = ({ task }) => {
                 <h1 className="text-sm sm:text-md md:text-lg lg:text-md xl:text-md 2xl:text-md">
                   Your work
                 </h1>
-                <h1 className="text-sm sm:text-sm md:text-lg -ml-5 text-green-600">Assigned</h1>
+                <h1 className="text-sm sm:text-sm md:text-lg -ml-5 text-green-600">
+                  Assigned
+                </h1>
               </div>
               <Dialog>
                 <DialogTrigger className="flex mx-auto w-[80%] sm:w-[70%] h-10 border bg-[#AD5606] hover:bg-gray-100 text-white font-bold rounded cursor-pointer items-center justify-center mt-8">
