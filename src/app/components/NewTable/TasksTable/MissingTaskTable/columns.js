@@ -16,7 +16,7 @@ import { LuArrowUpDown } from "react-icons/lu";
 
 export const columns = [
   {
-    accessorKey: "task.title",
+    accessorKey: "title",
     header: ({ column }) => {
       return (
         <Button
@@ -29,22 +29,9 @@ export const columns = [
       );
     },
   },
+
   {
-    accessorKey: "completed",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Name
-          <LuArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
-  },
-  {
-    accessorKey: "task.deadlineCreated",
+    accessorKey: "deadlineCreated",
     header: ({ column }) => {
       return (
         <Button
@@ -64,10 +51,10 @@ export const columns = [
     cell: ({ row }) => {
       /* const isCompleted = row.getValue("isDone");
       const formatted = isCompleted === true ? "Done" : "Not Done"; */
-      return <div className="">Done</div>;
+      return <div className="">Missing</div>;
     },
   },
-  /* {
+  {
     accessorKey: "actions",
     header: "Actions",
     cell: ({ row }) => {
@@ -98,8 +85,7 @@ export const columns = [
                       PERMISSION
                     </div>
                   </div>
-                  <div className="">
-                  </div>
+                  <div className=""></div>
                 </DialogDescription>
               </DialogHeader>
               <div className="flex flex-col w-full"></div>
@@ -109,5 +95,5 @@ export const columns = [
         </div>
       );
     },
-  }, */
+  },
 ];
