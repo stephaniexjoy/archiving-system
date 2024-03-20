@@ -27,7 +27,14 @@ export default function Form({ sessionUser }) {
           <div className="flex flex-row gap-4">
             <label htmlFor="profilePictureInput">
               <Image
-                className="rounded-[50%] w-[240px] h-auto object-cover cursor-pointer"
+                className=" 
+                cursor-pointer
+                rounded-full w-36 h-auto object-cover mb-5
+                sm:rounded-full sm:w-44 sm:h-auto sm:object-cover sm:mb-5
+                md:rounded-full md:w-44 md:h-auto md:object-cover md:mb-5
+                lg:rounded-full lg:w-96 lg:h-auto lg:object-cover lg:mb-5 lg:ml-5
+                xl:rounded-full xl:w-96 xl:h-auto xl:object-cover xl:mb-5 xl:ml-5
+                2xl:rounded-full 2xl:w-96 2xl:h-auto 2xl:object-cover 2xl:mb-5 2xl:ml-16"
                 alt="Profile"
                 src="/profile.jpg"
                 width={474}
@@ -40,24 +47,48 @@ export default function Form({ sessionUser }) {
               name="profilepic"
               style={{ display: "none" }}
             />
+
             <div className="flex flex-col ml-16 gap-4">
-              <div className="flex flex-row items-center gap-4">
+              <div className="flex flex-row items-center <div
+              
+              mt-6
+              sm:mt-6
+              md:mt-6
+              lg:mt-6
+              xl:mt-6
+              2xl:mt-6"
+              >
                 <Label
                   htmlFor="name"
-                  className="font-semibold text-[25px] text-left"
+                  className="
+                  font-semibold ml-0 w-full text-[15px]
+                  sm:font-semibold sm:text-[17px]
+                  md:font-semibold md:text-[19px]
+                  lg:font-semibold lg:text-[21px] lg:ml-24
+                  xl:font-semibold xl:text-[23px] xl:ml-24
+                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+                  text-left"
                 >
                   Name:
                 </Label>
+
                 <Input
                   name="updName"
                   type="text"
-                  className="ml-[24%] bg-[#837979] w-[800px] font-semibold text-white text-[20px]"
+                  className="ml-[24%] bg-[#837979] w-[800px] sm:w-[800px] md:w-[800px] lg:w-[800px]font-semibold text-white text-[20px]"
                 />
               </div>
               <div className="flex flex-row items-center gap-4">
                 <Label
                   htmlFor="role"
-                  className="font-semibold text-[25px] text-left"
+                  className="
+                  font-semibold ml-0 w-full text-[15px]
+                  sm:font-semibold sm:text-[17px]
+                  md:font-semibold md:text-[19px]
+                  lg:font-semibold lg:text-[21px] lg:ml-24
+                  xl:font-semibold xl:text-[23px] xl:ml-24
+                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+                  text-left"
                 >
                   Role:
                 </Label>
@@ -74,7 +105,14 @@ export default function Form({ sessionUser }) {
               <div className="flex flex-row items-center gap-4">
                 <Label
                   htmlFor="category"
-                  className="font-semibold text-[25px] text-left"
+                  className="
+                  font-semibold ml-0 w-full text-[15px]
+                  sm:font-semibold sm:text-[17px]
+                  md:font-semibold md:text-[19px]
+                  lg:font-semibold lg:text-[21px] lg:ml-24
+                  xl:font-semibold xl:text-[23px] xl:ml-24
+                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+                  text-left"
                 >
                   Category:
                 </Label>
@@ -93,7 +131,14 @@ export default function Form({ sessionUser }) {
               <div className="flex flex-row items-center">
                 <Label
                   htmlFor="license"
-                  className="font-semibold text-[25px] text-left"
+                  className="
+                  font-semibold ml-0 w-full text-[15px]
+                  sm:font-semibold sm:text-[17px]
+                  md:font-semibold md:text-[19px]
+                  lg:font-semibold lg:text-[21px] lg:ml-24
+                  xl:font-semibold xl:text-[23px] xl:ml-24
+                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+                  text-left"
                 >
                   Eligibity/Professional License:
                 </Label>
@@ -108,7 +153,14 @@ export default function Form({ sessionUser }) {
           <div className="mt-4 flex flex-row items-center">
             <Label
               htmlFor="school"
-              className="font-semibold text-[25px] text-left"
+              className="
+              font-semibold ml-0 w-full text-[15px]
+              sm:font-semibold sm:text-[17px]
+              md:font-semibold md:text-[19px]
+              lg:font-semibold lg:text-[21px] lg:ml-24
+              xl:font-semibold xl:text-[23px] xl:ml-24
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              text-left"
             >
               School:
             </Label>
@@ -121,7 +173,14 @@ export default function Form({ sessionUser }) {
           <div className="mt-4 flex flex-row items-center">
             <Label
               htmlFor="specialization"
-              className="font-semibold text-[25px] text-left"
+              className="
+              font-semibold ml-0 w-full text-[15px]
+              sm:font-semibold sm:text-[17px]
+              md:font-semibold md:text-[19px]
+              lg:font-semibold lg:text-[21px] lg:ml-24
+              xl:font-semibold xl:text-[23px] xl:ml-24
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              text-left"
             >
               Specialization:
             </Label>
@@ -134,7 +193,14 @@ export default function Form({ sessionUser }) {
           <div className="mt-4 flex flex-row items-center">
             <Label
               htmlFor="certifications"
-              className="font-semibold text-[25px] text-left"
+              className="
+              font-semibold ml-0 w-full text-[15px]
+              sm:font-semibold sm:text-[17px]
+              md:font-semibold md:text-[19px]
+              lg:font-semibold lg:text-[21px] lg:ml-24
+              xl:font-semibold xl:text-[23px] xl:ml-24
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              text-left"
             >
               Certifications:
             </Label>
@@ -147,7 +213,14 @@ export default function Form({ sessionUser }) {
           <div className="mt-4 flex justify-center items-center">
             <Label
               htmlFor="academicQualifications"
-              className="font-semibold text-[30px] text-center"
+              className="
+              font-semibold ml-0 w-full text-[15px]
+              sm:font-semibold sm:text-[17px]
+              md:font-semibold md:text-[19px]
+              lg:font-semibold lg:text-[21px] lg:ml-24
+              xl:font-semibold xl:text-[23px] xl:ml-24
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              text-left"
             >
               ACADEMIC QUALIFICATIONS:
             </Label>
@@ -155,7 +228,14 @@ export default function Form({ sessionUser }) {
           <div className="mt-4 flex flex-row items-center">
             <Label
               htmlFor="baccalaureateDegree"
-              className="font-semibold text-[25px] text-left"
+              className="
+              font-semibold ml-0 w-full text-[15px]
+              sm:font-semibold sm:text-[17px]
+              md:font-semibold md:text-[19px]
+              lg:font-semibold lg:text-[21px] lg:ml-24
+              xl:font-semibold xl:text-[23px] xl:ml-24
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              text-left"
             >
               Baccalaureate Degree:
             </Label>
@@ -166,7 +246,15 @@ export default function Form({ sessionUser }) {
             />
             <Label
               htmlFor="school"
-              className="ml-[3%] font-semibold text-[25px] text-left"
+              className="
+              ml-[3%] 
+              font-semibold w-full text-[15px]
+              sm:font-semibold sm:text-[17px]
+              md:font-semibold md:text-[19px]
+              lg:font-semibold lg:text-[21px] lg:ml-24
+              xl:font-semibold xl:text-[23px] xl:ml-24
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              text-left"
             >
               School:
             </Label>
@@ -179,7 +267,14 @@ export default function Form({ sessionUser }) {
           <div className="mt-4 flex flex-row items-center">
             <Label
               htmlFor="mastersDegree"
-              className="font-semibold text-[25px] text-left"
+              className="
+              font-semibold ml-0 w-full text-[15px]
+              sm:font-semibold sm:text-[17px]
+              md:font-semibold md:text-[19px]
+              lg:font-semibold lg:text-[21px] lg:ml-24
+              xl:font-semibold xl:text-[23px] xl:ml-24
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              text-left"
             >
               Master&apos;s Degree:
             </Label>
@@ -190,7 +285,15 @@ export default function Form({ sessionUser }) {
             />
             <Label
               htmlFor="school"
-              className="ml-[3%] font-semibold text-[25px] text-left"
+              className="
+              ml-[3%] 
+              font-semibold w-full text-[15px]
+              sm:font-semibold sm:text-[17px]
+              md:font-semibold md:text-[19px]
+              lg:font-semibold lg:text-[21px] lg:ml-24
+              xl:font-semibold xl:text-[23px] xl:ml-24
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              text-left"
             >
               School:
             </Label>
@@ -203,7 +306,14 @@ export default function Form({ sessionUser }) {
           <div className="mt-4 flex flex-row items-center">
             <Label
               htmlFor="doctorateDegree"
-              className="font-semibold text-[25px] text-left"
+              className="
+              font-semibold ml-0 w-full text-[15px]
+              sm:font-semibold sm:text-[17px]
+              md:font-semibold md:text-[19px]
+              lg:font-semibold lg:text-[21px] lg:ml-24
+              xl:font-semibold xl:text-[23px] xl:ml-24
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              text-left"
             >
               Doctorate Degree:
             </Label>
@@ -214,7 +324,14 @@ export default function Form({ sessionUser }) {
             />
             <Label
               htmlFor="school"
-              className="ml-[3%] font-semibold text-[25px] text-left"
+              className="ml-[3%] 
+              font-semibold w-full text-[15px]
+              sm:font-semibold sm:text-[17px]
+              md:font-semibold md:text-[19px]
+              lg:font-semibold lg:text-[21px] lg:ml-24
+              xl:font-semibold xl:text-[23px] xl:ml-24
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              text-left"
             >
               School:
             </Label>
@@ -231,7 +348,14 @@ export default function Form({ sessionUser }) {
               <div className="flex flex-col items-center ">
                 <Label
                   htmlFor="seminars"
-                  className="font-semibold text-[25px] text-left"
+                  className="
+                  font-semibold ml-0 w-full text-[15px]
+                  sm:font-semibold sm:text-[17px]
+                  md:font-semibold md:text-[19px]
+                  lg:font-semibold lg:text-[21px] lg:ml-24
+                  xl:font-semibold xl:text-[23px] xl:ml-24
+                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+                  text-left"
                 >
                   SEMINARS AND TRAININGS ATTENDED:
                 </Label>
@@ -244,7 +368,14 @@ export default function Form({ sessionUser }) {
               <div className="flex flex-col items-center ml-36">
                 <Label
                   htmlFor="subjects"
-                  className="font-semibold text-[25px] text-left"
+                  className="
+                  font-semibold ml-0 w-full text-[15px]
+                  sm:font-semibold sm:text-[17px]
+                  md:font-semibold md:text-[19px]
+                  lg:font-semibold lg:text-[21px] lg:ml-24
+                  xl:font-semibold xl:text-[23px] xl:ml-24
+                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+                  text-left"
                 >
                   SUBJECTS HANDLED (DESCRIPTIVE TITLE):
                 </Label>
@@ -259,7 +390,14 @@ export default function Form({ sessionUser }) {
               <div className="flex flex-col items-center mt-8">
                 <Label
                   htmlFor="exp"
-                  className="font-semibold text-[25px] text-left"
+                  className="
+                  font-semibold ml-0 w-full text-[15px]
+                  sm:font-semibold sm:text-[17px]
+                  md:font-semibold md:text-[19px]
+                  lg:font-semibold lg:text-[21px] lg:ml-24
+                  xl:font-semibold xl:text-[23px] xl:ml-24
+                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+                  text-left"
                 >
                   JOB EXPERIENCE:
                 </Label>
@@ -272,7 +410,14 @@ export default function Form({ sessionUser }) {
               <div className="flex flex-col mt-8 ml-36">
                 <Label
                   htmlFor="completed"
-                  className="font-italize text-[25px] text-left"
+                  className="
+                  font-italize font-semibold ml-0 w-full text-[15px]
+                  sm:font-semibold sm:text-[17px]
+                  md:font-semibold md:text-[19px]
+                  lg:font-semibold lg:text-[21px] lg:ml-24
+                  xl:font-semibold xl:text-[23px] xl:ml-24
+                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+                  text-left"
                 >
                   COMPLETED:
                 </Label>
@@ -287,7 +432,14 @@ export default function Form({ sessionUser }) {
               <div className="flex flex-col items-center mt-8">
                 <Label
                   htmlFor="designations"
-                  className="font-semibold text-[25px] text-left"
+                  className="
+                  font-semibold ml-0 w-full text-[15px]
+              sm:font-semibold sm:text-[17px]
+              md:font-semibold md:text-[19px]
+              lg:font-semibold lg:text-[21px] lg:ml-24
+              xl:font-semibold xl:text-[23px] xl:ml-24
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              text-left"
                 >
                   PAST DESIGNATIONS:
                 </Label>
@@ -315,7 +467,14 @@ export default function Form({ sessionUser }) {
               <div className="flex flex-col items-center mt-8">
                 <Label
                   htmlFor="ext"
-                  className="font-semibold text-[25px] text-left"
+                  className="
+                  font-semibold ml-0 w-full text-[15px]
+                  sm:font-semibold sm:text-[17px]
+                  md:font-semibold md:text-[19px]
+                  lg:font-semibold lg:text-[21px] lg:ml-24
+                  xl:font-semibold xl:text-[23px] xl:ml-24
+                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+                  text-left"
                 >
                   EXTENSION PROJECTS:
                 </Label>
@@ -328,7 +487,14 @@ export default function Form({ sessionUser }) {
               <div className="flex flex-col mt-8 ml-36">
                 <Label
                   htmlFor="presented"
-                  className="font-italize text-[25px] text-left"
+                  className="font-italize 
+                  font-semibold ml-0 w-full text-[15px]
+                  sm:font-semibold sm:text-[17px]
+                  md:font-semibold md:text-[19px]
+                  lg:font-semibold lg:text-[21px] lg:ml-24
+                  xl:font-semibold xl:text-[23px] xl:ml-24
+                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+                  text-left"
                 >
                   PRESENTED:
                 </Label>
