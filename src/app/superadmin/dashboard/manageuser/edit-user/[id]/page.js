@@ -64,6 +64,7 @@ const page = async ({ params }) => {
             src="/photos/E-Archiving System.png"
             width={2125}
             height={499}
+            
           />
         </div>
 

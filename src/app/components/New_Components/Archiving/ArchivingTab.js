@@ -163,7 +163,7 @@ function ArchivingTab({
             lg:w-auto lg:text-lg
             xl:w-auto xl:text-xl
             2xl:w-auto 2xl:text-xl
-            "
+            " 
           >
             All Files
           </TabsTrigger>

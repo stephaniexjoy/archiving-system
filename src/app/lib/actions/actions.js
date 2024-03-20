@@ -436,6 +436,7 @@ export async function getCompletedTasks() {
     where: {
       userId: session.user.id,
     },
+    include: { task: true },
   });
   return completedTasks;
 }

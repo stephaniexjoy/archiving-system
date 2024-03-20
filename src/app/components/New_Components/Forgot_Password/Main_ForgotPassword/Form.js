@@ -49,13 +49,13 @@ const Form = ({ userInfo }) => {
         <Label>Your New Password</Label>
         <Input name="password" type="password" placeholder="New Password" />
 
-        <Label>Confirm your New Password</Label>
+        <Label className>Confirm your New Password</Label>
         <Input
           name="con_password"
           type="password"
           placeholder="Confirm New Password"
         />
-        <Button className="flex justify-center items-center m-auto mt-6 mb-2 py-4 px-6" type="submit">Update Password</Button>
+        <Button className="flex justify-center items-center m-auto mt-8 mb-2 py-4 px-6" type="submit">Update Password</Button>
       </form>
     </div>
   );

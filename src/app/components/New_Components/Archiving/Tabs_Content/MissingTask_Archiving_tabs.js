@@ -24,6 +24,7 @@ import { UseMultiFile } from "./../../File_Upload/UseMultiFile";
 
 import { useState } from "react";
 import React from "react";
+import MissingTask_Table from "@/app/components/NewTable/TasksTable/MissingTaskTable/MissingTask_Table";
 export default function MissingTask_Archiving_tabs({ tasks }) {
   const [options, setOptions] = useState("");
   const [uploadedFiles, setUploadedFiles] = useState([]);
@@ -50,9 +51,7 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
     console.log(fileInfo);
   };
 
-  function onCloseModal() {
-    setOpenModal(false);
-  }
+  console.log(tasks);
 
   return (
     <>
@@ -66,7 +65,7 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
         2xl:flex 2xl:flex-col 2xl:mt-16 2xl:px-10 2xl:space 2xl:h-auto 2xl:overflow-y-auto
         "
       >
-        <h1 className="text-center text-[#5B0505] text-[28px]  sm:text-[32px] md:text-[36px] lg:text-[45px] font-bold md:shadow-zinc-400 mb-5 ">
+        <h1 className="text-center text-[#5B0505] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[45px] font-bold md:shadow-zinc-400 mb-5 ">
           Missing Tasks
         </h1>
         <div className="flex flex-col items-center w-full h-full overflow-y-auto">
@@ -80,6 +79,7 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
             2xl:w-[60%] 
             "
           >
+            <MissingTask_Table tasks={tasks} />
             <label className="w-full text-[#5B0505] text-xl text-start font-semibold mr-4">
               Missing:
             </label>

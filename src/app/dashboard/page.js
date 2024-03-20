@@ -6,6 +6,7 @@ import CalendarComponent from "../components/Calendar";
 import EditPrivacy_Dialog from "../components/New_Components/EditPrivacy_Dialog";
 import UploadMaterial_Dialog from "../components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog";
 import Notification_Panel from "../components/Notifications/Notification_Panel";
+import Image from "next/image";
 
 export default async function dashboard() {
   const session = await getServerSession(AuthOptions);
@@ -29,7 +30,7 @@ export default async function dashboard() {
   return (
     <div className="flex flex-col w-screen h-screen overflow-y-auto">
       <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center ">
-        <img
+        <Image
           className="w-[60%] h-auto object-cover flex items-center justify-center
           sm:w-[60%] sm:h-[100%] sm:object-cover sm:flex sm:items-center sm:justify-center
           md:w-[60%] md:h-[100%] md:object-cover md:flex md:items-center md:justify-center
@@ -38,6 +39,8 @@ export default async function dashboard() {
           2xl:w-[30%] 2xl:h-[100%] 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center"
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
+          width={2125}
+          height={499}
         />
       </div>
 
@@ -69,7 +72,7 @@ export default async function dashboard() {
             FACULTY
           </span>
         </h1>
-        <img
+        <Image
           className=" h-[50%] w-[45%] mt-[2%] ml-[2%]
           sm:h-[50%] sm:w-[60%] sm:mt-[2%] sm:ml-[2%]
           md:h-[50%] md:w-[61%] md:mt-[2%] md:ml-[2%]
@@ -78,7 +81,9 @@ export default async function dashboard() {
           2xl:h-[50%] 2xl:w-[75%] 2xl:mt-[1%] 2xl:ml-[3%]
          "
           alt="Filler"
-          src="../photos/Filler.png"
+          src="/photos/Filler.png"
+          width={992}
+          height={44}
         />
         <Notification_Panel />
       </div>
@@ -133,11 +138,13 @@ export default async function dashboard() {
         </div>
 
         <div className="flex flex-col items-center space-y-8 mb-11">
-          <img
+          <Image
             className="w-48 h-auto object-cover
             2xl:ml-9 2xl:w-36 2xl:h-auto 2xl:object-cover"
-            src="../photos/ccsLogo.png"
+            src="/photos/ccsLogo.png"
             alt="CCS Logo"
+            width={2201}
+            height={2201}
           />
           <div
             className="text-center bg-[#5B0505] text-white w-[90%] h-[80px] p-4 rounded-lg
