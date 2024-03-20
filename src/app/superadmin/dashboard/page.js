@@ -38,7 +38,7 @@ async function page() {
   return (
     <div className="flex flex-col w-screen h-screen overflow-y-auto">
       <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
-        <img
+        <Image
           className="
           w-[60%] h-auto object-cover flex items-center justify-center
           sm:w-[60%] sm:h-[100%] sm:object-cover sm:flex sm:items-center sm:justify-center
@@ -49,6 +49,8 @@ async function page() {
           "
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
+          width={2125}
+          height={499}
         />
       </div>
 
@@ -86,7 +88,7 @@ async function page() {
             ADMIN
           </span>
         </h1>
-        <img
+        <Image
           className="
           h-[50%] w-[45%] mt-[2%] ml-[2%] 
           sm:h-[50%] sm:w-[60%] sm:mt-[2%] sm:ml-[2%]
@@ -96,7 +98,9 @@ async function page() {
           2xl:h-[50%] 2xl:w-[90%] 2xl:mt-[1%] 2xl:ml-[3%]
           "
           alt="Filler"
-          src="../photos/Filler.png"
+          src="/photos/Filler.png"
+          width={992}
+          height={44}
         />
         
       </div>
@@ -229,17 +233,19 @@ async function page() {
               2xl:w-auto 2xl:h-auto
               "
             >
-              <img
+              <Image
                 className="
-              w-52 h-auto object-cover
-              sm:w-52 sm:h-auto sm:object-cover
-              md:w-52 md:h-auto md:object-cover
-              lg:w-52 lg:h-auto lg:object-cover
-              xl:-ml-4 xl:w-40 xl:h-auto xl:object-cover
-              2xl:ml-4 2xl:w-56 2xl:h-auto 2xl:object-cover 2xl:-mb-20
-              "
-                src="../photos/ccsLogo.png"
+                w-52 h-auto object-cover
+                sm:w-52 sm:h-auto sm:object-cover
+                md:w-52 md:h-auto md:object-cover
+                lg:w-52 lg:h-auto lg:object-cover
+                xl:-ml-4 xl:w-40 xl:h-auto xl:object-cover
+                2xl:ml-4 2xl:w-56 2xl:h-auto 2xl:object-cover 2xl:-mb-20
+                "
+                src="/photos/ccsLogo.png"
                 alt="CCS Logo"
+                width={2201}
+                height={2201}
               />
             </div>
           </div>

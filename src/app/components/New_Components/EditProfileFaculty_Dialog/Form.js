@@ -30,8 +30,8 @@ export default function Form({ sessionUser }) {
                 className="rounded-[50%] w-[240px] h-auto object-cover cursor-pointer"
                 alt="Profile"
                 src="/profile.jpg"
-                width={300}
-                height={100}
+                width={474}
+                height={474}
               />
             </label>
             <input

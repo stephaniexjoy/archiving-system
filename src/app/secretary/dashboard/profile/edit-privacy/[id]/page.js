@@ -3,7 +3,7 @@ import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next"
 import { db } from "@/app/lib/prisma_db";
 import bcrypt from 'bcrypt';
-
+import Image from 'next/image';
 
 export default async function page() {
 
@@ -47,20 +47,25 @@ export default async function page() {
     return (
         <div className="flex flex-auto w-auto h-screen">
             <div className="flex flex-col w-full h-screen items-center">
-                <img
+                <Image
                     className="mr-20 w-full md:w-[400px] h-[100px] object-cover"
                     alt=""
-                    src="/photos/E-Archiving System.png" />
+                    src="/photos/E-Archiving System.png" 
+                    width={2125}
+                    height={499}
+                />
 
                 <div className="border m-4 bg-[#AD5606] w-auto h-[85%] rounded-lg shadow-lg">
                     <form action={updateUser} className=" w-auto h-[93%] bg-[#DABB9C] rounded-3xl shadow m-6 overflow-scroll overflow-x-hidden">
                         <div className='m-5'>
                             <div className="flex flex-row gap-x-10 justify-center ">
                                 <div className="ml-10 mt-10 basis-1/4 left-[10px]" >
-                                    <img
+                                    <Image
                                         className="rounded-full w-40 h-40 object-cover mb-5"
                                         alt=""
                                         src="/profile.jpg"
+                                        width={474}
+                                        height={474}
                                     />
                                 </div>
                                 <div className="basis-1/4 text-[#000000]">
