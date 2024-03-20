@@ -6,6 +6,7 @@ import CalendarComponent from "../components/Calendar";
 import EditPrivacy_Dialog from "../components/New_Components/EditPrivacy_Dialog";
 import UploadMaterial_Dialog from "../components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog";
 import Notification_Panel from "../components/Notifications/Notification_Panel";
+import Image from "next/image";
 
 
 export default async function dashboard() {
@@ -39,6 +40,8 @@ export default async function dashboard() {
           2xl:w-[30%] 2xl:h-[100%] 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center"
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
+          width={500}
+          height={200}
         />
       </div>
 
