@@ -13,7 +13,7 @@ export default function DashboardLayout({
 
         <div className="flex">{children}</div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

@@ -460,7 +460,7 @@ export default function Date_Range({ className }) {
               !date
             )}
           >
-            <CalendarIcon className="-mt-0.5 mr-1 h-10 w-10 sm:-mt-0.5 sm:h-8 sm:w-8 2xl:h-[10px] 2xl:w-[10px]" />
+            <CalendarIcon className="-mt-0.5 mr-1 h-5 w-5 sm:-mt-0.5 sm:h-8 sm:w-8 2xl:h-[10px] 2xl:w-[10px]" />
             {date?.from ? (
               date.to ? (
                 <>
