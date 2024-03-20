@@ -279,13 +279,13 @@ async function page() {
         >
           <div
             className="
-          text-center bg-[#B4ABAB] text-[#5B0505] w-[90%] h-56 mt-4 rounded-lg
-          sm:text-center sm:bg-[#B4ABAB] sm:text-[#5B0505] sm:w-[80%] sm:h-56 sm:mt-4 sm:rounded-lg
-          md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-56 md:mt-4 md:rounded-lg
-          lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-56 lg:mt-4 lg:rounded-lg
-          xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[100%] xl:h-36 xl:mt-0 xl:rounded-lg xl:-ml-8
-          2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[70%] 2xl:h-80 2xl:mt-0 2xl:-ml-4
-          "
+            text-center bg-[#B4ABAB] text-[#5B0505] w-[90%] h-64 mt-4 rounded-lg
+            sm:text-center sm:bg-[#B4ABAB] sm:text-[#5B0505] sm:w-[80%] sm:h-64 sm:mt-4 sm:rounded-lg
+            md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-64 md:mt-4 md:rounded-lg
+            lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-64 lg:mt-4 lg:rounded-lg
+            xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[100%] xl:h-36 xl:mt-0 xl:rounded-lg xl:-ml-8 xl:overflow-auto
+            2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[70%] 2xl:h-80 2xl:mt-0 2xl:-ml-4 2xl:overflow-hidden
+            "
           >
             <CalendarComponent />
           </div>
