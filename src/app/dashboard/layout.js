@@ -6,14 +6,17 @@ export default function DashboardLayout({
 }) {
   return (
     <>
-      <div className="flex">
+      <div className="flex flex-row">
         <div className="flex">
           <Sidebar />
         </div>
-
-        <div className="flex">{children}</div>
+        <div className="flex flex-col">
+          <div className="flex">{children}</div>
+          <div>
+            <Footer />
+          </div>
+        </div>
       </div>
-      <Footer />
     </>
   );
 }
