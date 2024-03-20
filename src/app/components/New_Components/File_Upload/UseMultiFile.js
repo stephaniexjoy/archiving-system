@@ -17,8 +17,32 @@ import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 
 export function UseMultiFile() {
+  /* const handleFileUpload = (event) => {
+    const files = event.target.files;
+    const newFiles = [...uploadedFiles];
+
+    const fileName = [];
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      newFiles.push(files[i]);
+
+      // Extract the file extension from the file name
+      const name = file.name;
+      const extension = file.name.split(".").pop();
+
+      fileName.push({ name, extension });
+    }
+
+    setUploadedFiles(newFiles);
+    setFileInfo(fileName);
+    console.log(fileInfo);
+  }; */
+
   const [fileStates, setFileStates] = useState([]);
   const [addedFiles, setAddedFiles] = useState([]);
+  const [fileInfo, setFileInfo] = useState([]);
+
   const [urls, setUrls] = useState([]);
   const { toast } = useToast();
 
@@ -68,6 +92,7 @@ export function UseMultiFile() {
               }
             },
           });
+
           console.log(res);
           return res;
         } catch (err) {
@@ -75,6 +100,19 @@ export function UseMultiFile() {
         }
       })
     );
+
+    const getFileInfo = () => {
+      const fileInfos = [];
+      addedFiles.map((addedFileState) => {
+        const name = addedFileState.file.name;
+        const extension = addedFileState.file.name.split(".").pop();
+
+        fileInfos.push({ name, extension });
+      });
+      return fileInfos;
+    };
+
+    setFileInfo(getFileInfo);
 
     const results = await Promise.all(uploadPromises);
     if (results) {
@@ -91,6 +129,10 @@ export function UseMultiFile() {
     const extractUrls = results.map((result) => result.url);
     setUrls(extractUrls);
   };
+
+  console.log(urls);
+  console.log(fileInfo);
+
   return (
     <div>
       <MultiFileDropzone

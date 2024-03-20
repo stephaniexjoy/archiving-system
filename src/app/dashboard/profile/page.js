@@ -204,7 +204,7 @@ export default async function profile() {
                     {item.degreeInfo}
                   </div>
                 </div>
-                <div className="flex flex-col"> 
+                <div className="flex flex-col">
                   <div
                     className="
                     font-semibold text-[15px] text-black mb-2
@@ -277,7 +277,7 @@ export default async function profile() {
               xl:table xl:w-full
               2xl:table 2xl:w-full
               "
-              >
+            >
               <thead>
                 <tr>
                   <th className="border border-black bg-[#D7D4D4] backdrop-blur-[4px] font-semibold text-[20px] text-white text-center w-1/3 h-[30px]">
@@ -376,22 +376,10 @@ export default async function profile() {
             "
           >
             <div className="flex items-center">
-              <button
-                type="submit"
-                className="
-                bg-[#5B0505] text-[15px] text-white text-center w-[100px] h-[30px]
-                sm:bg-[#5B0505] sm:text-[17px] sm:text-white sm:text-center sm:w-[130px] sm:h-[32px]
-                md:bg-[#5B0505] md:text-[19px] md:text-white md:text-center md:w-[130px] md:h-[34px]
-                lg:bg-[#5B0505] lg:text-[21px] lg:text-white lg:text-centerlg: lg:w-[180px] lg:h-[36px]
-                xl:bg-[#5B0505] xl:text-[23px] xl:text-white xl:text-center xl:w-[220px] xl:h-[38px]
-                2xl:bg-[#5B0505] 2xl:text-[25px] 2xl:text-white 2xl:text-center 2xl:w-[250px] 2xl:h-[40px]
-                "
-              >
-                EDIT
-              </button>
+              {/*  */}
+              <EditProfileFaculty_Dialog />
             </div>
-            <div className="flex items-center">
-            </div>
+            <div className="flex items-center"></div>
             <div className="flex items-center">
               <button
                 type="submit"

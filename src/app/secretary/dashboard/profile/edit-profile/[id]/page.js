@@ -68,8 +68,8 @@ export default async function page() {
           className="mr-20 w-full md:w-[400px] h-[100px] object-cover"
           alt=""
           src="/photos/E-Archiving System.png"
-          width={300}
-          height={100}
+          width={2125}
+          height={499}
         />
 
         <div className="border m-4 bg-[#AD5606] w-auto h-[85%] rounded-lg shadow-lg">
@@ -84,8 +84,8 @@ export default async function page() {
                     className="rounded-full w-40 h-40 object-cover mb-5"
                     alt=""
                     src="/profile.jpg"
-                    width={300}
-                    height={100}
+                    width={474}
+                    height={474}
                   />
                 </div>
                 <div className="basis-1/4 text-[#000000]">

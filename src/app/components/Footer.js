@@ -39,14 +39,9 @@ const Footer = () => {
               <Image
                 src="/photos/lspuLogo.png"
                 alt="LSPU Logo"
-                className="w-10 h-10
-                           sm:w-12 sm:h-12
-                           md:w-16 md:h-16
-                           lg:w-24 lg:h-24
-                           xl:w-28 xl:h-28
-                           2xl:w-32 2xl:h-32"
-                width={300}
-                height={100}
+                className="w-0 h-0"
+                width={1499}
+                height={1499}
               />
             </div>
             <div
@@ -60,14 +55,9 @@ const Footer = () => {
               <Image
                 src="/photos/ccsLogo.png"
                 alt="CCS Logo"
-                className="w-10 h-10
-                           sm:w-12 sm:h-12
-                           md:w-16 md:h-16
-                           lg:w-24 lg:h-24
-                           xl:w-28 xl:h-28
-                           2xl:w-32 2xl:h-32"
-                width={300}
-                height={100}
+                className="w-0 h-0"
+                width={2201}
+                height={2201}
               />
             </div>
           </div>
@@ -116,14 +106,9 @@ const Footer = () => {
                   <Image
                     src="/photos/callLogo.png"
                     alt="Call Logo"
-                    className="w-7 h-auto
-                               sm:w-8 sm:h-auto
-                               md:w-9 md:h-auto
-                               lg:w-10 lg:h-auto
-                               xl:w-11 xl:h-auto
-                               2xl:w-12 2xl:h-auto"
-                    width={300}
-                    height={100}
+                    className="w-7 h-auto"
+                    width={139}
+                    height={126}
                   />
                   <p
                     className="ml-1 text-white text-[12px] font-semibold
@@ -148,14 +133,9 @@ const Footer = () => {
                   <Image
                     src="/photos/emailLogo.png"
                     alt="Email Logo"
-                    className="w-7 h-auto
-                               sm:w-8 sm:h-auto
-                               md:w-9 md:h-auto
-                               lg:w-10 lg:h-auto
-                               xl:w-11 xl:h-auto
-                               2xl:w-12 2xl:h-auto"
-                    width={300}
-                    height={100}
+                    className="w-7 h-auto"
+                    width={136}
+                    height={105}
                   />
                   <p
                     className="ml-1 text-white text-[12px] font-semibold
@@ -180,14 +160,9 @@ const Footer = () => {
                   <Image
                     src="/photos/locationLogo.png"
                     alt="Location Logo"
-                    className="w-7 h-auto
-                               sm:w-8 sm:h-auto
-                               md:w-9 md:h-auto
-                               lg:w-10 lg:h-auto
-                               xl:w-11 xl:h-auto
-                               2xl:w-12 2xl:h-auto"
-                    width={300}
-                    height={100}
+                    className="w-7 h-auto"
+                    width={139}
+                    height={123}
                   />
 
                   <p

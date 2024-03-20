@@ -11,7 +11,7 @@ const page = async ({ params }) => {
   return (
     <div className="flex flex-col w-screen h-screen overflow-y-auto items-center">
       <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
-        <img
+        <Image
           className="
           w-[60%] h-auto object-cover flex items-center justify-center
           sm:w-[60%] sm:h-[100%] sm:object-cover sm:flex sm:items-center sm:justify-center
@@ -22,6 +22,8 @@ const page = async ({ params }) => {
           "
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
+          width={2125}
+          height={499}
         />
       </div>
 
@@ -51,7 +53,7 @@ const page = async ({ params }) => {
             2xl:mt-8 2xl:mr-20
             "
           >
-            <img
+            <Image
               className="
               rounded-full w-36 h-auto object-cover mb-5
               sm:rounded-full sm:w-44 sm:h-auto sm:object-cover sm:mb-5
@@ -62,6 +64,8 @@ const page = async ({ params }) => {
               "
               alt="Profile"
               src="/profile.jpg"
+              width={474}
+              height={474}
             />
           </div>
 

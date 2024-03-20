@@ -61,19 +61,20 @@ const Login = () => {
     <div className="bg-slate-200 relative flex items-center justify-center flex-row h-auto overflow-hidden">
       <div
         className="
-      w-[0%] h-auto
-      sm:w-[0%] sm:h-auto
-      md:w-[0%] md:h-auto
-      lg:w-[0%] lg:h-auto
-      xl:w-[50%] xl:h-auto
-      2xl:w-[40%] 2xl:h-auto bg-slate-200 rounded-[10%] "
+        w-[0%] h-auto
+        sm:w-[0%] sm:h-auto
+        md:w-[0%] md:h-auto
+        lg:w-[0%] lg:h-auto
+        xl:w-[50%] xl:h-auto
+        2xl:w-[40%] 2xl:h-auto bg-slate-200 rounded-[10%]
+        "
       >
         <Image
           className="w-screen h-screen object-cover opacity-100"
           alt="CCS Logo Half"
           src="/photos/ccsLogoHalf.png"
-          width={300}
-          height={100}
+          width={481}
+          height={935}
           priority={true}
         />
       </div>
@@ -91,8 +92,8 @@ const Login = () => {
             className="-mt-8 ml-[9%] mb-[2%] w-[85%] h-auto object-cover"
             alt="E-Archiving System Maroon"
             src="/photos/E-Archiving System Maroon.png"
-            width={500}
-            height={200}
+            width={1000}
+            height={256}
           />
           <div
             className="
