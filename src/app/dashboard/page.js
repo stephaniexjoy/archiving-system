@@ -7,10 +7,6 @@ import EditPrivacy_Dialog from "../components/New_Components/EditPrivacy_Dialog"
 import UploadMaterial_Dialog from "../components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog";
 import Notification_Panel from "../components/Notifications/Notification_Panel";
 import Image from "next/image";
-<<<<<<< HEAD
-
-=======
->>>>>>> 3243f1648b28651b5029112e379f5efb798b5719
 
 export default async function dashboard() {
   const session = await getServerSession(AuthOptions);
