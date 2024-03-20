@@ -64,7 +64,7 @@ const Sidebar = () => {
       <aside
         className={`flex place-content-center bg-[#5B0505] text-white ${
           isMinimized ? "w-[10vh]" : "w-[24vh]"
-        } h-full transition-all`}
+        } h-auto transition-all`}
       >
         <nav>
           <div>
