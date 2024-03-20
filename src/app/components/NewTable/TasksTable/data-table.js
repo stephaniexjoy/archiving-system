@@ -128,9 +128,9 @@ export function DataTable({ columns, data, materials, instructors }) {
       <div className="flex items-center py-4 space-x-1">
         <Input
           placeholder="Filter users..."
-          value={table.getColumn("name")?.getFilterValue() ?? ""}
+          value={table.getColumn("title")?.getFilterValue() ?? ""}
           onChange={(event) =>
-            table.getColumn("name")?.setFilterValue(event.target.value)
+            table.getColumn("title")?.setFilterValue(event.target.value)
           }
           className="max-w-2xl bg-slate-50 border border-slate-400 "
         />

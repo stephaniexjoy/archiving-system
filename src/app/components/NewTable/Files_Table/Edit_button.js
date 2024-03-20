@@ -25,22 +25,22 @@ const Edit_button = ({ filePath, fileOwner }) => {
             <DialogTrigger className="focus:outline-none h-10 font-bold">
               <Button>Edit</Button>
             </DialogTrigger>
-            <DialogContent className="bg-white max-w-[1000px] max-h-[800px] h-auto py-6 px-6 mx-auto overflow-y-auto">
+            <DialogContent className="bg-white max-w-[1000px] max-h-[800px] h-auto py-4 px-6 overflow-y-auto">
               <DialogHeader>
                 <DialogTitle className="text-2xl">Edit</DialogTitle>
                 <DialogDescription>
-                  <div className="flex flex-row ml-12 gap-x-40">
+                  <div className="flex flex-row px-2 gap-x-[13%] mt-16">
                     <AddCategory_Dialog category={"Material"} />
                     <AddCategory_Dialog category={"Course"} />
                   </div>
-                  <div className="flex flex-row font-semibold text-[#5B0505] w-full gap-x-0 py-5 px-10 ml-0">
-                    <div className="ml-20 inline-block text-[20px] md:text-[23px]">
+                  <div className="flex flex-row font-semibold text-[#5B0505] w-full gap-x-[25%] py-5 px-20 ml-0">
+                    <div className="inline-block text-[20px] md:text-[23px]">
                       MATERIAL
                     </div>
-                    <div className="ml-56 inline-block text-[20px] md:text-[23px]">
+                    <div className="inline-block text-[20px] md:text-[23px]">
                       PROGRAM
                     </div>
-                    <div className="ml-48 inline-block text-[20px] md:text-[23px]">
+                    <div className="inline-block text-[20px] md:text-[23px]">
                       PERMISSION
                     </div>
                   </div>
