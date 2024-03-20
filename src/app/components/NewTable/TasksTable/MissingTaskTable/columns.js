@@ -67,7 +67,7 @@ export const columns = [
             <DialogTrigger className="bg-[#8F8F8F] hover:bg-[#6A6A6A] focus:outline-none h-10 w-48 font-bold">
               Upload
             </DialogTrigger>
-            <DialogContent className="bg-white max-w-[1000px] max-h-[800px] h-auto py-6 px-6 mx-auto overflow-y-auto">
+            <DialogContent className="bg-white w-[60%] h-auto py-6 px-6 mx-auto overflow-y-auto">
               <DialogHeader>
                 <DialogTitle className="text-2xl">Upload File</DialogTitle>
                 <UseMultiFile task={"test"} />
