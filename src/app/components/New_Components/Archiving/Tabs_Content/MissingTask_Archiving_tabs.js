@@ -66,7 +66,7 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
         2xl:flex 2xl:flex-col 2xl:mt-16 2xl:px-10 2xl:space 2xl:h-auto 2xl:overflow-y-auto
         "
       >
-        <h1 className="text-center text-[#5B0505] text-[28px]  sm:text-[32px] md:text-[36px] lg:text-[45px] font-bold md:shadow-zinc-400 mb-5 ">
+        <h1 className="text-center text-[#5B0505] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[45px] font-bold md:shadow-zinc-400 mb-5 ">
           Missing Tasks
         </h1>
         <div className="flex flex-col items-center w-full h-full overflow-y-auto">

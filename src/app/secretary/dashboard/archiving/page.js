@@ -68,9 +68,9 @@ export default async function archiving({ searchParams }) {
       <div className="flex flex-col w-screen h-screen bg-slate-50">
         <div
           className="
-        bg-[#AD5606] w-[100%] h-[7%] flex items-center justify-center
-        2xl:bg-[#AD5606] 2xl:w-full 2xl:h-[12%] 2xl:flex 2xl:items-center 2xl:justify-center
-        "
+          bg-[#AD5606] w-[100%] h-[7%] flex items-center justify-center
+          2xl:bg-[#AD5606] 2xl:w-full 2xl:h-[12%] 2xl:flex 2xl:items-center 2xl:justify-center
+          "
         >
           <Image
             className="
