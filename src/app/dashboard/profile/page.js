@@ -24,8 +24,8 @@ export default async function profile() {
           className=" sm:w-[27%] sm:h-[100%] md:w-[60%] md:h-[100%] lg:w-[40%] lg:h-[90%] object-cover flex items-center justify-center"
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
-          width={300}
-          height={100}
+          width={2125}
+          height={499}
         />
       </div>
 
@@ -36,8 +36,8 @@ export default async function profile() {
               className="rounded-[50%] w-[80px] h-[60px] sm:w-[130px] sm:h-[80px] md:w-[120px] md:h-[80px] lg:w-[100px] lg:h-[160px]object-cover mb-5"
               alt="Profile"
               src="/profile.jpg"
-              width={300}
-              height={100}
+              width={474}
+              height={474}
             />
           </div>
           <div className="ml-5 mt-7 sm:mt-7 md:mt-7 lg:mt-6 basis-3/5 font-semibold text-[9.5px] text-black text-lg sm:text-left lg:text-left md:text-left lg:w-[900px] h-[30px] sm:w-[700px] ">

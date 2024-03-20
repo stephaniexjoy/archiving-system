@@ -12,8 +12,8 @@ const Footer = () => {
                 src="/photos/lspuLogo.png"
                 alt="LSPU Logo"
                 className="w-0 h-0"
-                width={300}
-                height={100}
+                width={1499}
+                height={1499}
               />
             </div>
             <div className="flex items-start justify-start mb-4 md:mb-0">
@@ -21,8 +21,8 @@ const Footer = () => {
                 src="/photos/ccsLogo.png"
                 alt="CCS Logo"
                 className="w-0 h-0"
-                width={300}
-                height={100}
+                width={2201}
+                height={2201}
               />
             </div>
           </div>
@@ -37,8 +37,8 @@ const Footer = () => {
                     src="/photos/callLogo.png"
                     alt="Call Logo"
                     className="w-7 h-auto"
-                    width={300}
-                    height={100}
+                    width={139}
+                    height={126}
                   />
                   <p className="ml-1 text-white text-[12px] font-semibold">
                     (049) 554-3033
@@ -49,8 +49,8 @@ const Footer = () => {
                     src="/photos/emailLogo.png"
                     alt="Email Logo"
                     className="w-7 h-auto"
-                    width={300}
-                    height={100}
+                    width={136}
+                    height={105}
                   />
                   <p className="ml-1 text-white text-[12px] font-semibold">
                     ccs_spc@lspu.edu.ph
@@ -61,8 +61,8 @@ const Footer = () => {
                     src="/photos/locationLogo.png"
                     alt="Location Logo"
                     className="w-7 h-auto"
-                    width={300}
-                    height={100}
+                    width={139}
+                    height={123}
                   />
                   <p className="ml-1 text-white text-[12px] font-semibold">
                     Brgy. Del Remedio, San Pablo City, Philippines

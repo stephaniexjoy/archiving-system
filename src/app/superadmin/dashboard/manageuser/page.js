@@ -10,7 +10,7 @@ export default async function page() {
   return (
     <div className="flex flex-col w-screen h-screen overflow-y-auto">
       <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
-        <img
+        <Image
           className="
           w-[60%] h-auto object-cover flex items-center justify-center
           sm:w-[60%] sm:h-[100%] sm:object-cover sm:flex sm:items-center sm:justify-center
@@ -21,6 +21,8 @@ export default async function page() {
           "
           alt="E-Archiving System"
           src="/photos/E-Archiving System.png"
+          width={2125}
+          height={499}
         />
       </div>
 

@@ -43,8 +43,8 @@ const Sidebar = () => {
     <Image
       className="h-20 w-20 rounded-full mx-auto mb-3"
       src={session.user.image}
-      width={200}
-      height={200}
+      width={1000}
+      height={1000}
       alt={"none"}
       priority={true}
     />
@@ -52,8 +52,8 @@ const Sidebar = () => {
     <Image
       className="h-20 w-20 rounded-full mx-auto mb-3"
       src="/photos/ccsLogo.png"
-      width={200}
-      height={200}
+      width={2201}
+      height={2201}
       alt={"none"}
       priority={true}
     />
