@@ -23,13 +23,11 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Card, CardContent } from "@/components/ui/card";
 import { UseMultiFile } from "./../../File_Upload/UseMultiFile";
+import CompletedTask_Table from "@/app/components/NewTable/TasksTable/CompletedTaskTable/CompletedTask_Table";
 
 export default function CompletedTask_Archiving_tabs({ tasks }) {
   const [options, setOptions] = useState("");
-
-  function onCloseModal() {
-    setOpenModal(false);
-  }
+  console.log(tasks);
 
   return (
     <>
@@ -44,7 +42,7 @@ export default function CompletedTask_Archiving_tabs({ tasks }) {
         "
       >
         <h1 className="text-center text-[#5B0505] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[45px] font-bold md:shadow-zinc-400 mb-5 ">
-          Missing Tasks
+          Completed Tasks
         </h1>
         <div className="flex flex-col items-center w-full h-full overflow-y-auto">
           <div
@@ -57,6 +55,7 @@ export default function CompletedTask_Archiving_tabs({ tasks }) {
             2xl:w-[60%] 
             "
           >
+            <CompletedTask_Table tasks={tasks} />
             <label className="w-full text-[#5B0505] text-xl text-start font-semibold mr-4">
               Completed:
             </label>
