@@ -134,12 +134,15 @@ const File_Upload_Card = ({ task }) => {
                     </DialogDescription>
                   </DialogHeader>
                   <div className="flex flex-col w-full">
-                    <UseMultiFile />
+                    <UseMultiFile setUrls={setUrls} setFileInfo={setFileInfo} />
                   </div>
                 </DialogContent>
               </Dialog>
               <button
                 onClick={async () => {
+                  console.log(urls);
+                  console.log(fileInfo);
+
                   const res = await confirmUpload(urls, fileInfo, task.id);
                   console.log(res);
                   console.log(fileInfo);

@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 
-export function UseMultiFile() {
+export function UseMultiFile({ setUrls, setFileInfo }) {
   /* const handleFileUpload = (event) => {
     const files = event.target.files;
     const newFiles = [...uploadedFiles];
@@ -41,9 +41,7 @@ export function UseMultiFile() {
 
   const [fileStates, setFileStates] = useState([]);
   const [addedFiles, setAddedFiles] = useState([]);
-  const [fileInfo, setFileInfo] = useState([]);
 
-  const [urls, setUrls] = useState([]);
   const { toast } = useToast();
 
   const { edgestore } = useEdgeStore();
@@ -130,9 +128,7 @@ export function UseMultiFile() {
     setUrls(extractUrls);
   };
 
-  console.log(urls);
-  console.log(fileInfo);
-
+  
   return (
     <div>
       <MultiFileDropzone
