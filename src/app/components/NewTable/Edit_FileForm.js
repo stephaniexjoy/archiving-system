@@ -15,40 +15,42 @@ export default function Edit_FileForm({ filePath }) {
 
   return (
     <>
-      <div className="flex flex-row gap-x-16 w-full px-10">
+      <div className="flex flex-row gap-x-[13%] w-full px-10">
         <Material_ComboBox setMaterial={setMaterial} />
         <Course_ComboBox setProgram={setProgram} />
         <Permission_ComboBox setPermission={setPermission} />
       </div>
-      <Button
-        onClick={async () => {
-          console.log("Update:", filePath, material, program, permission);
+      <div className="flex items-center w-full justify-center mt-10">
+        <Button
+          onClick={async () => {
+            console.log("Update:", filePath, material, program, permission);
 
-          if (!filePath || !material || !program || !permission) {
-            toast({
-              description: "Please fill the categories.",
-              variant: "default",
-            });
-          } else {
-            const isUpdated = await updateFile(
-              filePath,
-              material,
-              program,
-              permission
-            );
-
-            if (isUpdated) {
+            if (!filePath || !material || !program || !permission) {
               toast({
-                description: "You have successfully updated a file.",
+                description: "Please fill the categories.",
                 variant: "default",
               });
+            } else {
+              const isUpdated = await updateFile(
+                filePath,
+                material,
+                program,
+                permission
+              );
+
+              if (isUpdated) {
+                toast({
+                  description: "You have successfully updated a file.",
+                  variant: "default",
+                });
+              }
             }
-          }
-        }}
-        className="bg-[#8F8F8F] text-white text-[20px] w-[300px]"
-      >
-        UPDATE
-      </Button>
+          }}
+          className="flex bg-[#8F8F8F] text-white text-[20px] px-10 py-4 w-auto justify-center items-center my-8"
+        >
+          Update
+        </Button>
+      </div>
     </>
   );
 }

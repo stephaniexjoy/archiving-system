@@ -56,7 +56,7 @@ export default function AssignedTask_Archiving_tabs({
         md:flex md:flex-col md:mt-16 md:px-10 md:space md:h-auto md:overflow-y-auto
         lg:flex lg:flex-col lg:mt-16 lg:px-10 lg:space lg:h-auto lg:overflow-y-auto
         xl:flex xl:flex-col xl:mt-16 xl:px-10 xl:space xl:h-auto xl:overflow-y-auto
-        2xl:flex 2xl:flex-col 2xl:mt-16 2xl:px-10 2xl:space 2xl:h-auto 2xl:overflow-y-auto
+        2xl:flex 2xl:flex-col 2xl:mt-16 2xl:px-10 2xl:space 2xl:max-h-full 2xl:overflow-y-auto
         "
       >
         <h1 className="text-center text-[#5B0505] text-[28px]  sm:text-[32px] md:text-[36px] lg:text-[45px] font-bold md:shadow-zinc-400 mb-5 ">
