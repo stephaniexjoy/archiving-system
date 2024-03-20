@@ -7,6 +7,7 @@ import EditPrivacy_Dialog from "../components/New_Components/EditPrivacy_Dialog"
 import UploadMaterial_Dialog from "../components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog";
 import Notification_Panel from "../components/Notifications/Notification_Panel";
 
+
 export default async function dashboard() {
   const session = await getServerSession(AuthOptions);
 
@@ -29,7 +30,7 @@ export default async function dashboard() {
   return (
     <div className="flex flex-col w-screen h-screen overflow-y-auto">
       <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center ">
-        <img
+        <Image
           className="w-[60%] h-auto object-cover flex items-center justify-center
           sm:w-[60%] sm:h-[100%] sm:object-cover sm:flex sm:items-center sm:justify-center
           md:w-[60%] md:h-[100%] md:object-cover md:flex md:items-center md:justify-center

@@ -37,11 +37,11 @@ function AddTask_Dialog({ sessionUser }) {
       </DialogTrigger>
       <DialogContent 
         className="
-        p-10 max-w-[70%] h-auto bg-slate-50
-        sm:p-10 sm:max-w-[60%] sm:h-auto
-        md:p-10 md:max-w-[60%] md:h-auto
-        lg:p-10 lg:max-w-[40%] lg:h-auto
-        xl:p-10 xl:max-w-[40%] xl:h-auto
+        p-10 max-w-[90%] h-auto bg-slate-50
+        sm:p-10 sm:max-w-[80%] sm:h-auto
+        md:p-10 md:max-w-[80%] md:h-auto
+        lg:p-10 lg:max-w-[70%] lg:h-auto
+        xl:p-10 xl:max-w-[70%] xl:h-auto
         2xl:p-10 2xl:max-w-[40%] 2xl:h-auto
         ">
         <Form />
