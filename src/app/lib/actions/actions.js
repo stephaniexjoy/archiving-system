@@ -28,7 +28,7 @@ export async function createAccount(formData) {
   const dateString = new Date();
   const dateObject = new Date(dateString);
 
-  const nameForm = formData.get("nameInput");
+  const nameForm = formData.get("FornameInput");
   const role = formData.get("roleInput");
   const category = formData.get("catInput");
   const specialization = formData.get("specInput");
@@ -38,6 +38,9 @@ export async function createAccount(formData) {
   const age = formData.get("ageInput");
   const sex = formData.get("sexInput");
   const empNo = formData.get("employeeNoInput");
+  if(!nameForm){
+    console.log("huh")
+  }
 
   console.log(nameForm, password);
 
@@ -53,39 +56,44 @@ export async function createAccount(formData) {
   if (existingUser.length > 0) {
     return "Existing User";
   }
-  const [createUser, addActivity] = await db.$transaction([
-    db.user.create({
-      data: {
-        employee_no: empNo,
-        email: emailForm,
-        password: hashedPassword,
-        name: "HAHAHAHA",
-        age: parseInt(age),
-        sex: sex,
-        position: role,
-        designation: category,
-        specialization: specialization,
-        license: license,
-        education: {
-          create: {},
-        },
-      },
-    }),
-    db.activity.create({
-      data: {
-        name: sessionUser.name,
-        position: sessionUser.position,
-        type: "CREATED NEW USER",
-        createdAt: dateObject,
-        user: {
-          connect: {
-            id: sessionUser.id,
+  try {
+    const [createUser, addActivity] = await db.$transaction([
+      db.User.create({
+        data: {
+          name: nameForm,
+          employee_no: empNo,
+          email: emailForm,
+          password: hashedPassword,
+          age: parseInt(age),
+          sex: sex,
+          position: role,
+          designation: category,
+          specialization: specialization,
+          license: license,
+          education: {
+            create: {},
           },
         },
-      },
-    }),
-  ]);
-  if (createUser) return createUser;
+      }),
+      db.activity.create({
+        data: {
+          name: sessionUser.name,
+          position: sessionUser.position,
+          type: "CREATED NEW USER",
+          createdAt: dateObject,
+          user: {
+            connect: {
+              id: sessionUser.id,
+            },
+          },
+        },
+      }),
+    ]);
+
+    if (createUser) return createUser;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function updateUser(formData, sessionUser) {

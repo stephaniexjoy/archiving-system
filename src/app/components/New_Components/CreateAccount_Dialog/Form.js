@@ -14,7 +14,7 @@ export default function Form({ sessionUser }) {
         action={async (formData) => {
           console.log(formData);
 
-          const create = await createAccount(formData, sessionUser);
+          const create = await createAccount(formData);
           if (create) {
             if (create === "Existing User") {
               toast({
@@ -44,9 +44,9 @@ export default function Form({ sessionUser }) {
           "
         >
           {[
-            { label: "Name", type: "text", id: "name" },
-            { label: "Age", type: "number", id: "age" },
-            { label: "Sex", type: "text", id: "sex" },
+            { label: "Forname", type: "text", id: "Forname" },
+            { label: "age", type: "number", id: "age" },
+            { label: "sex", type: "text", id: "sex" },
             {
               label: "Role",
               type: "select",
