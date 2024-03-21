@@ -31,11 +31,11 @@ export default async function page({ searchParams }) {
     <div className="flex w-screen h-screen justify-center items-center">
       <Card
         className="
-        w-full h-auto
-        sm:w-full sm:h-auto
-        md:w-full md:h-auto
-        lg:w-full lg:h-auto
-        xl:w-full xl:h-auto
+        w-[95%] h-[90%] px-5
+        sm:w-[95%] sm:h-[90%] sm:px-5
+        md:w-[95%] md:h-[90%] md:px-5
+        lg:w-[95%] lg:h-[90%] lg:px-5
+        xl:w-[95%] xl:h-[90%] xl:px-5
         2xl:w-[95%] 2xl:h-[90%] 2xl:px-5
         "
       >
@@ -53,10 +53,10 @@ export default async function page({ searchParams }) {
             <div
               className="
               w-full flex flex-col                                         
-              sm:w-full sm:flex sm:flex-col
-              md:w-full md:flex md:flex-col
+              sm:w-full sm:flex sm:flex-col sm:items-center
+              md:w-full md:flex md:flex-col md:items-center
               lg:w-full lg:flex lg:flex-col lg:items-center
-              xl:w-full xl:flex xl:flex-col xl:items-start
+              xl:w-full xl:flex xl:flex-col xl:items-start xl:gap-64
               2xl:w-full 2xl:flex 2xl:flex-col 2xl:items-start 2xl:gap-72
               "
             >
@@ -67,14 +67,28 @@ export default async function page({ searchParams }) {
                 2xl:mb-12 2xl:text-left 2xl:flex 2xl:flex-col
                 "
               >
-                <h1 className="text-6xl text-start">
+                <h1 
+                  className="
+                  text-xl text-start
+                  sm:text-2xlxl sm:text-start
+                  md:text-3xlxl md:text-start
+                  lg:text-4xl lg:text-start
+                  xl:text-5xl xl:text-start
+                  2xl:text-6xl 2xl:text-start
+                  ">
                   {fetchTask.title}
                   </h1>
                 <div className="flex flex-row">
-                  <div className="text-sm text-start">
+                  <div 
+                  className="
+                  text-sm text-start
+                  ">
                     {fetchTask.uploaderName}
                   </div>
-                  <div className="text-sm text-start">
+                  <div 
+                    className="
+                    text-sm text-start
+                    ">
                     Date Posted: {fetchTask.deadlineCreated.toLocaleString()}
                   </div>
                 </div>
