@@ -111,7 +111,7 @@ const Sidebar = () => {
             )}
           </ul>
           <ul className="mt-24">
-            {session.user.position === "Superadmin" && (
+            {session.user.position === "Admin" && (
               <>
                 <MenuItem
                   path="/superadmin/dashboard"

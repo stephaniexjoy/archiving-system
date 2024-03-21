@@ -11,7 +11,7 @@ import Image from "next/image";
 export default async function dashboard() {
   const session = await getServerSession(AuthOptions);
 
-  if (session.user.position === "Superadmin") {
+  if (session.user.position === "Admin") {
     redirect("/superadmin/dashboard/");
   }
   if (session.user.position === "Secretary") {
