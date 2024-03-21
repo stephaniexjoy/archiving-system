@@ -12,6 +12,7 @@ import {
 
 import { UseMultiFile } from "@/app/components/New_Components/File_Upload/UseMultiFile";
 import File_Upload_Card from "@/app/components/New_Components/File_Upload/File_Upload_Card";
+import Tasks_Skeleton from "@/app/components/Skeletons/Faculty/Dashboard/Archiving/Tasks/Tasks_Skeleton";
 // import { Separator } from "@/components/ui/separator"
 
 export default async function page({ searchParams }) {
@@ -70,7 +71,7 @@ export default async function page({ searchParams }) {
                 2xl:mb-12 2xl:text-left 2xl:flex 2xl:flex-col
                 "
               >
-                <h1 
+                <h1
                   className="
                   text-xl text-center
                   sm:text-2xl sm:text-center
@@ -78,30 +79,33 @@ export default async function page({ searchParams }) {
                   lg:text-4xl lg:text-center
                   xl:text-5xl xl:text-start
                   2xl:text-6xl 2xl:text-start
-                  ">
+                  "
+                >
                   {fetchTask.title}
-                  </h1>
+                </h1>
                 <div className="flex flex-row">
-                  <div 
-                  className="
+                  <div
+                    className="
                   text-sm text-center
                   sm:text-sm sm:text-center
                   md:text-sm md:text-center
                   lg:text-sm lg:text-center
                   xl:text-sm xl:text-start
                   2xl:text-sm 2xl:text-start
-                  ">
+                  "
+                  >
                     {fetchTask.uploaderName}
                   </div>
-                  <div 
-                  className="
+                  <div
+                    className="
                   text-sm text-center
                   sm:text-sm sm:text-center
                   md:text-sm md:text-center
                   lg:text-sm lg:text-center
                   xl:text-sm xl:text-start
                   2xl:text-sm 2xl:text-start
-                  ">
+                  "
+                  >
                     Date Posted: {fetchTask.deadlineCreated.toLocaleString()}
                   </div>
                 </div>
@@ -125,13 +129,15 @@ export default async function page({ searchParams }) {
                   2xl:text-sm 2xl:mt-0 2xl:mb-0
                   "
                 >
-                  Due: {fetchTask && fetchTask.setDeadline ? fetchTask.setDeadline.toLocaleString() : "No due"}
-
+                  Due:{" "}
+                  {fetchTask && fetchTask.setDeadline
+                    ? fetchTask.setDeadline.toLocaleString()
+                    : "No due"}
                 </h1>
-                {/* <Separator /> */}
+                
               </div>
             </div>
-            <div 
+            <div
               className="
               flex w-full h-full justify-center items-center
               sm:flex sm:w-full sm:h-full sm:justify-center sm:items-center
@@ -139,10 +145,10 @@ export default async function page({ searchParams }) {
               lg:flex lg:w-full lg:h-full lg:justify-center lg:items-center
               xl:flex xl:w-full xl:h-full xl:justify-end xl:items-end
               2xl:flex 2xl:w-full 2xl:h-full 2xl:justify-end 2xl:items-end
-              ">
-
-            <Card
-              className="
+              "
+            >
+              <Card
+                className="
               flex flex-col bg-slate-100 p-0 gap-2 shadow-2xl rounded-xl mt-4 w-full
               sm:flex sm:flex-col sm:bg-slate-100 sm:p-8 sm:gap-2 sm:shadow-2xl sm:rounded-xl sm:mt-4
               md:flex md:flex-col md:bg-slate-100 md:p-8 md:gap-2 md:shadow-2xl md:rounded-xl md:mt-4
@@ -150,10 +156,10 @@ export default async function page({ searchParams }) {
               xl:flex xl:flex-col xl:mt-0 xl:ml-10 xl:p-4 xl:gap-4 xl:drop-shadow-2xl xl:rounded-xl xl:w-[90%]
               2xl:flex 2xl:flex-col 2xl:mt-6 2xl:mb-6 2xl:ml-0 2xl:p-4 2xl:gap-0 2xl:drop-shadow-2xl 2xl:rounded-xl 2xl:w-[70%] 2xl:h-auto
               "
-            >
+              >
                 <CardContent className="">
-                <div
-                  className="
+                  <div
+                    className="
                   flex flex-row gap-x-32
                   sm:flex sm:flex-row sm:gap-x-64
                   md:flex md:flex-row md:gap-x-64 md:mb-5
@@ -161,7 +167,7 @@ export default async function page({ searchParams }) {
                   xl:flex xl:flex-row xl:gap-x-[43%]
                   2xl:flex 2xl:flex-row 2xl:gap-x-48 2xl:p-4 text
                   "
-                >
+                  >
                     <h1 className="font-semibold text-sm sm:text-md md:text-lg lg:text-md xl:text-md 2xl:text-[25px]">
                       Your work
                     </h1>
@@ -180,5 +186,7 @@ export default async function page({ searchParams }) {
         </CardContent>
       </Card>
     </div>
+   /*  <><Tasks_Skeleton/></> */
+  
   );
 }
