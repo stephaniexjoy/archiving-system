@@ -1,4 +1,5 @@
 import Sidebar from "@/app/components/Sidebar";
+import Image from "next/image";
 import Footer from "@/app/components/Footer";
 export default function SuperadminDashboardLayout({
   children, // will be a page or nested layout
