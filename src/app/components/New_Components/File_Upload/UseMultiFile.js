@@ -13,10 +13,10 @@ import {
 import { MultiFileDropzone } from "./MultiFileDropzone";
 import { useEdgeStore } from "@/app/lib/edgestore";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 
-export function UseMultiFile({ setUrls, setFileInfo }) {
+export function UseMultiFile({ setUrls, setFileInfo, setHasFile }) {
   /* const handleFileUpload = (event) => {
     const files = event.target.files;
     const newFiles = [...uploadedFiles];
@@ -128,7 +128,14 @@ export function UseMultiFile({ setUrls, setFileInfo }) {
     setUrls(extractUrls);
   };
 
-  
+  useEffect(() => {
+    // Update hasFile state based on fileStates and addedFiles
+    if (fileStates.length === 0 || addedFiles.length === 0) {
+      setHasFile(false);
+    } else {
+      setHasFile(true);
+    }
+  }, [fileStates, addedFiles, setHasFile]);
   return (
     <div>
       <MultiFileDropzone
@@ -139,13 +146,13 @@ export function UseMultiFile({ setUrls, setFileInfo }) {
         }}
         onFilesAdded={handleFilesAdded}
       />
-      <Button onClick={handleUploadButtonClick}>Submit</Button>
+
       <div className="flex flex-col bottom-0 items-center justify-center w-full h-auto">
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <button className="w-[40%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer items-center justify-center rounded-lg">
+            <Button className="w-[40%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer items-center justify-center rounded-lg">
               Upload
-            </button>
+            </Button>
           </AlertDialogTrigger>
           <AlertDialogContent>
             <AlertDialogHeader>
