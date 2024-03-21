@@ -6,6 +6,7 @@ import {
   getMaterials,
   getTasks,
   getCompletedTasks,
+  getPrograms,
 } from "@/app/lib/actions/actions";
 import { revalidatePath } from "next/cache";
 import Image from "next/image";
@@ -29,6 +30,7 @@ export default async function archiving({ searchParams }) {
   const fetchCourses = await getCourses();
   const fetchInstructors = await getInstructors();
   const fetchFileTypes = await getFileTypes();
+  const fetchPrograms = await getPrograms();
   console.log("Hehehe", fetchMaterials);
 
   const tasks = await getTasks();
@@ -82,6 +84,7 @@ export default async function archiving({ searchParams }) {
           filetype={fetchFileTypes}
           tasks={tasks}
           completedTasks={completedTasks}
+          programs={fetchPrograms}
         />
       </div>
     </>

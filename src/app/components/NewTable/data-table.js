@@ -86,7 +86,6 @@ export function ComboboxPermission({ value, onChange }) {
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-       
         <Button
           variant="outline"
           role="combobox"
@@ -99,12 +98,12 @@ export function ComboboxPermission({ value, onChange }) {
           xl:w-full
           2xl:w-full
           "
-          >
+        >
           {value
             ? permissions.find((framework) => framework.value === value)?.label
             : "Select permissions.."}
 
-          <CaretSortIcon 
+          <CaretSortIcon
             className="
             ml-2 h-4 w-4 shrink-0 opacity-50
             sm:ml-20 sm:h-4 sm:w-4 sm:shrink-0 sm:opacity-50
@@ -112,7 +111,8 @@ export function ComboboxPermission({ value, onChange }) {
             lg:ml-20 lg:h-4 lg:w-4 lg:shrink-0 lg:opacity-50
             xl:ml-1 xl:h-4 xl:w-4 xl:shrink-0 xl:opacity-50
             2xl:-ml-1 2xl:h-4 2xl:w-4 2xl:shrink-0 2xl:opacity-50
-            "/>
+            "
+          />
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -175,7 +175,7 @@ export function ComboboxMaterial({ value, onChange, materials }) {
           {value
             ? materials.find((framework) => framework.value === value)?.label
             : "Select material.."}
-          <CaretSortIcon 
+          <CaretSortIcon
             className="
             ml-8 h-4 w-4 shrink-0 opacity-50           
             sm:ml-24 sm:h-4 sm:w-4 sm:shrink-0 sm:opacity-50
@@ -184,7 +184,8 @@ export function ComboboxMaterial({ value, onChange, materials }) {
             xl:ml-5 xl:h-4 xl:w-4 xl:shrink-0 xl:opacity-50
             2xl:ml-5 2xl:h-4 2xl:w-4 2xl:shrink-0 2xl:opacity-50
 
-            "/>
+            "
+          />
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -225,7 +226,7 @@ export function ComboboxMaterial({ value, onChange, materials }) {
   );
 }
 
-export function ComboboxProgram({ value, onChange }) {
+export function ComboboxProgram({ value, onChange, programs }) {
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -247,7 +248,7 @@ export function ComboboxProgram({ value, onChange }) {
           {value
             ? programs.find((framework) => framework.value === value)?.label
             : "Select program.."}
-          <CaretSortIcon 
+          <CaretSortIcon
             className="
             ml-8 h-4 w-4 shrink-0 opacity-50
             sm:ml-24 sm:h-4 sm:w-4 sm:shrink-0 sm:opacity-50
@@ -255,7 +256,8 @@ export function ComboboxProgram({ value, onChange }) {
             lg:ml-24 lg:h-4 lg:w-4 lg:shrink-0 lg:opacity-50
             xl:ml-5 xl:h-4 xl:w-4 xl:shrink-0 xl:opacity-50
             2xl:-ml-1 2xl:h-4 2xl:w-4 2xl:shrink-0 2xl:opacity-50
-            "/>
+            "
+          />
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -323,7 +325,7 @@ export function ComboboxInstructor({ value, onChange, instructors }) {
             ? transformInstructor.find((framework) => framework.value === value)
                 ?.label
             : "Select instructor.."}
-          <CaretSortIcon 
+          <CaretSortIcon
             className="
             ml-6 h-4 w-4 shrink-0 opacity-50
             sm:ml-24 sm:h-4 sm:w-4 sm:shrink-0 sm:opacity-50
@@ -331,7 +333,8 @@ export function ComboboxInstructor({ value, onChange, instructors }) {
             lg:ml-24 lg:h-4 lg:w-4 lg:shrink-0 lg:opacity-50
             xl:ml-5 xl:h-4 xl:w-4 xl:shrink-0 xl:opacity-50
             2xl:-ml-1 2xl:h-4 2xl:w-4 2xl:shrink-0 2xl:opacity-50
-            "/>
+            "
+          />
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -394,7 +397,7 @@ export function ComboboxFileType({ value, onChange }) {
           {value
             ? filetypes.find((framework) => framework.value === value)?.label
             : "Select file type..."}
-          <CaretSortIcon 
+          <CaretSortIcon
             className="
             ml-8 h-4 w-4 shrink-0 opacity-50
             sm:ml-24 sm:h-4 sm:w-4 sm:shrink-0 sm:opacity-50
@@ -402,7 +405,8 @@ export function ComboboxFileType({ value, onChange }) {
             lg:ml-24 lg:h-4 lg:w-4 lg:shrink-0 lg:opacity-50
             xl:ml-4 xl:h-4 xl:w-4 xl:shrink-0 xl:opacity-50
             2xl:-ml-1 2xl:h-4 2xl:w-4 2xl:shrink-0 2xl:opacity-50
-            "/>
+            "
+          />
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -453,7 +457,7 @@ export default function Date_Range({ className }) {
       <Popover>
         <PopoverTrigger asChild>
           <Button
-            id="date" 
+            id="date"
             variant={"outline"}
             className={cn(
               "bg-slate-50 border border-slate-400 text-[5px] w-full sm:w-full md:w-full lg:w-full xl:w-full 2xl:w-full cursor-pointer h-[40px] rounded-sm px-0 py-1",
@@ -495,7 +499,7 @@ export default function Date_Range({ className }) {
   );
 }
 
-export function DataTable({ columns, data, materials, instructors }) {
+export function DataTable({ columns, data, materials, instructors, programs }) {
   const [sorting, setSorting] = useState([]);
   const [columnFilters, setColumnFilters] = useState([]);
 
@@ -526,7 +530,7 @@ export function DataTable({ columns, data, materials, instructors }) {
   };
 
   const handleComboBoxProgramChange = (value) => {
-    table.getColumn("filename")?.setFilterValue(value);
+    table.getColumn("fileProgram")?.setFilterValue(value);
   };
 
   const handleComboBoxMaterialChange = (value) => {
@@ -577,7 +581,7 @@ export function DataTable({ columns, data, materials, instructors }) {
           xl:flex xl:grid-cols-7 xl:gap-x-6 xl:w-full xl:h-auto xl:items-center xl:justify-center xl:text-center
           2xl:flex 2xl:grid-cols-7 2xl:w-auto 2xl:gap-x-6
           "
-          >
+        >
           <ComboboxPermission
             value={table.getColumn("fileRole")?.getFilterValue() ?? ""}
             onChange={handleComboBoxPermissionChange}
@@ -588,8 +592,9 @@ export function DataTable({ columns, data, materials, instructors }) {
             materials={materials}
           />
           <ComboboxProgram
-            value={table.getColumn("filename")?.getFilterValue() ?? ""}
+            value={table.getColumn("fileProgram")?.getFilterValue() ?? ""}
             onChange={handleComboBoxProgramChange}
+            programs={programs}
           />
           <ComboboxInstructor
             value={table.getColumn("uploaderName")?.getFilterValue() ?? ""}
@@ -634,9 +639,7 @@ export function DataTable({ columns, data, materials, instructors }) {
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="text-start"
-                    >
-                      
+                    <TableCell key={cell.id} className="text-start">
                       {cell.column.id === "filename" ? (
                         <a
                           href="#"

@@ -429,6 +429,11 @@ export async function getFileTypes() {
   return fileTypes;
 }
 
+export async function getPrograms() {
+  const getData = await db.Courses.findMany({});
+  return getData;
+}
+
 export async function getTasks() {
   const tasks = await db.tasks.findMany();
   if (tasks) return tasks;
@@ -540,7 +545,8 @@ export async function updateFile(filePath, material, program, permission) {
       fileRole: permission,
     },
   });
-
+  revalidatePath("/dashboard/archiving");
+  revalidatePath("/secretary/dashboard/archiving");
   return updateFileInfo;
 }
 

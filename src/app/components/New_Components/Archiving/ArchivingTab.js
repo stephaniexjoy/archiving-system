@@ -65,7 +65,6 @@ function filterTasksByDate(tasks, completedTasks) {
       filteredTasks.incomplete1.push(task);
     } else if (setDeadline < currentDate) {
       filteredTasks.incomplete.pastDue.push(task);
-      
     }
   });
 
@@ -125,6 +124,7 @@ function ArchivingTab({
   courses,
   instructors,
   filetypes,
+  programs,
   tasks,
   completedTasks,
 }) {
@@ -251,6 +251,7 @@ function ArchivingTab({
             materials={materials}
             courses={courses}
             instructors={instructors}
+            programs={programs}
           />
         </TabsContent>
         <TabsContent value="assignedtask">
