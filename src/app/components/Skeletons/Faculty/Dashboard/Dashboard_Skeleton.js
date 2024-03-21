@@ -4,11 +4,6 @@ export default function Dashboard_Skeleton() {
   return (
     <div className="flex flex-col w-screen h-screen overflow-y-auto">
       {/* parent div */}
-      <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center py-1 ">
-        <Skeleton className="h-full w-96 bg-gray-400 rounded-lg" />
-      </div>
-
-      {/* parent div */}
       <div className="flex mt-[2%] px-10 w-full">
         {/* welcome */}
         <div>
