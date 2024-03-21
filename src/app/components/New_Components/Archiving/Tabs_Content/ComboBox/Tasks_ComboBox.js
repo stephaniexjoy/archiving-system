@@ -27,7 +27,14 @@ const Tasks_ComboBox = ({ setSelectedTask, tasks }) => {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="
+          w-[160px] bg-slate-50 border border-slate-400
+          sm:w-[180px]
+          md:w-[200px]
+          lg:w-[240px]
+          xl:w-[240px]
+          2xl:w-[250px]
+          "
         >
           {value
             ? tasks.find((framework) => framework.value === value)?.label
@@ -35,7 +42,15 @@ const Tasks_ComboBox = ({ setSelectedTask, tasks }) => {
           <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent 
+        className="
+        w-[250px] p-0
+        sm:w-[250px] sm:p-0
+        md:w-[250px] md:p-0
+        lg:w-[250px] lg:p-0
+        xl:w-[250px] xl:p-0
+        2xl:w-[250px] 2xl:p-0
+        ">
         <Command>
           <CommandInput placeholder="Search Tasks..." className="h-9" />
           <CommandEmpty>No framework found.</CommandEmpty>

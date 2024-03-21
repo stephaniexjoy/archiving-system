@@ -23,14 +23,27 @@ function AddTask_Dialog({ sessionUser }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <b className="
-        bg-transparent hover-transparent text-xl font-bold
-        2xl:bg-transparent 2xl:hover-transparent 2xl:text-3xl 2xl:font-bold
-        ">
+        <b 
+          className="
+          bg-transparent hover-transparent text-xl font-bold
+          sm:bg-transparent sm:hover-transparent sm:text-xl sm:font-bold
+          md:bg-transparent md:hover-transparent md:text-xl md:font-bold
+          lg:bg-transparent lg:hover-transparent lg:text-xl lg:font-bold
+          xl:bg-transparent xl:hover-transparent xl:text-xl xl:font-bold
+          2xl:bg-transparent 2xl:hover-transparent 2xl:text-3xl 2xl:font-bold
+          ">
           Add Task
         </b>
       </DialogTrigger>
-      <DialogContent className="p-10 md:max-w-[1200px] h-auto">
+      <DialogContent 
+        className="
+        p-10 max-w-[90%] h-auto bg-slate-50
+        sm:p-10 sm:max-w-[80%] sm:h-auto
+        md:p-10 md:max-w-[80%] md:h-auto
+        lg:p-10 lg:max-w-[70%] lg:h-auto
+        xl:p-10 xl:max-w-[70%] xl:h-auto
+        2xl:p-10 2xl:max-w-[40%] 2xl:h-auto
+        ">
         <Form />
       </DialogContent>
     </Dialog>

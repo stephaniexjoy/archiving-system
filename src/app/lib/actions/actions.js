@@ -9,6 +9,7 @@ import { getServerSession } from "next-auth/next";
 import { unstable_noStore as noStore, revalidatePath } from "next/cache";
 
 import crypto from "crypto";
+import { compileEmailTemplate, sendMail } from "../mailer/mail";
 
 function getDateNow() {
   const dateString = new Date();
@@ -37,6 +38,8 @@ export async function createAccount(formData, sessionUser) {
   const sex = formData.get("sexInput");
   const empNo = formData.get("employeeNoInput");
 
+  console.log(name, password);
+
   const hashedPassword = await bcrypt.hash(password, 12);
   console.log(hashedPassword);
 
@@ -45,42 +48,44 @@ export async function createAccount(formData, sessionUser) {
       OR: [{ email: emailForm }, { employee_no: empNo }],
     },
   });
-
-  if (existingUser) return "Existing User";
-
-  const [createUser, addActivity] = await db.$transaction([
-    db.user.create({
-      data: {
-        employee_no: empNo,
-        email: emailForm,
-        password: hashedPassword,
-        name: name,
-        age: parseInt(age),
-        sex: sex,
-        position: role,
-        designation: category,
-        specialization: specialization,
-        license: license,
-        education: {
-          create: {},
-        },
-      },
-    }),
-    db.activity.create({
-      data: {
-        name: sessionUser.name,
-        position: sessionUser.position,
-        type: "CREATED NEW USER",
-        createdAt: dateObject,
-        user: {
-          connect: {
-            id: sessionUser.id,
+  console.log(existingUser);
+  if (existingUser.length > 0) {
+    return "Existing User";
+  } else {
+    const [createUser, addActivity] = await db.$transaction([
+      db.user.create({
+        data: {
+          employee_no: empNo,
+          email: emailForm,
+          password: hashedPassword,
+          name: name,
+          age: parseInt(age),
+          sex: sex,
+          position: role,
+          designation: category,
+          specialization: specialization,
+          license: license,
+          education: {
+            create: {},
           },
         },
-      },
-    }),
-  ]);
-  if (createUser) return createUser;
+      }),
+      db.activity.create({
+        data: {
+          name: sessionUser.name,
+          position: sessionUser.position,
+          type: "CREATED NEW USER",
+          createdAt: dateObject,
+          user: {
+            connect: {
+              id: sessionUser.id,
+            },
+          },
+        },
+      }),
+    ]);
+    if (createUser) return createUser;
+  }
 }
 
 export async function updateUser(formData, sessionUser) {
@@ -431,6 +436,7 @@ export async function getCompletedTasks() {
     where: {
       userId: session.user.id,
     },
+    include: { task: true },
   });
   return completedTasks;
 }
@@ -624,6 +630,13 @@ export async function forgotPassword(email) {
           },
         });
         if (updateUser) {
+          const url = `http://localhost:3000/forgot-password?email=${email}&resetPasswordToken=${resetPasswordToken}`;
+          await sendMail({
+            to: email,
+            name: "ccs",
+            subject: "Requested to change forgotten password",
+            body: compileEmailTemplate(email, url),
+          });
           return "User_Found";
         }
       } catch (error) {
@@ -686,4 +699,17 @@ export async function getUpdatedPassword(newPassword, userInfo) {
 export async function getActivities() {
   const activities = await db.activity.findMany({});
   if (activities) return activities;
+}
+
+export async function getTaskById(taskId) {
+  try {
+    const getTask = await db.tasks.findUnique({
+      where: { id: parseInt(taskId) },
+    });
+    if (getTask) {
+      return getTask;
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }

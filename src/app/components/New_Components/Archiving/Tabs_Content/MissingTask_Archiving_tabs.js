@@ -7,7 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -18,10 +18,13 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
+} from "@/components/ui/alert-dialog";
 import { Card, CardContent } from "@/components/ui/card";
+import { UseMultiFile } from "./../../File_Upload/UseMultiFile";
+
 import { useState } from "react";
 import React from "react";
+import MissingTask_Table from "@/app/components/NewTable/TasksTable/MissingTaskTable/MissingTask_Table";
 export default function MissingTask_Archiving_tabs({ tasks }) {
   const [options, setOptions] = useState("");
   const [uploadedFiles, setUploadedFiles] = useState([]);
@@ -48,22 +51,39 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
     console.log(fileInfo);
   };
 
-  function onCloseModal() {
-    setOpenModal(false);
-  }
+  console.log(tasks);
 
   return (
     <>
-      <div className="flex flex-col mt-10 px-10">
-        <h1 className="text-center text-[#5B0505] text-[45px] font-semibold md:shadow-zinc-400 mb-5">
+      <div
+        className="
+        flex flex-col mt-16 px-4 space h-auto overflow-y-auto
+        sm:flex sm:flex-col sm:mt-16 sm:px-10 sm:space sm:h-auto sm:overflow-y-auto
+        md:flex md:flex-col md:mt-16 md:px-10 md:space md:h-auto md:overflow-y-auto
+        lg:flex lg:flex-col lg:mt-16 lg:px-10 lg:space lg:h-auto lg:overflow-y-auto
+        xl:flex xl:flex-col xl:mt-16 xl:px-10 xl:space xl:h-auto xl:overflow-y-auto
+        2xl:flex 2xl:flex-col 2xl:mt-16 2xl:px-10 2xl:space 2xl:h-auto 2xl:overflow-y-auto
+        "
+      >
+        <h1 className="text-center text-[#5B0505] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[45px] font-bold md:shadow-zinc-400 mb-5 ">
           Missing Tasks
         </h1>
-        <div className="flex flex-col items-center w-full">
-          <div className="flex flex-col bg-white w-[60%] p-4 rounded-md ">
-            <label className="w-full text-[#5B0505] text-lg font-semibold mr-4">
+        <div className="flex flex-col items-center w-full h-full overflow-y-auto">
+          <div
+            className="
+            flex flex-col w-[100%] p-0 rounded-md 
+            sm:w-[90%]
+            md:w-[80%] 
+            lg:w-[80%]
+            xl:w-[70%]  
+            2xl:w-[60%] 
+            "
+          >
+            <MissingTask_Table tasks={tasks} />
+            <label className="w-full text-[#5B0505] text-xl text-start font-semibold mr-4">
               Missing:
             </label>
-            <div className="w-full">
+            <div className="w-full space-y-2">
               <select
                 onChange={(e) => setOptions(e.target.value)}
                 className="relative flex text-xl font-bold w-full cursor-pointer bg-white h-[40px] shadow-lg rounded-sm px-2 py-1 border border-orange-900"
@@ -84,36 +104,98 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
                     <div key={`${task.id}_${index}`}>
                       <div className="flex flex-row">
                         <div className="w-full p-0">
-                          <Card className="w-full h-auto">
+                          <Card
+                            className="
+                            w-full h-auto
+                            sm:w-full sm:h-auto
+                            md:w-full md:h-auto
+                            lg:w-full lg:h-auto
+                            xl:w-full xl:h-auto
+                            2xl:w-full 2xl:h-auto
+                            "
+                          >
                             <CardContent>
-                              <div className="flex flex-row text-xl text-black p-4 mt-4">
-                                <div className="w-full flex flex-col">
-                                  <h1 className="text-4xl font-semibold mb-48">
+                              <div
+                                className="
+                                flex flex-col text-xl text-black mt-4
+                                xl:flex xl:flex-col xl:text-xl xl:text-black xl:mt-4
+                                2xl:flex 2xl:flex-row 2xl:text-xl 2xl:text-black 2xl:mt-4
+                                "
+                              >
+                                <div
+                                  className="
+                                  w-full flex flex-col                                         
+                                  sm:w-full sm:flex sm:flex-col
+                                  md:w-full md:flex md:flex-col
+                                  lg:w-full lg:flex lg:flex-col
+                                  xl:w-full xl:flex xl:flex-col xl:items-center
+                                  2xl:w-full 2xl:flex 2xl:flex-col
+                                  "
+                                >
+                                  <h1
+                                    className="
+                                    text-lg ml-0 font-semibold mb-16
+                                    xl:text-lg xl:ml-0 xl:font-semibold xl:mb-12
+                                    2xl:text-2xl 2xl:font-semibold 2xl:mb-12
+                                    "
+                                  >
                                     {task.title}
                                   </h1>
-                                  <p className="mb-48 text-2xl">
+                                  <p
+                                    className="
+                                    text-sm mb-16
+                                    2xl:mb-16 2xl:text-lg
+                                    "
+                                  >
                                     {task.description}
                                   </p>
                                   <div>
-                                    <h1 className="text-lg mb-0">
+                                    <h1
+                                      className="
+                                    text-xs mb-5
+                                    2xl:text-sm 2xl:mb-0
+                                    "
+                                    >
                                       Date Posted:{" "}
                                       {task.deadlineCreated.toLocaleString()}
                                     </h1>
                                   </div>
                                 </div>
-                                <div className="w-[80%]">
-                                  <div className="flex flex-col bg-white p-4 gap-4 drop-shadow-2xl rounded-xl">
-                                    <div className="flex flex-row gap-x-60">
-                                      <h1 className="text-xl">Your work</h1>
-                                      <h1 className="text-lg text-red-600">
+                                <div
+                                  className="
+                                  w-full
+                                  2xl:w-[60%] items-center
+                                  "
+                                >
+                                  <div
+                                    className="
+                                    flex flex-col bg-slate-100 p-4 gap-2 shadow-2xl rounded-xl mt-4
+                                    xl:flex xl:flex-col xl:mt-48 xl:-ml-40 xl:p-4 xl:gap-4 xl:drop-shadow-2xl xl:rounded-xl
+                                    2xl:flex 2xl:flex-col 2xl:mt-48 2xl:-ml-40 2xl:p-4 2xl:gap-4 2xl:drop-shadow-2xl 2xl:rounded-xl
+                                    "
+                                  >
+                                    <div
+                                      className="
+                                      flex flex-row gap-x-32
+                                      sm:flex sm:flex-row sm:gap-x-0
+                                      md:flex md:flex-row md:gap-x-0
+                                      lg:flex lg:flex-row lg:gap-x-0
+                                      xl:flex xl:flex-row xl:gap-x-0
+                                      2xl:flex 2xl:flex-row 2xl:gap-x-0
+                                      "
+                                    >
+                                      <h1 className="mr-2 text-sm sm:text-md md:text-md lg:text-md xl:text-md 2xl:text-md">
+                                        Your work
+                                      </h1>
+                                      <h1 className="text-sm -ml-5 text-red-600">
                                         Missing
                                       </h1>
                                     </div>
                                     <Dialog>
-                                      <DialogTrigger className="w-full h-14 border bg-white hover:bg-gray-100 text-[#AD5606] font-bold py-1 px-4 rounded my-2 cursor-pointer inline-flex items-center justify-center mt-16">
+                                      <DialogTrigger className="flex mx-auto w-[80%] h-10 border bg-[#AD5606] hover:bg-gray-100 text-white font-bold rounded cursor-pointer items-center justify-center mt-8 sm:w-full">
                                         Upload Here
                                       </DialogTrigger>
-                                      <DialogContent className="bg-white max-w-[700px] max-h-[600px] h-auto py-6 px-6 mx-auto overflow-y-auto">
+                                      <DialogContent className="bg-slate-50 w-[90%] h-auto py-6 px-6 mx-auto overflow-y-auto">
                                         <DialogHeader>
                                           <DialogTitle className="text-2xl">
                                             Upload files
@@ -123,54 +205,16 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
                                           </DialogDescription>
                                         </DialogHeader>
                                         <div className="flex flex-col w-full">
-                                          {uploadedFiles.map((file, index) => (
-                                            <React.Fragment key={index}>
-                                              <div className="flex flex-row">
-                                                <div className="flex border w-full h-auto  drop-shadow-2xl mb-2 rounded-lg overflow-x-hidden items-center">
-                                                  <div className="flex flex-row h-auto text-xl font-semibold justify-between items-center p-2 w-full">
-                                                    <div>
-                                                      <p>{file.name}</p>
-                                                    </div>
-                                                    <div>
-                                                      <label
-                                                        className="cursor-pointer w-full text-red-600"
-                                                        onClick={() =>
-                                                          handleRemoveFile(
-                                                            index
-                                                          )
-                                                        }
-                                                      >
-                                                        X
-                                                      </label>
-                                                    </div>
-                                                  </div>
-                                                  <div />
-                                                </div>
-                                              </div>
-                                            </React.Fragment>
-                                          ))}
+                                          <UseMultiFile />
                                         </div>
                                         <div className="flex flex-col bottom-0 items-center justify-center w-full h-auto">
-                                          <label
-                                            htmlFor="file-upload"
-                                            className="w-[40%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer inline-flex items-center justify-center rounded-lg"
-                                          >
-                                            Browse
-                                            <input
-                                              id="file-upload"
-                                              type="file"
-                                              className="hidden"
-                                              onChange={handleFileUpload}
-                                              multiple
-                                            />
-                                          </label>{" "}
                                           <AlertDialog>
                                             <AlertDialogTrigger asChild>
-                                              <button className="w-[40%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer items-center justify-center rounded-lg">
+                                              <button className="w-[40%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-lg text-white font-semibold py-1 px-4 my-2 cursor-pointer items-center justify-center rounded-lg">
                                                 Upload
                                               </button>
                                             </AlertDialogTrigger>
-                                            <AlertDialogContent>
+                                            <AlertDialogContent className="w-[90%] h-auto">
                                               <AlertDialogHeader>
                                                 <AlertDialogTitle>
                                                   Do you want to Proceed?
@@ -182,10 +226,11 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
                                                 </AlertDialogDescription>
                                               </AlertDialogHeader>
                                               <AlertDialogFooter className="items-center">
-                                                <AlertDialogCancel>
+                                                <AlertDialogCancel className="w-[40%]">
                                                   Cancel
                                                 </AlertDialogCancel>
                                                 <AlertDialogAction
+                                                  className="bg-[#AD5606] w-[40%]"
                                                   onClick={async () => {
                                                     console.log(uploadedFiles);
 
@@ -246,7 +291,7 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
                                                 </AlertDialogAction>
                                               </AlertDialogFooter>
                                             </AlertDialogContent>
-                                          </AlertDialog>{" "}
+                                          </AlertDialog>
                                         </div>
                                       </DialogContent>
                                     </Dialog>
@@ -259,7 +304,7 @@ export default function MissingTask_Archiving_tabs({ tasks }) {
                                         console.log(res);
                                         console.log(fileInfo);
                                       }}
-                                      className="w-full h-14 border bg-[#AD5606] hover:bg-[#AD5606]-700 text-white font-bold py-1 px-4 rounded"
+                                      className="flex mx-auto w-[80%] h-10 border bg-[#AD5606] hover:bg-gray-100 text-white font-bold py-1 px-4 rounded my-2 cursor-pointer items-center justify-center sm:w-full"
                                     >
                                       Mark as done
                                     </button>

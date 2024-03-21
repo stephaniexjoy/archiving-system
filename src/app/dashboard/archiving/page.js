@@ -8,6 +8,7 @@ import {
   getCompletedTasks,
 } from "@/app/lib/actions/actions";
 import { revalidatePath } from "next/cache";
+import Image from "next/image";
 
 async function getSearchData(query) {
   if (query) {
@@ -33,7 +34,6 @@ export default async function archiving({ searchParams }) {
   const tasks = await getTasks();
   const completedTasks = await getCompletedTasks();
 
-
   if (searchParams) {
     const { query } = searchParams;
 
@@ -55,6 +55,7 @@ export default async function archiving({ searchParams }) {
   }
 
   const data = await getData();
+  console.log(data);
 
   const dataWithFormattedDate = data.map((file) => ({
     ...file,
@@ -68,19 +69,11 @@ export default async function archiving({ searchParams }) {
     })); */
 
   // const fetchMaterials = await getMaterials()
-  // console.log(fetchMaterials)
+  console.log(dataWithFormattedDate);
 
   return (
     <>
-      <div className="flex flex-col w-screen h-screen">
-        <div className="bg-[#AD5606] w-full h-auto flex items-center justify-center">
-          <img
-            className="w-[27%] h-[100%] object-cover flex items-center justify-center "
-            alt="E-Archiving System"
-            src="/photos/E-Archiving System.png"
-          />
-        </div>
-
+      <div className="flex flex-col w-screen h-screen overflow-y-auto bg-slate-50">
         <ArchivingTab
           datas={dataWithFormattedDate}
           materials={fetchMaterials}

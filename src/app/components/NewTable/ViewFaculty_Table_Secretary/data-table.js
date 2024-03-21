@@ -126,8 +126,12 @@ export function DataTable({ columns, data, materials, instructors }) {
   return (
     <>
       <div className="
-      flex items-center py-4 space-x-1 w-full
-      2xl:flex 2xl:items-center 2xl:py-4 2xl:space-x-1
+      flex items-center py-4 space-x-1 w-full p-4
+      sm:flex sm:items-center sm:py-4 sm:space-x-1 sm:w-full sm:p-4
+      md:flex md:items-center md:py-4 md:space-x-1 md:w-full md:p-4
+      lg:flex lg:items-center lg:py-4 lg:space-x-1 lg:w-full lg:p-4
+      xl:flex xl:items-center xl:py-4 xl:space-x-1 xl:w-full xl:p-4
+      2xl:flex 2xl:items-center 2xl:py-4 2xl:space-x-1 2xl:p-4
       ">
         <Input
           placeholder="Filter users..."
@@ -135,15 +139,22 @@ export function DataTable({ columns, data, materials, instructors }) {
           onChange={(event) =>
             table.getColumn("name")?.setFilterValue(event.target.value)
           }
-          className="max-w-sm"
+          className="
+          max-w-sm bg-slate-50 border border-slate-400         
+          sm:max-w-md
+          md:max-w-lg
+          lg:max-w-xl
+          xl:max-w-2xl
+          2xl:max-w-3xl
+          "
         />
         {/*  <ComboboxPermission
           value={table.getColumn("fileRole")?.getFilterValue() ?? ""}
           onChange={handleComboBoxPermissionChange}
         /> */}
       </div>
-      <div className="rounded-md border">
-        <Table>
+      <div className="flex rounded-md border justify-center items-center p-4 w-full">
+        <Table className="max-w-[100%]">
           <TableHeader className="bg-[#5B0505] ">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id} className="">

@@ -1,12 +1,12 @@
-import React from "react";
-import { db } from "@/app/lib/prisma_db";
-import { redirect } from "next/navigation";
 import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
-import { getServerSession } from "next-auth/next";
-import UploadMaterial_Dialog from "@/app/components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog";
-import CreateAccount_Dialog from "@/app/components/New_Components/CreateAccount_Dialog/CreateAccount_Dialog";
-import Link from "next/link";
+import CalendarComponent from "@/app/components/Calendar";
 import ActivityTable_Secretary from "@/app/components/NewTable/Dashboard/Secretary/ActivityTable_Secretary";
+import CreateAccount_Dialog from "@/app/components/New_Components/CreateAccount_Dialog/CreateAccount_Dialog";
+import { db } from "@/app/lib/prisma_db";
+import { getServerSession } from "next-auth/next";
+import Image from "next/image";
+import Link from "next/link";
+import { redirect } from "next/navigation";
 
 async function page() {
   const session = await getServerSession(AuthOptions);
@@ -32,31 +32,16 @@ async function page() {
     createdAt: new Date(activity.createdAt).toLocaleString(),
   }));
   return (
-    <div className="flex flex-col w-screen h-screen overflow-y-auto">
-      <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
-        <img
-          className="
-          w-[60%] h-auto object-cover flex items-center justify-center
-          sm:w-[60%] sm:h-[100%] sm:object-cover sm:flex sm:items-center sm:justify-center
-          md:w-[60%] md:h-[100%] md:object-cover md:flex md:items-center md:justify-center
-          lg:w-[40%] lg:h-[100%] lg:object-cover lg:flex lg:items-center lg:justify-center
-          xl:w-[35%] xl:h-[100%] xl:object-cover xl:flex xl:items-center xl:justify-center
-          2xl:w-[30%] 2xl:h-[100%] 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center
-          "
-          alt="E-Archiving System"
-          src="/photos/E-Archiving System.png"
-        />
-      </div>
-
+    <div className="flex flex-col w-screen h-screen overflow-y-auto bg-slate-50">
       <div
         className="
-      flex mt-[2%] px-1
-      sm:flex sm:mt-[2%] sm:px-2
-      md:flex md:mt-[2%] md:px-4
-      lg:flex lg:mt-[2%] lg:px-6
-      xl:flex xl:mt-[2%] xl:px-8
-      2xl:flex 2xl:mt-[2%] 2xl:px-10
-      "
+        flex mt-[2%] px-1
+        sm:flex sm:mt-[2%] sm:px-2
+        md:flex md:mt-[2%] md:px-4
+        lg:flex lg:mt-[2%] lg:px-6
+        xl:flex xl:mt-[2%] xl:px-8
+        2xl:flex 2xl:mt-[2%] 2xl:px-10
+        "
       >
         <h1
           className="
@@ -82,7 +67,7 @@ async function page() {
             SECRETARY
           </span>
         </h1>
-        <img
+        <Image
           className="
           h-[50%] w-[45%] mt-[2%] ml-[2%] 
           sm:h-[50%] sm:w-[60%] sm:mt-[2%] sm:ml-[2%]
@@ -92,9 +77,11 @@ async function page() {
           2xl:h-[50%] 2xl:w-[90%] 2xl:mt-[1%] 2xl:ml-[3%]
           "
           alt="Filler"
-          src="../photos/Filler.png"
+          src="/photos/Filler.png"
+          height={44}
+          width={992}
         />
-        <img
+        <Image
           className="
           h-[70%] w-[45px] mt-[.8%] ml-[1%]
           sm:h-[70%] sm:w-[60px] sm:mt-[.8%] sm:ml-[1.3%]
@@ -104,19 +91,21 @@ async function page() {
           2xl:h-[70%] 2xl:w-[90px] 2xl:mt-[.8%] 2xl:ml-[2%]
           "
           alt="Notification Logo"
-          src="../photos/Notificationlogo.png"
+          src="/photos/Notificationlogo.png"
+          height={108}
+          width={121}
         />
       </div>
 
       <div
         className="
-      flex flex-col items-center mt-4 px-0 gap-x-0
-      sm:flex sm:flex-col sm:items-center sm:mt-4 sm:px-0 sm:gap-x-0
-      md:flex md:flex-col md:items-center md:mt-4 md:px-0 md:gap-x-0
-      lg:flex lg:flex-col lg:items-center lg:mt-4 lg:px-0 lg:gap-x-0
-      xl:flex-row xl:items-center xl:mt-4 xl:px-10 xl:gap-x-8
-      2xl:flex-row 2xl:mt-[1%] 2xl:gap-x-8
-      "
+        flex flex-col items-center mt-4 px-0 gap-x-0
+        sm:flex sm:flex-col sm:items-center sm:mt-4 sm:px-0 sm:gap-x-0
+        md:flex md:flex-col md:items-center md:mt-4 md:px-0 md:gap-x-0
+        lg:flex lg:flex-col lg:items-center lg:mt-4 lg:px-0 lg:gap-x-0
+        xl:flex-row xl:items-center xl:mt-4 xl:px-10 xl:gap-x-8
+        2xl:flex-row 2xl:mt-[1%] 2xl:gap-x-8
+        "
       >
         <div
           className="
@@ -273,26 +262,15 @@ async function page() {
         >
           <div
             className="
-          text-center bg-[#B4ABAB] text-[#5B0505] w-[90%] h-56 mt-4 rounded-lg
-          sm:text-center sm:bg-[#B4ABAB] sm:text-[#5B0505] sm:w-[80%] sm:h-56 sm:mt-4 sm:rounded-lg
-          md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-56 md:mt-4 md:rounded-lg
-          lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-56 lg:mt-4 lg:rounded-lg
-          xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[100%] xl:h-36 xl:mt-0 xl:rounded-lg xl:-ml-8
-          2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[70%] 2xl:h-80 2xl:mt-0 2xl:-ml-4
-          "
-          >
-            <p
-              className="
-            mt-10 text-xl font-bold
-            sm:mt-10 sm:text-xl sm:font-bold
-            md:mt-10 md:text-2xl md:font-bold
-            lg:mt-10 lg:text-2xl lg:font-bold
-            xl:mt-10 xl:text-3xl xl:font-bold
-            2xl:mt-10 2xl:text-3xl 2xl:font-bold
+            text-center bg-[#B4ABAB] text-[#5B0505] w-[90%] h-64 mt-4 rounded-lg
+            sm:text-center sm:bg-[#B4ABAB] sm:text-[#5B0505] sm:w-[80%] sm:h-64 sm:mt-4 sm:rounded-lg
+            md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-64 md:mt-4 md:rounded-lg
+            lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-64 lg:mt-4 lg:rounded-lg
+            xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[100%] xl:h-36 xl:mt-0 xl:rounded-lg xl:-ml-8 xl:overflow-auto
+            2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[70%] 2xl:h-80 2xl:mt-0 2xl:-ml-4 2xl:overflow-hidden
             "
-            >
-              CALENDAR
-            </p>
+          >
+            <CalendarComponent />
           </div>
           <div
             className="
@@ -304,7 +282,7 @@ async function page() {
           2xl:w-auto 2xl:h-auto
           "
           >
-            <img
+            <Image
               className="
               w-52 h-auto object-cover
               sm:w-52 sm:h-auto sm:object-cover
@@ -313,8 +291,10 @@ async function page() {
               xl:-ml-4 xl:w-40 xl:h-auto xl:object-cover
               2xl:ml-4 2xl:w-56 2xl:h-auto 2xl:object-cover
               "
-              src="../photos/ccsLogo.png"
+              src="/photos/ccsLogo.png"
               alt="CCS Logo"
+              height={2201}
+              width={2201}
             />
           </div>
         </div>

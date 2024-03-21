@@ -132,7 +132,7 @@ export function DataTable({ columns, data, materials, instructors }) {
           onChange={(event) =>
             table.getColumn("name")?.setFilterValue(event.target.value)
           }
-          className="max-w-sm"
+          className="max-w-2xl bg-slate-50 border border-slate-400 "
         />
         {/*  <ComboboxPermission
           value={table.getColumn("fileRole")?.getFilterValue() ?? ""}
@@ -143,7 +143,7 @@ export function DataTable({ columns, data, materials, instructors }) {
         <Table>
           <TableHeader className="bg-[#5B0505] ">
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id} className="">
+              <TableRow key={headerGroup.id} className="text-start">
                 {headerGroup.headers.map((header) => {
                   return (
                     <TableHead key={header.id} className="text-white">
@@ -167,7 +167,7 @@ export function DataTable({ columns, data, materials, instructors }) {
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell key={cell.id} className="text-start">
                       {cell.column.id === "filename" ? (
                         <a
                           href="#"

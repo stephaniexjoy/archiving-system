@@ -2,62 +2,47 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Dashboard_Skeleton() {
   return (
-    <div className="flex flex-col w-screen h-screen">
-      <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center ">
-        <Skeleton
-          className="w-[60%] h-auto
-      sm:w-[40%] sm:h-[70%]
-      md:w-[40%] md:h-[70%]
-      lg:w-[35%] lg:h-[100%]
-      xl:w-[35%] xl:h-[100%]
-      2xl:w-[35%] 2xl:h-[100%]
-      object-cover flex items-center justify-center"
-        />
-      </div>
+    <div className="flex flex-col w-screen h-screen overflow-y-auto">
+      {/* parent div */}
+      <div className="flex mt-[2%] px-10">
+        {/* welcome */}
+        <div className="ml-2 h-8 w-20 bg-gray-400 rounded-lg"></div>
 
-      <div className="flex mt-[2%] px-10 w-[55%] ml-0">
-        <h1 className="text-[#5B0505] text-[15px] font-semibold sm:text-sm md:text-md lg:text-lg">
-          WELCOME, <br />{" "}
-          <span className="text-[#5B0505] text-[20px] font-semibold -mt-4">
-            FACULTY
-          </span>
-        </h1>
-        <img
-          className=" h-[40%] w-[100%] mt-[1%] ml-[30%] sm:w-[70%] sm:h-[35%] md:w-[70%] md:h-[35%] lg:w-[70%] lg:h-[50%]"
-          alt="Filler"
-          src="../photos/Filler.png"
-        />
-        <img
-          className="h-[40%] w-[90px] mt-[.8%] ml-[15%] sm:w-[50%] sm:h-[35%] md:w-[60%] md:h-[40%] lg:w-[10%] lg:h-[50%]"
-          alt="Notification Logo"
-          src="../photos/Notificationlogo.png"
-        />
-      </div>
-
-      <div className="flex flex-col items-center justify-center content-center ml-3">
-        <div className="text-center bg-[#B4ABAB] text-[#5B0505] py-0 rounded-lg w-[70%] h-[100%]">
-          <Skeleton className="h-4 w-[20px] py-2" />
-          <Skeleton className="h-4 w-[20px] py-2" />
+        {/* faculty */}
+        <div className="-ml-20 mt-12 h-9 w-44 bg-gray-400 rounded-lg">
         </div>
 
-        <div className=" mt-8 ml-8 w-80 h-40 lg:w-[70px] lg:h-[70px] hidden md:hidden">
-          <Skeleton src="../photos/ccsLogo.png" alt="CCS Logo" />
+        {/* filler */}
+        <div className="ml-24 mt-4 h-[80%] w-[71%] bg-gray-300 rounded-lg">
         </div>
 
-        <div className="text-center bg-[#B4ABAB] text-[#5B0505] mt-8 py-0 rounded-lg w-[70%] h-screen">
-          <Skeleton className="h-96 mt-1 text-3xl font-semibold" />
+        {/* notification logo */}
+        <div className="ml-4 mt-4 h-20 w-20 bg-gray-300 rounded-lg">
         </div>
       </div>
 
-      <div className="flex flex-col w-[30%] h-[100%] ml-7">
-        <div className="flex flex-col sm:flex-row gap-4">
-          <div className="text-center bg-[#5B0505] text-white sm:w-[300px] h-[45%] rounded-lg -mt-2">
-            <Skeleton className="mt-2 text-[20px] font-semibold sm:text-3xl" />
+      {/* parent div of archived materials, calendar, ccs logo, edit privacy, and upload material */}
+      <div className="flex flex-row mt-16 px-10 gap-x-12">
+        {/* archived materials */}
+        <div className="bg-gray-300 w-[460px] h-[360px] py-6 rounded-lg">
+          <Skeleton className="h-10 w-[95%] ml-3 mt-9 bg-gray-400" />
+          <Skeleton className="h-24 w-20 ml-44 mt-14 bg-gray-400" />
+        </div>
+
+        {/* calendar */}
+        <div className="bg-gray-300 w-[460px] h-[360px] rounded-lg"></div>
+
+        {/* parent div of ccs logo, edit privacy, and upload materials */}
+        <div className="flex flex-col items-center space-y-8 mb-11">
+          {/* ccs logo */}
+          <div className="w-32 h-32 ml-4 -mt-3 rounded-full bg-gray-300"></div>
+          {/* edit privacy */}
+          <div className="mt-6 bg-gray-300 w-[480px] h-[90px] p-4 mx-4 rounded-lg">
+            <Skeleton className="h-10 w-48 ml-32 mt-2 bg-gray-400" />
           </div>
-          <div className="text-center bg-[#5B0505] text-white  sm:w-[300px] h-[45%] rounded-lg -mt-3">
-            <button className="mt-1 text-2xl font-semibold sm:text-3xl">
-              <Skeleton className="mt-2 text-[20px] font-semibold sm:text-3xl" />
-            </button>
+          {/* upload materials */}
+          <div className="mt-6 bg-gray-300 w-[480px] h-[90px] p-4 mx-4 rounded-lg">
+            <Skeleton className="h-10 w-[50%] ml-28 mt-2 bg-gray-400" />
           </div>
         </div>
       </div>

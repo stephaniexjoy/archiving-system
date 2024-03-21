@@ -43,23 +43,29 @@ function filterTasksByDate(tasks, completedTasks) {
       pastDue: [],
       noDeadline: [],
     },
+    incomplete1: [],
   };
 
   // Populate filteredTasks object
   incompleteTasks.forEach((task) => {
     if (!task.setDeadline) {
       filteredTasks.incomplete.noDeadline.push(task);
+      filteredTasks.incomplete1.push(task);
       return; // Skip further processing for tasks with no deadline
     }
     const setDeadline = new Date(task.setDeadline);
     if (setDeadline >= currentWeekStart && setDeadline <= currentWeekEnd) {
       filteredTasks.incomplete.thisWeek.push(task);
+      filteredTasks.incomplete1.push(task);
     } else if (setDeadline >= nextWeekStart && setDeadline <= nextWeekEnd) {
       filteredTasks.incomplete.nextWeek.push(task);
+      filteredTasks.incomplete1.push(task);
     } else if (setDeadline > nextWeekEnd) {
       filteredTasks.incomplete.laterThanNextWeek.push(task);
+      filteredTasks.incomplete1.push(task);
     } else if (setDeadline < currentDate) {
       filteredTasks.incomplete.pastDue.push(task);
+      
     }
   });
 
@@ -133,32 +139,125 @@ function ArchivingTab({
 
   if (status === "authenticated") {
     return (
-      <Tabs defaultValue="files" className="w-full text-center mt-2 xs:text-xs sm:text-sm md:text-md lg:text-lg">
-        <TabsList>
-        <TabsTrigger value="files" className=" font-bold font-arial xs:text-xs sm:text-sm md:text-md lg:text-lg">All Files</TabsTrigger>
-          <TabsTrigger value="assignedtask"className="font-bold font-arial xs:text-xs sm:text-sm md:text-md lg:text-lg">Assigned Task</TabsTrigger>
-          <TabsTrigger value="missingtask"className="font-bold font-arial xs:text-xs sm:text-sm md:text-md lg:text-lg">Missing Task</TabsTrigger>
-          <TabsTrigger value="archivedtask"className="font-bold font-arial xs:text-xs sm:text-sm md:text-md lg:text-lg">Archived Task</TabsTrigger>
+      <Tabs
+        defaultValue="files"
+        className="
+        font-bold font-arial text-center
+        sm:w-auto sm:text-sm 
+        md:w-auto md:text-sm 
+        lg:w-auto lg:text-lg
+        xl:w-auto xl:text-xl
+        2xl:w-auto 2xl:text-2xl
+        "
+      >
+        <TabsList
+          className="
+          grid grid-cols-2 grid-rows-2 w-auto h-auto items-center justify-center text-center
+          sm:grid sm:grid-cols-3 sm:grid-rows-2 sm:w-auto sm:h-auto sm:items-center sm:justify-center sm:text-center
+          md:grid md:w-auto md:h-auto md:items-center md:justify-center md:text-center
+          lg:inline-flex lg:grid-cols-3 lg:grid-rows-2 lg:items-center lg:justify-center lg:text-center lg:w-auto
+          xl:inline-flex xl:grid-cols-6 xl:grid-rows-1 xl:items-center xl:justify-center xl:text-center xl:w-auto
+          2xl:inline-flex 2xl:grid-cols-6 2xl:grid-rows-1 2xl:items-center 2xl:justify-center 2xl:text-center 2xl:w-auto
+          "
+        >
+          <TabsTrigger
+            value="files"
+            className="
+            font-bold font-arial text-md 
+            sm:w-auto sm:text-md 
+            md:w-auto md:text-lg
+            lg:w-auto lg:text-lg
+            xl:w-auto xl:text-xl
+            2xl:w-auto 2xl:text-xl
+            "
+          >
+            All Files
+          </TabsTrigger>
+          <TabsTrigger
+            value="assignedtask"
+            className="
+            font-bold font-arial text-md 
+            sm:w-auto sm:text-md 
+            md:w-auto md:text-lg
+            lg:w-auto lg:text-lg
+            xl:w-auto xl:text-xl
+            2xl:w-auto 2xl:text-xl
+            "
+          >
+            Assigned Task
+          </TabsTrigger>
+          <TabsTrigger
+            value="missingtask"
+            className="
+            font-bold font-arial text-md 
+            sm:w-auto sm:text-md 
+            md:w-auto md:text-lg
+            lg:w-auto lg:text-lg
+            xl:w-auto xl:text-xl
+            2xl:w-auto 2xl:text-xl
+            "
+          >
+            Missing Task
+          </TabsTrigger>
+          <TabsTrigger
+            value="completedtask"
+            className="
+            font-bold font-arial text-md 
+            sm:w-auto sm:text-md 
+            md:w-auto md:text-lg
+            lg:w-auto lg:text-lg
+            xl:w-auto xl:text-xl
+            2xl:w-auto 2xl:text-xl
+            "
+          >
+            Completed Task
+          </TabsTrigger>
+
           {session?.user?.position === "Secretary" && (
             <>
-              <TabsTrigger value="completedtask">Completed Task</TabsTrigger>
-              <TabsTrigger value="monitor">Monitoring</TabsTrigger>
+              <TabsTrigger
+                value="archivedtask"
+                className="
+                font-bold font-arial text-md 
+                sm:w-auto sm:text-md 
+                md:w-auto md:text-lg
+                lg:w-auto lg:text-lg
+                xl:w-auto xl:text-xl
+                2xl:mt-0 2xl:w-auto 2xl:text-xl
+                "
+              >
+                Archived Task
+              </TabsTrigger>
+
+              <TabsTrigger
+                value="monitor"
+                className="
+                font-bold font-arial text-md 
+                sm:w-auto sm:text-md 
+                md:w-auto md:text-lg
+                lg:w-auto lg:text-lg
+                xl:w-auto xl:text-xl
+                2xl:mt-0 2xl:w-auto 2xl:text-xl
+                "
+              >
+                Monitoring
+              </TabsTrigger>
             </>
           )}
         </TabsList>
         <TabsContent value="files">
-          {" "}
           <Files_Archiving_tabs
             dataWithFormattedDate={datas}
             materials={materials}
             courses={courses}
             instructors={instructors}
-          />{" "}
+          />
         </TabsContent>
         <TabsContent value="assignedtask">
           <AssignedTask_Archiving_tabs
             position={session.user.position}
             tasks={filteredTasks.incomplete}
+            oldTasks={filteredTasks.incomplete1}
             materials={materials}
             courses={courses}
           />
@@ -168,25 +267,39 @@ function ArchivingTab({
             tasks={filteredTasks.incomplete.pastDue}
           />
         </TabsContent>
-        <TabsContent value="archivedtask">
-          <ArchivedTask_Archiving_tabs />
+        <TabsContent value="completedtask">
+          <CompletedTask_Archiving_tabs tasks={filteredTasks.completed} />
         </TabsContent>
+
         {session?.user?.position === "Secretary" && (
           <>
-            <TabsContent value="completedtask">
-              <CompletedTask_Archiving_tabs tasks={filteredTasks.completed} />
+            <TabsContent value="archivedtask">
+              <ArchivedTask_Archiving_tabs />
             </TabsContent>
             <TabsContent value="monitor">
               <>
-                <h1
+                <div
                   className="
-                  text-center text-[#5B0505] text-3xl font-semibold shadow-zinc-400 mt-10 mb-5
-                  2xl:text-center 2xl:text-[#5B0505] 2xl:text-[45px] 2xl:font-semibold 2xl:shadow-zinc-400 2xl:mb-5
+                  flex flex-col mt-16 px-4
+                  sm:flex sm:flex-col sm:mt-16 sm:px-4
+                  md:flex md:flex-col md:mt-16 md:px-4
+                  lg:flex lg:flex-col lg:mt-16 lg:px-4
+                  xl:flex xl:flex-col xl:mt-16 xl:px-4
+                  2xl:flex 2xl:flex-col 2xl:mt-16 2xl:px-4
                   "
                 >
-                  Monitoring
-                </h1>
-                <Monitoring_Table />
+                  <h1
+                    className="
+                    text-center text-[#5B0505] text-[28px] font-bold mb-5
+                    sm:text-[32px] 
+                    md:text-[36px]  md:shadow-zinc-400
+                    lg:text-[45px] 
+                    "
+                  >
+                    Monitoring
+                  </h1>
+                  <Monitoring_Table />
+                </div>
               </>
             </TabsContent>
           </>

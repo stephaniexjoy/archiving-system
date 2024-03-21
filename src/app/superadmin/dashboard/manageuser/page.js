@@ -8,26 +8,22 @@ import { FaSearch } from "react-icons/fa";
 export default async function page() {
   const users = await getAllUsers();
   return (
-    <div className="flex flex-col w-screen h-screen">
-      <div className="bg-[#AD5606] w-full h-[12%] flex items-center justify-center">
-        <Image
-          className="w-[27%] h-[100%] object-cover flex items-center justify-center"
-          alt="E-Archiving System"
-          src="/photos/E-Archiving System.png"
-          width={300}
-          height={100}
-        />
-      </div>
+    <div className="flex flex-col w-screen h-screen overflow-y-auto">
 
-      {/* Manage Accounts Section */}
-      <div className="w-full md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto h-auto">
-        <h1 className="text-[55px] font-semibold text-[#5B0505] text-center">
-          MANAGE ACCOUNTS
-        </h1>
-        <div className="container flex justify-center mx-auto">
+      <div className="
+      text-[30px] mt-5 mb-3 font-semibold text-[#5B0505] text-center
+      sm:text-[33px] sm:mt-5 sm:mb-3 sm:font-semibold sm:text-[#5B0505] sm:text-center
+      md:text-[36px] md:mt-5 md:mb-3 md:font-semibold md:text-[#5B0505] md:text-center
+      lg:text-[39px] lg:mt-5 lg:mb-3 lg:font-semibold lg:text-[#5B0505] lg:text-center
+      xl:text-[42px] xl:mt-5 xl:mb-3 xl:font-semibold xl:text-[#5B0505] xl:text-center
+      2xl:text-[50px] 2xl:mt-5 2xl:mb-5 2xl:font-semibold 2xl:text-[#5B0505] 2xl:text-center
+      ">
+        MANAGE ACCOUNTS 
+      </div>
+      <div className="px-5">
           <ViewTable_Superadmin users={users} />
         </div>
-      </div>
+
     </div>
   );
 }

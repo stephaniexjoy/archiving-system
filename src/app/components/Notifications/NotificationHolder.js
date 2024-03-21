@@ -52,14 +52,14 @@ const NotificationHolder = ({ notifications }) => {
   }, []);
 
   return (
-    <Tabs defaultValue="new" className="w-full">
-      <TabsList>
+    <Tabs defaultValue="new" className="w-full ">
+      <TabsList className=" bg-[#F5EEE6] ">
         <TabsTrigger value="new">New</TabsTrigger>
         <TabsTrigger value="past">Past</TabsTrigger>
       </TabsList>
       <TabsContent value="new">
         <Card>
-          <CardContent className="mt-2 space-y-2">
+          <CardContent className="mt-5 space-y-2 outline-slate-900">
             <Notifcations notifications={notifications.new} content={"new"} />
           </CardContent>
         </Card>
