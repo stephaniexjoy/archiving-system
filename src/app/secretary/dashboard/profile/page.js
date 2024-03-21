@@ -23,26 +23,6 @@ async function page() {
   });
   return (
     <div className="flex flex-col w-screen h-screen items-center overflow-y-auto bg-slate-50">
-      <div
-        className="
-      bg-[#AD5606] w-[100%] h-[7%] flex items-center justify-center
-      2xl:bg-[#AD5606] 2xl:w-[100%] 2xl:h-[12%] 2xl:flex 2xl:items-center 2xl:justify-center"
-      >
-        <Image
-          className="
-          w-[60%] h-auto object-cover flex items-center justify-center
-          sm:w-[45%] sm:h-auto sm:object-cover sm:flex sm:items-center sm:justify-center
-          md:w-[40%] md:h-auto md:object-cover md:flex md:items-center md:justify-center
-          lg:w-[30%] lg:h-auto lg:object-cover lg:flex lg:items-center lg:justify-center
-          xl:w-[25%] xl:h-auto xl:object-cover xl:flex xl:items-center xl:justify-center
-          2xl:w-[30%] 2xl:h-auto 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center
-          "
-          alt="E-Archiving System"
-          src="/photos/E-Archiving System.png"
-          width={2125}
-          height={499}
-        />
-      </div>
       <Card
         className="
         flex w-[90%] h-auto mt-4 items-center justify-center bg-slate-50
@@ -89,7 +69,7 @@ async function page() {
             />
           </div>
 
-          <div 
+          <div
             className="
             grid grid-cols-2 gap-4 mt-16
             sm:grid-cols-2 sm:gap-4 sm:mt-16
@@ -97,7 +77,8 @@ async function page() {
             lg:grid-cols-2 lg:gap-4 lg:mt-16
             xl:grid-cols-2 xl:gap-4 xl:mt-16
             2xl:grid-cols-2 2xl:gap-4 2xl:mt-16 2xl:text-start
-            ">
+            "
+          >
             {[
               { label: "Name", value: user.name },
               { label: "Age", value: user.age },
@@ -108,7 +89,7 @@ async function page() {
               { label: "Institutional Email", value: user.email },
             ].map((item, index) => (
               <React.Fragment key={index}>
-                <div 
+                <div
                   className="
                   text-[15px] text-[#5B0505]
                   sm:text-[17px] sm:text-[#5B0505]
@@ -116,10 +97,11 @@ async function page() {
                   lg:text-[21px] lg:text-[#5B0505]
                   xl:text-[23px] xl:text-[#5B0505]
                   2xl:text-[25px] 2xl:text-[#5B0505]
-                  ">
+                  "
+                >
                   {item.label}:
-                </div>  
-                <div 
+                </div>
+                <div
                   className="
                   text-[15px] text-[#5B0505] font-bold
                   sm:text-[17px] sm:text-[#5B0505]
@@ -127,19 +109,21 @@ async function page() {
                   lg:text-[21px] lg:text-[#5B0505]
                   xl:text-[23px] xl:text-[#5B0505]
                   2xl:text-[25px] 2xl:text-[#5B0505]
-                  ">
-                    {item.value}</div>
+                  "
+                >
+                  {item.value}
+                </div>
               </React.Fragment>
             ))}
           </div>
           <div className="flex flex-col items-center">
-              <div className="bg-[#AD5606] rounded-lg mt-16">
-                <EditProfile_Dialog />
-              </div>
-              <div className="bg-[#AD5606] rounded-lg mt-5">
-                <EditPrivacy_Dialog />
-              </div>
+            <div className="bg-[#AD5606] rounded-lg mt-16">
+              <EditProfile_Dialog />
             </div>
+            <div className="bg-[#AD5606] rounded-lg mt-5">
+              <EditPrivacy_Dialog />
+            </div>
+          </div>
         </CardContent>
       </Card>
     </div>
