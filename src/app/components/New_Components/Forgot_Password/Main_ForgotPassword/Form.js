@@ -29,7 +29,7 @@ const Form = ({ userInfo }) => {
                 title: "Reset Password",
                 description: "Successfully Updated Password",
               });
-              router.push("/")
+              router.push("/");
             } else {
               toast({
                 title: "Reset Password",
@@ -46,16 +46,29 @@ const Form = ({ userInfo }) => {
           }
         }}
       >
-        <Label>Your New Password</Label>
-        <Input name="password" type="password" placeholder="New Password" />
+        <label className="block mb-2">Your New Password</label>
+        <input
+          className="block w-full px-3 py-2 border rounded mb-4"
+          name="password"
+          type="password"
+          placeholder="New Password"
+        />
 
-        <Label className>Confirm your New Password</Label>
-        <Input
+        <label className="block mb-2">Confirm your New Password</label>
+        <input
+          className="block w-full px-3 py-2 border rounded"
           name="con_password"
           type="password"
           placeholder="Confirm New Password"
         />
-        <Button className="flex justify-center items-center m-auto mt-8 mb-2 py-4 px-6" type="submit">Update Password</Button>
+        <div className="flex justify-center">
+          <Button
+            className="py-3 px-6  text-white rounded-lg mb-4 mt-5"
+            type="submit"
+          >
+            Update Password
+          </Button>
+        </div>
       </form>
     </div>
   );
