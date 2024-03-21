@@ -718,3 +718,45 @@ export async function getTaskById(taskId) {
     console.log(error);
   }
 }
+
+export async function deleteUser(userId) {
+  const deleteEducation = await db.User_Education.delete({
+    where: {
+      userId: userId,
+    },
+  });
+
+  const archiveUser = await db.user.delete({
+    where: {
+      id: userId,
+    },
+  });
+  revalidatePath("/superadmin/dashboard/manageuser");
+  revalidatePath("/secretary/dashboard/viewfaculty");
+  return archiveUser;
+}
+
+export async function adminUpdateUser(formData, userId) {
+  const positionUpd = formData.get("position");
+  const emailUpd = formData.get("email");
+  const passwordUpd = formData.get("password");
+  const passConfirm = formData.get("passwordconfirm");
+
+  const passUpdHashed = await bcrypt.hash(passwordUpd, 12);
+
+  if (passwordUpd === passConfirm) {
+    const updUser = await db.user.update({
+      where: { id: userId },
+      data: {
+        // Update the fields you want to modify
+        position: positionUpd,
+        email: emailUpd,
+        password: passUpdHashed,
+        // Add other fields as needed
+      },
+    });
+    return updUser;
+  } else {
+    return "Password does not match";
+  }
+}
