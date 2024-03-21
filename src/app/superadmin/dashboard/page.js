@@ -123,7 +123,7 @@ async function page() {
           md:text-center md:bg-[#5B0505] md:text-[white] md:w-[70%] md:h-[80px] md:p-4 md:rounded-lg
           lg:text-center lg:bg-[#5B0505] lg:text-[white] lg:w-[60%] lg:h-[80px] lg:p-4 lg:rounded-lg
           xl:text-center xl:bg-[#5B0505] xl:text-[white] xl:w-[88%] xl:h-[80px] xl:p-4 xl:rounded-lg
-          2xl:text-center 2xl:bg-[#5B0505] 2xl:text-[white] 2xl:w-[73.99%] 2xl:h-[90px] 2xl:p-4 2xl:mx-4 2xl:rounded-lg
+          2xl:text-center 2xl:bg-[#5B0505] 2xl:text-[white] 2xl:w-[72.5%] 2xl:h-[90px] 2xl:p-4 2xl:mx-4 2xl:rounded-lg
           "
           >
             <CreateAccount_Dialog />
@@ -147,7 +147,7 @@ async function page() {
             md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-[260px] md:py-4 md:rounded-lg
             lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-[290px] lg:py-5 lg:rounded-lg
             xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[80%] xl:h-[310px] xl:py-5 xl:rounded-lg
-            2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[40%] 2xl:h-[250px] 2xl:py-5 2xl:rounded-lg 2xl:ml-5 2xl:mt-20
+            2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[35%] 2xl:h-[250px] 2xl:py-5 2xl:rounded-lg 2xl:ml-5 2xl:mt-20
             "
           >
             <p
@@ -169,7 +169,7 @@ async function page() {
               md:mt-10 md:text-8xl md:text-[#5B0505] md:font-semibold
               lg:mt-11 lg:text-8xl lg:text-[#5B0505] lg:font-semibold
               xl:mt-11 xl:text-8xl xl:text-[#5B0505] xl:font-semibold
-              2xl:mt-12 2xl:text-9xl 2xl:text-[#5B0505] 2xl:font-semibold
+              2xl:mt-7 2xl:text-9xl 2xl:text-[#5B0505] 2xl:font-semibold
               "
             >
               {fileCount}
@@ -182,7 +182,7 @@ async function page() {
             md:text-center md:bg-[#5B0505]  md:w-[70%] md:h-[260px] md:py-4 md:rounded-lg
             lg:text-center lg:bg-[#5B0505]  lg:w-[60%] lg:h-[290px] lg:py-5 lg:rounded-lg
             xl:text-center xl:bg-[#5B0505]  xl:w-[80%] xl:h-[310px] xl:py-5 xl:rounded-lg
-            2xl:text-center 2xl:bg-[#5B0505]  2xl:w-[40%] 2xl:h-[250px] 2xl:py-8 2xl:rounded-lg 2xl:mt-20
+            2xl:text-center 2xl:bg-[#5B0505]  2xl:w-[35%] 2xl:h-[250px] 2xl:py-8 2xl:rounded-lg 2xl:mt-20
             "
           >
             <p
@@ -204,7 +204,7 @@ async function page() {
           md:mt-10 md:text-8xl md:text-[#FFFFFF] md:font-semibold
           lg:mt-11 lg:text-8xl lg:text-[#FFFFFF] lg:font-semibold
           xl:mt-11 xl:text-8xl xl:text-[#FFFFFF] xl:font-semibold
-          2xl:mt-12 2xl:text-9xl 2xl:text-[#FFFFFF] 2xl:font-semibold
+          2xl:mt-7 2xl:text-9xl 2xl:text-[#FFFFFF] 2xl:font-semibold
           "
             >
               {userCount}

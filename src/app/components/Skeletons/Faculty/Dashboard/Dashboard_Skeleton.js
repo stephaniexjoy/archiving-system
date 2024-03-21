@@ -4,30 +4,20 @@ export default function Dashboard_Skeleton() {
   return (
     <div className="flex flex-col w-screen h-screen overflow-y-auto">
       {/* parent div */}
-      <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center py-1 ">
-        <Skeleton className="h-full w-96 bg-gray-400 rounded-lg" />
-      </div>
-
-      {/* parent div */}
-      <div className="flex mt-[2%] px-10 w-full">
+      <div className="flex mt-[2%] px-10">
         {/* welcome */}
-        <div>
-          <Skeleton className="ml-2 h-8 w-20 bg-gray-400" />
-        </div>
+        <div className="ml-2 h-8 w-20 bg-gray-400 rounded-lg"></div>
 
         {/* faculty */}
-        <div>
-          <Skeleton className="-ml-20 mt-12 h-9 w-44 bg-gray-400" />
+        <div className="-ml-20 mt-12 h-9 w-44 bg-gray-400 rounded-lg">
         </div>
 
         {/* filler */}
-        <div>
-          <Skeleton className="ml-32 mt-4 h-[80%] w-[800%] bg-gray-300" />
+        <div className="ml-24 mt-4 h-[80%] w-[71%] bg-gray-300 rounded-lg">
         </div>
 
         {/* notification logo */}
-        <div>
-          <Skeleton className="ml-[2620%] mt-4 h-[50%] w-10 bg-gray-300" />
+        <div className="ml-4 mt-4 h-20 w-20 bg-gray-300 rounded-lg">
         </div>
       </div>
 
