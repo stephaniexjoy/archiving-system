@@ -129,12 +129,11 @@ export default async function page({ searchParams }) {
                   2xl:text-sm 2xl:mt-0 2xl:mb-0
                   "
                 >
-                  Due:{" "}
+                  Due:
                   {fetchTask && fetchTask.setDeadline
                     ? fetchTask.setDeadline.toLocaleString()
                     : "No due"}
                 </h1>
-                
               </div>
             </div>
             <div
@@ -186,7 +185,6 @@ export default async function page({ searchParams }) {
         </CardContent>
       </Card>
     </div>
-   /*  <><Tasks_Skeleton/></> */
-  
+    /*  <><Tasks_Skeleton/></> */
   );
 }

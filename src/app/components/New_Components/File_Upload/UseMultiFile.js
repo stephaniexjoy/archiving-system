@@ -119,8 +119,7 @@ export function UseMultiFile({ setUrls, setFileInfo, setHasFile }) {
 
     getUrls(results, setUrls);
     console.log("All files uploaded successfully:", results);
-
-    setAddedFiles([]);
+  
   };
 
   const getUrls = (results, setUrls) => {
@@ -132,6 +131,7 @@ export function UseMultiFile({ setUrls, setFileInfo, setHasFile }) {
     // Update hasFile state based on fileStates and addedFiles
     if (fileStates.length === 0 || addedFiles.length === 0) {
       setHasFile(false);
+      setAddedFiles([]);
     } else {
       setHasFile(true);
     }
