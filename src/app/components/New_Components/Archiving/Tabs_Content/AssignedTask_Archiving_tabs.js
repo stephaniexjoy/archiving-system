@@ -5,12 +5,14 @@ import { useToast } from "@/components/ui/use-toast";
 import AddTask_Dialog from "./Dialogs/AddTask_Dialog/AddTask_Dialog";
 
 import File_Upload_Card from "./File_Upload_Component/File_Upload_Card";
+import AssignedTask_Table from "@/app/components/NewTable/TasksTable/AssignedTaskTable/AssignedTask_Table";
 
 export default function AssignedTask_Archiving_tabs({
   position,
   tasks,
   materials,
   courses,
+  oldTasks,
 }) {
   const [options, setOptions] = useState("");
 
@@ -46,6 +48,8 @@ export default function AssignedTask_Archiving_tabs({
     const extractUrls = results.map((result) => result.url);
     setUrls(extractUrls);
   };
+
+  console.log(tasks);
 
   return (
     <>
@@ -90,6 +94,7 @@ export default function AssignedTask_Archiving_tabs({
             2xl:w-[60%] 
             "
           >
+            <AssignedTask_Table tasks={oldTasks} />
             <label className="w-full text-[#5B0505] text-xl text-start font-semibold mr-4">
               No Due Date:
             </label>
