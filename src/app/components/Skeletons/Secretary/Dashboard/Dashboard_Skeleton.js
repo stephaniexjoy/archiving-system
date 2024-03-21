@@ -4,32 +4,18 @@ export default function Dashboard_Skeleton() {
   return (
     <div className="flex flex-col w-screen h-screen overflow-y-auto">
       {/* parent div */}
-      <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center py-1">
-        {/* header */}
-        <Skeleton className="h-full w-96 bg-gray-300 rounded-lg" />
-      </div>
-
-      {/* parent div */}
-      <div className=" flex mt-[2%] px-10 ">
+      <div className="flex mt-[2%] px-10">
         {/* welcome */}
-        <div>
-          <Skeleton className="ml-2 h-8 w-20 bg-gray-400" />
-        </div>
+        <div className="ml-2 h-8 w-20 bg-gray-400 rounded-lg"></div>
 
-        {/* secretary */}
-        <div>
-          <Skeleton className="-ml-20 mt-12 h-9 w-44 bg-gray-400" />
-        </div>
+        {/* faculty */}
+        <div className="-ml-20 mt-12 h-9 w-44 bg-gray-400 rounded-lg"></div>
 
         {/* filler */}
-        <div>
-          <Skeleton className="ml-32 mt-4 h-[80%] w-[800%] bg-gray-300" />
-        </div>
+        <div className="ml-24 mt-4 h-[80%] w-[71%] bg-gray-300 rounded-lg"></div>
 
         {/* notification logo */}
-        <div>
-          <Skeleton className="ml-[2620%] mt-4 h-[50%] w-10 bg-gray-300" />
-        </div>
+        <div className="ml-4 mt-4 h-20 w-20 bg-gray-300 rounded-lg"></div>
       </div>
 
       {/* parent div */}
@@ -65,7 +51,7 @@ export default function Dashboard_Skeleton() {
         {/* calendar */}
         <div className="w-[19%] h-[320px] ml-28 mt-5 rounded-lg bg-gray-300"></div>
         {/* ccs logo */}
-        <div className="w-36 h-28 -ml-7 mt-32 rounded-full bg-gray-300"></div>
+        <div className="w-40 h-40 -ml-7 mt-32 rounded-full bg-gray-300"></div>
       </div>
       {/* filter users */}
       <div className="bg-gray-300 w-[35%] h-12 mt-14 ml-9 rounded-lg">
@@ -76,7 +62,6 @@ export default function Dashboard_Skeleton() {
         <Skeleton className="h-8 w-24 ml-[20%] -mt-8 bg-gray-400" />
         <Skeleton className="h-8 w-24 ml-[35%] -mt-8 bg-gray-400" />
         <Skeleton className="h-8 w-24 ml-[73%] -mt-8 bg-gray-400" />
-
       </div>
     </div>
   );
