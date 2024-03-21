@@ -634,7 +634,9 @@ export function DataTable({ columns, data, materials, instructors }) {
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell key={cell.id} className="text-start"
+                    >
+                      
                       {cell.column.id === "filename" ? (
                         <a
                           href="#"

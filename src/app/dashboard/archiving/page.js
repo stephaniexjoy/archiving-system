@@ -73,7 +73,7 @@ export default async function archiving({ searchParams }) {
 
   return (
     <>
-      <div className="flex flex-col w-screen h-screen overflow-y-auto">
+      <div className="flex flex-col w-screen h-screen overflow-y-auto bg-slate-50">
         <ArchivingTab
           datas={dataWithFormattedDate}
           materials={fetchMaterials}

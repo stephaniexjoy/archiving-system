@@ -43,23 +43,29 @@ function filterTasksByDate(tasks, completedTasks) {
       pastDue: [],
       noDeadline: [],
     },
+    incomplete1: [],
   };
 
   // Populate filteredTasks object
   incompleteTasks.forEach((task) => {
     if (!task.setDeadline) {
       filteredTasks.incomplete.noDeadline.push(task);
+      filteredTasks.incomplete1.push(task);
       return; // Skip further processing for tasks with no deadline
     }
     const setDeadline = new Date(task.setDeadline);
     if (setDeadline >= currentWeekStart && setDeadline <= currentWeekEnd) {
       filteredTasks.incomplete.thisWeek.push(task);
+      filteredTasks.incomplete1.push(task);
     } else if (setDeadline >= nextWeekStart && setDeadline <= nextWeekEnd) {
       filteredTasks.incomplete.nextWeek.push(task);
+      filteredTasks.incomplete1.push(task);
     } else if (setDeadline > nextWeekEnd) {
       filteredTasks.incomplete.laterThanNextWeek.push(task);
+      filteredTasks.incomplete1.push(task);
     } else if (setDeadline < currentDate) {
       filteredTasks.incomplete.pastDue.push(task);
+      
     }
   });
 
@@ -153,7 +159,7 @@ function ArchivingTab({
           xl:inline-flex xl:grid-cols-6 xl:grid-rows-1 xl:items-center xl:justify-center xl:text-center xl:w-auto
           2xl:inline-flex 2xl:grid-cols-6 2xl:grid-rows-1 2xl:items-center 2xl:justify-center 2xl:text-center 2xl:w-auto
           "
-          >
+        >
           <TabsTrigger
             value="files"
             className="
@@ -163,7 +169,7 @@ function ArchivingTab({
             lg:w-auto lg:text-lg
             xl:w-auto xl:text-xl
             2xl:w-auto 2xl:text-xl
-            " 
+            "
           >
             All Files
           </TabsTrigger>
@@ -251,6 +257,7 @@ function ArchivingTab({
           <AssignedTask_Archiving_tabs
             position={session.user.position}
             tasks={filteredTasks.incomplete}
+            oldTasks={filteredTasks.incomplete1}
             materials={materials}
             courses={courses}
           />
@@ -271,7 +278,7 @@ function ArchivingTab({
             </TabsContent>
             <TabsContent value="monitor">
               <>
-                <div 
+                <div
                   className="
                   flex flex-col mt-16 px-4
                   sm:flex sm:flex-col sm:mt-16 sm:px-4
@@ -279,7 +286,8 @@ function ArchivingTab({
                   lg:flex lg:flex-col lg:mt-16 lg:px-4
                   xl:flex xl:flex-col xl:mt-16 xl:px-4
                   2xl:flex 2xl:flex-col 2xl:mt-16 2xl:px-4
-                  ">
+                  "
+                >
                   <h1
                     className="
                     text-center text-[#5B0505] text-[28px] font-bold mb-5
