@@ -21,8 +21,8 @@ async function EditProfileFaculty_Dialog({ sessionUser }) {
           EDIT
         </button>
       </DialogTrigger>
-      <DialogContent className="p-12 sm:p-12 md:p-8 lg:p-12 max-w-[450px] sm:max-w-[900px] md:max-w-[850px] lg:max-w-[1600px] h-[800px]">
-        <ScrollArea className="h-[700px] w-[350px] sm:w-[700px] md:w-[800px] lg:w-[1500px] rounded-md border p-4 bg-[#F5EEE6] shadow-xl">
+      <DialogContent className="p-12 sm:p-12 md:p-8 lg:p-12 max-w-[450px] sm:max-w-[900px] md:max-w-[850px] lg:max-w-[1600px] h-[800px] bg-slate-50">
+        <ScrollArea className="h-[700px] w-[350px] sm:w-[700px] md:w-[800px] lg:w-[1500px] rounded-md border p-4 bg-slate-50 shadow-xl">
           <Form sessionUser={sessionUser} />
         </ScrollArea>
       </DialogContent>

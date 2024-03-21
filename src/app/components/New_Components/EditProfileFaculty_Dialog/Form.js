@@ -23,78 +23,51 @@ export default function Form({ sessionUser }) {
           }
         }}
       >
-        <div className="flex flex-col">
-          <div className="flex flex-row gap-4">
-            <label htmlFor="profilePictureInput">
-              <Image
-                className=" 
-                cursor-pointer
-                rounded-full w-36 h-auto object-cover mb-5
-                sm:rounded-full sm:w-44 sm:h-auto sm:object-cover sm:mb-5
-                md:rounded-full md:w-44 md:h-auto md:object-cover md:mb-5
-                lg:rounded-full lg:w-96 lg:h-auto lg:object-cover lg:mb-5 lg:ml-5
-                xl:rounded-full xl:w-96 xl:h-auto xl:object-cover xl:mb-5 xl:ml-5
-                2xl:rounded-full 2xl:w-96 2xl:h-auto 2xl:object-cover 2xl:mb-5 2xl:ml-16"
-                alt="Profile"
-                src="/profile.jpg"
-                width={474}
-                height={474}
+        <div className="flex flex-col bg-slate-50">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* First column for the image */}
+            <div>
+              <label htmlFor="profilePictureInput">
+                <Image
+                  className="cursor-pointer rounded-full w-full md:w-44 lg:w-96 xl:w-96 2xl:w-60 2xl:ml-16"
+                  alt="Profile"
+                  src="/profile.jpg"
+                  width={474}
+                  height={474}
+                />
+              </label>
+              <input
+                type="file"
+                id="profilePictureInput"
+                name="profilepic"
+                style={{ display: "none" }}
               />
-            </label>
-            <input
-              type="file"
-              id="profilePictureInput"
-              name="profilepic"
-              style={{ display: "none" }}
-            />
-
-            <div className="flex flex-col ml-16 gap-4">
-              <div className="flex flex-row items-center <div
-              
-              mt-6
-              sm:mt-6
-              md:mt-6
-              lg:mt-6
-              xl:mt-6
-              2xl:mt-6"
-              >
+            </div>
+            {/* Second column for the form fields */}
+            <div className="flex flex-col gap-4 md:col-span-2">
+              <div className="flex items-center mt-6">
                 <Label
                   htmlFor="name"
-                  className="
-                  font-semibold ml-0 w-full text-[15px]
-                  sm:font-semibold sm:text-[17px]
-                  md:font-semibold md:text-[19px]
-                  lg:font-semibold lg:text-[21px] lg:ml-24
-                  xl:font-semibold xl:text-[23px] xl:ml-24
-                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
-                  text-left"
+                  className="font-semibold w-[85%] text-[25px]"
                 >
                   Name:
                 </Label>
-
                 <Input
                   name="updName"
                   type="text"
-                  className="ml-[24%] bg-[#837979] w-[800px] sm:w-[800px] md:w-[800px] lg:w-[800px]font-semibold text-white text-[20px]"
+                  className="bg-slate-300 w-[90%] font-semibold text-[25px]"
                 />
               </div>
-              <div className="flex flex-row items-center gap-4">
+              <div className="flex items-center gap-4">
                 <Label
                   htmlFor="role"
-                  className="
-                  font-semibold ml-0 w-full text-[15px]
-                  sm:font-semibold sm:text-[17px]
-                  md:font-semibold md:text-[19px]
-                  lg:font-semibold lg:text-[21px] lg:ml-24
-                  xl:font-semibold xl:text-[23px] xl:ml-24
-                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
-                  text-left"
+                  className="font-semibold w-[85%] text-[25px]"
                 >
                   Role:
                 </Label>
                 <select
                   name="updRole"
-                  className="ml-[25.5%] bg-[#837979] w-[800px] font-semibold text-white text-[25px]"
+                  className="bg-slate-300 w-full font-semibold text-[25px]"
                 >
                   <option value="">Select Role</option>
                   <option value="Faculty">Faculty</option>
@@ -102,23 +75,16 @@ export default function Form({ sessionUser }) {
                   <option value="Admin">Admin</option>
                 </select>
               </div>
-              <div className="flex flex-row items-center gap-4">
+              <div className="flex items-center gap-4">
                 <Label
                   htmlFor="category"
-                  className="
-                  font-semibold ml-0 w-full text-[15px]
-                  sm:font-semibold sm:text-[17px]
-                  md:font-semibold md:text-[19px]
-                  lg:font-semibold lg:text-[21px] lg:ml-24
-                  xl:font-semibold xl:text-[23px] xl:ml-24
-                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
-                  text-left"
+                  className="font-semibold w-[85%] text-[25px]"
                 >
                   Category:
                 </Label>
                 <select
                   name="updDesignation"
-                  className="ml-[20%] bg-[#837979] w-[800px] font-semibold text-white text-[25px]"
+                  className="bg-slate-300 w-full font-semibold text-[25px]"
                 >
                   <option value="">Select category</option>
                   <option value="Associate Dean">Associate Dean</option>
@@ -128,88 +94,73 @@ export default function Form({ sessionUser }) {
                   <option value="Coordinator">Coordinator</option>
                 </select>
               </div>
-              <div className="flex flex-row items-center">
+              <div className="flex items-center">
                 <Label
                   htmlFor="license"
-                  className="
-                  font-semibold ml-0 w-full text-[15px]
-                  sm:font-semibold sm:text-[17px]
-                  md:font-semibold md:text-[19px]
-                  lg:font-semibold lg:text-[21px] lg:ml-24
-                  xl:font-semibold xl:text-[23px] xl:ml-24
-                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
-                  text-left"
+                  className="font-semibold w-[90%] text-[25px]"
                 >
-                  Eligibity/Professional License:
+                  Eligibility/Professional License:
                 </Label>
                 <Input
                   name="updLicense"
                   type="text"
-                  className="ml-[0.5%] bg-[#837979] w-[800px] text-white text-[20px]"
+                  className="bg-slate-300 w-full text-[25px]"
                 />
               </div>
             </div>
           </div>
-          <div className="mt-4 flex flex-row items-center">
-            <Label
-              htmlFor="school"
-              className="
-              font-semibold ml-0 w-full text-[15px]
-              sm:font-semibold sm:text-[17px]
-              md:font-semibold md:text-[19px]
-              lg:font-semibold lg:text-[21px] lg:ml-24
-              xl:font-semibold xl:text-[23px] xl:ml-24
-              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+
+          <div className="grid grid-cols-1 gap-4">
+            <div className="mt-4 flex flex-row items-center">
+              <Label
+                htmlFor="school"
+                className="
+              font-semibold ml-0 text-[15px] lg:text-[21px] lg:ml-24
+              xl:text-[23px] xl:ml-24 2xl:text-[25px] 2xl:ml-20
               text-left"
-            >
-              School:
-            </Label>
-            <Input
-              name="updSchool"
-              type="text"
-              className="ml-[19%] bg-[#837979] w-[1100px] text-white text-[20px]"
-            />
-          </div>
-          <div className="mt-4 flex flex-row items-center">
-            <Label
-              htmlFor="specialization"
-              className="
-              font-semibold ml-0 w-full text-[15px]
-              sm:font-semibold sm:text-[17px]
-              md:font-semibold md:text-[19px]
-              lg:font-semibold lg:text-[21px] lg:ml-24
-              xl:font-semibold xl:text-[23px] xl:ml-24
-              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              >
+                School:
+              </Label>
+              <Input
+                name="updSchool"
+                type="text"
+                className="ml-[19%] bg-slate-300 w-[1100px] text-[25px]"
+              />
+            </div>
+            <div className="mt-4 flex flex-row items-center">
+              <Label
+                htmlFor="specialization"
+                className="
+              font-semibold ml-0 text-[15px] lg:text-[21px] lg:ml-24
+              xl:text-[23px] xl:ml-24 2xl:text-[25px] 2xl:ml-20
               text-left"
-            >
-              Specialization:
-            </Label>
-            <Input
-              name="updSpec"
-              type="text"
-              className="ml-[13%] bg-[#837979] w-[1100px] text-white text-[20px]"
-            />
-          </div>
-          <div className="mt-4 flex flex-row items-center">
-            <Label
-              htmlFor="certifications"
-              className="
-              font-semibold ml-0 w-full text-[15px]
-              sm:font-semibold sm:text-[17px]
-              md:font-semibold md:text-[19px]
-              lg:font-semibold lg:text-[21px] lg:ml-24
-              xl:font-semibold xl:text-[23px] xl:ml-24
-              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              >
+                Specialization:
+              </Label>
+              <Input
+                name="updSpec"
+                type="text"
+                className="ml-[13%] bg-slate-300 w-[1100px] text-[25px]"
+              />
+            </div>
+            <div className="mt-4 flex flex-row items-center">
+              <Label
+                htmlFor="certifications"
+                className="
+              font-semibold ml-0 text-[15px] lg:text-[21px] lg:ml-24
+              xl:text-[23px] xl:ml-24 2xl:text-[25px] 2xl:ml-20
               text-left"
-            >
-              Certifications:
-            </Label>
-            <Input
-              name="updCert"
-              type="text"
-              className="ml-[13.3%] bg-[#837979] w-[1100px] text-white text-[20px]"
-            />
+              >
+                Certifications:
+              </Label>
+              <Input
+                name="updCert"
+                type="text"
+                className="ml-[13.3%] bg-slate-300 w-[1100px] text-[20px]"
+              />
+            </div>
           </div>
+
           <div className="mt-4 flex justify-center items-center">
             <Label
               htmlFor="academicQualifications"
@@ -219,7 +170,7 @@ export default function Form({ sessionUser }) {
               md:font-semibold md:text-[19px]
               lg:font-semibold lg:text-[21px] lg:ml-24
               xl:font-semibold xl:text-[23px] xl:ml-24
-              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-0
               text-left"
             >
               ACADEMIC QUALIFICATIONS:
@@ -234,7 +185,7 @@ export default function Form({ sessionUser }) {
               md:font-semibold md:text-[19px]
               lg:font-semibold lg:text-[21px] lg:ml-24
               xl:font-semibold xl:text-[23px] xl:ml-24
-              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-20
               text-left"
             >
               Baccalaureate Degree:
@@ -242,7 +193,7 @@ export default function Form({ sessionUser }) {
             <Input
               name="updBacDeg"
               type="text"
-              className="ml-[6.5%] bg-[#837979] w-[470px] text-white text-[20px]"
+              className="ml-[10%] bg-slate-300 w-[470px] text-[25px]"
             />
             <Label
               htmlFor="school"
@@ -253,7 +204,7 @@ export default function Form({ sessionUser }) {
               md:font-semibold md:text-[19px]
               lg:font-semibold lg:text-[21px] lg:ml-24
               xl:font-semibold xl:text-[23px] xl:ml-24
-              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-20
               text-left"
             >
               School:
@@ -261,7 +212,7 @@ export default function Form({ sessionUser }) {
             <Input
               name="updBacDegSchl"
               type="text"
-              className="ml-[1%] bg-[#837979] w-[470px] text-white text-[20px]"
+              className="ml-[1%] bg-slate-300 w-[470px] text-[25px]"
             />
           </div>
           <div className="mt-4 flex flex-row items-center">
@@ -273,7 +224,7 @@ export default function Form({ sessionUser }) {
               md:font-semibold md:text-[19px]
               lg:font-semibold lg:text-[21px] lg:ml-24
               xl:font-semibold xl:text-[23px] xl:ml-24
-              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-20
               text-left"
             >
               Master&apos;s Degree:
@@ -281,7 +232,7 @@ export default function Form({ sessionUser }) {
             <Input
               name="updMasDeg"
               type="text"
-              className="ml-[11%] bg-[#837979] w-[470px] text-white text-[20px]"
+              className="ml-[11%] bg-slate-300 w-[470px] text-[25px]"
             />
             <Label
               htmlFor="school"
@@ -292,7 +243,7 @@ export default function Form({ sessionUser }) {
               md:font-semibold md:text-[19px]
               lg:font-semibold lg:text-[21px] lg:ml-24
               xl:font-semibold xl:text-[23px] xl:ml-24
-              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-20
               text-left"
             >
               School:
@@ -300,7 +251,7 @@ export default function Form({ sessionUser }) {
             <Input
               name="updMasDegSchl"
               type="text"
-              className="ml-[1%] bg-[#837979] w-[470px] text-white text-[20px]"
+              className="ml-[1%] bg-slate-300 w-[470px] text-[25px]"
             />
           </div>
           <div className="mt-4 flex flex-row items-center">
@@ -312,7 +263,7 @@ export default function Form({ sessionUser }) {
               md:font-semibold md:text-[19px]
               lg:font-semibold lg:text-[21px] lg:ml-24
               xl:font-semibold xl:text-[23px] xl:ml-24
-              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-20
               text-left"
             >
               Doctorate Degree:
@@ -320,7 +271,7 @@ export default function Form({ sessionUser }) {
             <Input
               name="updDocDeg"
               type="text"
-              className="ml-[10%] bg-[#837979] w-[470px] text-white text-[20px]"
+              className="ml-[10%] bg-slate-300 w-[470px] text-[25px]"
             />
             <Label
               htmlFor="school"
@@ -330,7 +281,7 @@ export default function Form({ sessionUser }) {
               md:font-semibold md:text-[19px]
               lg:font-semibold lg:text-[21px] lg:ml-24
               xl:font-semibold xl:text-[23px] xl:ml-24
-              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+              2xl:font-semibold 2xl:text-[25px] 2xl:ml-20
               text-left"
             >
               School:
@@ -338,7 +289,7 @@ export default function Form({ sessionUser }) {
             <Input
               name="updDocDegSchl"
               type="text"
-              className="ml-[1%] bg-[#837979] w-[465px] text-white text-[20px]"
+              className="ml-[1%] bg-slate-300 w-[465px] text-[25px]"
             />
           </div>
         </div>
@@ -354,7 +305,7 @@ export default function Form({ sessionUser }) {
                   md:font-semibold md:text-[19px]
                   lg:font-semibold lg:text-[21px] lg:ml-24
                   xl:font-semibold xl:text-[23px] xl:ml-24
-                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-0
                   text-left"
                 >
                   SEMINARS AND TRAININGS ATTENDED:
@@ -362,7 +313,7 @@ export default function Form({ sessionUser }) {
                 <Input
                   name="seminarsUpd"
                   type="text"
-                  className="bg-[#837979] w-[650px] h-[90px] font-semibold text-white text-[20px]"
+                  className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
                 />
               </div>
               <div className="flex flex-col items-center ml-36">
@@ -374,7 +325,7 @@ export default function Form({ sessionUser }) {
                   md:font-semibold md:text-[19px]
                   lg:font-semibold lg:text-[21px] lg:ml-24
                   xl:font-semibold xl:text-[23px] xl:ml-24
-                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-0
                   text-left"
                 >
                   SUBJECTS HANDLED (DESCRIPTIVE TITLE):
@@ -382,7 +333,7 @@ export default function Form({ sessionUser }) {
                 <Input
                   name="subjectUpd"
                   type="text"
-                  className="bg-[#837979] w-[650px] h-[90px] font-semibold text-white text-[20px]"
+                  className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
                 />
               </div>
             </div>
@@ -396,7 +347,7 @@ export default function Form({ sessionUser }) {
                   md:font-semibold md:text-[19px]
                   lg:font-semibold lg:text-[21px] lg:ml-24
                   xl:font-semibold xl:text-[23px] xl:ml-24
-                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-0
                   text-left"
                 >
                   JOB EXPERIENCE:
@@ -404,27 +355,27 @@ export default function Form({ sessionUser }) {
                 <Input
                   name="experUpd"
                   type="text"
-                  className="bg-[#837979] w-[650px] h-[90px] font-semibold text-white text-[20px]"
+                  className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
                 />
               </div>
               <div className="flex flex-col mt-8 ml-36">
                 <Label
                   htmlFor="completed"
                   className="
-                  font-italize font-semibold ml-0 w-full text-[15px]
-                  sm:font-semibold sm:text-[17px]
-                  md:font-semibold md:text-[19px]
-                  lg:font-semibold lg:text-[21px] lg:ml-24
-                  xl:font-semibold xl:text-[23px] xl:ml-24
-                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
-                  text-left"
+                  font-italize ml-0 w-full text-[15px] text-left
+                  sm:text-[17px]
+                  md:text-[19px]
+                  lg:text-[21px] lg:ml-24
+                  xl:text-[23px] xl:ml-24
+                  2xl:text-[25px] 2xl:ml-0
+                  "
                 >
                   COMPLETED:
                 </Label>
                 <Input
                   name="name"
                   type="text"
-                  className="bg-[#837979] w-[650px] h-[90px] font-semibold text-white text-[20px]"
+                  className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
                 />
               </div>
             </div>
@@ -434,19 +385,19 @@ export default function Form({ sessionUser }) {
                   htmlFor="designations"
                   className="
                   font-semibold ml-0 w-full text-[15px]
-              sm:font-semibold sm:text-[17px]
-              md:font-semibold md:text-[19px]
-              lg:font-semibold lg:text-[21px] lg:ml-24
-              xl:font-semibold xl:text-[23px] xl:ml-24
-              2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
-              text-left"
+                  sm:font-semibold sm:text-[17px]
+                  md:font-semibold md:text-[19px]
+                  lg:font-semibold lg:text-[21px] lg:ml-24
+                  xl:font-semibold xl:text-[23px] xl:ml-24
+                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-0
+                  text-left"
                 >
                   PAST DESIGNATIONS:
                 </Label>
                 <Input
                   name="desigUpd"
                   type="text"
-                  className="bg-[#837979] w-[650px] h-[90px] font-semibold text-white text-[20px]"
+                  className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
                 />
               </div>
               <div className="flex flex-col mt-8 ml-36">
@@ -459,12 +410,12 @@ export default function Form({ sessionUser }) {
                 <Input
                   name="name"
                   type="text"
-                  className="bg-[#837979] w-[650px] h-[90px] font-semibold text-white text-[20px]"
+                  className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
                 />
               </div>
             </div>
             <div className="flex flex-row items-center gap-4">
-              <div className="flex flex-col items-center mt-8">
+              <div className="flex flex-col items-center mt-8 text-center">
                 <Label
                   htmlFor="ext"
                   className="
@@ -473,7 +424,7 @@ export default function Form({ sessionUser }) {
                   md:font-semibold md:text-[19px]
                   lg:font-semibold lg:text-[21px] lg:ml-24
                   xl:font-semibold xl:text-[23px] xl:ml-24
-                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
+                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-0
                   text-left"
                 >
                   EXTENSION PROJECTS:
@@ -481,34 +432,34 @@ export default function Form({ sessionUser }) {
                 <Input
                   name="extUpd"
                   type="text"
-                  className="bg-[#837979] w-[650px] h-[90px] font-semibold text-white text-[20px]"
+                  className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
                 />
               </div>
               <div className="flex flex-col mt-8 ml-36">
                 <Label
                   htmlFor="presented"
-                  className="font-italize 
-                  font-semibold ml-0 w-full text-[15px]
-                  sm:font-semibold sm:text-[17px]
-                  md:font-semibold md:text-[19px]
-                  lg:font-semibold lg:text-[21px] lg:ml-24
-                  xl:font-semibold xl:text-[23px] xl:ml-24
-                  2xl:font-semibold 2xl:text-[25px] 2xl:ml-36
-                  text-left"
+                  className="
+                  ml-0 w-full text-[15px] font-italize text-left
+                  sm:text-[17px]
+                  md:text-[19px]
+                  lg:text-[21px]
+                  xl:text-[23px]
+                  2xl:text-[25px]
+                  "
                 >
                   PRESENTED:
                 </Label>
                 <Input
                   name="papersUpd"
                   type="text"
-                  className="bg-[#837979] w-[650px] h-[90px] font-semibold text-white text-[20px]"
+                  className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
                 />
               </div>
             </div>
-            <div className="flex justify-center gap-4 gap-x-16 mt-10">
+            <div className="flex justify-center gap-4 gap-x-16 mt-20 mb-10">
               <Button
                 type="submit"
-                className="bg-[#5B0505] text-[25px] font-semibold w-72"
+                className="bg-[#AD5606] text-[25px] font-semibold w-72"
               >
                 SAVE
               </Button>

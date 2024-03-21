@@ -33,7 +33,7 @@ const File_Upload_Card = ({ task }) => {
       md:w-full md:h-auto
       lg:w-full lg:h-auto
       xl:w-full xl:h-auto
-      2xl:w-screen 2xl:h-screen
+      2xl:w-full 2xl:h-auto
       "
     >
       <CardContent>
