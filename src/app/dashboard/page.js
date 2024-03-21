@@ -82,11 +82,11 @@ export default async function dashboard() {
       2xl:flex-row 2xl:mt-[1%] 2xl:px-10 2xl:gap-x-12"
       >
         <div
-          className="text-center bg-[#B4ABAB] text-[#5B0505] w-[90%] h-[200px] py-2 rounded-lg
-          sm:text-center sm:bg-[#B4ABAB] sm:text-[#5B0505] sm:w-[80%] sm:h-[230px] sm:py-3 sm:rounded-lg
-          md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-[260px] md:py-4 md:rounded-lg
-          lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-[290px] lg:py-5 lg:rounded-lg
-          xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[50%] xl:h-[310px] xl:py-5 xl:rounded-lg
+          className="text-center bg-[#B4ABAB] text-[#5B0505] w-[90%] h-[260px] py-2 rounded-lg
+          sm:text-center sm:bg-[#B4ABAB] sm:text-[#5B0505] sm:w-[80%] sm:h-[290px] sm:py-3 sm:rounded-lg
+          md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-[320px] md:py-4 md:rounded-lg
+          lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-[360px] lg:py-5 lg:rounded-lg
+          xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[50%] xl:h-[360px] xl:py-5 xl:rounded-lg
           2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[460px] 2xl:h-[360px] 2xl:py-6 2xl:rounded-lg"
         >
           <p
@@ -112,11 +112,11 @@ export default async function dashboard() {
         </div>
 
         <div
-          className="text-center items-center content-center bg-[#B4ABAB] text-[#5B0505] w-[90%] h-[200px] mt-0 rounded-lg
-          sm:text-center sm:bg-[#B4ABAB] sm:text-[#5B0505] sm:w-[80%] sm:h-[230px] sm:mt-0 sm:rounded-lg
-          md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-[260px] md:mt-0 md:rounded-lg
-          lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-[290px] lg:mt-0 lg:rounded-lg
-          xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[50%] xl:h-[310px] xl:mt-0 xl:rounded-lg
+          className="text-center items-center content-center bg-[#B4ABAB] text-[#5B0505] w-[90%] h-[260px] mt-0 rounded-lg
+          sm:text-center sm:bg-[#B4ABAB] sm:text-[#5B0505] sm:w-[80%] sm:h-[290px] sm:mt-0 sm:rounded-lg
+          md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-[320px] md:mt-0 md:rounded-lg
+          lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-[360px] lg:mt-0 lg:rounded-lg
+          xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[50%] xl:h-[360px] xl:mt-0 xl:rounded-lg
           2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[460px] 2xl:h-[360px] 2xl:mt-0 2xl:rounded-lg"
         >
           <CalendarComponent />
