@@ -57,7 +57,7 @@ export default function Dashboard_Skeleton() {
       <div className="bg-gray-300 w-[35%] h-12 mt-14 ml-9 rounded-lg">
         <Skeleton className="h-8 w-24 ml-2 mt-2 bg-gray-400" />
       </div>
-      <div className="bg-gray-300 w-[94%] h-12 mt-3 ml-9">
+      <div className="bg-gray-300 w-[94%] h-44 mt-3 ml-9">
         <Skeleton className="h-8 w-24 ml-2 mt-2 bg-gray-400" />
         <Skeleton className="h-8 w-24 ml-[20%] -mt-8 bg-gray-400" />
         <Skeleton className="h-8 w-24 ml-[35%] -mt-8 bg-gray-400" />
