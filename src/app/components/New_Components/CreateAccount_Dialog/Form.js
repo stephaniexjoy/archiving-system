@@ -44,7 +44,7 @@ export default function Form({ sessionUser }) {
           "
         >
           {[
-            { label: "Forname", type: "text", id: "Forname" },
+            { label: "Name", type: "text", id: "name" },
             { label: "age", type: "number", id: "age" },
             { label: "sex", type: "text", id: "sex" },
             {

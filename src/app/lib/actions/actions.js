@@ -25,10 +25,11 @@ async function getUserSession() {
 
 export async function createAccount(formData) {
   const sessionUser = await getUserSession();
+  console.log(sessionUser);
   const dateString = new Date();
   const dateObject = new Date(dateString);
 
-  const nameForm = formData.get("FornameInput");
+  const nameForm = formData.get("nameInput");
   const role = formData.get("roleInput");
   const category = formData.get("catInput");
   const specialization = formData.get("specInput");
@@ -38,11 +39,6 @@ export async function createAccount(formData) {
   const age = formData.get("ageInput");
   const sex = formData.get("sexInput");
   const empNo = formData.get("employeeNoInput");
-  if(!nameForm){
-    console.log("huh")
-  }
-
-  console.log(nameForm, password);
 
   const hashedPassword = await bcrypt.hash(password, 12);
   console.log(hashedPassword);
@@ -55,10 +51,9 @@ export async function createAccount(formData) {
   console.log(existingUser);
   if (existingUser.length > 0) {
     return "Existing User";
-  }
-  try {
-    const [createUser, addActivity] = await db.$transaction([
-      db.User.create({
+  } else {
+    try {
+      const createUser = await db.user.create({
         data: {
           name: nameForm,
           employee_no: empNo,
@@ -74,25 +69,27 @@ export async function createAccount(formData) {
             create: {},
           },
         },
-      }),
-      db.activity.create({
-        data: {
-          name: sessionUser.name,
-          position: sessionUser.position,
-          type: "CREATED NEW USER",
-          createdAt: dateObject,
-          user: {
-            connect: {
-              id: sessionUser.id,
+      });
+      if (createUser) {
+        console.log(createUser);
+        const recordActivity = await db.activity.create({
+          data: {
+            name: sessionUser.user.name,
+            position: sessionUser.user.position,
+            type: "CREATED NEW USER",
+            createdAt: dateObject,
+            user: {
+              connect: {
+                id: sessionUser.user.id,
+              },
             },
           },
-        },
-      }),
-    ]);
-
-    if (createUser) return createUser;
-  } catch (error) {
-    console.log(error);
+        });
+        return createUser;
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
