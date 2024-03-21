@@ -10,23 +10,6 @@ const page = async ({ params }) => {
 
   return (
     <div className="flex flex-col w-screen h-screen overflow-y-auto items-center">
-      <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
-        <Image
-          className="
-          w-[60%] h-auto object-cover flex items-center justify-center
-          sm:w-[60%] sm:h-[100%] sm:object-cover sm:flex sm:items-center sm:justify-center
-          md:w-[60%] md:h-[100%] md:object-cover md:flex md:items-center md:justify-center
-          lg:w-[40%] lg:h-[100%] lg:object-cover lg:flex lg:items-center lg:justify-center
-          xl:w-[35%] xl:h-[100%] xl:object-cover xl:flex xl:items-center xl:justify-center
-          2xl:w-[30%] 2xl:h-[100%] 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center
-          "
-          alt="E-Archiving System"
-          src="/photos/E-Archiving System.png"
-          width={2125}
-          height={499}
-        />
-      </div>
-
       <div
         className="
         w-full overflow-auto overflow-x-auto h-auto p-4 max-w-md
@@ -190,7 +173,7 @@ const page = async ({ params }) => {
                     {item.degreeInfo}
                   </div>
                 </div>
-                <div className="flex flex-col"> 
+                <div className="flex flex-col">
                   <div
                     className="
                     font-semibold text-[15px] text-black mb-2
@@ -264,7 +247,7 @@ const page = async ({ params }) => {
               xl:table xl:w-full
               2xl:table 2xl:w-full
               "
-              >
+            >
               <thead>
                 <tr>
                   <th className="border border-black bg-[#D7D4D4] backdrop-blur-[4px] font-semibold text-[20px] text-[#8F8F8F] text-center w-1/3 h-[30px]">
@@ -363,10 +346,10 @@ const page = async ({ params }) => {
             "
           >
             <div className="flex flex-row">
-            <div className="flex items-center">
-              <button
-                type="submit"
-                className="
+              <div className="flex items-center">
+                <button
+                  type="submit"
+                  className="
                 bg-[#5B0505] text-[15px] text-white text-center w-[100px] h-[30px]
                 sm:bg-[#5B0505] sm:text-[17px] sm:text-white sm:text-center sm:w-[130px] sm:h-[32px]
                 md:bg-[#5B0505] md:text-[19px] md:text-white md:text-center md:w-[130px] md:h-[34px]
@@ -374,11 +357,10 @@ const page = async ({ params }) => {
                 xl:bg-[#5B0505] xl:text-[23px] xl:text-white xl:text-center xl:w-[220px] xl:h-[38px]
                 2xl:bg-[#5B0505] 2xl:text-[25px] 2xl:text-white 2xl:text-center 2xl:w-[250px] 2xl:h-[40px]
                 "
-              >
-                BACK
-              </button>
-            </div>
-            
+                >
+                  BACK
+                </button>
+              </div>
             </div>
             <div className="flex items-center">
               <button
@@ -395,11 +377,10 @@ const page = async ({ params }) => {
                 PRINT
               </button>
             </div>
-            </div>
           </div>
         </div>
       </div>
-   
+    </div>
   );
 };
 
