@@ -83,7 +83,6 @@ export default function Form({ sessionUser }) {
           ].map((field, index) => (
             <React.Fragment key={index}>
               <Label
-                htmlFor={field.id}
                 className="
                 font-semibold text-[15px] text-left
                 sm:font-semibold sm:text-[17px] sm:text-left

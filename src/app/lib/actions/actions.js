@@ -23,11 +23,12 @@ async function getUserSession() {
   return session;
 }
 
-export async function createAccount(formData, sessionUser) {
+export async function createAccount(formData) {
+  const sessionUser = await getUserSession();
   const dateString = new Date();
   const dateObject = new Date(dateString);
 
-  const name = formData.get("nameInput");
+  const nameForm = formData.get("nameInput");
   const role = formData.get("roleInput");
   const category = formData.get("catInput");
   const specialization = formData.get("specInput");
@@ -38,7 +39,7 @@ export async function createAccount(formData, sessionUser) {
   const sex = formData.get("sexInput");
   const empNo = formData.get("employeeNoInput");
 
-  console.log(name, password);
+  console.log(nameForm, password);
 
   const hashedPassword = await bcrypt.hash(password, 12);
   console.log(hashedPassword);
@@ -51,41 +52,40 @@ export async function createAccount(formData, sessionUser) {
   console.log(existingUser);
   if (existingUser.length > 0) {
     return "Existing User";
-  } else {
-    const [createUser, addActivity] = await db.$transaction([
-      db.user.create({
-        data: {
-          employee_no: empNo,
-          email: emailForm,
-          password: hashedPassword,
-          name: name,
-          age: parseInt(age),
-          sex: sex,
-          position: role,
-          designation: category,
-          specialization: specialization,
-          license: license,
-          education: {
-            create: {},
-          },
-        },
-      }),
-      db.activity.create({
-        data: {
-          name: sessionUser.name,
-          position: sessionUser.position,
-          type: "CREATED NEW USER",
-          createdAt: dateObject,
-          user: {
-            connect: {
-              id: sessionUser.id,
-            },
-          },
-        },
-      }),
-    ]);
-    if (createUser) return createUser;
   }
+  const [createUser, addActivity] = await db.$transaction([
+    db.user.create({
+      data: {
+        employee_no: empNo,
+        email: emailForm,
+        password: hashedPassword,
+        name: "HAHAHAHA",
+        age: parseInt(age),
+        sex: sex,
+        position: role,
+        designation: category,
+        specialization: specialization,
+        license: license,
+        education: {
+          create: {},
+        },
+      },
+    }),
+    db.activity.create({
+      data: {
+        name: sessionUser.name,
+        position: sessionUser.position,
+        type: "CREATED NEW USER",
+        createdAt: dateObject,
+        user: {
+          connect: {
+            id: sessionUser.id,
+          },
+        },
+      },
+    }),
+  ]);
+  if (createUser) return createUser;
 }
 
 export async function updateUser(formData, sessionUser) {
