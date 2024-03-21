@@ -146,7 +146,7 @@ export function UseMultiFile({ setUrls, setFileInfo, setHasFile }) {
           console.log(fileStates);
         }}
         onFilesAdded={handleFilesAdded}
-        className="max-h-16 overflow-y-auto"
+        className="max-h-20 "
       />
 
       <div className="flex flex-col bottom-0 items-center justify-center w-full h-auto">
