@@ -39,7 +39,7 @@ const Footer = () => {
               <Image
                 src="/photos/lspuLogo.png"
                 alt="LSPU Logo"
-                className="w-0 h-0"
+                className="w-12 h-12"
                 width={1499}
                 height={1499}
               />
@@ -55,7 +55,7 @@ const Footer = () => {
               <Image
                 src="/photos/ccsLogo.png"
                 alt="CCS Logo"
-                className="w-0 h-0"
+                className="w-12 h-12"
                 width={2201}
                 height={2201}
               />

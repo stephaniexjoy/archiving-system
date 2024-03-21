@@ -4,10 +4,6 @@ import React from "react";
 const Profile_Skeleton = () => {
   return (
     <div className="flex flex-col w-screen h-screen overflow-y-auto bg-slate-50">
-      <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center py-1">
-        <Skeleton className="h-full w-96 bg-gray-400 rounded-lg" />
-      </div>
-
       {/* parent div */}
       <div className="max-w-[90%] my-6">
         {/* parent div  */}
@@ -57,6 +53,9 @@ const Profile_Skeleton = () => {
               <Skeleton className="h-5 w-80 bg-gray-400" />
             </div>
           </div>
+        </div>
+        <div className="flex bg-gray-300 w-[95%] h-[30px] mt-40 ml-24 items-center justify-center">
+          <Skeleton className="h-5 w-96 bg-gray-400" />
         </div>
       </div>
     </div>
