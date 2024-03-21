@@ -9,7 +9,6 @@ const CalendarComponent = () => {
     <Calendar
       mode="single"
       showOutsideDays
-      selected={date}
       onSelect={setDate}
       className="
         w-full items-center rounded-md h-10 -mt-32
