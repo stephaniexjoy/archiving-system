@@ -67,7 +67,6 @@ export function UseMultiFile({ setUrls, setFileInfo, setHasFile }) {
     }
     // Update addedFiles state with new files
     setAddedFiles([...addedFiles, ...files]);
-    
   };
 
   const handleUploadButtonClick = async () => {
@@ -152,7 +151,10 @@ export function UseMultiFile({ setUrls, setFileInfo, setHasFile }) {
       <div className="flex flex-col bottom-0 items-center justify-center w-full h-auto">
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <Button className="w-[40%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer items-center justify-center rounded-lg">
+            <Button
+              disabled={fileStates.length === 0 || addedFiles.length === 0}
+              className="w-[40%] h-10 border bg-[#AD5606] hover:bg-gray-700 text-xl text-white font-semibold py-1 px-4 my-2 cursor-pointer items-center justify-center rounded-lg"
+            >
               Upload
             </Button>
           </AlertDialogTrigger>
