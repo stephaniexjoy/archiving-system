@@ -67,6 +67,7 @@ export function UseMultiFile({ setUrls, setFileInfo }) {
     }
     // Update addedFiles state with new files
     setAddedFiles([...addedFiles, ...files]);
+    
   };
 
   const handleUploadButtonClick = async () => {
@@ -138,6 +139,7 @@ export function UseMultiFile({ setUrls, setFileInfo }) {
           console.log(fileStates);
         }}
         onFilesAdded={handleFilesAdded}
+        className="max-h-16 overflow-y-auto"
       />
       <Button onClick={handleUploadButtonClick}>Submit</Button>
       <div className="flex flex-col bottom-0 items-center justify-center w-full h-auto">
