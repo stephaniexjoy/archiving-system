@@ -54,17 +54,20 @@ function filterTasksByDate(tasks, completedTasks) {
       return; // Skip further processing for tasks with no deadline
     }
     const setDeadline = new Date(task.setDeadline);
-    if (setDeadline >= currentWeekStart && setDeadline <= currentWeekEnd) {
-      filteredTasks.incomplete.thisWeek.push(task);
-      filteredTasks.incomplete1.push(task);
+    if (setDeadline < currentDate) {
+      filteredTasks.incomplete.pastDue.push(task);
     } else if (setDeadline >= nextWeekStart && setDeadline <= nextWeekEnd) {
       filteredTasks.incomplete.nextWeek.push(task);
       filteredTasks.incomplete1.push(task);
     } else if (setDeadline > nextWeekEnd) {
       filteredTasks.incomplete.laterThanNextWeek.push(task);
       filteredTasks.incomplete1.push(task);
-    } else if (setDeadline < currentDate) {
-      filteredTasks.incomplete.pastDue.push(task);
+    } else if (
+      setDeadline >= currentWeekStart &&
+      setDeadline <= currentWeekEnd
+    ) {
+      filteredTasks.incomplete.thisWeek.push(task);
+      filteredTasks.incomplete1.push(task);
     }
   });
 
