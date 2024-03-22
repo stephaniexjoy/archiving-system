@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
 import { useState, useEffect } from "react";
 
-export default function Course_ComboBox({ setProgram }) {
+export default function Course_ComboBox({ setProgram, refreshTrigger }) {
   useEffect(() => {
     const fetchCourses = async () => {
       const getCoursesData = await getCourses();
@@ -24,7 +24,7 @@ export default function Course_ComboBox({ setProgram }) {
     };
 
     fetchCourses();
-  }, []);
+  }, [refreshTrigger]);
 
   const [openCourse, setOpenCourse] = useState(false);
   const [valueCourse, setValueCourse] = useState("");

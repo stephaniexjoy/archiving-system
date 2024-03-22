@@ -12,12 +12,18 @@ export default function Edit_FileForm({ filePath }) {
   const [material, setMaterial] = useState();
   const [program, setProgram] = useState();
   const [permission, setPermission] = useState();
+  const [refreshTrigger, setRefreshTrigger] = useState(false);
+
+  const handleRefresh = () => {
+    setRefreshTrigger((prevTrigger) => !prevTrigger); // Toggle refreshTrigger state
+    console.log(refreshTrigger);
+  };
 
   return (
     <>
       <div className="flex flex-row gap-x-[13%] w-full px-10">
-        <Material_ComboBox setMaterial={setMaterial} />
-        <Course_ComboBox setProgram={setProgram} />
+        <Material_ComboBox setMaterial={setMaterial} refreshTrigger={refreshTrigger}/>
+        <Course_ComboBox setProgram={setProgram} refreshTrigger={refreshTrigger}/>
         <Permission_ComboBox setPermission={setPermission} />
       </div>
       <div className="flex items-center w-full justify-center mt-10">
@@ -49,6 +55,13 @@ export default function Edit_FileForm({ filePath }) {
           className="flex bg-[#8F8F8F] text-white text-[20px] px-10 py-4 w-auto justify-center items-center my-8"
         >
           Update
+        </Button>
+
+        <Button
+          onClick={handleRefresh}
+          className="flex bg-[#8F8F8F] text-white text-[20px] px-10 py-4 w-auto justify-center items-center my-8"
+        >
+          Refresh
         </Button>
       </div>
     </>
