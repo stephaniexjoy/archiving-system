@@ -329,6 +329,8 @@ export async function addFilter(formData, category) {
       return addCategory;
     }
   }
+  revalidatePath("/dashboard/archiving");
+  revalidatePath("/secretary/dashboard/archiving");
 }
 
 export async function addTasks(formData, date) {
@@ -764,5 +766,59 @@ export async function adminUpdateUser(formData, userId) {
     return updUser;
   } else {
     return "Password does not match";
+  }
+}
+
+export async function userUpdateUser(formData) {
+  const sessionUser = await getUserSession();
+
+  console.log(sessionUser);
+  const email = formData.get("emailUpd");
+  const currentPassword = formData.get("currentPass");
+  const newPassword = formData.get("newPass");
+  const confirmPassword = formData.get("newPassConfirm");
+
+  try {
+    const user = await db.user.findUnique({
+      where: { email: email },
+      select: { email: true, password: true },
+    });
+
+    console.log(user);
+    if (user) {
+      const passCheck = await bcrypt.compare(currentPassword, user.password);
+      if (passCheck) {
+        console.log(
+          email,
+          currentPassword,
+          newPassword,
+          confirmPassword,
+          user.password,
+          passCheck
+        );
+        if (newPassword === confirmPassword) {
+          const hashedPassword = await bcrypt.hash(newPassword, 12);
+          console.log(hashedPassword);
+
+          const updPrivacy = await db.user.update({
+            where: { email: email },
+            data: {
+              password: hashedPassword,
+            },
+          });
+          if (updPrivacy) {
+            return "Successfully Updated Privacy";
+          }
+        } else {
+          return "New Password and Confirm Password Mismatch";
+        }
+      } else {
+        return "Password Mismatch";
+      }
+    } else {
+      return "No Email Found";
+    }
+  } catch (error) {
+    console.log(error);
   }
 }

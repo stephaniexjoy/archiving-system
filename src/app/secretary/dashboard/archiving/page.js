@@ -8,6 +8,7 @@ import {
   getFileTypes,
   getTasks,
   getCompletedTasks,
+  getPrograms,
 } from "@/app/lib/actions/actions";
 import Image from "next/image";
 
@@ -29,6 +30,7 @@ export default async function archiving({ searchParams }) {
   const fetchCourses = await getCourses();
   const fetchInstructors = await getInstructors();
   const fetchFileTypes = await getFileTypes();
+  const fetchPrograms = await getPrograms();
 
   const tasks = await getTasks();
   const completedTasks = await getCompletedTasks();
@@ -73,6 +75,7 @@ export default async function archiving({ searchParams }) {
           instructors={fetchInstructors}
           filetype={fetchFileTypes}
           tasks={tasks}
+          programs={fetchPrograms}
           completedTasks={completedTasks}
         />
       </div>

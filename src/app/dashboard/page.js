@@ -3,7 +3,7 @@ import { db } from "@/app/lib/prisma_db";
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
 import CalendarComponent from "../components/Calendar";
-import EditPrivacy_Dialog from "../components/New_Components/EditPrivacy_Dialog";
+import EditPrivacy_Dialog from "../components/New_Components/Edit_Privacy_Dialog/EditPrivacy_Dialog";
 import UploadMaterial_Dialog from "../components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog";
 import Notification_Panel from "../components/Notifications/Notification_Panel";
 import Image from "next/image";
@@ -126,12 +126,13 @@ export default async function dashboard() {
           md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-[70%] md:h-[320px] md:mt-0 md:rounded-lg
           lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-[60%] lg:h-[360px] lg:mt-0 lg:rounded-lg
           xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[25%] xl:h-[360px] xl:mt-0 xl:rounded-lg
-          2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[320px] 2xl:h-[360px] 2xl:mt-0 2xl:rounded-lg"
+          2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[320px] 2xl:h-[360px] 2xl:rounded-lg"
         >
+
           <CalendarComponent />
         </div>
 
-        <div 
+        <div
           className="
           flex flex-col items-center space-y-8 mb-11
           sm:flex sm:flex-col sm:items-center sm:space-y-8 sm:mb-11
@@ -139,7 +140,8 @@ export default async function dashboard() {
           lg:flex lg:flex-col lg:items-center lg:space-y-8 lg:mb-11
           xl:flex xl:flex-col xl:items-center xl:space-y-7 xl:mb-0
           2xl:flex 2xl:flex-col 2xl:items-center 2xl:space-y-8 2xl:mb-0
-          ">
+          "
+        >
           <Image
             className="
             w-64 h-auto object-cover
