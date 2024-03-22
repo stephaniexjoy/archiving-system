@@ -42,7 +42,7 @@ export const columns = [
     cell: ({ row }) => {
       const privacy = row.getValue("fileRole");
       const formatted =
-        privacy === "All" ? "All" : privacy === "" ? "not set" : "Secretary";
+        privacy === "All" ? "All" : privacy === null ? "Not Set" : "Secretary";
       return <div className="">{formatted}</div>;
     },
     //{file.fileRole === "forall" ? "All" : "Secretary Only"}
