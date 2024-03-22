@@ -52,7 +52,7 @@ export default async function archiving({ searchParams }) {
     if (!res.ok) {
       return getEmptyData();
     }
-    revalidatePath("secretary/dashboard/archiving");
+    revalidatePath("/secretary/dashboard/archiving");
     return res.json();
   }
 
