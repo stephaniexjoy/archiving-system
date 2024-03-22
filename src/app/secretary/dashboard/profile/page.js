@@ -3,7 +3,7 @@ import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
 import { db } from "@/app/lib/prisma_db";
 import Link from "next/link";
-import EditProfile_Dialog from "@/app/components/New_Components/EditProfile_Dialog";
+import EditProfile_Dialog from "@/app/components/New_Components/EditProfile_Secretary/EditProfile_Dialog";
 import EditPrivacy_Dialog from "@/app/components/New_Components/Edit_Privacy_Dialog/EditPrivacy_Dialog";
 import {
   Card,

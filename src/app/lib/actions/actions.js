@@ -838,3 +838,67 @@ export async function archiveTask(taskId) {
     console.log(error);
   }
 }
+
+export async function editProfile_Secretary(formData) {
+  const sessionUser = await getUserSession();
+
+  const pic = formData.get("pictureInput");
+  const name = formData.get("nameInput");
+  const age = formData.get("ageInput");
+  const sex = formData.get("sexInput");
+  const designation = formData.get("designationInput");
+  /*  const empno = formData.get("employeeNoInput");
+  const dept = formData.get("departmentInput");
+  const email = formData.get("emailInput"); */
+
+  //console.log(pic, name, age, sex, empno, dept, email);
+
+  if (
+    pic.type.includes("jpeg") ||
+    pic.type.includes("jpg") ||
+    pic.type.includes("png")
+  ) {
+    console.log("pasok");
+
+    let profilePhotoPath = null;
+
+    if (pic) {
+      try {
+        const fileExtension = pic.name.split(".").pop();
+        const res = await backendClient.publicImages.upload({
+          content: {
+            blob: new Blob([pic], { type: pic.type }),
+            extension: fileExtension,
+          },
+        });
+        profilePhotoPath = res.url;
+
+        try {
+          const updateUser = await db.user.update({
+            where: {
+              id: sessionUser.user.id,
+            },
+            data: {
+              profile_photo_path: profilePhotoPath,
+              name: name,
+              age: parseInt(age),
+              sex: sex,
+              designation: designation,
+            },
+          });
+
+          console.log(updateUser);
+          if (updateUser) {
+            return "Successful";
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  } else {
+    return "Images only supports (jpg,jpeg,png)";
+  }
+}
