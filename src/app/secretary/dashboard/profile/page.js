@@ -18,6 +18,9 @@ import Image from "next/image";
 async function page() {
   const session = await getServerSession(AuthOptions);
 
+  const sessionPhoto = session.user.image;
+  console.log(sessionPhoto);
+
   const user = await db.user.findUnique({
     where: { id: parseInt(session.user.id) },
   });
@@ -53,8 +56,9 @@ async function page() {
             2xl:flex 2xl:flex-col 2xl:w-auto 2xl:items-center 2xl:py-1
             "
           >
-            <Image
-              className="
+            {sessionPhoto ? (
+              <Image
+                className="
               mt-16 rounded-full w-[60%] h-auto object-cover mb-0
               sm:mt-16 sm:rounded-full sm:w-[50%] sm:h-auto sm:object-cover sm:mb-0
               md:mt-16 md:rounded-full md:w-[50%] md:h-auto md:object-cover md:mb-0
@@ -62,11 +66,27 @@ async function page() {
               xl:mt-16 xl:rounded-full xl:w-[50%] xl:h-auto xl:object-cover xl:mb-0
               2xl:mt-16 2xl:rounded-full 2xl:w-[35%] 2xl:h-auto 2xl:object-cover 2xl:mb-5
               "
-              alt="profile"
-              src="/profile.jpg"
-              width={474}
-              height={474}
-            />
+                alt="profile"
+                src={`${sessionPhoto}`}
+                width={474}
+                height={474}
+              />
+            ) : (
+              <Image
+                className="
+              mt-16 rounded-full w-[60%] h-auto object-cover mb-0
+              sm:mt-16 sm:rounded-full sm:w-[50%] sm:h-auto sm:object-cover sm:mb-0
+              md:mt-16 md:rounded-full md:w-[50%] md:h-auto md:object-cover md:mb-0
+              lg:mt-16 lg:rounded-full lg:w-[50%] lg:h-auto lg:object-cover lg:mb-0
+              xl:mt-16 xl:rounded-full xl:w-[50%] xl:h-auto xl:object-cover xl:mb-0
+              2xl:mt-16 2xl:rounded-full 2xl:w-[35%] 2xl:h-auto 2xl:object-cover 2xl:mb-5
+              "
+                alt="profile"
+                src="/profile.jpg"
+                width={474}
+                height={474}
+              />
+            )}
           </div>
 
           <div
