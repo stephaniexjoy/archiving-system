@@ -55,20 +55,8 @@ const File_Upload_Card = ({ task }) => {
               </Button>
             ) : (
               <AlertDialog>
-                <AlertDialogTrigger>
-                  <Button
-                    /* onClick={async () => {
-                  console.log(urls);
-                  console.log(fileInfo);
-
-                  const res = await confirmUpload(urls, fileInfo, task.id);
-                  console.log(res);
-                  console.log(fileInfo);
-                }} */
-                    className="flex mx-auto w-[80%] sm:w-[70%] 2xl:w-[60%] h-16 border bg-[#AD5606] hover:bg-gray-800 text-white text-xs 2xl:text-xl font-bold py-1 px-4 rounded-xl my-2 cursor-pointer items-center justify-center"
-                  >
-                    Mark as done
-                  </Button>
+                <AlertDialogTrigger className="flex mx-auto w-[80%] sm:w-[70%] 2xl:w-[60%] h-16 border bg-[#AD5606] hover:bg-gray-800 text-white text-xs 2xl:text-xl font-bold py-1 px-4 rounded-xl my-2 cursor-pointer items-center justify-center">
+                  Mark as done
                 </AlertDialogTrigger>
                 <AlertDialogContent>
                   <AlertDialogHeader>

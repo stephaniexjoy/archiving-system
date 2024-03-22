@@ -44,8 +44,11 @@ function filterTasksByDate(tasks, completedTasks) {
       noDeadline: [],
     },
     incomplete1: [],
+    archived: [],
   };
+  const archivedTasks = tasks.filter((task) => !task.isActive);
 
+  console.log(archivedTasks);
   // Populate filteredTasks object
   incompleteTasks.forEach((task) => {
     if (!task.setDeadline) {
@@ -73,6 +76,10 @@ function filterTasksByDate(tasks, completedTasks) {
 
   // Add completed tasks to the filteredTasks object
   filteredTasks.completed = completedTasks;
+
+  archivedTasks.forEach((task) => {
+    filteredTasks.archived.push(task);
+  });
 
   return filteredTasks;
 }
@@ -278,7 +285,7 @@ function ArchivingTab({
         {session?.user?.position === "Secretary" && (
           <>
             <TabsContent value="archivedtask">
-              <ArchivedTask_Archiving_tabs />
+              <ArchivedTask_Archiving_tabs tasks={filteredTasks.archived}/>
             </TabsContent>
             <TabsContent value="monitor">
               <>
