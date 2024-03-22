@@ -822,3 +822,19 @@ export async function userUpdateUser(formData) {
     console.log(error);
   }
 }
+
+export async function archiveTask(taskId) {
+  try {
+    const findTask = await db.tasks.update({
+      where: {
+        id: taskId,
+      },
+      data: {
+        isActive: false,
+      },
+    });
+    console.log(findTask);
+  } catch (error) {
+    console.log(error);
+  }
+}

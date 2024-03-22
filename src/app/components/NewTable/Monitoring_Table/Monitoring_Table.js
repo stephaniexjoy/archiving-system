@@ -7,6 +7,8 @@ import {
   getTasks,
 } from "@/app/lib/actions/actions";
 import Tasks_ComboBox from "../../New_Components/Archiving/Tabs_Content/ComboBox/Tasks_ComboBox";
+import { Button } from "@/components/ui/button";
+import ArchiveTask_Dialog from "../../New_Components/Archiving/Tabs_Content/Dialogs/ArchiveTask_Dialog/ArchiveTask_Dialog";
 
 export default function Monitoring_Table() {
   const [users, setUsers] = useState([]);
@@ -68,16 +70,23 @@ export default function Monitoring_Table() {
     dataMapping();
   }, [selectedTask]);
 
-  console.log("Users", users);    
+  console.log("Users", users);
   console.log(selectedTask);
   console.log(tasksForComboBox);
   console.log(tasks);
   return (
     <div>
-      <Tasks_ComboBox
-        setSelectedTask={setSelectedTask}
-        tasks={tasksForComboBox}
-      />
+      <div className="flex flex-row items-center justify-center space-x-6">
+        <Tasks_ComboBox
+          setSelectedTask={setSelectedTask}
+          tasks={tasksForComboBox}
+        />
+        {selectedTask && (
+          <>
+            <ArchiveTask_Dialog selectedTask={selectedTask} />
+          </>
+        )}
+      </div>
       <DataTable columns={columns} data={data} />
     </div>
   );
