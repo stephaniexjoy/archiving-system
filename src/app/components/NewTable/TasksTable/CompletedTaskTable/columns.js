@@ -38,14 +38,30 @@ export const columns = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Name
+          Date Completed
           <LuArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
     },
+    cell: ({ row }) => {
+      const dateString = row.getValue("completed");
+      const date = new Date(dateString);
+      const options = {
+        weekday: "short", // Abbreviated weekday name (e.g., "Mon")
+        month: "short", // Abbreviated month name (e.g., "Jan")
+        day: "numeric", // Numeric day of the month (e.g., "07")
+        year: "numeric", // Four-digit year (e.g., "2024")
+        hour: "numeric", // Numeric representation of the hour (e.g., "13" for 1 PM)
+        minute: "numeric", // Numeric representation of the minute (e.g., "30")
+        second: "numeric", // Numeric representation of the second (e.g., "22")
+      };
+      const formattedDate = date.toLocaleDateString("en-US", options);
+      return <div className="">{formattedDate}</div>;
+    },
   },
   {
     accessorKey: "task.deadlineCreated",
+    id: "deadlineCreated",
     header: ({ column }) => {
       return (
         <Button
@@ -56,6 +72,21 @@ export const columns = [
           <LuArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
+    },
+    cell: ({ row }) => {
+      const dateString = row.getValue("deadlineCreated");
+      const date = new Date(dateString);
+      const options = {
+        weekday: "short", // Abbreviated weekday name (e.g., "Mon")
+        month: "short", // Abbreviated month name (e.g., "Jan")
+        day: "numeric", // Numeric day of the month (e.g., "07")
+        year: "numeric", // Four-digit year (e.g., "2024")
+        hour: "numeric", // Numeric representation of the hour (e.g., "13" for 1 PM)
+        minute: "numeric", // Numeric representation of the minute (e.g., "30")
+        second: "numeric", // Numeric representation of the second (e.g., "22")
+      };
+      const formattedDate = date.toLocaleDateString("en-US", options);
+      return <div className="">{formattedDate}</div>;
     },
   },
 

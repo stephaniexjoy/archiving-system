@@ -23,9 +23,11 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Card, CardContent } from "@/components/ui/card";
 import { UseMultiFile } from "./../../File_Upload/UseMultiFile";
+import ArchivedTask_Table from "@/app/components/NewTable/TasksTable/ArchivedTaskTable/ArchivedTask_Table";
 
 export default function ArchivedTask_Archiving_tabs({ tasks }) {
   const [options, setOptions] = useState("");
+  console.log(tasks);
 
   function onCloseModal() {
     setOpenModal(false);
@@ -44,7 +46,7 @@ export default function ArchivedTask_Archiving_tabs({ tasks }) {
         "
       >
         <h1 className="text-center text-[#5B0505] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[45px] font-bold md:shadow-zinc-400 mb-5 ">
-          Missing Tasks
+          Archived Tasks
         </h1>
         <div className="flex flex-col items-center w-full h-full overflow-y-auto">
           <div
@@ -57,6 +59,7 @@ export default function ArchivedTask_Archiving_tabs({ tasks }) {
             2xl:w-[60%] 
             "
           >
+            <ArchivedTask_Table tasks={tasks} />
             <label className="w-full text-[#5B0505] text-xl text-start font-semibold mr-4">
               Archived:
             </label>

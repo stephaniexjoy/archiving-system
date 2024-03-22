@@ -1,7 +1,6 @@
 "use client";
 
 import AddCategory_Dialog from "@/app/components/New_Components/AddCategory_Dialog/AddCategory_Dialog";
-import { UseMultiFile } from "@/app/components/New_Components/File_Upload/UseMultiFile";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -12,13 +11,13 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { LuArrowUpDown } from "react-icons/lu";
-import RouterButton from "./Buttons/RouterButton";
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 
 export const columns = [
   {
     accessorKey: "title",
+    id: "title",
     header: ({ column }) => {
       return (
         <Button
@@ -31,7 +30,6 @@ export const columns = [
       );
     },
   },
-
   {
     accessorKey: "deadlineCreated",
     header: ({ column }) => {
@@ -40,7 +38,7 @@ export const columns = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Deadline
+          Date Completed
           <LuArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
@@ -61,27 +59,25 @@ export const columns = [
       return <div className="">{formattedDate}</div>;
     },
   },
-
   {
-    accessorKey: "isDone",
-    header: "Status",
+    accessorKey: "setDeadline",
+    header: "Deadline",
     cell: ({ row }) => {
-      /* const isCompleted = row.getValue("isDone");
-      const formatted = isCompleted === true ? "Done" : "Not Done"; */
-      return <div className="">Missing</div>;
-    },
-  },
-  {
-    accessorKey: "actions",
-    header: "Actions",
-    cell: ({ row }) => {
-      console.log(row.original);
-      const filePath = row.original.filePath;
-      return (
-        <div className="">
-          <RouterButton task={row.original.id} />
-        </div>
-      );
+      const dateString = row.getValue("setDeadline");
+      const date = new Date(dateString);
+      const options = {
+        weekday: "short", // Abbreviated weekday name (e.g., "Mon")
+        month: "short", // Abbreviated month name (e.g., "Jan")
+        day: "numeric", // Numeric day of the month (e.g., "07")
+        year: "numeric", // Four-digit year (e.g., "2024")
+        hour: "numeric", // Numeric representation of the hour (e.g., "13" for 1 PM)
+        minute: "numeric", // Numeric representation of the minute (e.g., "30")
+        second: "numeric", // Numeric representation of the second (e.g., "22")
+      };
+      const formattedDate = dateString
+        ? date.toLocaleDateString("en-US", options)
+        : "No Due Date";
+      return <div>{formattedDate}</div>;
     },
   },
 ];
