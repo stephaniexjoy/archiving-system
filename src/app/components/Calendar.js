@@ -12,7 +12,7 @@ const CalendarComponent = () => {
       onSelect={setDate}
       className="
         w-full items-center rounded-md h-10 -mt-32
-        2xl:w-full 2xl:items-center 2xl:rounded-md 2xl:h-10 2xl:-mt-2
+        2xl:w-full 2xl:items-center 2xl:rounded-md 2xl:h-10 2xl:-mt-44
       "
     />
   );
