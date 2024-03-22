@@ -6,13 +6,13 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
 import Image from "next/image";
 
-export default function Form({ sessionUser }) {
+export default function Form() {
   const { toast } = useToast();
   return (
     <>
       <form
         action={async (formData) => {
-          const isUpdated = await updateUser(formData, sessionUser);
+          const isUpdated = await updateUser(formData);
           console.log("Wieee: ", isUpdated);
           if (isUpdated) {
             toast({

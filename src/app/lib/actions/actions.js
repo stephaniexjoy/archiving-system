@@ -93,7 +93,8 @@ export async function createAccount(formData) {
   }
 }
 
-export async function updateUser(formData, sessionUser) {
+export async function updateUser(formData) {
+  const sessionUser = await getUserSession();
   console.log(formData, sessionUser);
 
   const dateString = new Date();
@@ -139,7 +140,7 @@ export async function updateUser(formData, sessionUser) {
 
   const [updUser, updUser_Educ] = await db.$transaction([
     db.user.update({
-      where: { id: sessionUser.id },
+      where: { id: sessionUser.user.id },
       data: {
         name: nameUpd,
         position: roleUpd,
@@ -172,13 +173,13 @@ export async function updateUser(formData, sessionUser) {
     }),
     db.activity.create({
       data: {
-        name: sessionUser.name,
-        position: sessionUser.position,
+        name: sessionUser.user.name,
+        position: sessionUser.user.position,
         type: "EDITED PROFILE",
         createdAt: dateObject,
         user: {
           connect: {
-            id: sessionUser.id,
+            id: sessionUser.user.id,
           },
         },
       },
