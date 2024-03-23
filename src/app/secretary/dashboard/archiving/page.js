@@ -67,9 +67,9 @@ export default async function archiving({ searchParams }) {
 
   return (
     <>
-      <div className="flex flex-col w-screen h-screen bg-slate-50">
+      <div className="flex flex-col w-screen h-screen m-4 bg-slate-50">
         <ArchivingTab
-          datas={dataWithFormattedDate}
+          datas={data}
           materials={fetchMaterials}
           courses={fetchCourses}
           instructors={fetchInstructors}

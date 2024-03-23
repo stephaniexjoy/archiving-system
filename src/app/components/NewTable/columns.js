@@ -58,13 +58,16 @@ export const columns = [
   {
     accessorKey: "uploadDate",
     header: "Date & Time Uploaded",
+    cell: ({ row }) => {
+      const date = new Date(row.original.uploadDate);
+      console.log(new Date(date));
+      return <div>{date.toLocaleString()}</div>;
+    },
   },
   {
     accessorKey: "actions",
     header: "Actions",
     cell: ({ row }) => {
-      console.log(row.original);
-      console.log(row.original.userId);
       const filePath = row.original.filePath;
       return (
         <Edit_button filePath={filePath} fileOwner={row.original.userId} />

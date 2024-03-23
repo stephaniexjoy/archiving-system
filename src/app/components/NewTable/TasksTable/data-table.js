@@ -137,6 +137,24 @@ export function DataTable({ columns, data, materials, instructors }) {
           }
           className="max-w-2xl bg-slate-50 border border-slate-400 "
         />
+        <div className="flex items-center justify-end space-x-2 py-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+          >
+            Previous
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}
+          >
+            Next
+          </Button>
+        </div>
         {/*  <ComboboxPermission
           value={table.getColumn("fileRole")?.getFilterValue() ?? ""}
           onChange={handleComboBoxPermissionChange}
@@ -205,24 +223,6 @@ export function DataTable({ columns, data, materials, instructors }) {
             )}
           </TableBody>
         </Table>
-      </div>
-      <div className="flex items-center justify-end space-x-2 py-2">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          Previous
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          Next
-        </Button>
       </div>
     </>
   );

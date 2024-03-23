@@ -448,11 +448,16 @@ export function ComboboxFileType({ value, onChange }) {
   );
 }
 
-export default function Date_Range({ className }) {
+export default function Date_Range({ value, className, setDate1 }) {
   const [date, setDate] = useState({
-    from: new Date(2022, 0, 20),
-    to: addDays(new Date(2022, 0, 20), 20),
+    from: new Date(),
+    to: addDays(new Date(), 20),
   });
+
+  const handleDateSelect = (newDate) => {
+    setDate(newDate);
+    newDate; // Set date using setDate1 function
+  };
   return (
     <div className={cn("grid gap-10 ", className)}>
       <Popover>
@@ -491,7 +496,7 @@ export default function Date_Range({ className }) {
             mode="range"
             defaultMonth={date?.from}
             selected={date}
-            onSelect={setDate}
+            onSelect={handleDateSelect}
             numberOfMonths={2}
           />
         </PopoverContent>
@@ -503,6 +508,12 @@ export default function Date_Range({ className }) {
 export function DataTable({ columns, data, materials, instructors, programs }) {
   const [sorting, setSorting] = useState([]);
   const [columnFilters, setColumnFilters] = useState([]);
+  const [date1, setDate1] = useState({
+    from: new Date(),
+    to: addDays(new Date(), 20),
+  });
+
+  console.log(date1);
 
   const table = useReactTable({
     data,
@@ -544,20 +555,21 @@ export function DataTable({ columns, data, materials, instructors, programs }) {
     table.getColumn("uploaderName")?.setFilterValue(value);
   };
 
-  const handleComboBoxDateRangeChange = (value) => {
-    table.getColumn("uploadDate")?.setFilterValue(value);
+  const handleComboBoxDateRangeChange = (date1) => {
+    table.getColumn("uploadDate")?.setFilterValue();
+    console.log(date1);
   };
 
   return (
     <>
       <div
         className="
-        grid flex-col items-center py-4 space-y-4
+        grid flex-col items-center py-4 space-y-2
         sm:grid sm:flex-col sm:items-center sm:py-4 sm:space-y-4
         md:grid md:flex-col md:items-center md:py-4 md:space-y-4
         lg:grid lg:flex-col lg:items-center lg:py-4 lg:space-y-4
-        xl:flex-col xl:items-center xl:py-4 xl:space-x-0 xl:mt-16 xl:gap-x-10
-        2xl:flex-col 2xl:items-center 2xl:py-4 2xl:space-x-0 2xl:mt-16
+        xl:flex-col xl:items-center xl:py-4 xl:space-x-0 xl:gap-x-10
+        2xl:flex-col 2xl:items-center 2xl:py-2 2xl:space-x-0 
         "
       >
         <Input
@@ -567,12 +579,12 @@ export function DataTable({ columns, data, materials, instructors, programs }) {
             table.getColumn("filename")?.setFilterValue(event.target.value)
           }
           className="
-          max-w-full mt-10 bg-slate-50 border border-slate-400
+          max-w-full  bg-slate-50 border border-slate-400
           sm:max-w-full
           md:max-w-full  
           lg:max-w-lg  
           xl:max-w-xl     
-          2xl:max-w-3xl
+          2xl:max-w-3xl 
           "
         />
         <div
@@ -582,7 +594,7 @@ export function DataTable({ columns, data, materials, instructors, programs }) {
           md:grid md:grid-cols-3 md:grid-rows-2 md:w-full md:h-auto md:items-center md:justify-center md:text-center
           lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:w-full lg:h-auto lg:items-center lg:justify-center lg:text-center
           xl:flex xl:grid-cols-7 xl:gap-x-6 xl:w-full xl:h-auto xl:items-center xl:justify-center xl:text-center
-          2xl:flex 2xl:grid-cols-7 2xl:w-auto 2xl:gap-x-6
+          2xl:flex 2xl:grid-cols-7 2xl:w-auto 2xl:gap-x-6 2xl:h-auto
           "
         >
           <ComboboxPermission
@@ -608,10 +620,13 @@ export function DataTable({ columns, data, materials, instructors, programs }) {
             value={table.getColumn("filename")?.getFilterValue() ?? ""}
             onChange={handleComboBoxFileTypeChange}
           />
-          <Date_Range
-            value={table.getColumn("uploadDate")?.getFilterValue() ?? ""}
-            onChange={handleComboBoxDateRangeChange}
-          />
+          {/*  <Date_Range
+            value={date1 ?? "test"}
+            setDate1={setDate1}
+            onSelect={() => {
+              console.log("nagbago kana");
+            }}
+          /> */}
         </div>
       </div>
       <div className="rounded-md border">
@@ -678,7 +693,7 @@ export function DataTable({ columns, data, materials, instructors, programs }) {
           </TableBody>
         </Table>
       </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
+      <div className="flex items-center justify-end space-x-2 py-2">
         <Button
           variant="outline"
           size="sm"
