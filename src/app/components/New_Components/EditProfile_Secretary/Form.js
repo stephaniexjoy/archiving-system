@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
 import React from "react";
 
-export default function Form() {
+export default function Form({user}) {
   const { toast } = useToast();
 
   return (
@@ -40,13 +40,38 @@ export default function Form() {
       "
         >
           {[
-            { label: "Profile Photo", id: "picture", type: "file" },
-            { label: "Name", id: "name", type: "text" },
-            { label: "Age", id: "age", type: "text" },
-            { label: "Sex", id: "sex", type: "text" },
+            {
+              label: "Profile Photo",
+              id: "picture",
+              type: "file",
+              value: user.profile_photo_path ? user.profile_photo_path : "",
+            },
+            {
+              label: "Name",
+              id: "name",
+              type: "text",
+              value: user.name ? user.name : "",
+            },
+            {
+              label: "Age",
+              id: "age",
+              type: "text",
+              value: user.age ? user.age : "",
+            },
+            {
+              label: "Sex",
+              id: "sex",
+              type: "text",
+              value: user.sex ? user.sex : "",
+            },
+            {
+              label: "Designation",
+              id: "designation",
+              type: "text",
+              value: user.designation ? user.designation : "",
+            },
             /*  { label: "Employee No", id: "employeeNo", type: "text" }, */
             /*  { label: "Department", id: "department", type: "text" }, */
-            { label: "Designation", id: "designation", type: "text" },
             /*  { label: "Institutional Email", id: "email", type: "text" }, */
           ].map((field, index) => (
             <React.Fragment key={index}>
@@ -67,6 +92,7 @@ export default function Form() {
                 name={`${field.id}Input`}
                 id={field.id}
                 type={field.type}
+                value={field.value}
                 className="
           bg-slate-300 text-black text-[15px]
           sm:bg-slate-300 sm:text-black sm:text-[17px]

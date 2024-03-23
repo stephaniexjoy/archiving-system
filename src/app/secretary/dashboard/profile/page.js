@@ -138,7 +138,7 @@ async function page() {
           </div>
           <div className="flex flex-col items-center">
             <div className="bg-[#AD5606] rounded-lg mt-16">
-              <EditProfile_Dialog />
+              <EditProfile_Dialog user={user}/>
             </div>
             <div className="bg-[#AD5606] rounded-lg mt-5">
               <EditPrivacy_Dialog />

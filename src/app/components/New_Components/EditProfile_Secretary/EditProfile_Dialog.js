@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import React from "react";
 import Form from "./Form";
 
-function EditProfile_Dialog() {
+function EditProfile_Dialog({ user }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -33,7 +33,7 @@ function EditProfile_Dialog() {
         2xl:p-16 2xl:max-w-[50%] 2xl:max-h-[80%] 2xl:overflow-y-auto 2xl:rounded-lg 
         "
       >
-        <Form />
+        <Form user={user} />
       </DialogContent>
     </Dialog>
   );
