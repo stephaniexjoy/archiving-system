@@ -52,16 +52,7 @@ export const columns = [
       );
     },
   },
-  {
-    accessorKey: "fileRole",
-    header: "Permissions",
-    cell: ({ row }) => {
-      const privacy = row.getValue("fileRole");
-      const formatted = privacy === "All" ? "All" : "Secretary";
-      return <div className="">{formatted}</div>;
-    },
-    //{file.fileRole === "forall" ? "All" : "Secretary Only"}
-  },
+
   {
     accessorKey: "position",
     header: "Position",
