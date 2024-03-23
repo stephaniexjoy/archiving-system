@@ -638,6 +638,14 @@ export async function getUserInfo() {
   return user;
 }
 
+export async function getUserInfobyId(userId) {
+  const user = await db.user.findUnique({
+    where: { id: parseInt(userId) },
+  });
+  console.log(user);
+  return user;
+}
+
 export async function forgotPassword(email) {
   try {
     const findUser = await db.user.findUnique({
@@ -793,7 +801,7 @@ export async function adminUpdateUser(formData, userId) {
   } else {
     return "Password does not match";
   }
-  revalidatePath('/superadmin/dashboard/manageuser')
+  revalidatePath("/superadmin/dashboard/manageuser");
 }
 
 export async function userUpdateUser(formData) {
