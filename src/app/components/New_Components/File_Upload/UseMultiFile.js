@@ -134,7 +134,7 @@ export function UseMultiFile({ setUrls, setFileInfo, setHasFile }) {
     } else {
       setHasFile(true);
     }
-  }, [fileStates, addedFiles]);
+  }, [fileStates]);
   return (
     <div>
       <MultiFileDropzone

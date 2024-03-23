@@ -56,7 +56,7 @@ const PDFcontainer = ({ userId }) => {
       >
         <div id="myElementId">
           <div>
-            <PDF userId={userId} />
+            <PDF />
           </div>
         </div>
       </div>
