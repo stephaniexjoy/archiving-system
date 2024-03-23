@@ -7,6 +7,7 @@ import EditPrivacy_Dialog from "../components/New_Components/Edit_Privacy_Dialog
 import UploadMaterial_Dialog from "../components/New_Components/UploadMaterial_Dialog/UploadMaterial_Dialog";
 import Notification_Panel from "../components/Notifications/Notification_Panel";
 import Image from "next/image";
+import RedirectButton from "../components/New_Components/Buttons/Dashboard/RedirectButton";
 
 export default async function dashboard() {
   const session = await getServerSession(AuthOptions);
@@ -128,7 +129,6 @@ export default async function dashboard() {
           xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-[25%] xl:h-[360px] xl:mt-0 xl:rounded-lg
           2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[320px] 2xl:h-[360px] 2xl:rounded-lg"
         >
-
           <CalendarComponent />
         </div>
 
@@ -168,14 +168,15 @@ export default async function dashboard() {
           </div>
           <div
             className="
-            text-center bg-[#5B0505] text-white w-[120%] h-[80px] p-4 rounded-lg 
-            sm:text-center sm:bg-[#5B0505] sm:text-white sm:w-[150%] sm:h-[80px] sm:p-4 sm:rounded-lg sm:mt-4
-            md:text-center md:bg-[#5B0505] md:text-white md:w-[170%] md:h-[80px] md:p-4 md:rounded-lg md:mt-4
-            lg:text-center lg:bg-[#5B0505] lg:text-white lg:w-[180%] lg:h-[80px] lg:p-4 lg:rounded-lg lg:mt-4
-            xl:text-center xl:bg-[#5B0505] xl:text-white xl:w-[480px] xl:h-[80px] xl:p-4 xl:rounded-lg xl:mt-4
-            2xl:mt-6 2xl:text-center 2xl:bg-[#5B0505] 2xl:text-white 2xl:w-[480px] 2xl:h-[90px] 2xl:p-4 2xl:mx-4 2xl:rounded-lg"
+            text-center bg-[#5B0505] text-white w-[120%] h-full p-4 rounded-lg 
+            sm:text-center  sm:text-white sm:w-[150%] sm:h-[80px] sm:p-4 sm:rounded-lg sm:mt-4
+            md:text-center  md:text-white md:w-[170%] md:h-[80px] md:p-4 md:rounded-lg md:mt-4
+            lg:text-center  lg:text-white lg:w-[180%] lg:h-[80px] lg:p-4 lg:rounded-lg lg:mt-4
+            xl:text-center  xl:text-white xl:w-[480px] xl:h-[80px] xl:p-4 xl:rounded-lg xl:mt-4
+             2xl:text-center  2xl:text-white 2xl:w-[480px] 2xl:h-[90px]  2xl:rounded-lg"
           >
-            <UploadMaterial_Dialog sessionUser={session.user} />
+            {/*  <UploadMaterial_Dialog sessionUser={session.user} /> */}
+            <RedirectButton />
           </div>
         </div>
       </div>
