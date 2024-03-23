@@ -617,7 +617,7 @@ export function DataTable({ columns, data, materials, instructors, programs }) {
             instructors={instructors}
           />
           <ComboboxFileType
-            value={table.getColumn("filename")?.getFilterValue() ?? ""}
+            value={table.getColumn("fileType")?.getFilterValue() ?? ""}
             onChange={handleComboBoxFileTypeChange}
           />
           {/*  <Date_Range
