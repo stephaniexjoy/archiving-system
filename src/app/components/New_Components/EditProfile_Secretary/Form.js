@@ -6,8 +6,18 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
 import React from "react";
 
-export default function Form({user}) {
+export default function Form({ user }) {
   const { toast } = useToast();
+
+  const url =
+    "https://files.edgestore.dev/kovz7t43lyztl989/publicImages/_public/5f9be7e5-b3fd-475f-86ce-eeb481696847.png";
+
+  // Split the URL by '/' to get an array of segments
+  const segments = url.split("/");
+
+  // The last segment contains the file name
+  const fileName = segments[segments.length - 1];
+  console.log(fileName);
 
   return (
     <>
@@ -44,7 +54,6 @@ export default function Form({user}) {
               label: "Profile Photo",
               id: "picture",
               type: "file",
-              value: user.profile_photo_path ? user.profile_photo_path : "",
             },
             {
               label: "Name",
