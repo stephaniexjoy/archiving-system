@@ -84,41 +84,25 @@ export default function Form({ user }) {
                 <Label
                   htmlFor="role"
                   className="font-semibold w-[85%] text-[25px]"
+                  hidden={true}
                 >
                   Role:
                 </Label>
-                <select
-                  name="updRole"
-                  className="bg-slate-300 w-full font-semibold text-[25px]"
-                  value={user.position}
-                  disabled={true}
-                >
-                  <option value="">Select Role</option>
-                  <option value="Faculty">Faculty</option>
-                  <option value="Secretary">Secretary</option>
-                  <option value="Admin">Admin</option>
-                </select>
+                <input type="hidden" name="updRole" value={user.position} />
               </div>
               <div className="flex items-center gap-4">
                 <Label
                   htmlFor="category"
                   className="font-semibold w-[85%] text-[25px]"
+                  hidden={true}
                 >
                   Category:
                 </Label>
-                <select
+                <input
+                  type="hidden"
                   name="updDesignation"
-                  className="bg-slate-300 w-full font-semibold text-[25px]"
-                  value={user.designation}
-                  disabled={true}
-                >
-                  <option value="">Select category</option>
-                  <option value="Associate Dean">Associate Dean</option>
-                  <option value="Secretary">Secretary</option>
-                  <option value="Faculty">Faculty</option>
-                  <option value="Unit Head">Unit Head</option>
-                  <option value="Coordinator">Coordinator</option>
-                </select>
+                  value={user.position}
+                />
               </div>
               <div className="flex items-center">
                 <Label
@@ -412,7 +396,7 @@ export default function Form({ user }) {
                   COMPLETED:
                 </Label>
                 <Input
-                  name="name"
+                  name="ppc"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
                   value={user.education.presented_papers_completed}
@@ -449,7 +433,7 @@ export default function Form({ user }) {
                   PUBLISHED:
                 </Label>
                 <Input
-                  name="name"
+                  name="ppp"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
                   value={user.education.presented_papers_published}
@@ -493,7 +477,7 @@ export default function Form({ user }) {
                   PRESENTED:
                 </Label>
                 <Input
-                  name="papersUpd"
+                  name="pppresent"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
                   value={user.education.presented_papers_presented}

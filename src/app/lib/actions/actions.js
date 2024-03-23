@@ -118,10 +118,12 @@ export async function updateUser(formData) {
   const expUpd = formData.get("experUpd");
   const pastDesigUpd = formData.get("desigUpd");
   const subjectsUpd = formData.get("subjectUpd");
-  const presPaperUpd = formData.get("papersUpd");
   const extProjUpd = formData.get("extUpd");
+  const ppc = formData.get("ppc");
+  const ppp = formData.get("ppp");
+  const pppresent = formData.get("pppresent");
 
-  console.log(profilePic);
+  console.log(roleUpd, designationUpd);
 
   let profilePhotoPath = null;
 
@@ -160,7 +162,10 @@ export async function updateUser(formData) {
   if (expUpd) userDataToUpdate.education.experience = expUpd;
   if (pastDesigUpd) userDataToUpdate.education.past_designation = pastDesigUpd;
   if (subjectsUpd) userDataToUpdate.education.subjects_handled = subjectsUpd;
-  if (presPaperUpd) userDataToUpdate.education.presented_papers = presPaperUpd;
+  if (ppc) userDataToUpdate.education.presented_papers_completed = ppc;
+  if (ppp) userDataToUpdate.education.presented_papers_published = ppp;
+  if (pppresent)
+    userDataToUpdate.education.presented_papers_presented = pppresent;
   if (extProjUpd) userDataToUpdate.education.extension_projs = extProjUpd;
 
   const [updUser, updUser_Educ] = await db.$transaction([
@@ -187,7 +192,9 @@ export async function updateUser(formData) {
             experience: expUpd,
             past_designation: pastDesigUpd,
             subjects_handled: subjectsUpd,
-            presented_papers: presPaperUpd,
+            presented_papers_completed: ppc,
+            presented_papers_published: ppp,
+            presented_papers_presented: pppresent,
             extension_projs: extProjUpd,
           },
         },
