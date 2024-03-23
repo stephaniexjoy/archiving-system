@@ -270,7 +270,9 @@ async function page() {
             2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[70%] 2xl:h-80 2xl:mt-0 2xl:-ml-4 2xl:overflow-hidden
             "
           >
-            <CalendarComponent />
+            <div className="mt-32 2xl:mt-40">
+              <CalendarComponent />
+            </div>
           </div>
           <div
             className="
