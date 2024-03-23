@@ -51,21 +51,31 @@ const PDF = () => {
 
             <div className="flex align-center width-100 auto overflow-hidden">
               <div className="shrink-0 mr-[10px]">
-                <Image
-                  src="/profile.jpg"
-                  alt="Image"
-                  className="max-width-100 height-400 border border-solid border-black p-1 mt-10 ml-24 object-fit-fill"
-                  width={474}
-                  height={474}
-                />
+                {user.profile_photo_path ? (
+                  <Image
+                    src={user.profile_photo_path}
+                    alt="Image"
+                    className="max-width-100 height-400 border border-solid border-black p-1 mt-10 ml-24 object-fit-fill"
+                    width={474}
+                    height={474}
+                  />
+                ) : (
+                  <Image
+                    src="/profile.jpg"
+                    alt="Image"
+                    className="max-width-100 height-400 border border-solid border-black p-1 mt-10 ml-24 object-fit-fill"
+                    width={474}
+                    height={474}
+                  />
+                )}
               </div>
               <div className="relative left-[30px] top-[70px] text-black text-[25px] font-[Calibri]">
                 <div className="font-bold text-[50px]">NAME:{user.name}</div>
                 <div>Position: {user.position}</div>
                 <div>Designation: {user.designation}</div>
-                <div>Specialization: </div>
-                <div>Eligibility/Professional License: </div>
-                <div>Certifications: </div>
+                <div>Specialization: {user.specialization}</div>
+                <div>Eligibility/Professional License:{user.license} </div>
+                <div>Certifications: {user.certifiations}</div>
               </div>
             </div>
 
@@ -77,26 +87,26 @@ const PDF = () => {
               <tbody>
                 <tr>
                   <td className="text-left text-[25px] font-[Century Gothic] text-black w-1/2">
-                    Baccalaureate Degree:
+                    Baccalaureate Degree: {user.education.bacDegree}
                   </td>
                   <td className="text-left text-[25px] font-[Century Gothic] text-black w-1/2">
-                    School:
-                  </td>
-                </tr>
-                <tr>
-                  <td className="text-left text-[25px] font-[Century Gothic] text-black w-1/2">
-                    Master’s Degree:
-                  </td>
-                  <td className="text-left text-[25px] font-[Century Gothic] text-black w-1/2">
-                    School:
+                    School:{user.education.bacSchool}
                   </td>
                 </tr>
                 <tr>
                   <td className="text-left text-[25px] font-[Century Gothic] text-black w-1/2">
-                    Doctorate Degree:
+                    Master’s Degree:{user.education.masDegree}
                   </td>
                   <td className="text-left text-[25px] font-[Century Gothic] text-black w-1/2">
-                    School:
+                    School:{user.education.masSchool}
+                  </td>
+                </tr>
+                <tr>
+                  <td className="text-left text-[25px] font-[Century Gothic] text-black w-1/2">
+                    Doctorate Degree:{user.education.docDegree}
+                  </td>
+                  <td className="text-left text-[25px] font-[Century Gothic] text-black w-1/2">
+                    School:{user.education.docSchool}
                   </td>
                 </tr>
               </tbody>
@@ -106,16 +116,24 @@ const PDF = () => {
               SEMINARS AND TRAININGS ATTENDED
             </div>
 
-            <div className="relative top-[45px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-80"></div>
+            <div className="relative top-[45px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-80">
+              {user.education.seminars_trainings}
+            </div>
 
             <div className="relative top-[50px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
               JOB EXPERIENCE
             </div>
 
-            <div className="relative top-[55px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-60"></div>
+            <div className="relative top-[55px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-60">
+              {user.education.experience}
+            </div>
 
             <div className="relative top-[50px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
               SUBJECTS HANDLED (DESCRIPTIVE TITLE)
+            </div>
+
+            <div className="relative top-[55px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-60">
+              {user.education.subjects_handled}
             </div>
 
             <table className="w-[84%] mt-[5em] ml-[105px]">

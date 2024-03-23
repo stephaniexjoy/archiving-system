@@ -649,6 +649,7 @@ export async function getUserInfo() {
 export async function getUserInfobyId(userId) {
   const user = await db.user.findUnique({
     where: { id: parseInt(userId) },
+    include:{education:true}
   });
   console.log(user);
   return user;

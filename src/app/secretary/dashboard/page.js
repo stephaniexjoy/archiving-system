@@ -159,7 +159,7 @@ async function page() {
             md:mt-5 md:text-3xl md:font-semibold
             lg:mt-5 lg:text-4xl lg:font-semibold
             xl:mt-12 xl:text-3xl xl:font-semibold
-            2xl:mt-12 2xl:text-4xl 2xl:font-semibold
+            2xl:mt-2 2xl:text-4xl 2xl:font-semibold
           "
           >
             NO. OF FACULTY
