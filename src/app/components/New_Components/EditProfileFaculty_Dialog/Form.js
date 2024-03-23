@@ -38,7 +38,7 @@ export default function Form({ user }) {
                       width={474}
                       height={474}
                     />
-                     <input
+                    <input
                       type="file"
                       id="profilePictureInput"
                       name="profilepic"
@@ -81,7 +81,7 @@ export default function Form({ user }) {
                 />
               </div>
               <div className="flex items-center gap-4">
-                {/*   <Label
+                <Label
                   htmlFor="role"
                   className="font-semibold w-[85%] text-[25px]"
                 >
@@ -90,15 +90,17 @@ export default function Form({ user }) {
                 <select
                   name="updRole"
                   className="bg-slate-300 w-full font-semibold text-[25px]"
+                  value={user.position}
+                  disabled={true}
                 >
                   <option value="">Select Role</option>
                   <option value="Faculty">Faculty</option>
                   <option value="Secretary">Secretary</option>
                   <option value="Admin">Admin</option>
-                </select> */}
+                </select>
               </div>
               <div className="flex items-center gap-4">
-                {/* <Label
+                <Label
                   htmlFor="category"
                   className="font-semibold w-[85%] text-[25px]"
                 >
@@ -107,6 +109,8 @@ export default function Form({ user }) {
                 <select
                   name="updDesignation"
                   className="bg-slate-300 w-full font-semibold text-[25px]"
+                  value={user.designation}
+                  disabled={true}
                 >
                   <option value="">Select category</option>
                   <option value="Associate Dean">Associate Dean</option>
@@ -114,7 +118,7 @@ export default function Form({ user }) {
                   <option value="Faculty">Faculty</option>
                   <option value="Unit Head">Unit Head</option>
                   <option value="Coordinator">Coordinator</option>
-                </select> */}
+                </select>
               </div>
               <div className="flex items-center">
                 <Label
