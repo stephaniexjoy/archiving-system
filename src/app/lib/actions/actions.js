@@ -144,6 +144,7 @@ export async function updateUser(formData) {
     designation: designationUpd,
     specialization: specUpd,
     license: licenseUpd,
+    certifications: certUpd,
     profile_photo_path: profilePhotoPath,
     education: {},
   };
@@ -162,7 +163,7 @@ export async function updateUser(formData) {
   if (presPaperUpd) userDataToUpdate.education.presented_papers = presPaperUpd;
   if (extProjUpd) userDataToUpdate.education.extension_projs = extProjUpd;
 
-  /*  const [updUser, updUser_Educ] = await db.$transaction([
+  const [updUser, updUser_Educ] = await db.$transaction([
     db.user.update({
       where: { id: sessionUser.user.id },
       data: {
@@ -213,7 +214,7 @@ export async function updateUser(formData) {
   if (updUser) {
     console.log(updUser, updUser_Educ);
     return updUser;
-  } */
+  }
   console.log(userDataToUpdate);
 }
 
