@@ -86,7 +86,7 @@ export default async function profile() {
             </div>
             <div>Position: {user.position}</div>
             <div>Eligibility/Professional License: {user.license}</div>
-            <div>School: {user.school}</div>
+            <div>School: {user.education.school}</div>
           </div>
 
           <div
@@ -142,18 +142,18 @@ export default async function profile() {
             {[
               {
                 degree: "Baccalaureate Degree",
-                school: user.bacSchool,
-                degreeInfo: user.bacDegree,
+                school: user.education.bacSchool,
+                degreeInfo: user.education.bacDegree,
               },
               {
                 degree: "Master's Degree",
-                school: user.masSchool,
-                degreeInfo: user.masDegree,
+                school: user.education.masSchool,
+                degreeInfo: user.education.masDegree,
               },
               {
                 degree: "Doctorate Degree",
-                school: user.docSchool,
-                degreeInfo: user.doccDegree,
+                school: user.education.docSchool,
+                degreeInfo: user.education.docDegree,
               },
             ].map((item, index) => (
               <React.Fragment key={index}>
@@ -219,17 +219,19 @@ export default async function profile() {
               "
             >
               SEMINARS AND TRAININGS ATTENDED
-              <div>{user.seminars_trainings}</div>
+              <div className="text-black">
+                {user.education.seminars_trainings}
+              </div>
             </div>
             <div className="top-[450px] font-semibold text-[20px] bg-transparent [backdrop-filter:blur(4px)] text-white text-center w-[20px] h-[30px]"></div>
             <div
               className="
               ml-0 top-[420px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]
-              2xl:ml-16 2xl:top-[420px] 2xl:font-semibold 2xl:text-[20px] 2xl:bg-[#8F8F8F] 2xl:[backdrop-filter:blur(4px)] 2xl:text-white 2xl:text-center 2xl:w-full 2xl:h-[30px]
+              2xl:ml-16 2xl:top-[420px] 2xl:font-semibold 2xl:text-[20px] 2xl:bg-[#8F8F8F] 2xl:[backdrop-filter:blur(4px)] 2xl:text-center 2xl:w-full 2xl:h-[30px]
               "
             >
               JOB EXPERIENCE
-              <div>{user.experience}</div>
+              <div className="text-black">{user.education.experience}</div>
             </div>
           </div>
         </div>
@@ -237,14 +239,15 @@ export default async function profile() {
           <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
             SUBJECTS HANDLED (DESCRIPTIVE TITLE)
           </h1>
+          <div className="text-black">{user.education.subject_handled}</div>
         </div>
-        <div>{user.subject_handled}</div>
+        <div className="text-black">{user.education.subject_handled}</div>
         <div>
           <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
             PAST DESIGNATIONS
           </h1>
         </div>
-        <div>{user.past_designation}</div>
+        <div className="text-black">{user.education.past_designation}</div>
         <div>
           <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center w-full h-[30px]">
             PRESENTED PAPERS
@@ -341,7 +344,7 @@ export default async function profile() {
           >
             EXTENSIONS PROJECTS
           </h1>
-          <div className="h-36">{user.extension_projs}</div>
+          <div className="h-36">{user.education.extension_projs}</div>
         </div>
         <div>
           <div
