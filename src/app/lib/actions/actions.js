@@ -138,7 +138,31 @@ export async function updateUser(formData) {
 
   console.log(profilePhotoPath);
 
-  const [updUser, updUser_Educ] = await db.$transaction([
+  const userDataToUpdate = {
+    name: nameUpd,
+    position: roleUpd,
+    designation: designationUpd,
+    specialization: specUpd,
+    license: licenseUpd,
+    profile_photo_path: profilePhotoPath,
+    education: {},
+  };
+
+  if (schoolUpd) userDataToUpdate.education.school = schoolUpd;
+  if (bacDegUpd) userDataToUpdate.education.bacDegree = bacDegUpd;
+  if (bacSchlUpd) userDataToUpdate.education.bacSchool = bacSchlUpd;
+  if (masDegUpd) userDataToUpdate.education.masDegree = masDegUpd;
+  if (masSchlUpd) userDataToUpdate.education.masSchool = masSchlUpd;
+  if (docDegUpd) userDataToUpdate.education.docDegree = docDegUpd;
+  if (docSchlUpd) userDataToUpdate.education.docSchool = docSchlUpd;
+  if (seminarsUpd) userDataToUpdate.education.seminars_trainings = seminarsUpd;
+  if (expUpd) userDataToUpdate.education.experience = expUpd;
+  if (pastDesigUpd) userDataToUpdate.education.past_designation = pastDesigUpd;
+  if (subjectsUpd) userDataToUpdate.education.subjects_handled = subjectsUpd;
+  if (presPaperUpd) userDataToUpdate.education.presented_papers = presPaperUpd;
+  if (extProjUpd) userDataToUpdate.education.extension_projs = extProjUpd;
+
+  /*  const [updUser, updUser_Educ] = await db.$transaction([
     db.user.update({
       where: { id: sessionUser.user.id },
       data: {
@@ -189,7 +213,8 @@ export async function updateUser(formData) {
   if (updUser) {
     console.log(updUser, updUser_Educ);
     return updUser;
-  }
+  } */
+  console.log(userDataToUpdate);
 }
 
 export async function uploadFile(formData, sessionUser) {
@@ -768,6 +793,7 @@ export async function adminUpdateUser(formData, userId) {
   } else {
     return "Password does not match";
   }
+  revalidatePath('/superadmin/dashboard/manageuser')
 }
 
 export async function userUpdateUser(formData) {

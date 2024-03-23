@@ -37,9 +37,7 @@ async function page() {
 
   return (
     <div className="flex flex-col w-screen h-screen overflow-y-auto">
-      <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center">
-       
-      </div>
+      <div className="bg-[#AD5606] w-[100%] h-[12%] flex items-center justify-center"></div>
 
       <div
         className="
@@ -89,7 +87,6 @@ async function page() {
           width={992}
           height={44}
         />
-
       </div>
 
       <div>
@@ -198,18 +195,20 @@ async function page() {
             </p>
           </div>
           <div
-              className="
+            className="
               text-center bg-[#B4ABAB] text-[#5B0505] w-auto h-64 rounded-lg
               sm:text-center sm:bg-[#B4ABAB] sm:text-[#5B0505] sm:w-auto sm:h-[250px] sm:mt-4 sm:rounded-lg
-              md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-auto md:h-64 md:mt-4 md:rounded-lg
-              lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-auto lg:h-64 lg:mt-4 lg:rounded-lg 
-              xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-auto xl:h-64 xl:mt-0 xl:rounded-lg xl:-ml-8
-              2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-auto 2xl:h-[350px] 2xl:ml-4 2xl:-mt-8
+              md:text-center md:bg-[#B4ABAB] md:text-[#5B0505] md:w-auto md:h-64 md:rounded-lg
+              lg:text-center lg:bg-[#B4ABAB] lg:text-[#5B0505] lg:w-auto lg:h-64 lg:rounded-lg 
+              xl:text-center xl:bg-[#B4ABAB] xl:text-[#5B0505] xl:w-auto xl:h-64 xl:rounded-lg 
+              2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-auto 2xl:h-[350px] 2xl:ml-4 
               "
-            >
-              <CalendarComponent />
+          >
+            <div className="mt-32 md:mt-36 lg:mt-28 xl:mt-32 2xl:mt-44">
+            <CalendarComponent />
             </div>
-            {/* <div
+          </div>
+          {/* <div
               className="
               w-auto h-auto items-center 
               sm:w-auto sm:h-auto sm:items-center sm:mt-4
