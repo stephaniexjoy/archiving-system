@@ -119,7 +119,6 @@ export function UseMultiFile({ setUrls, setFileInfo, setHasFile }) {
 
     getUrls(results, setUrls);
     console.log("All files uploaded successfully:", results);
-  
   };
 
   const getUrls = (results, setUrls) => {
@@ -135,7 +134,7 @@ export function UseMultiFile({ setUrls, setFileInfo, setHasFile }) {
     } else {
       setHasFile(true);
     }
-  }, [fileStates, addedFiles, setHasFile]);
+  }, [fileStates, addedFiles]);
   return (
     <div>
       <MultiFileDropzone
