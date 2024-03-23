@@ -355,8 +355,7 @@ export default async function profile() {
             "
           >
             <div className="flex items-center">
-              {/*  */}
-              <EditProfileFaculty_Dialog />
+              <EditProfileFaculty_Dialog user={user} />
             </div>
             <div className="flex items-center"></div>
             <div className="flex items-center">

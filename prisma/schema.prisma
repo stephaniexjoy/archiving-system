@@ -73,21 +73,23 @@ model User {
 }
 
 model User_Education {
-  id                 Int     @id @default(autoincrement())
-  userId             Int     @unique
-  school             String?
-  bacDegree          String?
-  bacSchool          String?
-  masDegree          String?
-  masSchool          String?
-  docDegree          String?
-  docSchool          String?
-  seminars_trainings String?
-  experience         String?
-  past_designation   String?
-  subjects_handled   String?
-  presented_papers   String?
-  extension_projs    String?
+  id                         Int     @id @default(autoincrement())
+  userId                     Int     @unique
+  school                     String?
+  bacDegree                  String?
+  bacSchool                  String?
+  masDegree                  String?
+  masSchool                  String?
+  docDegree                  String?
+  docSchool                  String?
+  seminars_trainings         String?
+  experience                 String?
+  past_designation           String?
+  subjects_handled           String?
+  presented_papers_completed String?
+  presented_papers_published String?
+  presented_papers_presented String?
+  extension_projs            String?
 
   // Define the relationship to the User model
   User User @relation(fields: [userId], references: [id])

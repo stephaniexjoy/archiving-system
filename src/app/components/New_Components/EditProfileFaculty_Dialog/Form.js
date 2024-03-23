@@ -5,8 +5,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
 import Image from "next/image";
+import { userAgent } from "next/server";
 
-export default function Form() {
+export default function Form({ user }) {
   const { toast } = useToast();
   return (
     <>
@@ -28,20 +29,40 @@ export default function Form() {
             {/* First column for the image */}
             <div>
               <label htmlFor="profilePictureInput">
-                <Image
-                  className="cursor-pointer rounded-full w-full md:w-44 lg:w-96 xl:w-96 2xl:w-60 2xl:ml-16"
-                  alt="Profile"
-                  src="/profile.jpg"
-                  width={474}
-                  height={474}
-                />
+                {user.profile_photo_path ? (
+                  <>
+                    <Image
+                      className="cursor-pointer rounded-full w-full md:w-44 lg:w-96 xl:w-96 2xl:w-60 2xl:ml-16"
+                      alt="Profile"
+                      src={user.profile_photo_path}
+                      width={474}
+                      height={474}
+                    />
+                     <input
+                      type="file"
+                      id="profilePictureInput"
+                      name="profilepic"
+                      style={{ display: "none" }}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <Image
+                      className="cursor-pointer rounded-full w-full md:w-44 lg:w-96 xl:w-96 2xl:w-60 2xl:ml-16"
+                      alt="Profile"
+                      src="/profile.jpg"
+                      width={474}
+                      height={474}
+                    />
+                    <input
+                      type="file"
+                      id="profilePictureInput"
+                      name="profilepic"
+                      style={{ display: "none" }}
+                    />
+                  </>
+                )}
               </label>
-              <input
-                type="file"
-                id="profilePictureInput"
-                name="profilepic"
-                style={{ display: "none" }}
-              />
             </div>
             {/* Second column for the form fields */}
             <div className="flex flex-col gap-4 md:col-span-2">
@@ -56,10 +77,11 @@ export default function Form() {
                   name="updName"
                   type="text"
                   className="bg-slate-300 w-[90%] font-semibold text-[25px]"
+                  value={user.name}
                 />
               </div>
               <div className="flex items-center gap-4">
-                <Label
+                {/*   <Label
                   htmlFor="role"
                   className="font-semibold w-[85%] text-[25px]"
                 >
@@ -73,10 +95,10 @@ export default function Form() {
                   <option value="Faculty">Faculty</option>
                   <option value="Secretary">Secretary</option>
                   <option value="Admin">Admin</option>
-                </select>
+                </select> */}
               </div>
               <div className="flex items-center gap-4">
-                <Label
+                {/* <Label
                   htmlFor="category"
                   className="font-semibold w-[85%] text-[25px]"
                 >
@@ -92,7 +114,7 @@ export default function Form() {
                   <option value="Faculty">Faculty</option>
                   <option value="Unit Head">Unit Head</option>
                   <option value="Coordinator">Coordinator</option>
-                </select>
+                </select> */}
               </div>
               <div className="flex items-center">
                 <Label
@@ -105,6 +127,7 @@ export default function Form() {
                   name="updLicense"
                   type="text"
                   className="bg-slate-300 w-full text-[25px]"
+                  value={user.license}
                 />
               </div>
             </div>
@@ -125,6 +148,7 @@ export default function Form() {
                 name="updSchool"
                 type="text"
                 className="ml-[19%] bg-slate-300 w-[1100px] text-[25px]"
+                value={user.education.school}
               />
             </div>
             <div className="mt-4 flex flex-row items-center">
@@ -141,6 +165,7 @@ export default function Form() {
                 name="updSpec"
                 type="text"
                 className="ml-[13%] bg-slate-300 w-[1100px] text-[25px]"
+                value={user.specialization}
               />
             </div>
             <div className="mt-4 flex flex-row items-center">
@@ -157,6 +182,7 @@ export default function Form() {
                 name="updCert"
                 type="text"
                 className="ml-[13.3%] bg-slate-300 w-[1100px] text-[20px]"
+                value={user.certifications}
               />
             </div>
           </div>
@@ -194,6 +220,7 @@ export default function Form() {
               name="updBacDeg"
               type="text"
               className="ml-[10%] bg-slate-300 w-[470px] text-[25px]"
+              value={user.education.bacDegree}
             />
             <Label
               htmlFor="school"
@@ -213,6 +240,7 @@ export default function Form() {
               name="updBacDegSchl"
               type="text"
               className="ml-[1%] bg-slate-300 w-[470px] text-[25px]"
+              value={user.education.bacSchool}
             />
           </div>
           <div className="mt-4 flex flex-row items-center">
@@ -233,6 +261,7 @@ export default function Form() {
               name="updMasDeg"
               type="text"
               className="ml-[11%] bg-slate-300 w-[470px] text-[25px]"
+              value={user.education.masDegree}
             />
             <Label
               htmlFor="school"
@@ -252,6 +281,7 @@ export default function Form() {
               name="updMasDegSchl"
               type="text"
               className="ml-[1%] bg-slate-300 w-[470px] text-[25px]"
+              value={user.education.masSchool}
             />
           </div>
           <div className="mt-4 flex flex-row items-center">
@@ -272,6 +302,7 @@ export default function Form() {
               name="updDocDeg"
               type="text"
               className="ml-[10%] bg-slate-300 w-[470px] text-[25px]"
+              value={user.education.docDegree}
             />
             <Label
               htmlFor="school"
@@ -290,6 +321,7 @@ export default function Form() {
               name="updDocDegSchl"
               type="text"
               className="ml-[1%] bg-slate-300 w-[465px] text-[25px]"
+              value={user.education.docSchool}
             />
           </div>
         </div>
@@ -314,6 +346,7 @@ export default function Form() {
                   name="seminarsUpd"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
+                  value={user.education.seminars_trainings}
                 />
               </div>
               <div className="flex flex-col items-center ml-36">
@@ -334,6 +367,7 @@ export default function Form() {
                   name="subjectUpd"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
+                  value={user.education.subjects_handled}
                 />
               </div>
             </div>
@@ -356,6 +390,7 @@ export default function Form() {
                   name="experUpd"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
+                  value={user.education.experience}
                 />
               </div>
               <div className="flex flex-col mt-8 ml-36">
@@ -376,6 +411,7 @@ export default function Form() {
                   name="name"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
+                  value={user.education.presented_papers_completed}
                 />
               </div>
             </div>
@@ -398,6 +434,7 @@ export default function Form() {
                   name="desigUpd"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
+                  value={user.education.past_designation}
                 />
               </div>
               <div className="flex flex-col mt-8 ml-36">
@@ -411,6 +448,7 @@ export default function Form() {
                   name="name"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
+                  value={user.education.presented_papers_published}
                 />
               </div>
             </div>
@@ -433,6 +471,7 @@ export default function Form() {
                   name="extUpd"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
+                  value={user.education.extension_projs}
                 />
               </div>
               <div className="flex flex-col mt-8 ml-36">
@@ -453,6 +492,7 @@ export default function Form() {
                   name="papersUpd"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
+                  value={user.education.presented_papers_presented}
                 />
               </div>
             </div>
