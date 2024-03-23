@@ -116,16 +116,24 @@ const PDF = () => {
               SEMINARS AND TRAININGS ATTENDED
             </div>
 
-            <div className="relative top-[45px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-80"></div>
+            <div className="relative top-[45px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-80">
+              {user.education.seminars_trainings}
+            </div>
 
             <div className="relative top-[50px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
               JOB EXPERIENCE
             </div>
 
-            <div className="relative top-[55px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-60"></div>
+            <div className="relative top-[55px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-60">
+              {user.education.experience}
+            </div>
 
             <div className="relative top-[50px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
               SUBJECTS HANDLED (DESCRIPTIVE TITLE)
+            </div>
+
+            <div className="relative top-[55px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-60">
+              {user.education.subjects_handled}
             </div>
 
             <table className="w-[84%] mt-[5em] ml-[105px]">
