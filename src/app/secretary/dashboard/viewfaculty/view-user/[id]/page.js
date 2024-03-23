@@ -12,28 +12,6 @@ const page = async ({ params }) => {
     <div className="flex flex-col w-screen h-screen items-center overflow-y-auto bg-slate-50">
       <div
         className="
-        bg-[#AD5606] w-[100%] h-[7%] flex items-center justify-center
-        2xl:bg-[#AD5606] 2xl:w-[100%] 2xl:h-[12%] 2xl:flex 2xl:items-center 2xl:justify-center
-        "
-      >
-        <Image
-          className="
-          w-[60%] h-auto object-cover flex items-center justify-center
-          sm:w-[45%] sm:h-auto sm:object-cover sm:flex sm:items-center sm:justify-center
-          md:w-[40%] md:h-auto md:object-cover md:flex md:items-center md:justify-center
-          lg:w-[30%] lg:h-auto lg:object-cover lg:flex lg:items-center lg:justify-center
-          xl:w-[25%] xl:h-auto xl:object-cover xl:flex xl:items-center xl:justify-center
-          2xl:w-[30%] 2xl:h-auto 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center
-          "
-          alt="E-Archiving System"
-          src="/photos/E-Archiving System.png"
-          width={2125}
-          height={499}
-        />
-      </div>
-
-      <div
-        className="
         w-full overflow-auto overflow-x-auto h-auto p-4 max-w-md
         sm:max-w-xl sm:overflow-x-auto sm:w-full sm:h-auto sm:p-4
         md:overflow-x-auto md:w-full md:h-auto md:p-4
@@ -195,7 +173,7 @@ const page = async ({ params }) => {
                     {item.degreeInfo}
                   </div>
                 </div>
-                <div className="flex flex-col"> 
+                <div className="flex flex-col">
                   <div
                     className="
                     font-semibold text-[15px] text-black mb-2
@@ -268,7 +246,7 @@ const page = async ({ params }) => {
               xl:table xl:w-full
               2xl:table 2xl:w-full
               "
-              >
+            >
               <thead>
                 <tr>
                   <th className="border border-black bg-[#D7D4D4] backdrop-blur-[4px] font-semibold text-[20px] text-white text-center w-1/3 h-[30px]">
