@@ -536,7 +536,7 @@ export function DataTable({ columns, data, materials, instructors, programs }) {
   };
 
   const handleComboBoxFileTypeChange = (value) => {
-    table.getColumn("filename")?.setFilterValue(value);
+    table.getColumn("fileType")?.setFilterValue(value);
   };
 
   const handleComboBoxPermissionChange = (value) => {
