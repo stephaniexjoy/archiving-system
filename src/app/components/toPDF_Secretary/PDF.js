@@ -29,8 +29,8 @@ const PDF = () => {
     return (
       <>
         {loading === false && user && (
-          <div className="w-full max-w-screen mx-auto h-auto bg-white border-gray-800 border-collapse">
-            <div className="w-full margin-auto">
+          <div className="w-full max-w-screen mx-auto h-auto bg-white border-gray-800 border-collapse relative">
+          <div className="w-full margin-auto">
               <Image
                 className="w-full h-[300px] items-center"
                 src="/header.jpg"
@@ -43,7 +43,7 @@ const PDF = () => {
               <Image
                 src="/faculty.png"
                 alt="faculty"
-                className="absolute right-0 mt-[330px] mr-[6px] opacity-70"
+                className="absolute right-0 mt-72 opacity-70"
                 width={210}
                 height={200}
               />
