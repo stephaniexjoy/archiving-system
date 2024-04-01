@@ -376,7 +376,7 @@ export function ComboboxInstructor({ value, onChange, instructors }) {
   );
 }
 
-export function ComboboxFileType({ value, onChange }) {
+export function ComboboxFileType({ value, onChange, filetype }) {
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -396,7 +396,7 @@ export function ComboboxFileType({ value, onChange }) {
           "
         >
           {value
-            ? filetypes.find((framework) => framework.value === value)?.label
+            ? filetype.find((framework) => framework.value === value)?.label
             : "Select file type..."}
           <CaretSortIcon
             className="
@@ -423,7 +423,7 @@ export function ComboboxFileType({ value, onChange }) {
         <Command>
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
-            {filetypes.map((framework) => (
+            {filetype.map((framework) => (
               <CommandItem
                 key={framework.value}
                 value={framework.value}
@@ -505,7 +505,14 @@ export default function Date_Range({ value, className, setDate1 }) {
   );
 }
 
-export function DataTable({ columns, data, materials, instructors, programs }) {
+export function DataTable({
+  columns,
+  data,
+  materials,
+  instructors,
+  programs,
+  filetype,
+}) {
   const [sorting, setSorting] = useState([]);
   const [columnFilters, setColumnFilters] = useState([]);
   const [date1, setDate1] = useState({
@@ -619,6 +626,7 @@ export function DataTable({ columns, data, materials, instructors, programs }) {
           <ComboboxFileType
             value={table.getColumn("fileType")?.getFilterValue() ?? ""}
             onChange={handleComboBoxFileTypeChange}
+            filetype={filetype}
           />
           {/*  <Date_Range
             value={date1 ?? "test"}

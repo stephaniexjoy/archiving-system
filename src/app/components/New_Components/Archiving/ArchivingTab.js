@@ -133,7 +133,7 @@ function ArchivingTab({
   materials,
   courses,
   instructors,
-  filetypes,
+  filetype,
   programs,
   tasks,
   completedTasks,
@@ -262,6 +262,7 @@ function ArchivingTab({
             courses={courses}
             instructors={instructors}
             programs={programs}
+            filetype={filetype}
           />
         </TabsContent>
         <TabsContent value="assignedtask">
@@ -285,7 +286,7 @@ function ArchivingTab({
         {session?.user?.position === "Secretary" && (
           <>
             <TabsContent value="archivedtask">
-              <ArchivedTask_Archiving_tabs tasks={filteredTasks.archived}/>
+              <ArchivedTask_Archiving_tabs tasks={filteredTasks.archived} />
             </TabsContent>
             <TabsContent value="monitor">
               <>

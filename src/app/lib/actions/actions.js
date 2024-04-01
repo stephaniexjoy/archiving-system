@@ -457,14 +457,6 @@ export async function getInstructors() {
   return instructors;
 }
 
-export async function getFileTypes() {
-  const fileTypes = await db.filetype.findMany();
-  if (fileTypes) {
-    console.log(fileTypes);
-  }
-  return fileTypes;
-}
-
 export async function getPrograms() {
   const getData = await db.Courses.findMany({});
   return getData;
@@ -518,6 +510,17 @@ export async function confirmUpload(urls, fileInfo, taskId) {
   } catch (error) {
     return JSON.parse(JSON.stringify(error));
   }
+}
+
+export async function uploadFiletype(fileInfo) {}
+
+export async function getFileTypes() {
+  const fileTypes = await db.file.findMany({
+    distinct: ["fileType"],
+    select: { fileType: true },
+  });
+  console.log(fileTypes);
+  return fileTypes;
 }
 
 export async function newuploadFile(fileInfo, url, sessionUser) {
@@ -649,7 +652,7 @@ export async function getUserInfo() {
 export async function getUserInfobyId(userId) {
   const user = await db.user.findUnique({
     where: { id: parseInt(userId) },
-    include:{education:true}
+    include: { education: true },
   });
   console.log(user);
   return user;

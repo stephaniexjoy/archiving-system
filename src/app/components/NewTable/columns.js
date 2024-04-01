@@ -56,6 +56,10 @@ export const columns = [
     header: "Program",
   },
   {
+    accessorKey: "fileType",
+    header: "File Type",
+  },
+  {
     accessorKey: "uploadDate",
     header: "Date & Time Uploaded",
     cell: ({ row }) => {

@@ -15,6 +15,7 @@ export async function GET(req) {
         fileRole: true,
         fileMaterial: true,
         fileProgram: true,
+        fileType: true,
       },
     });
 

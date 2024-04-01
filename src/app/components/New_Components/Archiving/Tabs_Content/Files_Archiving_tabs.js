@@ -37,11 +37,12 @@ export default function Files_Archiving_tabs({
   materials,
   courses,
   instructors,
-  filetypes,
+  filetype,
   programs,
 }) {
   console.log("Aba gumana ka", materials, instructors);
 
+  console.log("huhu", dataWithFormattedDate);
   return (
     <>
       <div
@@ -60,6 +61,7 @@ export default function Files_Archiving_tabs({
           materials={materials}
           instructors={instructors}
           programs={programs}
+          filetype={filetype}
         />
       </div>
     </>
