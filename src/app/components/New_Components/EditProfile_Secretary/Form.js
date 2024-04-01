@@ -101,7 +101,7 @@ export default function Form({ user }) {
                 name={`${field.id}Input`}
                 id={field.id}
                 type={field.type}
-                value={field.value}
+                defaultValue={field.value}
                 className="
           bg-slate-300 text-black text-[15px]
           sm:bg-slate-300 sm:text-black sm:text-[17px]
