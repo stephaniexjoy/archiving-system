@@ -239,7 +239,7 @@ export default async function profile() {
           <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
             SUBJECTS HANDLED (DESCRIPTIVE TITLE)
           </h1>
-          <div className="text-black">{user.education.subject_handled}</div>
+          <div className="text-black">{user.education.subjects_handled}</div>
         </div>
         <div className="text-black">{user.education.subject_handled}</div>
         <div>
