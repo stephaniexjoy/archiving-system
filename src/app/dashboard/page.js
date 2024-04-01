@@ -11,6 +11,7 @@ import RedirectButton from "../components/New_Components/Buttons/Dashboard/Redir
 
 export default async function dashboard() {
   const session = await getServerSession(AuthOptions);
+  console.log(session)
 
   if (session.user.position === "Admin") {
     redirect("/superadmin/dashboard/");

@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-export default function Form() {
+export default function Form({ sessionUser }) {
   const { toast } = useToast();
 
   return (
@@ -52,7 +52,7 @@ export default function Form() {
     "
       >
         {[
-          { label: "Email:", id: "email", type: "text", name: "emailUpd" },
+          { label: "Email:", id: "email", type: "text", name: "emailUpd", value: sessionUser.email ? sessionUser.email : "" },
           {
             label: "Current Password:",
             id: "currentPassword",
@@ -90,6 +90,7 @@ export default function Form() {
               id={field.id}
               name={field.name}
               type={field.type}
+              defaultValue={field.value}
               className="
           bg-slate-300 text-black text-[15px]
           sm:bg-slate-300 sm:text-black sm:text-[17px]
