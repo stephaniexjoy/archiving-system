@@ -6,7 +6,8 @@ import { Label } from "@/components/ui/label";
 import React from "react";
 import Form from "./Form";
 
-async function EditPrivacy_Dialog() {
+async function EditPrivacy_Dialog({ sessionUser }) {
+  console.log("sesssion", sessionUser)
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -33,7 +34,7 @@ async function EditPrivacy_Dialog() {
         2xl:p-12 2xl:max-w-[50%] 2xl:max-h-[80%] 2xl:overflow-y-auto 2xl:rounded-lg
         "
       >
-        <Form />
+        <Form sessionUser={sessionUser} />
       </DialogContent>
     </Dialog>
   );
