@@ -228,13 +228,13 @@ const PDF = () => {
             <table className="w-[84%] mt-[5em] ml-[105px]">
               <tbody>
                 <tr>
-                  <td className="text-left mb-[0px] w-1/3 p-0">
+                  <td className="text-center mb-[0px] w-1/3 p-0">
                     <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">COMPLETED</div>
                   </td>
-                  <td className="text-left mb-[10px] w-1/3 p-0">
+                  <td className="text-center mb-[10px] w-1/3 p-0">
                     <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">PUBLISHED</div>
                   </td>
-                  <td className="text-left mb-[10px] w-1/3 p-0">
+                  <td className="text-center mb-[10px] w-1/3 p-0">
                     <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">PRESENTED</div>
                   </td>
                 </tr>
