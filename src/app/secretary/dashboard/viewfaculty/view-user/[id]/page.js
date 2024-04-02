@@ -3,10 +3,17 @@ import Image from "next/image";
 import { db } from "@/app/lib/prisma_db";
 import BackButton from "@/app/components/New_Components/Buttons/Secretary/BackButton";
 import PrintButton from "@/app/components/New_Components/Buttons/Secretary/PrintButton";
+import { getServerSession } from "next-auth/next";
+import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 
 const page = async ({ params }) => {
+  const session = await getServerSession(AuthOptions);
+
   const user = await db.user.findUnique({
-    where: { id: parseInt(params.id) },
+    where: { id: session.user.id },
+    include: {
+      education: true,
+    },
   });
   console.log(user);
 
@@ -78,7 +85,7 @@ const page = async ({ params }) => {
             </div>
             <div>Position: {user.position}</div>
             <div>Eligibility/Professional License: {user.license}</div>
-            <div>School: {user.school}</div>
+            <div>School: {user.education.school}</div>
           </div>
 
           <div
@@ -134,18 +141,18 @@ const page = async ({ params }) => {
             {[
               {
                 degree: "Baccalaureate Degree",
-                school: user.bacSchool,
-                degreeInfo: user.bacDegree,
+                school: user.education.bacSchool,
+                degreeInfo: user.education.bacDegree,
               },
               {
                 degree: "Master's Degree",
-                school: user.masSchool,
-                degreeInfo: user.masDegree,
+                school: user.education.masSchool,
+                degreeInfo: user.education.masDegree,
               },
               {
                 degree: "Doctorate Degree",
-                school: user.docSchool,
-                degreeInfo: user.doccDegree,
+                school: user.education.docSchool,
+                degreeInfo: user.education.docDegree,
               },
             ].map((item, index) => (
               <React.Fragment key={index}>
@@ -211,7 +218,9 @@ const page = async ({ params }) => {
               "
             >
               SEMINARS AND TRAININGS ATTENDED
-              <div>{user.seminars_trainings}</div>
+              <div className="text-black">
+                {user.education.seminars_trainings}
+              </div>
             </div>
             <div className="top-[450px] font-semibold text-[20px] bg-transparent [backdrop-filter:blur(4px)] text-white text-center w-[20px] h-[30px]"></div>
             <div
@@ -221,7 +230,7 @@ const page = async ({ params }) => {
               "
             >
               JOB EXPERIENCE
-              <div>{user.experience}</div>
+              <div className="text-black">{user.education.experience}</div>
             </div>
           </div>
         </div>
@@ -230,13 +239,13 @@ const page = async ({ params }) => {
             SUBJECTS HANDLED (DESCRIPTIVE TITLE)
           </h1>
         </div>
-        <div>{user.subject_handled}</div>
+        <div>{user.education.subjects_handled}</div>
         <div>
           <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
             PAST DESIGNATIONS
           </h1>
         </div>
-        <div>{user.past_designation}</div>
+        <div>{user.education.past_designation}</div>
         <div>
           <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center w-full h-[30px]">
             PRESENTED PAPERS
@@ -264,9 +273,9 @@ const page = async ({ params }) => {
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
+                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">{user.education.presented_papers_completed}</td>
+                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">{user.education.presented_papers_published}</td>
+                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">{user.education.presented_papers_presented}</td>
                 </tr>
                 <tr>
                   <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
@@ -333,7 +342,7 @@ const page = async ({ params }) => {
           >
             EXTENSIONS PROJECTS
           </h1>
-          <div className="h-36">{user.extension_projs}</div>
+          <div className="h-36">{user.education.extension_projs}</div>
         </div>
         <div>
           <div
