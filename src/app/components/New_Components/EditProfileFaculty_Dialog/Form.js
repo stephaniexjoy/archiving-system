@@ -77,7 +77,7 @@ export default function Form({ user }) {
                   name="updName"
                   type="text"
                   className="bg-slate-300 w-[90%] font-semibold text-[25px]"
-                  value={user.name}
+                  defaultValue={user ? user.name : ""}
                 />
               </div>
               <div className="flex items-center gap-4">
@@ -88,7 +88,7 @@ export default function Form({ user }) {
                 >
                   Role:
                 </Label>
-                <input type="hidden" name="updRole" value={user.position} />
+                <input type="hidden" name="updRole" defaultValue={user ?user.position : ""} />
               </div>
               <div className="flex items-center gap-4">
                 <Label
@@ -101,7 +101,7 @@ export default function Form({ user }) {
                 <input
                   type="hidden"
                   name="updDesignation"
-                  value={user.position}
+                  defaultValue={user ?user.position : ""}
                 />
               </div>
               <div className="flex items-center">
@@ -115,7 +115,7 @@ export default function Form({ user }) {
                   name="updLicense"
                   type="text"
                   className="bg-slate-300 w-full text-[25px]"
-                  value={user.license}
+                  defaultValue={user ? user.license : ""}
                 />
               </div>
             </div>
@@ -136,7 +136,7 @@ export default function Form({ user }) {
                 name="updSchool"
                 type="text"
                 className="ml-[19%] bg-slate-300 w-[1100px] text-[25px]"
-                value={user.education.school}
+                defaultValue={user ? user.education.school : ""}
               />
             </div>
             <div className="mt-4 flex flex-row items-center">
@@ -153,7 +153,7 @@ export default function Form({ user }) {
                 name="updSpec"
                 type="text"
                 className="ml-[13%] bg-slate-300 w-[1100px] text-[25px]"
-                value={user.specialization}
+                defaultValue={user ? user.specialization : ""}
               />
             </div>
             <div className="mt-4 flex flex-row items-center">
@@ -170,7 +170,7 @@ export default function Form({ user }) {
                 name="updCert"
                 type="text"
                 className="ml-[13.3%] bg-slate-300 w-[1100px] text-[20px]"
-                value={user.certifications}
+                defaultValue={user ? user.certifications : ""}
               />
             </div>
           </div>
@@ -208,7 +208,7 @@ export default function Form({ user }) {
               name="updBacDeg"
               type="text"
               className="ml-[10%] bg-slate-300 w-[470px] text-[25px]"
-              value={user.education.bacDegree}
+              defaultValue={user ? user.education.bacDegree : ""}
             />
             <Label
               htmlFor="school"
@@ -228,7 +228,7 @@ export default function Form({ user }) {
               name="updBacDegSchl"
               type="text"
               className="ml-[1%] bg-slate-300 w-[470px] text-[25px]"
-              value={user.education.bacSchool}
+              defaultValue={user ? user.education.bacSchool : ""}
             />
           </div>
           <div className="mt-4 flex flex-row items-center">
@@ -249,7 +249,7 @@ export default function Form({ user }) {
               name="updMasDeg"
               type="text"
               className="ml-[11%] bg-slate-300 w-[470px] text-[25px]"
-              value={user.education.masDegree}
+              defaultValue={user ? user.education.masDegree : ""}
             />
             <Label
               htmlFor="school"
@@ -269,7 +269,7 @@ export default function Form({ user }) {
               name="updMasDegSchl"
               type="text"
               className="ml-[1%] bg-slate-300 w-[470px] text-[25px]"
-              value={user.education.masSchool}
+              defaultValue={user ? user.education.masSchool : ""}
             />
           </div>
           <div className="mt-4 flex flex-row items-center">
@@ -290,7 +290,7 @@ export default function Form({ user }) {
               name="updDocDeg"
               type="text"
               className="ml-[10%] bg-slate-300 w-[470px] text-[25px]"
-              value={user.education.docDegree}
+              defaultValue={user ? user.education.docDegree : ""}
             />
             <Label
               htmlFor="school"
@@ -309,7 +309,7 @@ export default function Form({ user }) {
               name="updDocDegSchl"
               type="text"
               className="ml-[1%] bg-slate-300 w-[465px] text-[25px]"
-              value={user.education.docSchool}
+              defaultValue={user ? user.education.docSchool : ""}
             />
           </div>
         </div>
@@ -334,7 +334,7 @@ export default function Form({ user }) {
                   name="seminarsUpd"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
-                  value={user.education.seminars_trainings}
+                  defaultValue={user ? user.education.seminars_trainings : ""}
                 />
               </div>
               <div className="flex flex-col items-center ml-36">
@@ -355,7 +355,7 @@ export default function Form({ user }) {
                   name="subjectUpd"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
-                  value={user.education.subjects_handled}
+                  defaultValue={user ? user.education.subjects_handled : ""}
                 />
               </div>
             </div>
@@ -378,7 +378,7 @@ export default function Form({ user }) {
                   name="experUpd"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
-                  value={user.education.experience}
+                  defaultValue={user ? user.education.experience : ""}
                 />
               </div>
               <div className="flex flex-col mt-8 ml-36">
@@ -399,7 +399,7 @@ export default function Form({ user }) {
                   name="ppc"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
-                  value={user.education.presented_papers_completed}
+                  defaultValue={user ? user.education.presented_papers_completed : ""}
                 />
               </div>
             </div>
@@ -422,7 +422,7 @@ export default function Form({ user }) {
                   name="desigUpd"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
-                  value={user.education.past_designation}
+                  defaultValue={user ? user.education.past_designation : ""}
                 />
               </div>
               <div className="flex flex-col mt-8 ml-36">
@@ -436,7 +436,7 @@ export default function Form({ user }) {
                   name="ppp"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
-                  value={user.education.presented_papers_published}
+                  defaultValue={user ? user.education.presented_papers_published : ""}
                 />
               </div>
             </div>
@@ -459,7 +459,7 @@ export default function Form({ user }) {
                   name="extUpd"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
-                  value={user.education.extension_projs}
+                  defaultValue={user ? user.education.extension_projs : ""}
                 />
               </div>
               <div className="flex flex-col mt-8 ml-36">
@@ -480,7 +480,7 @@ export default function Form({ user }) {
                   name="pppresent"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
-                  value={user.education.presented_papers_presented}
+                  defaultValue={user ? user.education.presented_papers_presented : ""}
                 />
               </div>
             </div>
