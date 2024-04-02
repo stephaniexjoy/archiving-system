@@ -15,6 +15,7 @@ export default function Monitoring_Table() {
   const [selectedTask, setSelectedTask] = useState();
   const [tasks, setTasks] = useState([]);
   const [tasksForComboBox, setTasksForComboBox] = useState([]);
+  const [hidden, setHidden] = useState(true);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -30,11 +31,16 @@ export default function Monitoring_Table() {
       const fetchData = await getTasks();
       setTasks(fetchData);
 
-      const tasksValues = fetchData.map((task) => ({
+      console.log(fetchData);
+
+      const tasksValues = fetchData
+      .filter(task => task.isActive) 
+      .map(task => ({
         id: task.id,
         value: task.title.toLowerCase(),
         label: task.title,
       }));
+    
 
       console.log(tasksValues);
 
@@ -73,11 +79,12 @@ export default function Monitoring_Table() {
   console.log("Users", users);
   console.log(selectedTask);
   console.log(tasksForComboBox);
-  console.log(tasks);
+  console.log(hidden);
   return (
     <div>
       <div className="flex flex-row items-center justify-center space-x-6">
         <Tasks_ComboBox
+          setHidden={setHidden}
           setSelectedTask={setSelectedTask}
           tasks={tasksForComboBox}
         />
