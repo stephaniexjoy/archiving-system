@@ -654,6 +654,7 @@ export async function getUserInfo() {
   console.log(sessionUser);
   const user = await db.user.findUnique({
     where: { id: sessionUser.user.id },
+    include: { education: true },
   });
   return user;
 }

@@ -286,9 +286,9 @@ export default async function profile() {
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
+                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">{user.education.presented_papers_completed}</td>
+                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">{user.education.presented_papers_published}</td>
+                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">{user.education.presented_papers_presented}</td>
                 </tr>
                 <tr>
                   <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
