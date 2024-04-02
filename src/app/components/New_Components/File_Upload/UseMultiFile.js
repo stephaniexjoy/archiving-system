@@ -92,6 +92,12 @@ export function UseMultiFile({ setUrls, setFileInfo, setHasFile }) {
           });
 
           console.log(res);
+          if(res){
+            toast({
+              description: "Upload Successful. Please Submit to confirm the upload",
+              variant: "default",
+            });
+          }
           return res;
         } catch (err) {
           updateFileProgress(addedFileState.key, "ERROR");

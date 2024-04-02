@@ -23,11 +23,14 @@ import {
 import { UseMultiFile } from "./UseMultiFile";
 import { confirmUpload } from "@/app/lib/actions/actions";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
 
 const File_Upload_Card = ({ task }) => {
   const [urls, setUrls] = useState([]);
   const [fileInfo, setFileInfo] = useState([]);
   const [hasFile, setHasFile] = useState(false);
+
+  const { toast } = useToast();
 
   return (
     <>
@@ -47,6 +50,17 @@ const File_Upload_Card = ({ task }) => {
 
                   const res = await confirmUpload(urls, fileInfo, task.id);
                   console.log(res);
+                  if (res === "Success") {
+                    toast({
+                      description: "File uploads are completed.",
+                      variant: "default",
+                    });
+                  }else{
+                    toast({
+                      description: "Error.",
+                      variant: "destructive",
+                    });
+                  }
                   console.log("Infos", fileInfo);
                 }}
                 className="flex mx-auto w-[80%] sm:w-[70%] 2xl:w-[60%] h-16 border bg-[#AD5606] hover:bg-gray-800 text-white text-xs 2xl:text-xl font-bold py-1 px-4 rounded-xl my-2 cursor-pointer items-center justify-center"
