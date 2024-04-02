@@ -75,7 +75,7 @@ const PDF = () => {
                 <div>Designation: {user.designation}</div>
                 <div>Specialization: {user.specialization}</div>
                 <div>Eligibility/Professional License:{user.license} </div>
-                <div>Certifications: {user.certifiations}</div>
+                <div>Certifications: {user.certifications}</div>
               </div>
             </div>
 
@@ -133,14 +133,13 @@ const PDF = () => {
             </div>
 
             <div className="relative top-[55px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-60">
-              {user.education.subjects_handled}
             </div>
 
-            <table className="w-[84%] mt-[5em] ml-[105px]">
+            <table className="w-[84%] mt-[0em] ml-[105px]">
               <tbody>
                 <tr>
                   <td className="text-left w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">{user.education.subjects_handled}</div>
                   </td>
                   <td className="text-left w-1/2 p-0">
                     <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
@@ -213,7 +212,7 @@ const PDF = () => {
               <tbody>
                 <tr>
                   <td className="text-left mb-[0px] w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">{user.education.past_designation}</div>
                   </td>
                   <td className="text-left mb-[10px] w-1/2 p-0">
                     <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
@@ -245,25 +244,25 @@ const PDF = () => {
             <table className="w-[84%] mt-[5em] ml-[105px]">
               <tbody>
                 <tr>
-                  <td className="text-left mb-[0px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                  <td className="text-center mb-[0px] w-1/3 p-0">
+                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">COMPLETED</div>
                   </td>
-                  <td className="text-left mb-[10px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                  <td className="text-center mb-[10px] w-1/3 p-0">
+                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">PUBLISHED</div>
                   </td>
-                  <td className="text-left mb-[10px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                  <td className="text-center mb-[10px] w-1/3 p-0">
+                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">PRESENTED</div>
                   </td>
                 </tr>
                 <tr>
                   <td className="text-left mb-[0px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">{user.education.presented_papers_completed}</div>
                   </td>
                   <td className="text-left mb-[10px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">{user.education.presented_papers_published}</div>
                   </td>
                   <td className="text-left mb-[10px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">{user.education.presented_papers_presented}</div>
                   </td>
                 </tr>
                 <tr>
@@ -310,7 +309,7 @@ const PDF = () => {
               <tbody>
                 <tr>
                   <td className="text-left mb-[0px] w-1/4 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
+                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">{user.education.extension_projs}</div>
                   </td>
                   <td className="text-left mb-[10px] w-1/4 p-0">
                     <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
