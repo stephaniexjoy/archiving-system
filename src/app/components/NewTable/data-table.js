@@ -520,7 +520,7 @@ export function DataTable({
     to: addDays(new Date(), 20),
   });
 
-  console.log(date1);
+  console.log(filetype);
 
   const table = useReactTable({
     data,

@@ -64,6 +64,13 @@ export default async function archiving({ searchParams }) {
     uploadDate: new Date(file.uploadDate).toLocaleString(),
   }));
 
+  const mappedFileTypes = fetchFileTypes.map((filetype) => {
+    return {
+      value: filetype.fileType.toLowerCase(),
+      label: filetype.fileType.toUpperCase(),
+    };
+  });
+
   /* 
     const searchedDataWithFormattedDate = searchedData.map(file => ({
       ...file,
@@ -71,7 +78,7 @@ export default async function archiving({ searchParams }) {
     })); */
 
   // const fetchMaterials = await getMaterials()
-  console.log(dataWithFormattedDate);
+  console.log(fetchFileTypes);
 
   return (
     <>
@@ -81,7 +88,7 @@ export default async function archiving({ searchParams }) {
           materials={fetchMaterials}
           courses={fetchCourses}
           instructors={fetchInstructors}
-          filetype={fetchFileTypes}
+          filetype={mappedFileTypes}
           tasks={tasks}
           completedTasks={completedTasks}
           programs={fetchPrograms}
