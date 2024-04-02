@@ -15,11 +15,16 @@ import {
 import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 
-const Tasks_ComboBox = ({ setSelectedTask, tasks }) => {
+const Tasks_ComboBox = ({ setHidden, setSelectedTask, tasks }) => {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState();
 
+  const handleChange = (event) => {
+    setHidden(event.target.checked);
+  };
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
@@ -42,7 +47,7 @@ const Tasks_ComboBox = ({ setSelectedTask, tasks }) => {
           <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent 
+      <PopoverContent
         className="
         w-[250px] p-0
         sm:w-[250px] sm:p-0
@@ -50,20 +55,26 @@ const Tasks_ComboBox = ({ setSelectedTask, tasks }) => {
         lg:w-[250px] lg:p-0
         xl:w-[250px] xl:p-0
         2xl:w-[250px] 2xl:p-0
-        ">
+        "
+      >
         <Command>
           <CommandInput placeholder="Search Tasks..." className="h-9" />
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
-            {tasks.map((framework) => (
+            {/*   <input
+              type="checkbox"
+              name="archivedTask"
+              onChange={handleChange}
+            />
+
+            <label for="archivedTask">Show Archived Tasks</label> */}
+            {tasks.map((framework, index) => (
               <CommandItem
-                key={framework.value}
+                key={index}
                 value={framework.value}
                 onSelect={(currentValue) => {
                   setValue(currentValue === value ? "" : currentValue);
-                  setSelectedTask(
-                    currentValue === value ? "" : framework.id
-                  );
+                  setSelectedTask(currentValue === value ? "" : framework.id);
 
                   setOpen(false);
                 }}

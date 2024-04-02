@@ -467,6 +467,15 @@ export async function getTasks() {
   if (tasks) return tasks;
 }
 
+export async function getTasksActive() {
+  const tasks = await db.tasks.findMany({
+    where: {
+      isActive: true,
+    },
+  });
+  if (tasks) return tasks;
+}
+
 export async function getCompletedTasks() {
   const session = await getUserSession();
   console.log(session);
