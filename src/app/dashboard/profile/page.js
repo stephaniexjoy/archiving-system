@@ -9,6 +9,7 @@ import Link from "next/link";
 import React from "react";
 export default async function profile() {
   const session = await getServerSession(AuthOptions);
+  const sessionPhoto = session.user.image;
 
   const user = await db.user.findUnique({
     where: { id: session.user.id },
@@ -40,27 +41,37 @@ export default async function profile() {
           2xl:flex 2xl:flex-row 2xl:justify-center 2xl:text-start
           "
         >
-          <div
-            className="
-            grid flex-col mt-8 mr-0 items-center justify-center
-            2xl:mt-8 2xl:mr-20
-            "
-          >
+          {sessionPhoto ? (
             <Image
               className="
-              rounded-full w-36 h-auto object-cover mb-5
-              sm:rounded-full sm:w-44 sm:h-auto sm:object-cover sm:mb-5
-              md:rounded-full md:w-44 md:h-auto md:object-cover md:mb-5
-              lg:rounded-full lg:w-96 lg:h-auto lg:object-cover lg:mb-5 lg:ml-5
-              xl:rounded-full xl:w-96 xl:h-auto xl:object-cover xl:mb-5 xl:ml-5
-              2xl:rounded-full 2xl:w-96 2xl:h-auto 2xl:object-cover 2xl:mb-5 2xl:ml-16
+              mt-16 rounded-full w-[60%] h-auto object-cover mb-0
+              sm:mt-16 sm:rounded-full sm:w-[50%] sm:h-auto sm:object-cover sm:mb-0
+              md:mt-16 md:rounded-full md:w-[50%] md:h-auto md:object-cover md:mb-0
+              lg:mt-16 lg:rounded-full lg:w-[50%] lg:h-auto lg:object-cover lg:mb-0
+              xl:mt-16 xl:rounded-full xl:w-[50%] xl:h-auto xl:object-cover xl:mb-0
+              2xl:mt-16 2xl:rounded-full 2xl:w-[35%] 2xl:h-auto 2xl:object-cover 2xl:mb-5
               "
-              alt="Profile"
+              alt="profile"
+              src={`${sessionPhoto}`}
+              width={474}
+              height={474}
+            />
+          ) : (
+            <Image
+              className="
+              mt-16 rounded-full w-[60%] h-auto object-cover mb-0
+              sm:mt-16 sm:rounded-full sm:w-[50%] sm:h-auto sm:object-cover sm:mb-0
+              md:mt-16 md:rounded-full md:w-[50%] md:h-auto md:object-cover md:mb-0
+              lg:mt-16 lg:rounded-full lg:w-[50%] lg:h-auto lg:object-cover lg:mb-0
+              xl:mt-16 xl:rounded-full xl:w-[50%] xl:h-auto xl:object-cover xl:mb-0
+              2xl:mt-16 2xl:rounded-full 2xl:w-[35%] 2xl:h-auto 2xl:object-cover 2xl:mb-5
+              "
+              alt="profile"
               src="/profile.jpg"
               width={474}
               height={474}
             />
-          </div>
+          )}
 
           <div
             className="

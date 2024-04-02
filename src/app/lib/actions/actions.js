@@ -890,6 +890,8 @@ export async function archiveTask(taskId) {
       },
     });
     console.log(findTask);
+    revalidatePath("/dashboard/archiving");
+    revalidatePath("/secretary/dashboard/archiving");
   } catch (error) {
     console.log(error);
   }
