@@ -1,37 +1,24 @@
 import React from "react";
 import Image from "next/image";
 import { db } from "@/app/lib/prisma_db";
+import BackButton from "@/app/components/New_Components/Buttons/Secretary/BackButton";
+import PrintButton from "@/app/components/New_Components/Buttons/Secretary/PrintButton";
+import { getServerSession } from "next-auth/next";
+import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 
 const page = async ({ params }) => {
+  const session = await getServerSession(AuthOptions);
+
   const user = await db.user.findUnique({
-    where: { id: parseInt(params.id) },
+    where: { id: session.user.id },
+    include: {
+      education: true,
+    },
   });
   console.log(user);
 
   return (
     <div className="flex flex-col w-screen h-screen items-center overflow-y-auto bg-slate-50">
-      <div
-        className="
-        bg-[#AD5606] w-[100%] h-[7%] flex items-center justify-center
-        2xl:bg-[#AD5606] 2xl:w-[100%] 2xl:h-[12%] 2xl:flex 2xl:items-center 2xl:justify-center
-        "
-      >
-        <Image
-          className="
-          w-[60%] h-auto object-cover flex items-center justify-center
-          sm:w-[45%] sm:h-auto sm:object-cover sm:flex sm:items-center sm:justify-center
-          md:w-[40%] md:h-auto md:object-cover md:flex md:items-center md:justify-center
-          lg:w-[30%] lg:h-auto lg:object-cover lg:flex lg:items-center lg:justify-center
-          xl:w-[25%] xl:h-auto xl:object-cover xl:flex xl:items-center xl:justify-center
-          2xl:w-[30%] 2xl:h-auto 2xl:object-cover 2xl:flex 2xl:items-center 2xl:justify-center
-          "
-          alt="E-Archiving System"
-          src="/photos/E-Archiving System.png"
-          width={2125}
-          height={499}
-        />
-      </div>
-
       <div
         className="
         w-full overflow-auto overflow-x-auto h-auto p-4 max-w-md
@@ -98,7 +85,7 @@ const page = async ({ params }) => {
             </div>
             <div>Position: {user.position}</div>
             <div>Eligibility/Professional License: {user.license}</div>
-            <div>School: {user.school}</div>
+            <div>School: {user.education.school}</div>
           </div>
 
           <div
@@ -154,18 +141,18 @@ const page = async ({ params }) => {
             {[
               {
                 degree: "Baccalaureate Degree",
-                school: user.bacSchool,
-                degreeInfo: user.bacDegree,
+                school: user.education.bacSchool,
+                degreeInfo: user.education.bacDegree,
               },
               {
                 degree: "Master's Degree",
-                school: user.masSchool,
-                degreeInfo: user.masDegree,
+                school: user.education.masSchool,
+                degreeInfo: user.education.masDegree,
               },
               {
                 degree: "Doctorate Degree",
-                school: user.docSchool,
-                degreeInfo: user.doccDegree,
+                school: user.education.docSchool,
+                degreeInfo: user.education.docDegree,
               },
             ].map((item, index) => (
               <React.Fragment key={index}>
@@ -195,7 +182,7 @@ const page = async ({ params }) => {
                     {item.degreeInfo}
                   </div>
                 </div>
-                <div className="flex flex-col"> 
+                <div className="flex flex-col">
                   <div
                     className="
                     font-semibold text-[15px] text-black mb-2
@@ -231,7 +218,9 @@ const page = async ({ params }) => {
               "
             >
               SEMINARS AND TRAININGS ATTENDED
-              <div>{user.seminars_trainings}</div>
+              <div className="text-black">
+                {user.education.seminars_trainings}
+              </div>
             </div>
             <div className="top-[450px] font-semibold text-[20px] bg-transparent [backdrop-filter:blur(4px)] text-white text-center w-[20px] h-[30px]"></div>
             <div
@@ -241,7 +230,7 @@ const page = async ({ params }) => {
               "
             >
               JOB EXPERIENCE
-              <div>{user.experience}</div>
+              <div className="text-black">{user.education.experience}</div>
             </div>
           </div>
         </div>
@@ -250,13 +239,13 @@ const page = async ({ params }) => {
             SUBJECTS HANDLED (DESCRIPTIVE TITLE)
           </h1>
         </div>
-        <div>{user.subject_handled}</div>
+        <div>{user.education.subjects_handled}</div>
         <div>
           <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
             PAST DESIGNATIONS
           </h1>
         </div>
-        <div>{user.past_designation}</div>
+        <div>{user.education.past_designation}</div>
         <div>
           <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center w-full h-[30px]">
             PRESENTED PAPERS
@@ -268,7 +257,7 @@ const page = async ({ params }) => {
               xl:table xl:w-full
               2xl:table 2xl:w-full
               "
-              >
+            >
               <thead>
                 <tr>
                   <th className="border border-black bg-[#D7D4D4] backdrop-blur-[4px] font-semibold text-[20px] text-white text-center w-1/3 h-[30px]">
@@ -284,9 +273,9 @@ const page = async ({ params }) => {
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
+                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">{user.education.presented_papers_completed}</td>
+                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">{user.education.presented_papers_published}</td>
+                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">{user.education.presented_papers_presented}</td>
                 </tr>
                 <tr>
                   <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
@@ -353,7 +342,7 @@ const page = async ({ params }) => {
           >
             EXTENSIONS PROJECTS
           </h1>
-          <div className="h-36">{user.extension_projs}</div>
+          <div className="h-36">{user.education.extension_projs}</div>
         </div>
         <div>
           <div
@@ -367,49 +356,11 @@ const page = async ({ params }) => {
             "
           >
             <div className="flex items-center">
-              <button
-                type="submit"
-                className="
-                bg-[#5B0505] text-[15px] text-white text-center w-[100px] h-[30px]
-                sm:bg-[#5B0505] sm:text-[17px] sm:text-white sm:text-center sm:w-[130px] sm:h-[32px]
-                md:bg-[#5B0505] md:text-[19px] md:text-white md:text-center md:w-[130px] md:h-[34px]
-                lg:bg-[#5B0505] lg:text-[21px] lg:text-white lg:text-centerlg: lg:w-[180px] lg:h-[36px]
-                xl:bg-[#5B0505] xl:text-[23px] xl:text-white xl:text-center xl:w-[220px] xl:h-[38px]
-                2xl:bg-[#5B0505] 2xl:text-[25px] 2xl:text-white 2xl:text-center 2xl:w-[250px] 2xl:h-[40px]
-                "
-              >
-                BACK
-              </button>
+              <BackButton />
             </div>
+            <div className="flex items-center"></div>
             <div className="flex items-center">
-              <button
-                type="submit"
-                className="
-                bg-[#5B0505] text-[15px] text-white text-center w-[100px] h-[30px]
-                sm:bg-[#5B0505] sm:text-[17px] sm:text-white sm:text-center sm:w-[130px] sm:h-[32px]
-                md:bg-[#5B0505] md:text-[19px] md:text-white md:text-center md:w-[130px] md:h-[34px]
-                lg:bg-[#5B0505] lg:text-[21px] lg:text-white lg:text-center lg:w-[180px] lg:h-[36px]
-                xl:bg-[#5B0505] xl:text-[23px] xl:text-white xl:text-center xl:w-[220px] xl:h-[38px]
-                2xl:bg-[#5B0505] 2xl:text-[25px] 2xl:text-white 2xl:text-center 2xl:w-[250px] 2xl:h-[40px]
-                "
-              >
-                DOWNLOAD
-              </button>
-            </div>
-            <div className="flex items-center">
-              <button
-                type="submit"
-                className="
-                bg-[#5B0505] text-[15px] text-white text-center w-[100px] h-[30px]
-                sm:bg-[#5B0505] sm:text-[17px] sm:text-white sm:text-center sm:w-[130px] sm:h-[32px]
-                md:bg-[#5B0505] md:text-[19px] md:text-white md:text-center md:w-[130px] md:h-[34px]
-                lg:bg-[#5B0505] lg:text-[21px] lg:text-white lg:text-center lg:w-[180px] lg:h-[36px]
-                xl:bg-[#5B0505] xl:text-[23px] xl:text-white xl:text-center xl:w-[220px] xl:h-[38px]
-                2xl:bg-[#5B0505] 2xl:text-[25px] 2xl:text-white 2xl:text-center 2xl:w-[250px] 2xl:h-[40px]
-                "
-              >
-                PRINT
-              </button>
+              <PrintButton userId={params.id} />
             </div>
           </div>
         </div>

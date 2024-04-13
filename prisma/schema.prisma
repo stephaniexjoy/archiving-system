@@ -40,7 +40,7 @@ model Activity {
   createdAt DateTime @default(now())
 
   // Define the relationship to the User model
-  user User @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model User {
@@ -63,7 +63,7 @@ model User {
   tokenExpiry        DateTime?
 
   // Relationship to the educational details
-  education User_Education?
+  education User_Education? @relation()
 
   // Relationship to the files uploaded by User
   uploadedFiles File[]
@@ -73,24 +73,26 @@ model User {
 }
 
 model User_Education {
-  id                 Int     @id @default(autoincrement())
-  userId             Int     @unique
-  school             String?
-  bacDegree          String?
-  bacSchool          String?
-  masDegree          String?
-  masSchool          String?
-  docDegree          String?
-  docSchool          String?
-  seminars_trainings String?
-  experience         String?
-  past_designation   String?
-  subjects_handled   String?
-  presented_papers   String?
-  extension_projs    String?
+  id                         Int     @id @default(autoincrement())
+  userId                     Int     @unique
+  school                     String?
+  bacDegree                  String?
+  bacSchool                  String?
+  masDegree                  String?
+  masSchool                  String?
+  docDegree                  String?
+  docSchool                  String?
+  seminars_trainings         String?
+  experience                 String?
+  past_designation           String?
+  subjects_handled           String?
+  presented_papers_completed String?
+  presented_papers_published String?
+  presented_papers_presented String?
+  extension_projs            String?
 
   // Define the relationship to the User model
-  User User @relation(fields: [userId], references: [id])
+  User User @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }
 
 // File Entity
@@ -113,7 +115,7 @@ model File {
 }
 
 model Tasks {
-  User         User    @relation(fields: [userId], references: [id])
+  User         User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId       Int
   uploaderName String
   isUserDone   Boolean
@@ -134,7 +136,7 @@ model CompletedTask {
   completed DateTime @default(now())
 
   // Define the relationship to the User model
-  user User @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   // Define the relationship to the Tasks model
   task Tasks @relation(fields: [taskId], references: [id])

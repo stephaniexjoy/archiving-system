@@ -101,19 +101,6 @@ export const columns = [
       return (
         <div className="">
           <RouterButton task={row.original.id} />
-          <Dialog>
-            <DialogTrigger className="bg-[#8F8F8F] hover:bg-[#6A6A6A] focus:outline-none h-10 w-48 font-bold">
-              Route
-            </DialogTrigger>
-            <DialogContent className="bg-white w-[60%] h-auto py-6 px-6 mx-auto overflow-y-auto">
-              <DialogHeader>
-                <DialogTitle className="text-2xl">Upload File</DialogTitle>
-                {/*    <UseMultiFile task={"test"} /> */}
-              </DialogHeader>
-              <div className="flex flex-col w-full"></div>
-              <div className="flex flex-col bottom-0 items-center justify-center w-full h-auto"></div>
-            </DialogContent>
-          </Dialog>
         </div>
       );
     },

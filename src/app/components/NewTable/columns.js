@@ -41,7 +41,8 @@ export const columns = [
     header: "Permissions",
     cell: ({ row }) => {
       const privacy = row.getValue("fileRole");
-      const formatted = privacy === "All" ? "All" : "Secretary";
+      const formatted =
+        privacy === "All" ? "All" : privacy === null ? "Not Set" : "Secretary";
       return <div className="">{formatted}</div>;
     },
     //{file.fileRole === "forall" ? "All" : "Secretary Only"}
@@ -55,15 +56,22 @@ export const columns = [
     header: "Program",
   },
   {
+    accessorKey: "fileType",
+    header: "File Type",
+  },
+  {
     accessorKey: "uploadDate",
     header: "Date & Time Uploaded",
+    cell: ({ row }) => {
+      const date = new Date(row.original.uploadDate);
+      console.log(new Date(date));
+      return <div>{date.toLocaleString()}</div>;
+    },
   },
   {
     accessorKey: "actions",
     header: "Actions",
     cell: ({ row }) => {
-      console.log(row.original);
-      console.log(row.original.userId);
       const filePath = row.original.filePath;
       return (
         <Edit_button filePath={filePath} fileOwner={row.original.userId} />

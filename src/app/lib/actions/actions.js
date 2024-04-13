@@ -23,11 +23,13 @@ async function getUserSession() {
   return session;
 }
 
-export async function createAccount(formData, sessionUser) {
+export async function createAccount(formData) {
+  const sessionUser = await getUserSession();
+  console.log(sessionUser);
   const dateString = new Date();
   const dateObject = new Date(dateString);
 
-  const name = formData.get("nameInput");
+  const nameForm = formData.get("nameInput");
   const role = formData.get("roleInput");
   const category = formData.get("catInput");
   const specialization = formData.get("specInput");
@@ -37,8 +39,6 @@ export async function createAccount(formData, sessionUser) {
   const age = formData.get("ageInput");
   const sex = formData.get("sexInput");
   const empNo = formData.get("employeeNoInput");
-
-  console.log(name, password);
 
   const hashedPassword = await bcrypt.hash(password, 12);
   console.log(hashedPassword);
@@ -52,13 +52,13 @@ export async function createAccount(formData, sessionUser) {
   if (existingUser.length > 0) {
     return "Existing User";
   } else {
-    const [createUser, addActivity] = await db.$transaction([
-      db.user.create({
+    try {
+      const createUser = await db.user.create({
         data: {
+          name: nameForm,
           employee_no: empNo,
           email: emailForm,
           password: hashedPassword,
-          name: name,
           age: parseInt(age),
           sex: sex,
           position: role,
@@ -69,26 +69,32 @@ export async function createAccount(formData, sessionUser) {
             create: {},
           },
         },
-      }),
-      db.activity.create({
-        data: {
-          name: sessionUser.name,
-          position: sessionUser.position,
-          type: "CREATED NEW USER",
-          createdAt: dateObject,
-          user: {
-            connect: {
-              id: sessionUser.id,
+      });
+      if (createUser) {
+        console.log(createUser);
+        const recordActivity = await db.activity.create({
+          data: {
+            name: sessionUser.user.name,
+            position: sessionUser.user.position,
+            type: "CREATED NEW USER",
+            createdAt: dateObject,
+            user: {
+              connect: {
+                id: sessionUser.user.id,
+              },
             },
           },
-        },
-      }),
-    ]);
-    if (createUser) return createUser;
+        });
+        return createUser;
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
-export async function updateUser(formData, sessionUser) {
+export async function updateUser(formData) {
+  const sessionUser = await getUserSession();
   console.log(formData, sessionUser);
 
   const dateString = new Date();
@@ -112,10 +118,12 @@ export async function updateUser(formData, sessionUser) {
   const expUpd = formData.get("experUpd");
   const pastDesigUpd = formData.get("desigUpd");
   const subjectsUpd = formData.get("subjectUpd");
-  const presPaperUpd = formData.get("papersUpd");
   const extProjUpd = formData.get("extUpd");
+  const ppc = formData.get("ppc");
+  const ppp = formData.get("ppp");
+  const pppresent = formData.get("pppresent");
 
-  console.log(profilePic);
+  console.log(roleUpd, designationUpd);
 
   let profilePhotoPath = null;
 
@@ -132,9 +140,37 @@ export async function updateUser(formData, sessionUser) {
 
   console.log(profilePhotoPath);
 
+  const userDataToUpdate = {
+    name: nameUpd,
+    position: roleUpd,
+    designation: designationUpd,
+    specialization: specUpd,
+    license: licenseUpd,
+    certifications: certUpd,
+    profile_photo_path: profilePhotoPath,
+    education: {},
+  };
+
+  if (schoolUpd) userDataToUpdate.education.school = schoolUpd;
+  if (bacDegUpd) userDataToUpdate.education.bacDegree = bacDegUpd;
+  if (bacSchlUpd) userDataToUpdate.education.bacSchool = bacSchlUpd;
+  if (masDegUpd) userDataToUpdate.education.masDegree = masDegUpd;
+  if (masSchlUpd) userDataToUpdate.education.masSchool = masSchlUpd;
+  if (docDegUpd) userDataToUpdate.education.docDegree = docDegUpd;
+  if (docSchlUpd) userDataToUpdate.education.docSchool = docSchlUpd;
+  if (seminarsUpd) userDataToUpdate.education.seminars_trainings = seminarsUpd;
+  if (expUpd) userDataToUpdate.education.experience = expUpd;
+  if (pastDesigUpd) userDataToUpdate.education.past_designation = pastDesigUpd;
+  if (subjectsUpd) userDataToUpdate.education.subjects_handled = subjectsUpd;
+  if (ppc) userDataToUpdate.education.presented_papers_completed = ppc;
+  if (ppp) userDataToUpdate.education.presented_papers_published = ppp;
+  if (pppresent)
+    userDataToUpdate.education.presented_papers_presented = pppresent;
+  if (extProjUpd) userDataToUpdate.education.extension_projs = extProjUpd;
+
   const [updUser, updUser_Educ] = await db.$transaction([
     db.user.update({
-      where: { id: sessionUser.id },
+      where: { id: sessionUser.user.id },
       data: {
         name: nameUpd,
         position: roleUpd,
@@ -156,7 +192,9 @@ export async function updateUser(formData, sessionUser) {
             experience: expUpd,
             past_designation: pastDesigUpd,
             subjects_handled: subjectsUpd,
-            presented_papers: presPaperUpd,
+            presented_papers_completed: ppc,
+            presented_papers_published: ppp,
+            presented_papers_presented: pppresent,
             extension_projs: extProjUpd,
           },
         },
@@ -167,13 +205,13 @@ export async function updateUser(formData, sessionUser) {
     }),
     db.activity.create({
       data: {
-        name: sessionUser.name,
-        position: sessionUser.position,
+        name: sessionUser.user.name,
+        position: sessionUser.user.position,
         type: "EDITED PROFILE",
         createdAt: dateObject,
         user: {
           connect: {
-            id: sessionUser.id,
+            id: sessionUser.user.id,
           },
         },
       },
@@ -184,6 +222,7 @@ export async function updateUser(formData, sessionUser) {
     console.log(updUser, updUser_Educ);
     return updUser;
   }
+  console.log(userDataToUpdate);
 }
 
 export async function uploadFile(formData, sessionUser) {
@@ -324,6 +363,8 @@ export async function addFilter(formData, category) {
       return addCategory;
     }
   }
+  revalidatePath("/dashboard/archiving");
+  revalidatePath("/secretary/dashboard/archiving");
 }
 
 export async function addTasks(formData, date) {
@@ -416,16 +457,22 @@ export async function getInstructors() {
   return instructors;
 }
 
-export async function getFileTypes() {
-  const fileTypes = await db.filetype.findMany();
-  if (fileTypes) {
-    console.log(fileTypes);
-  }
-  return fileTypes;
+export async function getPrograms() {
+  const getData = await db.Courses.findMany({});
+  return getData;
 }
 
 export async function getTasks() {
   const tasks = await db.tasks.findMany();
+  if (tasks) return tasks;
+}
+
+export async function getTasksActive() {
+  const tasks = await db.tasks.findMany({
+    where: {
+      isActive: true,
+    },
+  });
   if (tasks) return tasks;
 }
 
@@ -472,6 +519,17 @@ export async function confirmUpload(urls, fileInfo, taskId) {
   } catch (error) {
     return JSON.parse(JSON.stringify(error));
   }
+}
+
+export async function uploadFiletype(fileInfo) {}
+
+export async function getFileTypes() {
+  const fileTypes = await db.file.findMany({
+    distinct: ["fileType"],
+    select: { fileType: true },
+  });
+  console.log(fileTypes);
+  return fileTypes;
 }
 
 export async function newuploadFile(fileInfo, url, sessionUser) {
@@ -535,7 +593,8 @@ export async function updateFile(filePath, material, program, permission) {
       fileRole: permission,
     },
   });
-
+  revalidatePath("/dashboard/archiving");
+  revalidatePath("/secretary/dashboard/archiving");
   return updateFileInfo;
 }
 
@@ -595,7 +654,17 @@ export async function getUserInfo() {
   console.log(sessionUser);
   const user = await db.user.findUnique({
     where: { id: sessionUser.user.id },
+    include: { education: true },
   });
+  return user;
+}
+
+export async function getUserInfobyId(userId) {
+  const user = await db.user.findUnique({
+    where: { id: parseInt(userId) },
+    include: { education: true },
+  });
+  console.log(user);
   return user;
 }
 
@@ -711,5 +780,184 @@ export async function getTaskById(taskId) {
     }
   } catch (error) {
     console.log(error);
+  }
+}
+
+export async function deleteUser(userId) {
+  const deleteEducation = await db.User_Education.deleteMany({
+    where: {
+      userId: userId,
+    },
+  });
+
+  const archiveUser = await db.user.delete({
+    where: {
+      id: userId,
+    },
+  });
+  revalidatePath("/superadmin/dashboard/manageuser");
+  revalidatePath("/secretary/dashboard/viewfaculty");
+  return archiveUser;
+}
+
+export async function adminUpdateUser(formData, userId) {
+  const positionUpd = formData.get("position");
+  const emailUpd = formData.get("email");
+  const passwordUpd = formData.get("password");
+  const passConfirm = formData.get("passwordconfirm");
+
+  const passUpdHashed = await bcrypt.hash(passwordUpd, 12);
+
+  if (passwordUpd === passConfirm) {
+    const updUser = await db.user.update({
+      where: { id: userId },
+      data: {
+        // Update the fields you want to modify
+        position: positionUpd,
+        email: emailUpd,
+        password: passUpdHashed,
+        // Add other fields as needed
+      },
+    });
+    return updUser;
+  } else {
+    return "Password does not match";
+  }
+  revalidatePath("/superadmin/dashboard/manageuser");
+}
+
+export async function userUpdateUser(formData) {
+  const sessionUser = await getUserSession();
+
+  console.log(sessionUser);
+  const email = formData.get("emailUpd");
+  const currentPassword = formData.get("currentPass");
+  const newPassword = formData.get("newPass");
+  const confirmPassword = formData.get("newPassConfirm");
+
+  try {
+    const user = await db.user.findUnique({
+      where: { email: email },
+      select: { email: true, password: true },
+    });
+
+    console.log(user);
+    if (user) {
+      const passCheck = await bcrypt.compare(currentPassword, user.password);
+      if (passCheck) {
+        console.log(
+          email,
+          currentPassword,
+          newPassword,
+          confirmPassword,
+          user.password,
+          passCheck
+        );
+        if (newPassword === confirmPassword) {
+          const hashedPassword = await bcrypt.hash(newPassword, 12);
+          console.log(hashedPassword);
+
+          const updPrivacy = await db.user.update({
+            where: { email: email },
+            data: {
+              password: hashedPassword,
+            },
+          });
+          if (updPrivacy) {
+            return "Successfully Updated Privacy";
+          }
+        } else {
+          return "New Password and Confirm Password Mismatch";
+        }
+      } else {
+        return "Password Mismatch";
+      }
+    } else {
+      return "No Email Found";
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function archiveTask(taskId) {
+  try {
+    const findTask = await db.tasks.update({
+      where: {
+        id: taskId,
+      },
+      data: {
+        isActive: false,
+      },
+    });
+    console.log(findTask);
+    revalidatePath("/dashboard/archiving");
+    revalidatePath("/secretary/dashboard/archiving");
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function editProfile_Secretary(formData) {
+  const sessionUser = await getUserSession();
+
+  const pic = formData.get("pictureInput");
+  const name = formData.get("nameInput");
+  const age = formData.get("ageInput");
+  const sex = formData.get("sexInput");
+  const designation = formData.get("designationInput");
+  /*  const empno = formData.get("employeeNoInput");
+  const dept = formData.get("departmentInput");
+  const email = formData.get("emailInput"); */
+
+  //console.log(pic, name, age, sex, empno, dept, email);
+
+  if (
+    pic.type.includes("jpeg") ||
+    pic.type.includes("jpg") ||
+    pic.type.includes("png")
+  ) {
+    console.log("pasok");
+
+    let profilePhotoPath = null;
+
+    if (pic) {
+      try {
+        const fileExtension = pic.name.split(".").pop();
+        const res = await backendClient.publicImages.upload({
+          content: {
+            blob: new Blob([pic], { type: pic.type }),
+            extension: fileExtension,
+          },
+        });
+        profilePhotoPath = res.url;
+
+        try {
+          const updateUser = await db.user.update({
+            where: {
+              id: sessionUser.user.id,
+            },
+            data: {
+              profile_photo_path: profilePhotoPath,
+              name: name,
+              age: parseInt(age),
+              sex: sex,
+              designation: designation,
+            },
+          });
+
+          console.log(updateUser);
+          if (updateUser) {
+            return "Successful";
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  } else {
+    return "Images only supports (jpg,jpeg,png)";
   }
 }

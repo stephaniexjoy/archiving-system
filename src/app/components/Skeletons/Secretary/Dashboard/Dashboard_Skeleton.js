@@ -23,13 +23,13 @@ export default function Dashboard_Skeleton() {
         {/* archived materials */}
         <div className="bg-gray-300 mt-5 w-[19%] h-[320px] rounded-lg">
           <Skeleton className="h-16 w-48 ml-12 mt-10 bg-gray-400" />
-          <Skeleton className="mt-20 ml-28 h-24 w-20 bg-gray-400" />
+          <Skeleton className="mt-14 ml-24 h-24 w-20 bg-gray-400" />
         </div>
 
         {/* no. of faculty */}
         <div className=" bg-gray-300 mt-5 w-[19%] h-[320px] rounded-lg">
-          <Skeleton className=" h-16 w-48 ml-10 mt-20 bg-gray-400" />
-          <Skeleton className=" h-24 w-20 ml-24 mt-12 bg-gray-400" />
+          <Skeleton className=" h-16 w-48 ml-10 mt-10 bg-gray-400" />
+          <Skeleton className=" h-24 w-20 ml-24 mt-14 bg-gray-400" />
         </div>
 
         {/* parent div of create account, view materials, view faculty */}

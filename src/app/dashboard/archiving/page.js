@@ -6,6 +6,7 @@ import {
   getMaterials,
   getTasks,
   getCompletedTasks,
+  getPrograms,
 } from "@/app/lib/actions/actions";
 import { revalidatePath } from "next/cache";
 import Image from "next/image";
@@ -29,6 +30,7 @@ export default async function archiving({ searchParams }) {
   const fetchCourses = await getCourses();
   const fetchInstructors = await getInstructors();
   const fetchFileTypes = await getFileTypes();
+  const fetchPrograms = await getPrograms();
   console.log("Hehehe", fetchMaterials);
 
   const tasks = await getTasks();
@@ -62,6 +64,13 @@ export default async function archiving({ searchParams }) {
     uploadDate: new Date(file.uploadDate).toLocaleString(),
   }));
 
+  const mappedFileTypes = fetchFileTypes.map((filetype) => {
+    return {
+      value: filetype.fileType.toLowerCase(),
+      label: filetype.fileType.toUpperCase(),
+    };
+  });
+
   /* 
     const searchedDataWithFormattedDate = searchedData.map(file => ({
       ...file,
@@ -69,19 +78,20 @@ export default async function archiving({ searchParams }) {
     })); */
 
   // const fetchMaterials = await getMaterials()
-  console.log(dataWithFormattedDate);
+  console.log(fetchFileTypes);
 
   return (
     <>
       <div className="flex flex-col w-screen h-screen overflow-y-auto bg-slate-50">
         <ArchivingTab
-          datas={dataWithFormattedDate}
+          datas={data}
           materials={fetchMaterials}
           courses={fetchCourses}
           instructors={fetchInstructors}
-          filetype={fetchFileTypes}
+          filetype={mappedFileTypes}
           tasks={tasks}
           completedTasks={completedTasks}
+          programs={fetchPrograms}
         />
       </div>
     </>

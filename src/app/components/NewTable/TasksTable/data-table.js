@@ -5,6 +5,7 @@ import {
   getCoreRowModel,
   getFilteredRowModel,
   getSortedRowModel,
+  getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 
@@ -109,6 +110,8 @@ export function DataTable({ columns, data, materials, instructors }) {
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
     getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+
     state: {
       sorting,
       columnFilters,
@@ -125,21 +128,39 @@ export function DataTable({ columns, data, materials, instructors }) {
 
   return (
     <>
-      <div className="flex items-center py-4 space-x-1">
+      <div className="flex items-center space-x-1">
         <Input
-          placeholder="Filter users..."
+          placeholder="Filter Tasks..."
           value={table.getColumn("title")?.getFilterValue() ?? ""}
           onChange={(event) =>
             table.getColumn("title")?.setFilterValue(event.target.value)
           }
           className="max-w-2xl bg-slate-50 border border-slate-400 "
         />
+        <div className="flex items-center justify-end space-x-2 py-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+          >
+            Previous
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}
+          >
+            Next
+          </Button>
+        </div>
         {/*  <ComboboxPermission
           value={table.getColumn("fileRole")?.getFilterValue() ?? ""}
           onChange={handleComboBoxPermissionChange}
         /> */}
       </div>
-      <div className="rounded-md border">
+      <div className="rounded-md border mt-2">
         <Table>
           <TableHeader className="bg-[#5B0505] ">
             {table.getHeaderGroups().map((headerGroup) => (

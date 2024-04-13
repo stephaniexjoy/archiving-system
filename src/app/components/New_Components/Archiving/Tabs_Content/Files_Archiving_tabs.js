@@ -37,13 +37,16 @@ export default function Files_Archiving_tabs({
   materials,
   courses,
   instructors,
-  filetypes,
+  filetype,
+  programs,
 }) {
   console.log("Aba gumana ka", materials, instructors);
 
+  console.log("huhu", dataWithFormattedDate);
+  console.log(filetype)
   return (
     <>
-      <div 
+      <div
         className="
         w-full px-2 overflow-auto
         sm:w-full sm:px-4 sm:overflow-auto
@@ -51,12 +54,15 @@ export default function Files_Archiving_tabs({
         lg:w-full lg:px-10
         xl:w-full xl:px-5
         2xl:w-full 2xl:px-10
-        ">
+        "
+      >
         <DataTable
           columns={columns}
           data={dataWithFormattedDate}
           materials={materials}
           instructors={instructors}
+          programs={programs}
+          filetype={filetype}
         />
       </div>
     </>

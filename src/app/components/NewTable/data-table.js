@@ -3,6 +3,7 @@ import {
   SortingState,
   ColumnFiltersState,
   getCoreRowModel,
+  getPaginationRowModel,
   getFilteredRowModel,
   getSortedRowModel,
   useReactTable,
@@ -86,7 +87,6 @@ export function ComboboxPermission({ value, onChange }) {
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-       
         <Button
           variant="outline"
           role="combobox"
@@ -99,12 +99,12 @@ export function ComboboxPermission({ value, onChange }) {
           xl:w-full
           2xl:w-full
           "
-          >
+        >
           {value
             ? permissions.find((framework) => framework.value === value)?.label
             : "Select permissions.."}
 
-          <CaretSortIcon 
+          <CaretSortIcon
             className="
             ml-2 h-4 w-4 shrink-0 opacity-50
             sm:ml-20 sm:h-4 sm:w-4 sm:shrink-0 sm:opacity-50
@@ -112,7 +112,8 @@ export function ComboboxPermission({ value, onChange }) {
             lg:ml-20 lg:h-4 lg:w-4 lg:shrink-0 lg:opacity-50
             xl:ml-1 xl:h-4 xl:w-4 xl:shrink-0 xl:opacity-50
             2xl:-ml-1 2xl:h-4 2xl:w-4 2xl:shrink-0 2xl:opacity-50
-            "/>
+            "
+          />
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -175,7 +176,7 @@ export function ComboboxMaterial({ value, onChange, materials }) {
           {value
             ? materials.find((framework) => framework.value === value)?.label
             : "Select material.."}
-          <CaretSortIcon 
+          <CaretSortIcon
             className="
             ml-8 h-4 w-4 shrink-0 opacity-50           
             sm:ml-24 sm:h-4 sm:w-4 sm:shrink-0 sm:opacity-50
@@ -184,7 +185,8 @@ export function ComboboxMaterial({ value, onChange, materials }) {
             xl:ml-5 xl:h-4 xl:w-4 xl:shrink-0 xl:opacity-50
             2xl:ml-5 2xl:h-4 2xl:w-4 2xl:shrink-0 2xl:opacity-50
 
-            "/>
+            "
+          />
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -225,7 +227,7 @@ export function ComboboxMaterial({ value, onChange, materials }) {
   );
 }
 
-export function ComboboxProgram({ value, onChange }) {
+export function ComboboxProgram({ value, onChange, programs }) {
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -247,7 +249,7 @@ export function ComboboxProgram({ value, onChange }) {
           {value
             ? programs.find((framework) => framework.value === value)?.label
             : "Select program.."}
-          <CaretSortIcon 
+          <CaretSortIcon
             className="
             ml-8 h-4 w-4 shrink-0 opacity-50
             sm:ml-24 sm:h-4 sm:w-4 sm:shrink-0 sm:opacity-50
@@ -255,7 +257,8 @@ export function ComboboxProgram({ value, onChange }) {
             lg:ml-24 lg:h-4 lg:w-4 lg:shrink-0 lg:opacity-50
             xl:ml-5 xl:h-4 xl:w-4 xl:shrink-0 xl:opacity-50
             2xl:-ml-1 2xl:h-4 2xl:w-4 2xl:shrink-0 2xl:opacity-50
-            "/>
+            "
+          />
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -323,7 +326,7 @@ export function ComboboxInstructor({ value, onChange, instructors }) {
             ? transformInstructor.find((framework) => framework.value === value)
                 ?.label
             : "Select instructor.."}
-          <CaretSortIcon 
+          <CaretSortIcon
             className="
             ml-6 h-4 w-4 shrink-0 opacity-50
             sm:ml-24 sm:h-4 sm:w-4 sm:shrink-0 sm:opacity-50
@@ -331,7 +334,8 @@ export function ComboboxInstructor({ value, onChange, instructors }) {
             lg:ml-24 lg:h-4 lg:w-4 lg:shrink-0 lg:opacity-50
             xl:ml-5 xl:h-4 xl:w-4 xl:shrink-0 xl:opacity-50
             2xl:-ml-1 2xl:h-4 2xl:w-4 2xl:shrink-0 2xl:opacity-50
-            "/>
+            "
+          />
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -372,7 +376,7 @@ export function ComboboxInstructor({ value, onChange, instructors }) {
   );
 }
 
-export function ComboboxFileType({ value, onChange }) {
+export function ComboboxFileType({ value, onChange, filetype }) {
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -392,9 +396,9 @@ export function ComboboxFileType({ value, onChange }) {
           "
         >
           {value
-            ? filetypes.find((framework) => framework.value === value)?.label
+            ? filetype.find((framework) => framework.value === value)?.label
             : "Select file type..."}
-          <CaretSortIcon 
+          <CaretSortIcon
             className="
             ml-8 h-4 w-4 shrink-0 opacity-50
             sm:ml-24 sm:h-4 sm:w-4 sm:shrink-0 sm:opacity-50
@@ -402,7 +406,8 @@ export function ComboboxFileType({ value, onChange }) {
             lg:ml-24 lg:h-4 lg:w-4 lg:shrink-0 lg:opacity-50
             xl:ml-4 xl:h-4 xl:w-4 xl:shrink-0 xl:opacity-50
             2xl:-ml-1 2xl:h-4 2xl:w-4 2xl:shrink-0 2xl:opacity-50
-            "/>
+            "
+          />
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -418,7 +423,7 @@ export function ComboboxFileType({ value, onChange }) {
         <Command>
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
-            {filetypes.map((framework) => (
+            {filetype.map((framework) => (
               <CommandItem
                 key={framework.value}
                 value={framework.value}
@@ -443,17 +448,22 @@ export function ComboboxFileType({ value, onChange }) {
   );
 }
 
-export default function Date_Range({ className }) {
+export default function Date_Range({ value, className, setDate1 }) {
   const [date, setDate] = useState({
-    from: new Date(2022, 0, 20),
-    to: addDays(new Date(2022, 0, 20), 20),
+    from: new Date(),
+    to: addDays(new Date(), 20),
   });
+
+  const handleDateSelect = (newDate) => {
+    setDate(newDate);
+    newDate; // Set date using setDate1 function
+  };
   return (
     <div className={cn("grid gap-10 ", className)}>
       <Popover>
         <PopoverTrigger asChild>
           <Button
-            id="date" 
+            id="date"
             variant={"outline"}
             className={cn(
               "bg-slate-50 border border-slate-400 text-[5px] w-full sm:w-full md:w-full lg:w-full xl:w-full 2xl:w-full cursor-pointer h-[40px] rounded-sm px-0 py-1",
@@ -486,7 +496,7 @@ export default function Date_Range({ className }) {
             mode="range"
             defaultMonth={date?.from}
             selected={date}
-            onSelect={setDate}
+            onSelect={handleDateSelect}
             numberOfMonths={2}
           />
         </PopoverContent>
@@ -495,9 +505,22 @@ export default function Date_Range({ className }) {
   );
 }
 
-export function DataTable({ columns, data, materials, instructors }) {
+export function DataTable({
+  columns,
+  data,
+  materials,
+  instructors,
+  programs,
+  filetype,
+}) {
   const [sorting, setSorting] = useState([]);
   const [columnFilters, setColumnFilters] = useState([]);
+  const [date1, setDate1] = useState({
+    from: new Date(),
+    to: addDays(new Date(), 20),
+  });
+
+  console.log(filetype);
 
   const table = useReactTable({
     data,
@@ -507,6 +530,8 @@ export function DataTable({ columns, data, materials, instructors }) {
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
     getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+
     state: {
       sorting,
       columnFilters,
@@ -518,7 +543,7 @@ export function DataTable({ columns, data, materials, instructors }) {
   };
 
   const handleComboBoxFileTypeChange = (value) => {
-    table.getColumn("filename")?.setFilterValue(value);
+    table.getColumn("fileType")?.setFilterValue(value);
   };
 
   const handleComboBoxPermissionChange = (value) => {
@@ -526,7 +551,7 @@ export function DataTable({ columns, data, materials, instructors }) {
   };
 
   const handleComboBoxProgramChange = (value) => {
-    table.getColumn("filename")?.setFilterValue(value);
+    table.getColumn("fileProgram")?.setFilterValue(value);
   };
 
   const handleComboBoxMaterialChange = (value) => {
@@ -537,20 +562,21 @@ export function DataTable({ columns, data, materials, instructors }) {
     table.getColumn("uploaderName")?.setFilterValue(value);
   };
 
-  const handleComboBoxDateRangeChange = (value) => {
-    table.getColumn("uploadDate")?.setFilterValue(value);
+  const handleComboBoxDateRangeChange = (date1) => {
+    table.getColumn("uploadDate")?.setFilterValue();
+    console.log(date1);
   };
 
   return (
     <>
       <div
         className="
-        grid flex-col items-center py-4 space-y-4
+        grid flex-col items-center py-4 space-y-2
         sm:grid sm:flex-col sm:items-center sm:py-4 sm:space-y-4
         md:grid md:flex-col md:items-center md:py-4 md:space-y-4
         lg:grid lg:flex-col lg:items-center lg:py-4 lg:space-y-4
-        xl:flex-col xl:items-center xl:py-4 xl:space-x-0 xl:mt-16 xl:gap-x-10
-        2xl:flex-col 2xl:items-center 2xl:py-4 2xl:space-x-0 2xl:mt-16
+        xl:flex-col xl:items-center xl:py-4 xl:space-x-0 xl:gap-x-10
+        2xl:flex-col 2xl:items-center 2xl:py-2 2xl:space-x-0 
         "
       >
         <Input
@@ -560,12 +586,12 @@ export function DataTable({ columns, data, materials, instructors }) {
             table.getColumn("filename")?.setFilterValue(event.target.value)
           }
           className="
-          max-w-full mt-10 bg-slate-50 border border-slate-400
+          max-w-full  bg-slate-50 border border-slate-400
           sm:max-w-full
           md:max-w-full  
           lg:max-w-lg  
           xl:max-w-xl     
-          2xl:max-w-3xl
+          2xl:max-w-3xl 
           "
         />
         <div
@@ -575,9 +601,9 @@ export function DataTable({ columns, data, materials, instructors }) {
           md:grid md:grid-cols-3 md:grid-rows-2 md:w-full md:h-auto md:items-center md:justify-center md:text-center
           lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:w-full lg:h-auto lg:items-center lg:justify-center lg:text-center
           xl:flex xl:grid-cols-7 xl:gap-x-6 xl:w-full xl:h-auto xl:items-center xl:justify-center xl:text-center
-          2xl:flex 2xl:grid-cols-7 2xl:w-auto 2xl:gap-x-6
+          2xl:flex 2xl:grid-cols-7 2xl:w-auto 2xl:gap-x-6 2xl:h-auto
           "
-          >
+        >
           <ComboboxPermission
             value={table.getColumn("fileRole")?.getFilterValue() ?? ""}
             onChange={handleComboBoxPermissionChange}
@@ -588,8 +614,9 @@ export function DataTable({ columns, data, materials, instructors }) {
             materials={materials}
           />
           <ComboboxProgram
-            value={table.getColumn("filename")?.getFilterValue() ?? ""}
+            value={table.getColumn("fileProgram")?.getFilterValue() ?? ""}
             onChange={handleComboBoxProgramChange}
+            programs={programs}
           />
           <ComboboxInstructor
             value={table.getColumn("uploaderName")?.getFilterValue() ?? ""}
@@ -597,13 +624,17 @@ export function DataTable({ columns, data, materials, instructors }) {
             instructors={instructors}
           />
           <ComboboxFileType
-            value={table.getColumn("filename")?.getFilterValue() ?? ""}
+            value={table.getColumn("fileType")?.getFilterValue() ?? ""}
             onChange={handleComboBoxFileTypeChange}
+            filetype={filetype}
           />
-          <Date_Range
-            value={table.getColumn("uploadDate")?.getFilterValue() ?? ""}
-            onChange={handleComboBoxDateRangeChange}
-          />
+          {/*  <Date_Range
+            value={date1 ?? "test"}
+            setDate1={setDate1}
+            onSelect={() => {
+              console.log("nagbago kana");
+            }}
+          /> */}
         </div>
       </div>
       <div className="rounded-md border">
@@ -634,9 +665,7 @@ export function DataTable({ columns, data, materials, instructors }) {
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="text-start"
-                    >
-                      
+                    <TableCell key={cell.id} className="text-start">
                       {cell.column.id === "filename" ? (
                         <a
                           href="#"
@@ -671,6 +700,24 @@ export function DataTable({ columns, data, materials, instructors }) {
             )}
           </TableBody>
         </Table>
+      </div>
+      <div className="flex items-center justify-end space-x-2 py-2">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          Previous
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          Next
+        </Button>
       </div>
     </>
   );

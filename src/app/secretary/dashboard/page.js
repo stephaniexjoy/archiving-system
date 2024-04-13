@@ -11,7 +11,7 @@ import { redirect } from "next/navigation";
 async function page() {
   const session = await getServerSession(AuthOptions);
 
-  if (session.user.position === "Superadmin") {
+  if (session.user.position === "Admin") {
     redirect("/superadmin/dashboard/");
   }
   if (session.user.position === "Faculty") {
@@ -159,7 +159,7 @@ async function page() {
             md:mt-5 md:text-3xl md:font-semibold
             lg:mt-5 lg:text-4xl lg:font-semibold
             xl:mt-12 xl:text-3xl xl:font-semibold
-            2xl:mt-12 2xl:text-4xl 2xl:font-semibold
+            2xl:mt-2 2xl:text-4xl 2xl:font-semibold
           "
           >
             NO. OF FACULTY
@@ -270,7 +270,9 @@ async function page() {
             2xl:text-center 2xl:bg-[#B4ABAB] 2xl:text-[#5B0505] 2xl:w-[70%] 2xl:h-80 2xl:mt-0 2xl:-ml-4 2xl:overflow-hidden
             "
           >
-            <CalendarComponent />
+            <div className="mt-32 2xl:mt-40">
+              <CalendarComponent />
+            </div>
           </div>
           <div
             className="

@@ -14,7 +14,7 @@ export default function Form({ sessionUser }) {
         action={async (formData) => {
           console.log(formData);
 
-          const create = await createAccount(formData, sessionUser);
+          const create = await createAccount(formData);
           if (create) {
             if (create === "Existing User") {
               toast({
@@ -45,8 +45,8 @@ export default function Form({ sessionUser }) {
         >
           {[
             { label: "Name", type: "text", id: "name" },
-            { label: "Age", type: "number", id: "age" },
-            { label: "Sex", type: "text", id: "sex" },
+            { label: "age", type: "number", id: "age" },
+            { label: "sex", type: "text", id: "sex" },
             {
               label: "Role",
               type: "select",
@@ -83,7 +83,6 @@ export default function Form({ sessionUser }) {
           ].map((field, index) => (
             <React.Fragment key={index}>
               <Label
-                htmlFor={field.id}
                 className="
                 font-semibold text-[15px] text-left
                 sm:font-semibold sm:text-[17px] sm:text-left

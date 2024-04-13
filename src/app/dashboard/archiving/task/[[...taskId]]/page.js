@@ -1,18 +1,7 @@
 import { getTaskById } from "@/app/lib/actions/actions";
-import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 
-import { UseMultiFile } from "@/app/components/New_Components/File_Upload/UseMultiFile";
 import File_Upload_Card from "@/app/components/New_Components/File_Upload/File_Upload_Card";
-import Tasks_Skeleton from "@/app/components/Skeletons/Faculty/Dashboard/Archiving/Tasks/Tasks_Skeleton";
 // import { Separator } from "@/components/ui/separator"
 
 export default async function page({ searchParams }) {
@@ -129,12 +118,11 @@ export default async function page({ searchParams }) {
                   2xl:text-sm 2xl:mt-0 2xl:mb-0
                   "
                 >
-                  Due:{" "}
+                  Due:
                   {fetchTask && fetchTask.setDeadline
                     ? fetchTask.setDeadline.toLocaleString()
                     : "No due"}
                 </h1>
-                
               </div>
             </div>
             <div
@@ -177,7 +165,11 @@ export default async function page({ searchParams }) {
                   </div>
 
                   <div className="flex flex-col w-full">
-                    <File_Upload_Card task={fetchTask} />
+                    {fetchTask && (
+                      <>
+                        <File_Upload_Card task={fetchTask} />
+                      </>
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -186,7 +178,6 @@ export default async function page({ searchParams }) {
         </CardContent>
       </Card>
     </div>
-   /*  <><Tasks_Skeleton/></> */
-  
+    /*  <><Tasks_Skeleton/></> */
   );
 }

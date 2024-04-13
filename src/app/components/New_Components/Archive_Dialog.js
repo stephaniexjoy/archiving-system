@@ -1,12 +1,21 @@
+import { deleteUser } from "@/app/lib/actions/actions";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogTrigger
+  DialogTrigger,
+  DialogClose,
 } from "@/components/ui/dialog";
+import { useToast } from "@/components/ui/use-toast";
 
+export default function Archive_Dialog({ userId }) {
+  console.log(userId);
+  const { toast } = useToast();
+  const handleDeleteButton = async () => {
+    const archiveUser = await deleteUser(userId);
+    return archiveUser;
+  };
 
-export default function Archive_Dialog() {
   return (
     <div>
       <Dialog>
@@ -22,8 +31,24 @@ export default function Archive_Dialog() {
             </div>
           </div>
           <div className="flex items-center justify-center gap-4">
-            <Button className="bg-[#5B0505] w-36 font-bold">YES</Button>
-            <Button className="bg-[#5B0505] w-36 font-bold">NO</Button>
+            <DialogClose asChild>
+              <Button className="bg-[#5B0505] w-36 font-bold">NO</Button>
+            </DialogClose>
+            <Button
+              onClick={() => {
+                const test = handleDeleteButton();
+                console.log(test);
+                if (test) {
+                  toast({
+                    description: "Successfully Deleted a User.",
+                    variant: "destructive",
+                  });
+                }
+              }}
+              className="bg-[#5B0505] w-36 font-bold"
+            >
+              YES
+            </Button>
           </div>
         </DialogContent>
       </Dialog>

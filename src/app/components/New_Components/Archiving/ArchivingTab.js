@@ -44,8 +44,11 @@ function filterTasksByDate(tasks, completedTasks) {
       noDeadline: [],
     },
     incomplete1: [],
+    archived: [],
   };
+  const archivedTasks = tasks.filter((task) => !task.isActive);
 
+  console.log(archivedTasks);
   // Populate filteredTasks object
   incompleteTasks.forEach((task) => {
     if (!task.setDeadline) {
@@ -54,23 +57,29 @@ function filterTasksByDate(tasks, completedTasks) {
       return; // Skip further processing for tasks with no deadline
     }
     const setDeadline = new Date(task.setDeadline);
-    if (setDeadline >= currentWeekStart && setDeadline <= currentWeekEnd) {
-      filteredTasks.incomplete.thisWeek.push(task);
-      filteredTasks.incomplete1.push(task);
+    if (setDeadline < currentDate) {
+      filteredTasks.incomplete.pastDue.push(task);
     } else if (setDeadline >= nextWeekStart && setDeadline <= nextWeekEnd) {
       filteredTasks.incomplete.nextWeek.push(task);
       filteredTasks.incomplete1.push(task);
     } else if (setDeadline > nextWeekEnd) {
       filteredTasks.incomplete.laterThanNextWeek.push(task);
       filteredTasks.incomplete1.push(task);
-    } else if (setDeadline < currentDate) {
-      filteredTasks.incomplete.pastDue.push(task);
-      
+    } else if (
+      setDeadline >= currentWeekStart &&
+      setDeadline <= currentWeekEnd
+    ) {
+      filteredTasks.incomplete.thisWeek.push(task);
+      filteredTasks.incomplete1.push(task);
     }
   });
 
   // Add completed tasks to the filteredTasks object
   filteredTasks.completed = completedTasks;
+
+  archivedTasks.forEach((task) => {
+    filteredTasks.archived.push(task);
+  });
 
   return filteredTasks;
 }
@@ -124,7 +133,8 @@ function ArchivingTab({
   materials,
   courses,
   instructors,
-  filetypes,
+  filetype,
+  programs,
   tasks,
   completedTasks,
 }) {
@@ -251,6 +261,8 @@ function ArchivingTab({
             materials={materials}
             courses={courses}
             instructors={instructors}
+            programs={programs}
+            filetype={filetype}
           />
         </TabsContent>
         <TabsContent value="assignedtask">
@@ -274,7 +286,7 @@ function ArchivingTab({
         {session?.user?.position === "Secretary" && (
           <>
             <TabsContent value="archivedtask">
-              <ArchivedTask_Archiving_tabs />
+              <ArchivedTask_Archiving_tabs tasks={filteredTasks.archived} />
             </TabsContent>
             <TabsContent value="monitor">
               <>

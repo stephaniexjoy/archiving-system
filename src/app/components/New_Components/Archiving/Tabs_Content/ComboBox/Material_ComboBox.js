@@ -16,7 +16,11 @@ import { cn } from "@/lib/utils";
 import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
 import { useState, useEffect } from "react";
 
-export default function Material_ComboBox({ setMaterial }) {
+export default function Material_ComboBox({ setMaterial, refreshTrigger }) {
+  const [openMaterial, setOpenMaterial] = useState(false);
+  const [valueMaterial, setValueMaterial] = useState("");
+  const [materialFrameworks, setMaterialFrameworks] = useState([]);
+
   useEffect(() => {
     const fetchMaterials = async () => {
       const getMaterialsData = await getMaterials();
@@ -24,11 +28,7 @@ export default function Material_ComboBox({ setMaterial }) {
     };
 
     fetchMaterials();
-  }, []);
-
-  const [openMaterial, setOpenMaterial] = useState(false);
-  const [valueMaterial, setValueMaterial] = useState("");
-  const [materialFrameworks, setMaterialFrameworks] = useState([]);
+  }, [refreshTrigger]);
 
   console.log(materialFrameworks);
   return (

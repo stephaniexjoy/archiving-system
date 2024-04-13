@@ -8,6 +8,7 @@ import {
   getFileTypes,
   getTasks,
   getCompletedTasks,
+  getPrograms,
 } from "@/app/lib/actions/actions";
 import Image from "next/image";
 
@@ -28,17 +29,20 @@ export default async function archiving({ searchParams }) {
   const fetchMaterials = await getMaterials();
   const fetchCourses = await getCourses();
   const fetchInstructors = await getInstructors();
+  const fetchPrograms = await getPrograms();
   const fetchFileTypes = await getFileTypes();
 
   const tasks = await getTasks();
   const completedTasks = await getCompletedTasks();
   console.log(completedTasks);
 
-  if (searchParams) {
-    const { query } = searchParams;
-
-    const searchedData = await getSearchData(query);
-  }
+  const mappedFileTypes = fetchFileTypes.map((filetype) => {
+    return {
+      value: filetype.fileType.toLowerCase(),
+      label: filetype.fileType.toUpperCase(),
+    };
+  });
+  console.log(mappedFileTypes);
 
   async function getEmptyData() {
     return Promise.resolve([]);
@@ -50,7 +54,7 @@ export default async function archiving({ searchParams }) {
     if (!res.ok) {
       return getEmptyData();
     }
-    revalidatePath("secretary/dashboard/archiving");
+    revalidatePath("/secretary/dashboard/archiving");
     return res.json();
   }
 
@@ -61,18 +65,17 @@ export default async function archiving({ searchParams }) {
     uploadDate: new Date(file.uploadDate).toLocaleString(),
   }));
 
-  console.log(dataWithFormattedDate);
-
   return (
     <>
-      <div className="flex flex-col w-screen h-screen bg-slate-50">
+      <div className="flex flex-col w-screen h-screen m-4 bg-slate-50">
         <ArchivingTab
-          datas={dataWithFormattedDate}
+          datas={data}
           materials={fetchMaterials}
           courses={fetchCourses}
           instructors={fetchInstructors}
-          filetype={fetchFileTypes}
+          filetype={mappedFileTypes}
           tasks={tasks}
+          programs={fetchPrograms}
           completedTasks={completedTasks}
         />
       </div>
