@@ -83,7 +83,7 @@ export default function AssignedTask_Archiving_tabs({
           </div>
         )}
 
-        <div className="flex flex-col items-center w-full h-full overflow-y-auto">
+        <div className="flex flex-col items-center w-full h-[700px] overflow-y-auto">
           <div
             className="
             flex flex-col w-[100%] p-0 rounded-md 
