@@ -51,7 +51,7 @@ const permissions = [
   },
 ];
 
-const programs = [
+/* const programs = [
   {
     value: "machine learning",
     label: "Machine Learning",
@@ -79,10 +79,11 @@ const filetypes = [
     value: "docx",
     label: "DOCX",
   },
-];
+]; */
 
 export function ComboboxPermission({ value, onChange }) {
   const [open, setOpen] = React.useState(false);
+  console.log("Value ng permission ", value);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -230,6 +231,9 @@ export function ComboboxMaterial({ value, onChange, materials }) {
 export function ComboboxProgram({ value, onChange, programs }) {
   const [open, setOpen] = React.useState(false);
 
+  console.log("list of programs", programs);
+  console.log("list of programs", value);
+
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
@@ -247,7 +251,10 @@ export function ComboboxProgram({ value, onChange, programs }) {
           "
         >
           {value
-            ? programs.find((framework) => framework.value === value)?.label
+            ? programs.find(
+                (framework) =>
+                  framework.value.toLowerCase() === value.toLowerCase()
+              )?.label
             : "Select program.."}
           <CaretSortIcon
             className="
@@ -303,8 +310,10 @@ export function ComboboxInstructor({ value, onChange, instructors }) {
   const [open, setOpen] = React.useState(false);
   const transformInstructor = instructors.map((item) => ({
     label: item.name,
-    value: item.email,
+    value: item.name,
   }));
+
+  console.log("Value ng ins", value);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -323,8 +332,10 @@ export function ComboboxInstructor({ value, onChange, instructors }) {
           "
         >
           {value
-            ? transformInstructor.find((framework) => framework.value === value)
-                ?.label
+            ? transformInstructor.find(
+                (framework) =>
+                  framework.value.toLowerCase() === value.toLowerCase()
+              )?.label
             : "Select instructor.."}
           <CaretSortIcon
             className="
@@ -351,11 +362,12 @@ export function ComboboxInstructor({ value, onChange, instructors }) {
         <Command>
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
-            {transformInstructor.map((framework) => (
+            {transformInstructor.map((framework, index) => (
               <CommandItem
-                key={framework.value}
+                key={index}
                 value={framework.value}
                 onSelect={(currentValue) => {
+                  console.log(currentValue);
                   onChange(currentValue === value ? "" : currentValue);
                   setOpen(false);
                 }}
