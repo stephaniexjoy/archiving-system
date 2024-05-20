@@ -133,13 +133,13 @@ const Sidebar = () => {
             {session.user.position === "Secretary" && (
               <>
                 <MenuItem
-                  path="/secretary/dashboard"
+                  path="/dashboard"
                   icon={<FaHome className="text-white text-2xl ml-5" />}
                   label="HOME"
                   isMinimized={isMinimized}
                 />
                 <MenuItem
-                  path="/secretary/dashboard/profile"
+                  path="/dashboard/profile"
                   icon={<IoMdPerson className="text-white text-2xl ml-5" />}
                   label="PROFILE"
                   isMinimized={isMinimized}
