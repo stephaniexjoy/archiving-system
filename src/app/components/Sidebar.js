@@ -114,7 +114,7 @@ const Sidebar = () => {
             {session.user.position === "Admin" && (
               <>
                 <MenuItem
-                  path="/superadmin/dashboard"
+                  path="/dashboard"
                   icon={<FaHome className="text-white text-2xl ml-5" />}
                   label="HOME"
                   isMinimized={isMinimized}
@@ -145,7 +145,7 @@ const Sidebar = () => {
                   isMinimized={isMinimized}
                 />
                 <MenuItem
-                  path="/secretary/dashboard/archiving"
+                  path="/dashboard/archiving"
                   icon={<FaBook className="text-white text-2xl ml-5" />}
                   label="ARCHIVING"
                   isMinimized={isMinimized}

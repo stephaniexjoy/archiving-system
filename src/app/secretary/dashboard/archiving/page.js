@@ -12,7 +12,7 @@ import {
 } from "@/app/lib/actions/actions";
 import Image from "next/image";
 
-async function getSearchData(query) {
+/* async function getSearchData(query) {
   if (query) {
     const res = await fetch(
       `http://localhost:3000/api/search-query?query=${encodeURIComponent(
@@ -24,7 +24,7 @@ async function getSearchData(query) {
   } else {
     console.log("Empty Search Params");
   }
-}
+} */
 export default async function archiving({ searchParams }) {
   const fetchMaterials = await getMaterials();
   const fetchCourses = await getCourses();

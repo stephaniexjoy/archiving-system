@@ -11,7 +11,7 @@ import {
 import { revalidatePath } from "next/cache";
 import Image from "next/image";
 
-async function getSearchData(query) {
+/* async function getSearchData(query) {
   if (query) {
     const res = await fetch(
       `http://localhost:3000/api/search-query?query=${encodeURIComponent(
@@ -23,6 +23,14 @@ async function getSearchData(query) {
   } else {
     console.log("Empty Search Params");
   }
+} */
+
+function FacultyArchiving() {
+  return;
+}
+
+function SecretaryArchiving() {
+  return;
 }
 
 export default async function archiving({ searchParams }) {
@@ -31,16 +39,15 @@ export default async function archiving({ searchParams }) {
   const fetchInstructors = await getInstructors();
   const fetchFileTypes = await getFileTypes();
   const fetchPrograms = await getPrograms();
-  console.log("Hehehe", fetchMaterials);
 
   const tasks = await getTasks();
   const completedTasks = await getCompletedTasks();
 
-  if (searchParams) {
+ /*  if (searchParams) {
     const { query } = searchParams;
 
     const searchedData = await getSearchData(query);
-  }
+  } */
 
   async function getEmptyData() {
     return Promise.resolve([]);
