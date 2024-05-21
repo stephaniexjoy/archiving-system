@@ -40,16 +40,16 @@ import { Calendar } from "@/components/ui/calendar";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { addDays, format } from "date-fns";
 
-const permissions = [
-  {
-    value: "all",
-    label: "All",
-  },
-  {
-    value: "secretary",
-    label: "Secretary",
-  },
-];
+// const permissions = [
+//   {
+//     value: "all",
+//     label: "All",
+//   },
+//   {
+//     value: "secretary",
+//     label: "Secretary",
+//   },
+// ];
 
 /* const programs = [
   {
@@ -81,9 +81,13 @@ const filetypes = [
   },
 ]; */
 
-export function ComboboxPermission({ value, onChange }) {
+export function ComboboxPermission({ value, onChange, permissions}) {
   const [open, setOpen] = React.useState(false);
   console.log("Value ng permission ", value);
+  const transformPermissions = permissions.map((item) => ({
+    label: item.label,
+    value: item.value,
+  }));
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -102,7 +106,7 @@ export function ComboboxPermission({ value, onChange }) {
           "
         >
           {value
-            ? permissions.find((framework) => framework.value === value)?.label
+            ? transformPermissions.find((framework) => framework.value === value)?.label
             : "Select permissions.."}
 
           <CaretSortIcon
@@ -130,7 +134,7 @@ export function ComboboxPermission({ value, onChange }) {
         <Command>
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
-            {permissions.map((framework) => (
+            {transformPermissions.map((framework) => (
               <CommandItem
                 key={framework.value}
                 value={framework.value}
@@ -524,6 +528,7 @@ export function DataTable({
   instructors,
   programs,
   filetype,
+  permissions,
 }) {
   const [sorting, setSorting] = useState([]);
   const [columnFilters, setColumnFilters] = useState([]);
@@ -619,6 +624,7 @@ export function DataTable({
           <ComboboxPermission
             value={table.getColumn("fileRole")?.getFilterValue() ?? ""}
             onChange={handleComboBoxPermissionChange}
+            permissions={permissions}
           />
           <ComboboxMaterial
             value={table.getColumn("fileMaterial")?.getFilterValue() ?? ""}
