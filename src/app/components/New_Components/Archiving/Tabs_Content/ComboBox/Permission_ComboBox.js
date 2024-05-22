@@ -61,7 +61,7 @@ const Permission_ComboBox = ({ setPermission }) => {
                 value={framework.value}
                 onSelect={(currentValue) => {
                   setValue(currentValue === value ? "" : currentValue);
-                  setPermission(currentValue === value ? "" : framework.label);
+                  setPermission(currentValue === value ? "" : framework.value);
                   setOpen(false);
                 }}
               >
