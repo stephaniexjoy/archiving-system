@@ -216,44 +216,74 @@ function FacultyProfile({ sessionPhoto, user }) {
         2xl:flex 2xl:flex-row 2xl:w-full
         "
           >
-            <div
-              className="
-          top-[420px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px] mb-16 mt-4
-          2xl:top-[420px] 2xl:font-semibold 2xl:text-[20px] 2xl:bg-[#8F8F8F] 2xl:[backdrop-filter:blur(4px)] 2xl:text-white 2xl:text-center 2xl:w-full 2xl:h-[30px]
-          "
-            >
-              SEMINARS AND TRAININGS ATTENDED
-              <div className="text-black">
-                {user.education.seminars_trainings}
-              </div>
+            <div className=" w-1/2 ">
+              <h1 className="mt-8 mb-8 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
+                SEMINARS AND TRAININGS ATTENDED
+              </h1>
+              <tbody>
+                {user.education.seminars_trainings
+                  .split(",")
+                  .map((seminarTrainings, index) => (
+                    <tr key={index}>
+                      <div className="text-[20px] font-[Century Gothic] text-black h-[2em] mx-auto">
+                        {seminarTrainings.trim()}
+                      </div>
+                    </tr>
+                  ))}
+              </tbody>
             </div>
             <div className="top-[450px] font-semibold text-[20px] bg-transparent [backdrop-filter:blur(4px)] text-white text-center w-[20px] h-[30px]"></div>
-            <div
-              className="
-          ml-0 top-[420px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]
-          2xl:ml-16 2xl:top-[420px] 2xl:font-semibold 2xl:text-[20px] 2xl:bg-[#8F8F8F] 2xl:[backdrop-filter:blur(4px)] 2xl:text-center 2xl:w-full 2xl:h-[30px]
-          "
-            >
-              JOB EXPERIENCE
-              <div className="text-black">{user.education.experience}</div>
+            <div className=" w-1/2 ">
+              <h1 className="mt-8 mb-8 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
+                JOB EXPERIENCE
+              </h1>
+              <tbody>
+                {user.education.experience.split(",").map((jobExp, index) => (
+                  <tr key={index}>
+                    <div className="text-[20px] font-[Century Gothic] text-black h-[2em] mx-auto">
+                      {jobExp.trim()}
+                    </div>
+                  </tr>
+                ))}
+              </tbody>
             </div>
           </div>
         </div>
         <div>
-          <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
+          <h1 className="mt-8 mb-8 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
             SUBJECTS HANDLED (DESCRIPTIVE TITLE)
           </h1>
-          <div className="text-black">{user.education.subjects_handled}</div>
+          <tbody>
+            {user.education.subjects_handled
+              .split(",")
+              .map((subjectHandled, index) => (
+                <tr key={index}>
+                  <div className="text-[20px] font-[Century Gothic] text-black h-[2em] mx-auto">
+                    {subjectHandled.trim()}
+                  </div>
+                </tr>
+              ))}
+          </tbody>
         </div>
-        <div className="text-black">{user.education.subject_handled}</div>
         <div>
-          <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
+          <h1 className="mt-8 mb-8 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]">
             PAST DESIGNATIONS
           </h1>
         </div>
-        <div className="text-black">{user.education.past_designation}</div>
+        <tbody>
+          {user.education.past_designation
+            .split(",")
+            .map((pastDesignation, index) => (
+              <tr key={index}>
+                <div className="text-[20px] font-[Century Gothic] h-[2em] mx-auto">
+                  {pastDesignation.trim()}
+                </div>
+              </tr>
+            ))}
+        </tbody>
+
         <div>
-          <h1 className="mt-28 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center w-full h-[30px]">
+          <h1 className="mt-8 top-[285px] font-semibold text-[20px] bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center w-full h-[30px]">
             PRESENTED PAPERS
           </h1>
           <div>
@@ -278,32 +308,33 @@ function FacultyProfile({ sessionPhoto, user }) {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">
-                    {user.education.presented_papers_completed}
-                  </td>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">
-                    {user.education.presented_papers_published}
-                  </td>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">
-                    {user.education.presented_papers_presented}
-                  </td>
-                </tr>
-                <tr>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
-                </tr>
-                <tr>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
-                </tr>
-                <tr>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
-                </tr>
+                {user.education.presented_papers_completed
+                  .split(",")
+                  .map((completedPaper, index) => (
+                    <tr key={index}>
+                      <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">
+                        {completedPaper.trim()}
+                      </td>
+                      <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">
+                        {user.education.presented_papers_published.split(",")[
+                          index
+                        ]
+                          ? user.education.presented_papers_published
+                              .split(",")
+                              [index].trim()
+                          : ""}
+                      </td>
+                      <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">
+                        {user.education.presented_papers_presented.split(",")[
+                          index
+                        ]
+                          ? user.education.presented_papers_presented
+                              .split(",")
+                              [index].trim()
+                          : ""}
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>
@@ -348,13 +379,25 @@ function FacultyProfile({ sessionPhoto, user }) {
         <div>
           <h1
             className="
-        mt-28 top-[285px] bottom-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]
+        mt-28 mb-8 top-[285px] bottom-[285px] font-semibold text-[20px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[30px]
         2xl:mt-5 2xl:top-[285px] 2xl:bottom-[285px] 2xl:font-semibold 2xl:text-[20px] 2xl:bg-[#8F8F8F] 2xl:[backdrop-filter:blur(4px)] 2xl:text-white 2xl:text-center 2xl:w-full 2xl:h-[30px]
         "
           >
             EXTENSIONS PROJECTS
           </h1>
-          <div className="h-36">{user.education.extension_projs}</div>
+
+          <tbody>
+            {user.education.extension_projs
+              .split(",")
+              .map((extensionProj, index) => (
+                <tr key={index}>
+                  <div className="text-[20px] font-[Century Gothic] h-[2em] mx-auto">
+                    {" "}
+                    {extensionProj.trim()}
+                  </div>
+                </tr>
+              ))}
+          </tbody>
         </div>
         <div>
           <div
