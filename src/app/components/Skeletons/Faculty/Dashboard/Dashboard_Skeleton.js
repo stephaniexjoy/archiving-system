@@ -1,6 +1,6 @@
 import { Skeleton } from "@/components/ui/skeleton";
 
-export default function Dashboard_Skeleton() {
+export default function Faculty_Dashboard_Skeleton() {
   return (
     <div className="flex flex-col w-screen h-screen overflow-y-auto">
       {/* parent div */}
