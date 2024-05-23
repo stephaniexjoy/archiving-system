@@ -15,7 +15,7 @@ export default function Archiving_Skeleton() {
       </div>
 
       {/* filter */}
-      <div className="h-10 w-[50%] ml-12 mt-36 bg-gray-300 rounded-lg py-1">
+      <div className="h-10 w-[50%] ml-12 mt-5 bg-gray-300 rounded-lg py-1">
         <Skeleton className="h-8 w-32 ml-2 bg-gray-400" />
       </div>
 
@@ -43,7 +43,7 @@ export default function Archiving_Skeleton() {
 
       {/* table */}
       <div className="flex flex-row bg-gray-300 w-[94%] h-[65%] mt-2 ml-12 py-1">
-        <Skeleton className="h-8 w-28 ml-2 bg-gray-400" />
+        <Skeleton className="h-8 w-28 ml-2 bg-gray-400"/>
         <Skeleton className="h-8 w-28 ml-[20%] bg-gray-400" />
         <Skeleton className="h-8 w-28 ml-14 bg-gray-400" />
         <Skeleton className="h-8 w-24 ml-10 bg-gray-400" />

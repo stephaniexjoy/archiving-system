@@ -41,16 +41,16 @@ import { Calendar } from "@/components/ui/calendar";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { addDays, format } from "date-fns";
 
-// const permissions = [
-//   {
-//     value: "all",
-//     label: "All",
-//   },
-//   {
-//     value: "secretary",
-//     label: "Secretary",
-//   },
-// ];
+const permissions = [
+  {
+    value: "all",
+    label: "All",
+  },
+  {
+    value: "secretary",
+    label: "Secretary",
+  },
+];
 
 /* const programs = [
   {
@@ -536,7 +536,6 @@ export function DataTable({
   instructors,
   programs,
   filetype,
-  permissions,
 }) {
   const [sorting, setSorting] = useState([]);
   const [columnFilters, setColumnFilters] = useState([]);
