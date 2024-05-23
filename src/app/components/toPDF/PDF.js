@@ -39,7 +39,7 @@ const PDF = () => {
               <Image
                 src="/faculty.png"
                 alt="faculty"
-                className="absolute right-0 mt-72 opacity-70"
+                className="absolute right-0 mt-72 opacity-70 z-10"
                 width={210}
                 height={200}
               />
@@ -114,7 +114,17 @@ const PDF = () => {
             </div>
 
             <div className="relative top-[45px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-80">
-              {user.education.seminars_trainings}
+              <tbody>
+                {user.education.seminars_trainings
+                  .split(",")
+                  .map((seminarTrainings, index) => (
+                    <tr key={index}>
+                      <div className="text-[25px] font-[Century Gothic] text-black h-[2em] mx-auto">
+                        {seminarTrainings.trim()}
+                      </div>
+                    </tr>
+                  ))}
+              </tbody>
             </div>
 
             <div className="relative top-[50px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
@@ -122,7 +132,15 @@ const PDF = () => {
             </div>
 
             <div className="relative top-[55px] left-[140px] text-[25px] font-[Century Gothic] text-black whitespace-nowrap h-60">
-              {user.education.experience}
+              <tbody>
+                {user.education.experience.split(",").map((jobExp, index) => (
+                  <tr key={index}>
+                    <div className="text-[25px] font-[Century Gothic] text-black h-[2em] mx-auto">
+                      {jobExp.trim()}
+                    </div>
+                  </tr>
+                ))}
+              </tbody>
             </div>
 
             <div className="relative top-[50px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
@@ -131,72 +149,17 @@ const PDF = () => {
 
             <table className="w-[84%] mt-[5em] ml-[105px]">
               <tbody>
-                <tr>
-                  <td className="text-left w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">
-                      {user.education.subjects_handled}
-                    </div>
-                  </td>
-                  <td className="text-left w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="text-left w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="text-left w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="text-left w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="text-left w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="text-left w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="text-left w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="text-left w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                </tr>
+                {user.education.subjects_handled
+                  .split(",")
+                  .map((subjectHandled, index) => (
+                    <tr key={index}>
+                      <td className="text-left mb-[0px] w-full p-0">
+                        <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">
+                          {subjectHandled.trim()}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
 
@@ -206,32 +169,17 @@ const PDF = () => {
 
             <table className="w-[84%] mt-[5em] ml-[105px]">
               <tbody>
-                <tr>
-                  <td className="text-left mb-[0px] w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">
-                      {user.education.past_designation}
-                    </div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="text-left mb-[0px] w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="text-left mb-[0px] w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/2 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                </tr>
+                {user.education.past_designation
+                  .split(",")
+                  .map((pastDesignation, index) => (
+                    <tr key={index}>
+                      <td className="text-left mb-[0px] w-full p-0">
+                        <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">
+                          {pastDesignation.trim()}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
 
@@ -240,7 +188,7 @@ const PDF = () => {
             </div>
 
             <table className="w-[84%] mt-[5em] ml-[105px]">
-              <tbody>
+              <thead>
                 <tr>
                   <td className="text-center mb-[0px] w-1/3 p-0">
                     <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">
@@ -258,56 +206,42 @@ const PDF = () => {
                     </div>
                   </td>
                 </tr>
-                <tr>
-                  <td className="text-left mb-[0px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">
-                      {user.education.presented_papers_completed}
-                    </div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">
-                      {user.education.presented_papers_published}
-                    </div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">
-                      {user.education.presented_papers_presented}
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="text-left mb-[0px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="text-left mb-[0px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="text-left mb-[0px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/3 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                </tr>
+              </thead>
+
+              <tbody>
+                {user.education.presented_papers_completed
+                  .split(",")
+                  .map((completedPaper, index) => (
+                    <tr key={index}>
+                      <td className="text-left mb-[0px] w-1/3 p-0">
+                        <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">
+                          {completedPaper.trim()}
+                        </div>
+                      </td>
+                      <td className="text-left mb-[0px] w-1/3 p-0">
+                        <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">
+                          {user.education.presented_papers_published.split(",")[
+                            index
+                          ]
+                            ? user.education.presented_papers_published
+                                .split(",")
+                                [index].trim()
+                            : ""}
+                        </div>
+                      </td>
+                      <td className="text-left mb-[0px] w-1/3 p-0">
+                        <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">
+                          {user.education.presented_papers_presented.split(",")[
+                            index
+                          ]
+                            ? user.education.presented_papers_presented
+                                .split(",")
+                                [index].trim()
+                            : ""}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
 
@@ -317,50 +251,17 @@ const PDF = () => {
 
             <table className="w-[84%] mt-[5em] ml-[105px] mb-[100px]">
               <tbody>
-                <tr>
-                  <td className="text-left mb-[0px] w-1/4 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">
-                      {user.education.extension_projs}
-                    </div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/4 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/4 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/4 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="text-left mb-[0px] w-1/4 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/4 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/4 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/4 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="text-left mb-[0px] w-1/4 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/4 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/4 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                  <td className="text-left mb-[10px] w-1/4 p-0">
-                    <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto"></div>
-                  </td>
-                </tr>
+                {user.education.extension_projs
+                  .split(",")
+                  .map((extensionProj, index) => (
+                    <tr key={index}>
+                      <td className="text-left mb-[0px] w-full p-0">
+                        <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto">
+                          {extensionProj.trim()}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
 
