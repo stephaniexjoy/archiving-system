@@ -7,10 +7,11 @@ import { getServerSession } from "next-auth/next";
 import { AuthOptions } from "@/app/api/auth/[...nextauth]/options";
 
 const page = async ({ params }) => {
+  console.log(params);
   const session = await getServerSession(AuthOptions);
 
   const user = await db.user.findUnique({
-    where: { id: session.user.id },
+    where: { id: parseInt(params.id, 10) },
     include: {
       education: true,
     },
@@ -273,9 +274,15 @@ const page = async ({ params }) => {
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">{user.education.presented_papers_completed}</td>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">{user.education.presented_papers_published}</td>
-                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">{user.education.presented_papers_presented}</td>
+                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">
+                    {user.education.presented_papers_completed}
+                  </td>
+                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">
+                    {user.education.presented_papers_published}
+                  </td>
+                  <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">
+                    {user.education.presented_papers_presented}
+                  </td>
                 </tr>
                 <tr>
                   <td className="border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]"></td>
