@@ -75,7 +75,6 @@ model User {
 
 model User_Education {
   id                         Int     @id @default(autoincrement())
-  userId                     Int     @unique
   school                     String?
   bacDegree                  String?
   bacSchool                  String?
