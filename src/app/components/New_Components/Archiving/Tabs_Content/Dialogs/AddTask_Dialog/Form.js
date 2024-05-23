@@ -25,19 +25,28 @@ export default function Form() {
     <>
       <form
         action={async (formData) => {
-          const add_Tasks = await addTasks(formData, date);
+          const time = formData.get("time");
 
-          if (add_Tasks) {
+          if (!time && isNoDueDate === false) {
             toast({
-              description: "Successfully added task.",
+              description: "Please Fill the missing information.",
 
-              variant: "default",
+              variant: "destructive",
             });
+          } else {
+            const add_Tasks = await addTasks(formData, date);
+            if (add_Tasks) {
+              toast({
+                description: "Successfully added task.",
+
+                variant: "default",
+              });
+            }
           }
         }}
       >
         <div className="flex flex-col w-full">
-          <div 
+          <div
             className="
             flex flex-col text-3xl
             sm:flex sm:flex-col sm:text-3xl
@@ -45,7 +54,8 @@ export default function Form() {
             lg:flex lg:flex-col lg:text-3xl
             xl:flex xl:flex-col xl:text-3xl
             2xl:flex 2xl:flex-col 2xl:text-3xl
-            ">
+            "
+          >
             <Label className="text-2xl text-start font-semibold">Title</Label>
             <Input
               name="titleInput"
@@ -60,7 +70,9 @@ export default function Form() {
               type="text"
               placeholder=""
             />
-            <Label className="text-2xl text-start font-semibold mt-4">Instructions</Label>
+            <Label className="text-2xl text-start font-semibold mt-4">
+              Instructions
+            </Label>
             <textarea
               name="instructionInput"
               className="
@@ -121,7 +133,7 @@ export default function Form() {
           </div>
         </div>
         <div className="flex justify-center items-center w-full mt-8">
-          <div 
+          <div
             className="
             flex justify-center items-center w-[40%] h-8 text-white font-semibold bg-[#AD5606] rounded-lg
             sm:flex sm:justify-center sm:items-center sm:w-[40%] sm:h-8 sm:text-white sm:font-semibold sm:bg-[#AD5606] sm:rounded-lg
@@ -129,7 +141,8 @@ export default function Form() {
             lg:flex lg:justify-center lg:items-center lg:w-[40%] lg:h-8 lg:text-white lg:font-semibold lg:bg-[#AD5606] lg:rounded-lg
             xl:flex xl:justify-center xl:items-center xl:w-[40%] xl:h-8 xl:text-white xl:font-semibold xl:bg-[#AD5606] xl:rounded-lg
             2xl:flex 2xl:justify-center 2xl:items-center 2xl:w-[30%] 2xl:h-10 2xl:text-white 2xl:font-semibold 2xl:bg-[#AD5606] 2xl:rounded-lg
-            ">
+            "
+          >
             <Button
               type="submit"
               className="text-2xl rounded-lg"
