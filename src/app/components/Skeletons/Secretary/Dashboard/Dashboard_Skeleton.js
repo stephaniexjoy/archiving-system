@@ -47,11 +47,13 @@ export default function Secretary_Dashboard_Skeleton() {
             <Skeleton className="h-10 w-[100%] mt-2 bg-gray-400" />
           </div>
         </div>
-
+        {/* parent div of calendar and ccs logo */}
+        <div className="flex flex-col ml-32 mt-8 space-y-4">
         {/* calendar */}
-        <div className="w-[19%] h-[320px] ml-28 mt-5 rounded-lg bg-gray-300"></div>
+        <div className="w-80 h-32  rounded-lg bg-gray-300"></div>
         {/* ccs logo */}
-        <div className="w-40 h-40 -ml-7 mt-32 rounded-full bg-gray-300"></div>
+        <div className="w-40 h-40 ml-20 rounded-full bg-gray-300"></div>
+        </div>
       </div>
       {/* filter users */}
       <div className="bg-gray-300 w-[35%] h-12 mt-14 ml-9 rounded-lg">
