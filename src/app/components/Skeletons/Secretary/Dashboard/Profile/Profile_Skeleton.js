@@ -1,7 +1,7 @@
 import React from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export default function Profile_Skeleton() {
+export default function Secretary_Profile_Skeleton() {
   return (
     <div className="flex flex-col w-screen h-screen items-center">
       <div className="h-[100%] w-[55%] bg-gray-200 mt-3">

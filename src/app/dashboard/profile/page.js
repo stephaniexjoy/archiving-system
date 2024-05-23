@@ -61,8 +61,8 @@ function FacultyProfile({ sessionPhoto, user }) {
           "
               alt="profile"
               src="/profile.jpg"
-              width={474}
-              height={474}
+              width={250}
+              height={250}
             />
           )}
 
