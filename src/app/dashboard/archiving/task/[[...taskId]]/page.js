@@ -72,7 +72,7 @@ export default async function page({ searchParams }) {
                 >
                   {fetchTask.title}
                 </h1>
-                <div className="flex flex-row">
+                <div className="flex flex-col">
                   <div
                     className="
                   text-sm text-center
@@ -83,7 +83,7 @@ export default async function page({ searchParams }) {
                   2xl:text-sm 2xl:text-start
                   "
                   >
-                    {fetchTask.uploaderName}
+                   Created Task by: {fetchTask.uploaderName}
                   </div>
                   <div
                     className="
