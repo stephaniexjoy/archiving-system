@@ -11,7 +11,11 @@ export default async function page() {
   const session = await getServerSession(AuthOptions);
 
   if (session.user.position !== "Admin") {
-    return <>You do not have permission to view this page</>;
+    return (
+      <div className="flex w-screen h-screen justify-center items-center text-center">
+        <div className="rounded-[16px] p-96 bg-[#FFFFFF] text-[40px] text-red-600 font-semibold">You do not have permission to view this page!</div>
+      </div>
+    );
   }
 
   const users = await getAllUsers();
