@@ -613,6 +613,11 @@ export async function addToCompletedTask(taskId, sessionUser) {
             id: taskId,
           },
         },
+        Files: {
+          connect: {
+            completedTaskId: taskId,
+          },
+        },
         completed: dateNow,
       },
     });
@@ -823,7 +828,7 @@ export async function adminUpdateUser(formData, userId) {
   } else {
     return "Password does not match";
   }
-  revalidatePath("/superadmin/dashboard/manageuser");
+  revalidatePath("/dashboard/manageuser");
 }
 
 export async function userUpdateUser(formData) {
