@@ -17,7 +17,7 @@ const BackButton = () => {
       "
       variant="outline"
       onClick={() => {
-        router.push(`/superadmin/dashboard/manageuser`);
+        router.push(`/dashboard/manageuser`);
       }}
     >
       Back

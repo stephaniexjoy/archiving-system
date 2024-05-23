@@ -795,8 +795,8 @@ export async function deleteUser(userId) {
       id: userId,
     },
   });
-  revalidatePath("/superadmin/dashboard/manageuser");
-  revalidatePath("/secretary/dashboard/viewfaculty");
+  revalidatePath("/dashboard/manageuser");
+  revalidatePath("/dashboard/viewfaculty");
   return archiveUser;
 }
 
