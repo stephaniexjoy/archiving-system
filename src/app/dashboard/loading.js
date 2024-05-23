@@ -9,15 +9,11 @@ import { AuthOptions } from "../api/auth/[...nextauth]/options";
 export default async function loading() {
   const session = await getServerSession(AuthOptions);
 
- /*  if (session.user.position === "Admin") {
-    return (
-      
-    );
-  } */
+  if (session.user.position === "Admin") {
+    return <Admin_Dashboard_Skeleton />;
+  }
   if (session.user.position === "Secretary") {
-    return (
-      <Secretary_Dashboard_Skeleton/>
-    );
+    return <Secretary_Dashboard_Skeleton />;
   }
 
   return <Faculty_Dashboard_Skeleton />;
