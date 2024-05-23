@@ -8,7 +8,7 @@ export default async function loading() {
   const session = await getServerSession(AuthOptions);
 
   if (session.user.position === "Secretary") {
-    return <Secretary_Dashboard_Skeleton />;
+    return <Secretary_Profile_Skeleton />;
   }
   return (
     <div>
