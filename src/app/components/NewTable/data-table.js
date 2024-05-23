@@ -29,6 +29,7 @@ import {
   Command,
   CommandEmpty,
   CommandGroup,
+  CommandInput,
   CommandItem,
 } from "@/components/ui/command";
 import {
@@ -81,7 +82,7 @@ const filetypes = [
   },
 ]; */
 
-export function ComboboxPermission({ value, onChange, permissions}) {
+export function ComboboxPermission({ value, onChange, permissions }) {
   const [open, setOpen] = React.useState(false);
   console.log("Value ng permission ", value);
   const transformPermissions = permissions.map((item) => ({
@@ -106,7 +107,9 @@ export function ComboboxPermission({ value, onChange, permissions}) {
           "
         >
           {value
-            ? transformPermissions.find((framework) => framework.value === value)?.label
+            ? transformPermissions.find(
+                (framework) => framework.value === value
+              )?.label
             : "Select permissions.."}
 
           <CaretSortIcon
@@ -132,6 +135,7 @@ export function ComboboxPermission({ value, onChange, permissions}) {
         "
       >
         <Command>
+          <CommandInput placeholder="Search Permission..." className="h-9" />
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
             {transformPermissions.map((framework) => (
@@ -205,6 +209,7 @@ export function ComboboxMaterial({ value, onChange, materials }) {
         "
       >
         <Command>
+          <CommandInput placeholder="Search Material..." className="h-9" />
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
             {materials.map((framework) => (
@@ -283,6 +288,7 @@ export function ComboboxProgram({ value, onChange, programs }) {
         "
       >
         <Command>
+          <CommandInput placeholder="Search Program..." className="h-9" />
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
             {programs.map((framework) => (
@@ -364,6 +370,7 @@ export function ComboboxInstructor({ value, onChange, instructors }) {
         "
       >
         <Command>
+          <CommandInput placeholder="Search Instructor..." className="h-9" />
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
             {transformInstructor.map((framework, index) => (
@@ -437,6 +444,7 @@ export function ComboboxFileType({ value, onChange, filetype }) {
         "
       >
         <Command>
+          <CommandInput placeholder="Search File Type..." className="h-9" />
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
             {filetype.map((framework) => (
