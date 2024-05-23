@@ -40,16 +40,16 @@ import { Calendar } from "@/components/ui/calendar";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { addDays, format } from "date-fns";
 
-// const permissions = [
-//   {
-//     value: "all",
-//     label: "All",
-//   },
-//   {
-//     value: "secretary",
-//     label: "Secretary",
-//   },
-// ];
+const permissions = [
+  {
+    value: "all",
+    label: "All",
+  },
+  {
+    value: "secretary",
+    label: "Secretary",
+  },
+];
 
 /* const programs = [
   {
@@ -81,7 +81,7 @@ const filetypes = [
   },
 ]; */
 
-export function ComboboxPermission({ value, onChange, permissions}) {
+export function ComboboxPermission({ value, onChange, permissions }) {
   const [open, setOpen] = React.useState(false);
   console.log("Value ng permission ", value);
   const transformPermissions = permissions.map((item) => ({
@@ -106,7 +106,9 @@ export function ComboboxPermission({ value, onChange, permissions}) {
           "
         >
           {value
-            ? transformPermissions.find((framework) => framework.value === value)?.label
+            ? transformPermissions.find(
+                (framework) => framework.value === value
+              )?.label
             : "Select permissions.."}
 
           <CaretSortIcon
@@ -528,7 +530,6 @@ export function DataTable({
   instructors,
   programs,
   filetype,
-  permissions,
 }) {
   const [sorting, setSorting] = useState([]);
   const [columnFilters, setColumnFilters] = useState([]);

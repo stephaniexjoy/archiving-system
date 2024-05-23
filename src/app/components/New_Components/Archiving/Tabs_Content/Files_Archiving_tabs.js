@@ -1,21 +1,6 @@
 import { columns } from "@/app/components/NewTable/columns";
 import { DataTable } from "@/app/components/NewTable/data-table";
 
-const permissions = [
-  {
-    value: "all",
-    label: "All",
-  },
-  {
-    value: "null",
-    label: "Not Set",
-  },
-  {
-    value: "secretary",
-    label: "Secretary",
-  },
-];
-
 const programFrameworks = [
   {
     value: "machine learning",
@@ -54,7 +39,6 @@ export default function Files_Archiving_tabs({
   instructors,
   filetype,
   programs,
-  
 }) {
   console.log("Aba gumana ka", materials, instructors);
 
@@ -79,7 +63,6 @@ export default function Files_Archiving_tabs({
           instructors={instructors}
           programs={programs}
           filetype={filetype}
-          permissions={permissions}
         />
       </div>
     </>
