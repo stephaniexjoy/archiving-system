@@ -112,6 +112,8 @@ model File {
   //
   uploadDate   DateTime @default(now())
   description  String?
+
+  CompletedTask CompletedTask[]
 }
 
 model Tasks {
@@ -139,5 +141,7 @@ model CompletedTask {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   // Define the relationship to the Tasks model
-  task Tasks @relation(fields: [taskId], references: [id])
+  task   Tasks @relation(fields: [taskId], references: [id])
+  File   File? @relation(fields: [fileId], references: [id])
+  fileId Int?
 }
