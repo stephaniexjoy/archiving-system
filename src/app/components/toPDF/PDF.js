@@ -125,7 +125,7 @@ const PDF = () => {
                     </tr>
                   ))}
               </tbody>
-            </div>
+Dd            </div>
 
             <div className="relative top-[50px] left-[95px] text-[30px] bg-[#B83633] backdrop-filter:blur(4px)] font-[Century Gothic] text-white text-center h-[50px] w-[86%] font-bold">
               JOB EXPERIENCE
