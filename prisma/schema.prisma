@@ -63,7 +63,8 @@ model User {
   tokenExpiry        DateTime?
 
   // Relationship to the educational details
-  education User_Education? @relation()
+  education       User_Education? @relation(fields: [userEducationId], references: [id])
+  userEducationId Int?            @unique
 
   // Relationship to the files uploaded by User
   uploadedFiles File[]
@@ -92,7 +93,7 @@ model User_Education {
   extension_projs            String?
 
   // Define the relationship to the User model
-  User User @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  User User?
 }
 
 // File Entity
