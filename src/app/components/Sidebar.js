@@ -120,7 +120,7 @@ const Sidebar = () => {
                   isMinimized={isMinimized}
                 />
                 <MenuItem
-                  path="/superadmin/dashboard/manageuser"
+                  path="/dashboard/manageuser"
                   icon={<IoMdPerson className="text-white text-2xl ml-5" />}
                   label="MANAGE USERS"
                   isMinimized={isMinimized}
@@ -151,7 +151,7 @@ const Sidebar = () => {
                   isMinimized={isMinimized}
                 />
                 <MenuItem
-                  path="/secretary/dashboard/viewfaculty/"
+                  path="/dashboard/viewfaculty/"
                   icon={<FaBook className="text-white text-2xl ml-5" />}
                   label="VIEW FACULTY"
                   isMinimized={isMinimized}
