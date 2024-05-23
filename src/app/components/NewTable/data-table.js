@@ -29,6 +29,7 @@ import {
   Command,
   CommandEmpty,
   CommandGroup,
+  CommandInput,
   CommandItem,
 } from "@/components/ui/command";
 import {
@@ -134,6 +135,7 @@ export function ComboboxPermission({ value, onChange, permissions }) {
         "
       >
         <Command>
+          <CommandInput placeholder="Search Permission..." className="h-9" />
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
             {transformPermissions.map((framework) => (
@@ -207,6 +209,7 @@ export function ComboboxMaterial({ value, onChange, materials }) {
         "
       >
         <Command>
+          <CommandInput placeholder="Search Material..." className="h-9" />
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
             {materials.map((framework) => (
@@ -285,6 +288,7 @@ export function ComboboxProgram({ value, onChange, programs }) {
         "
       >
         <Command>
+          <CommandInput placeholder="Search Program..." className="h-9" />
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
             {programs.map((framework) => (
@@ -366,6 +370,7 @@ export function ComboboxInstructor({ value, onChange, instructors }) {
         "
       >
         <Command>
+          <CommandInput placeholder="Search Instructor..." className="h-9" />
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
             {transformInstructor.map((framework, index) => (
@@ -439,6 +444,7 @@ export function ComboboxFileType({ value, onChange, filetype }) {
         "
       >
         <Command>
+          <CommandInput placeholder="Search File Type..." className="h-9" />
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
             {filetype.map((framework) => (

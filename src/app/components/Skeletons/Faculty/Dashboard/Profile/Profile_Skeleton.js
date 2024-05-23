@@ -9,16 +9,16 @@ const Profile_Skeleton = () => {
         {/* parent div  */}
         <div className="flex flex-row">
           {/* profile */}
-          <div className="mt-20 ml-40">
-            <Skeleton className="h-32 w-32 bg-gray-300 rounded-full" />
+          <div className="mt-20 ml-24">
+            <Skeleton className="h-60 w-44 bg-gray-300 rounded-full" />
           </div>
-          <div className="ml-40 mt-9 space-y-2">
+          <div className="ml-36 mt-28 space-y-2">
             <Skeleton className="h-8 w-40 bg-gray-400" />
             <Skeleton className="h-8 w-52 bg-gray-400" />
             <Skeleton className="h-8 w-96 bg-gray-400" />
             <Skeleton className="h-8 w-24 bg-gray-400" />
           </div>
-          <div className="ml-40 mt-20 space-y-2">
+          <div className="ml-44 mt-32 space-y-2">
             <Skeleton className="h-8 w-60 bg-gray-400" />
             <Skeleton className="h-8 w-60 mt-2 bg-gray-400" />
             <Skeleton className="h-8 w-60 mt-2 bg-gray-400" />

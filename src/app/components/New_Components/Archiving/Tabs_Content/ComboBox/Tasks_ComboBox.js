@@ -93,6 +93,6 @@ const Tasks_ComboBox = ({ setHidden, setSelectedTask, tasks }) => {
       </PopoverContent>
     </Popover>
   );
-};
+  };
 
 export default Tasks_ComboBox;
