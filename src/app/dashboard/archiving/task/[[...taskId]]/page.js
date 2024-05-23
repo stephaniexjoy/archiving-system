@@ -18,10 +18,10 @@ export default async function page({ searchParams }) {
   console.log(fetchTask);
 
   return (
-    <div className="flex w-screen h-screen justify-center items-center">
+    <div className="flex w-screen h-[85vh] justify-center items-center">
       <Card
         className="
-        w-[95%] h-[90%] px-5 overflow-y-auto
+        w-[95%] h-[90%] px-5
         sm:w-[95%] sm:h-[90%] sm:px-5 sm:overflow-y-auto
         md:w-[95%] md:h-[90%] md:px-5 md:overflow-y-auto
         lg:w-[95%] lg:h-[90%] lg:px-5 lg:overflow-y-auto
@@ -42,12 +42,12 @@ export default async function page({ searchParams }) {
           >
             <div
               className="
-              w-full flex flex-col items-center                                   
+              w-full h-full flex flex-col items-center                          
               sm:w-full sm:flex sm:flex-col sm:items-center
               md:w-full md:flex md:flex-col md:items-center
               lg:w-full lg:flex lg:flex-col lg:items-center
-              xl:w-full xl:flex xl:flex-col xl:items-start xl:gap-64
-              2xl:w-full 2xl:flex 2xl:flex-col 2xl:items-start 2xl:gap-72
+              xl:w-full xl:flex xl:flex-col xl:items-start xl:gap-52
+              2xl:w-full 2xl:flex 2xl:flex-col 2xl:items-start 2xl:gap-52 
               "
             >
               <div
