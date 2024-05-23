@@ -16,6 +16,9 @@ export default async function page({ searchParams }) {
 
   const fetchTask = await getTaskById(searchParamsObject.taskId);
   console.log(fetchTask);
+  console.log(fetchTask.CompletedTask);
+
+  const dateNow = new Date();
 
   return (
     <div className="flex w-screen h-[85vh] justify-center items-center">
@@ -83,7 +86,7 @@ export default async function page({ searchParams }) {
                   2xl:text-sm 2xl:text-start
                   "
                   >
-                   Created Task by: {fetchTask.uploaderName}
+                    Created Task by: {fetchTask.uploaderName}
                   </div>
                   <div
                     className="
@@ -159,12 +162,32 @@ export default async function page({ searchParams }) {
                     <h1 className="font-semibold text-sm sm:text-md md:text-lg lg:text-md xl:text-md 2xl:text-[25px]">
                       Your work
                     </h1>
-                    <h1 className="font-semibold text-sm sm:text-sm md:text-lg 2xl:text-[25px] ml-10 text-red-600">
-                      Missing
-                    </h1>
+
+                    {fetchTask.CompletedTask.length < 1 ? (
+                      <>
+                        {dateNow > fetchTask.setDeadline ? (
+                          <h1 className="font-semibold text-sm sm:text-sm md:text-lg 2xl:text-[25px] ml-10 text-red-600">
+                            Missing
+                          </h1>
+                        ) : dateNow < fetchTask.setDeadline ? (
+                          <h1 className="font-semibold text-sm sm:text-sm md:text-lg 2xl:text-[25px] ml-10 text-green-600">
+                            Upcoming
+                          </h1>
+                        ) : (
+                          <h1 className="font-semibold text-sm sm:text-sm md:text-lg 2xl:text-[25px] ml-10 text-blue-600">
+                            Due Today
+                          </h1>
+                        )}
+                      </>
+                    ) : (
+                      <h1 className="font-semibold text-sm sm:text-sm md:text-lg 2xl:text-[25px] ml-10 text-green-800">
+                        Completed
+                      </h1>
+                    )}
                   </div>
 
                   <div className="flex flex-col w-full">
+                    {fetchTask.CompletedTask.length > 0 && <>qwe</>}
                     {fetchTask && (
                       <>
                         <File_Upload_Card task={fetchTask} />

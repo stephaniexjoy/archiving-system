@@ -497,6 +497,7 @@ export async function confirmUpload(urls, fileInfo, taskId) {
   const sessionUser = session.user;
   console.log(sessionUser);
   let index = 0;
+  let uploadResult = [];
   try {
     for (const url of urls) {
       const res = await backendClient.publicFiles1.confirmUpload({
@@ -510,9 +511,14 @@ export async function confirmUpload(urls, fileInfo, taskId) {
         sessionUser
       );
       index++;
+      console.log(res1);
+      uploadResult.push(res1);
     }
+    console.log(uploadResult);
+    const fileIds = uploadResult.map((file) => file.id);
+    console.log("File Ids: ", fileIds);
 
-    const setCompleted = await addToCompletedTask(taskId, sessionUser);
+    const setCompleted = await addToCompletedTask(taskId, sessionUser, fileIds);
     console.log(setCompleted);
 
     return "Success";
@@ -598,7 +604,7 @@ export async function updateFile(filePath, material, program, permission) {
   return updateFileInfo;
 }
 
-export async function addToCompletedTask(taskId, sessionUser) {
+export async function addToCompletedTask(taskId, sessionUser, fileIds) {
   const dateNow = getDateNow();
   try {
     const setComplete = await db.completedTask.create({
@@ -613,16 +619,37 @@ export async function addToCompletedTask(taskId, sessionUser) {
             id: taskId,
           },
         },
-        Files: {
-          connect: {
-            completedTaskId: taskId,
-          },
-        },
+
         completed: dateNow,
       },
     });
     console.log(setComplete);
+
+    try {
+      const res = addCompletedTaskIdToFile(setComplete, fileIds);
+    } catch (error) {
+      console.log(error);
+    }
+
     return setComplete;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function addCompletedTaskIdToFile(setComplete, fileIds) {
+  try {
+    const res = await db.file.updateMany({
+      where: {
+        id: {
+          in: fileIds,
+        },
+      },
+      data: {
+        completedTaskId: setComplete.id,
+      },
+    });
+    console.log("added completedTaskId", res);
   } catch (error) {
     console.log(error);
   }
@@ -776,9 +803,20 @@ export async function getActivities() {
 }
 
 export async function getTaskById(taskId) {
+  const session = await getUserSession();
   try {
     const getTask = await db.tasks.findUnique({
       where: { id: parseInt(taskId) },
+      include: {
+        CompletedTask: {
+          where: {
+            AND: [{ taskId: parseInt(taskId) }, { userId: session.user.id }],
+          },
+          include: {
+            Files: true,
+          },
+        },
+      },
     });
     if (getTask) {
       return getTask;
