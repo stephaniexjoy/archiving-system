@@ -829,7 +829,7 @@ export async function getTaskById(taskId) {
 export async function deleteUser(userId) {
   const deleteEducation = await db.User_Education.deleteMany({
     where: {
-      userId: userId,
+      id: userId,
     },
   });
 
