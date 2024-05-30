@@ -366,7 +366,7 @@ function FacultyDashboard({ fileCount, session }) {
         lg:w-80 lg:h-auto lg:object-cover
         xl:w-36 xl:h-auto xl:object-cover
         2xl:ml-9 2xl:w-36 2xl:h-auto 2xl:object-cover"
-            src="/photos/ccsLogo.png"
+            src="/photos/newccsLogo.png"
             alt="CCS Logo"
             width={2201}
             height={2201}
@@ -663,7 +663,7 @@ function SecretaryDashboard({ fileCount, session, userCount, activity }) {
           xl:-ml-4 xl:w-40 xl:h-auto xl:object-cover
           2xl:ml-4 2xl:w-56 2xl:h-auto 2xl:object-cover
           "
-              src="/photos/ccsLogo.png"
+              src="/photos/newccsLogo.png"
               alt="CCS Logo"
               height={2201}
               width={2201}

@@ -250,48 +250,40 @@ function FacultyProfile({ sessionPhoto, user }) {
               <h1 className="mt-8 mb-8 top-[285px] font-semibold text-[24px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[40px]">
                 SEMINARS AND TRAININGS ATTENDED
               </h1>
-              <tbody>
-                {user.education.seminars_trainings ? (
-                  user.education.seminars_trainings
-                    .split(",")
-                    .map((seminarTraining, index) => (
-                      <tr key={index}>
-                        <td>
-                          <div className="ml-12 text-[20px] font-[Century Gothic] text-black h-[2em] mx-auto">
-                            {seminarTraining.trim()}
-                          </div>
-                        </td>
-                      </tr>
-                    ))
-                ) : (
-                  <tr>
-                    <td></td>
-                  </tr>
-                )}
-              </tbody>
+
+              {user.education.seminars_trainings ? (
+                user.education.seminars_trainings
+                  .split(",")
+                  .map((seminarTraining, index) => (
+                    <div
+                      key={index}
+                      className="ml-12 text-[20px] font-[Century Gothic] text-black h-[2em] mx-auto"
+                    >
+                      {seminarTraining.trim()}
+                    </div>
+                  ))
+              ) : (
+                <></>
+              )}
             </div>
             <div className="top-[450px] font-semibold text-[24px] bg-transparent [backdrop-filter:blur(4px)] text-white text-center w-[20px] h-[40px]"></div>
             <div className=" w-1/2 ">
               <h1 className="mt-8 mb-8 top-[285px] font-semibold text-[24px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[40px]">
                 JOB EXPERIENCE
               </h1>
-              <tbody>
-                {user.education.experience ? (
-                  user.education.experience.split(",").map((jobExp, index) => (
-                    <tr key={index}>
-                      <td>
-                        <div className="ml-12 text-[20px] font-[Century Gothic] text-black h-[2em] mx-auto">
-                          {jobExp.trim()}
-                        </div>
-                      </td>
-                    </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td></td>
-                  </tr>
-                )}
-              </tbody>
+
+              {user.education.experience ? (
+                user.education.experience.split(",").map((jobExp, index) => (
+                  <div
+                    key={index}
+                    className="ml-12 text-[20px] font-[Century Gothic] text-black h-[2em] mx-auto"
+                  >
+                    {jobExp.trim()}
+                  </div>
+                ))
+              ) : (
+                <></>
+              )}
             </div>
           </div>
         </div>
@@ -299,50 +291,42 @@ function FacultyProfile({ sessionPhoto, user }) {
           <h1 className="mt-8 mb-8 top-[285px] font-semibold text-[24px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[40px]">
             SUBJECTS HANDLED (DESCRIPTIVE TITLE)
           </h1>
-          <tbody>
-            {user.education.subjects_handled ? (
-              user.education.subjects_handled
-                .split(",")
-                .map((subjectHandled, index) => (
-                  <tr key={index}>
-                    <td>
-                      <div className="ml-12 text-[20px] font-[Century Gothic] text-black h-[2em] mx-auto">
-                        {subjectHandled.trim()}
-                      </div>
-                    </td>
-                  </tr>
-                ))
-            ) : (
-              <tr>
-                <td></td>
-              </tr>
-            )}
-          </tbody>
+
+          {user.education.subjects_handled ? (
+            user.education.subjects_handled
+              .split(",")
+              .map((subjectHandled, index) => (
+                <div
+                  key={index}
+                  className="ml-12 text-[20px] font-[Century Gothic] text-black h-[2em] mx-auto"
+                >
+                  {subjectHandled.trim()}
+                </div>
+              ))
+          ) : (
+            <></>
+          )}
         </div>
         <div>
           <h1 className="mt-8 mb-8 top-[285px] font-semibold text-[24px] bg-[#8F8F8F] [backdrop-filter:blur(4px)] text-white text-center w-full h-[40px]">
             PAST DESIGNATIONS
           </h1>
         </div>
-        <tbody>
-          {user.education.past_designation ? (
-            user.education.past_designation
-              .split(",")
-              .map((pastDesignation, index) => (
-                <tr key={index}>
-                  <td>
-                    <div className="ml-12 text-[20px] font-[Century Gothic] h-[2em] mx-auto">
-                      {pastDesignation.trim()}
-                    </div>
-                  </td>
-                </tr>
-              ))
-          ) : (
-            <tr>
-              <td></td>
-            </tr>
-          )}
-        </tbody>
+
+        {user.education.past_designation ? (
+          user.education.past_designation
+            .split(",")
+            .map((pastDesignation, index) => (
+              <div
+                key={index}
+                className="ml-12 text-[20px] font-[Century Gothic] h-[2em] mx-auto"
+              >
+                {pastDesignation.trim()}
+              </div>
+            ))
+        ) : (
+          <></>
+        )}
 
         <div>
           <h1 className="mt-8 mb-8 top-[285px] font-semibold text-[24px] bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center w-full h-[40px]">
@@ -456,25 +440,20 @@ function FacultyProfile({ sessionPhoto, user }) {
             EXTENSIONS PROJECTS
           </h1>
 
-          <tbody>
-            {user.education.extension_projs ? (
-              user.education.extension_projs
-                .split(",")
-                .map((extensionProj, index) => (
-                  <tr key={index}>
-                    <td>
-                      <div className="ml-12 text-[20px] font-[Century Gothic] h-[2em] mx-auto">
-                        {extensionProj.trim()}
-                      </div>
-                    </td>
-                  </tr>
-                ))
-            ) : (
-              <tr>
-                <td></td>
-              </tr>
-            )}
-          </tbody>
+          {user.education.extension_projs ? (
+            user.education.extension_projs
+              .split(",")
+              .map((extensionProj, index) => (
+                <div
+                  key={index}
+                  className="ml-12 text-[20px] font-[Century Gothic] h-[2em] mx-auto"
+                >
+                  {extensionProj.trim()}
+                </div>
+              ))
+          ) : (
+            <></>
+          )}
         </div>
         <div>
           <div

@@ -72,7 +72,7 @@ const Login = () => {
         <Image
           className="w-screen h-screen object-cover opacity-100"
           alt="CCS Logo Half"
-          src="/photos/ccsLogoHalf.png"
+          src="/photos/newccsLogoHalf.png"
           width={481}
           height={935}
           priority={true}
