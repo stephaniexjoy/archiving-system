@@ -86,17 +86,31 @@ function FacultyProfile({ sessionPhoto, user }) {
           2xl:mt-6 
           "
             >
-              <b>Name:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <b>Name:</b>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{user.name}
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;{user.name}
             </div>
-            <div><b>Position:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;{user.position}</div>
-            <div><b>Eligibility/<br/>Professional License:</b>&nbsp;&nbsp;{user.license}</div>
-            <div><b>School:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;{user.education.school}</div>
+            <div>
+              <b>Position:</b>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;{user.position}
+            </div>
+            <div>
+              <b>
+                Eligibility/
+                <br />
+                Professional License:
+              </b>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{user.license}
+            </div>
+            <div>
+              <b>School:</b>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;{user.education.school}
+            </div>
           </div>
 
           <div
@@ -119,10 +133,18 @@ function FacultyProfile({ sessionPhoto, user }) {
           2xl:mt-10
           "
             >
-              <b>Designation:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{user.designation}
+              <b>Designation:</b>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {user.designation}
             </div>
-            <div><b>Specialization:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{user.specialization}</div>
-            <div><b>Certifications:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{user.certifications}</div>
+            <div>
+              <b>Specialization:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {user.specialization}
+            </div>
+            <div>
+              <b>Certifications:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {user.certifications}
+            </div>
           </div>
         </div>
 
@@ -206,7 +228,9 @@ function FacultyProfile({ sessionPhoto, user }) {
                   >
                     <b>School:</b>
                   </div>
-                  <div className="ml-12 text-[20px] text-black">{item.school}</div>
+                  <div className="ml-12 text-[20px] text-black">
+                    {item.school}
+                  </div>
                 </div>
               </React.Fragment>
             ))}
@@ -227,15 +251,23 @@ function FacultyProfile({ sessionPhoto, user }) {
                 SEMINARS AND TRAININGS ATTENDED
               </h1>
               <tbody>
-                {user.education.seminars_trainings
-                  .split(",")
-                  .map((seminarTrainings, index) => (
-                    <tr key={index}>
-                      <div className="ml-12 text-[20px] font-[Century Gothic] text-black h-[2em] mx-auto">
-                        {seminarTrainings.trim()}
-                      </div>
-                    </tr>
-                  ))}
+                {user.education.seminars_trainings ? (
+                  user.education.seminars_trainings
+                    .split(",")
+                    .map((seminarTraining, index) => (
+                      <tr key={index}>
+                        <td>
+                          <div className="ml-12 text-[20px] font-[Century Gothic] text-black h-[2em] mx-auto">
+                            {seminarTraining.trim()}
+                          </div>
+                        </td>
+                      </tr>
+                    ))
+                ) : (
+                  <tr>
+                    <td></td>
+                  </tr>
+                )}
               </tbody>
             </div>
             <div className="top-[450px] font-semibold text-[24px] bg-transparent [backdrop-filter:blur(4px)] text-white text-center w-[20px] h-[40px]"></div>
@@ -244,13 +276,21 @@ function FacultyProfile({ sessionPhoto, user }) {
                 JOB EXPERIENCE
               </h1>
               <tbody>
-                {user.education.experience.split(",").map((jobExp, index) => (
-                  <tr key={index}>
-                    <div className="ml-12 text-[20px] font-[Century Gothic] text-black h-[2em] mx-auto">
-                      {jobExp.trim()}
-                    </div>
+                {user.education.experience ? (
+                  user.education.experience.split(",").map((jobExp, index) => (
+                    <tr key={index}>
+                      <td>
+                        <div className="ml-12 text-[20px] font-[Century Gothic] text-black h-[2em] mx-auto">
+                          {jobExp.trim()}
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td></td>
                   </tr>
-                ))}
+                )}
               </tbody>
             </div>
           </div>
@@ -260,15 +300,23 @@ function FacultyProfile({ sessionPhoto, user }) {
             SUBJECTS HANDLED (DESCRIPTIVE TITLE)
           </h1>
           <tbody>
-            {user.education.subjects_handled
-              .split(",")
-              .map((subjectHandled, index) => (
-                <tr key={index}>
-                  <div className="ml-12 text-[20px] font-[Century Gothic] text-black h-[2em] mx-auto">
-                    {subjectHandled.trim()}
-                  </div>
-                </tr>
-              ))}
+            {user.education.subjects_handled ? (
+              user.education.subjects_handled
+                .split(",")
+                .map((subjectHandled, index) => (
+                  <tr key={index}>
+                    <td>
+                      <div className="ml-12 text-[20px] font-[Century Gothic] text-black h-[2em] mx-auto">
+                        {subjectHandled.trim()}
+                      </div>
+                    </td>
+                  </tr>
+                ))
+            ) : (
+              <tr>
+                <td></td>
+              </tr>
+            )}
           </tbody>
         </div>
         <div>
@@ -277,15 +325,23 @@ function FacultyProfile({ sessionPhoto, user }) {
           </h1>
         </div>
         <tbody>
-          {user.education.past_designation
-            .split(",")
-            .map((pastDesignation, index) => (
-              <tr key={index}>
-                <div className="ml-12 text-[20px] font-[Century Gothic] h-[2em] mx-auto">
-                  {pastDesignation.trim()}
-                </div>
-              </tr>
-            ))}
+          {user.education.past_designation ? (
+            user.education.past_designation
+              .split(",")
+              .map((pastDesignation, index) => (
+                <tr key={index}>
+                  <td>
+                    <div className="ml-12 text-[20px] font-[Century Gothic] h-[2em] mx-auto">
+                      {pastDesignation.trim()}
+                    </div>
+                  </td>
+                </tr>
+              ))
+          ) : (
+            <tr>
+              <td></td>
+            </tr>
+          )}
         </tbody>
 
         <div>
@@ -314,33 +370,41 @@ function FacultyProfile({ sessionPhoto, user }) {
                 </tr>
               </thead>
               <tbody>
-                {user.education.presented_papers_completed
-                  .split(",")
-                  .map((completedPaper, index) => (
-                    <tr key={index}>
-                      <td className="text-[20px] border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">
-                        {completedPaper.trim()}
-                      </td>
-                      <td className="text-[20px] border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">
-                        {user.education.presented_papers_published.split(",")[
-                          index
-                        ]
-                          ? user.education.presented_papers_published
-                              .split(",")
-                              [index].trim()
-                          : ""}
-                      </td>
-                      <td className="text-[20px] border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">
-                        {user.education.presented_papers_presented.split(",")[
-                          index
-                        ]
-                          ? user.education.presented_papers_presented
-                              .split(",")
-                              [index].trim()
-                          : ""}
-                      </td>
-                    </tr>
-                  ))}
+                {user.education.presented_papers_completed ? (
+                  user.education.presented_papers_completed
+                    .split(",")
+                    .map((completedPaper, index) => (
+                      <tr key={index}>
+                        <td className="text-[20px] border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">
+                          {completedPaper.trim()}
+                        </td>
+                        <td className="text-[20px] border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">
+                          {user.education.presented_papers_published &&
+                          user.education.presented_papers_published.split(",")[
+                            index
+                          ]
+                            ? user.education.presented_papers_published
+                                .split(",")
+                                [index].trim()
+                            : ""}
+                        </td>
+                        <td className="text-[20px] border border-black bg-[#8F8F8F] backdrop-blur-[4px] text-white text-center h-[50px]">
+                          {user.education.presented_papers_presented &&
+                          user.education.presented_papers_presented.split(",")[
+                            index
+                          ]
+                            ? user.education.presented_papers_presented
+                                .split(",")
+                                [index].trim()
+                            : ""}
+                        </td>
+                      </tr>
+                    ))
+                ) : (
+                  <tr>
+                    <td colSpan="3"></td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>
@@ -393,16 +457,23 @@ function FacultyProfile({ sessionPhoto, user }) {
           </h1>
 
           <tbody>
-            {user.education.extension_projs
-              .split(",")
-              .map((extensionProj, index) => (
-                <tr key={index}>
-                  <div className="ml-12 text-[20px] font-[Century Gothic] h-[2em] mx-auto">
-                    {" "}
-                    {extensionProj.trim()}
-                  </div>
-                </tr>
-              ))}
+            {user.education.extension_projs ? (
+              user.education.extension_projs
+                .split(",")
+                .map((extensionProj, index) => (
+                  <tr key={index}>
+                    <td>
+                      <div className="ml-12 text-[20px] font-[Century Gothic] h-[2em] mx-auto">
+                        {extensionProj.trim()}
+                      </div>
+                    </td>
+                  </tr>
+                ))
+            ) : (
+              <tr>
+                <td></td>
+              </tr>
+            )}
           </tbody>
         </div>
         <div>
