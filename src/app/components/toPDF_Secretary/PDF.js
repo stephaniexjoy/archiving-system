@@ -141,15 +141,22 @@ const PDF = () => {
             </div>
             <div className="w-[80%] mx-auto">
               <tbody>
-                {user.education.seminars_trainings
-                  .split(",")
-                  .map((seminarTrainings, index) => (
-                    <tr key={index}>
-                      <div className="text-[25px] font-[Century Gothic] text-black h-[2em] mx-auto">
-                        {seminarTrainings.trim()}
-                      </div>
-                    </tr>
-                  ))}
+                {user.education.seminarTrainings ? (
+                  <>
+                    {" "}
+                    {user.education.seminars_trainings
+                      .split(",")
+                      .map((seminarTrainings, index) => (
+                        <tr key={index}>
+                          <div className="text-[25px] font-[Century Gothic] text-black h-[2em] mx-auto">
+                            {seminarTrainings.trim()}
+                          </div>
+                        </tr>
+                      ))}
+                  </>
+                ) : (
+                  <></>
+                )}
               </tbody>
             </div>
             <div className="flex justify-center">
@@ -159,13 +166,21 @@ const PDF = () => {
             </div>
             <div className="w-[80%] mx-auto">
               <tbody>
-                {user.education.experience.split(",").map((jobExp, index) => (
-                  <tr key={index}>
-                    <div className="text-[25px] font-[Century Gothic] text-black h-[2em] mx-auto">
-                      {jobExp.trim()}
-                    </div>
-                  </tr>
-                ))}
+                {user.education.experience ? (
+                  <>
+                    {user.education.experience
+                      .split(",")
+                      .map((jobExp, index) => (
+                        <tr key={index}>
+                          <div className="text-[25px] font-[Century Gothic] text-black h-[2em] mx-auto">
+                            {jobExp.trim()}
+                          </div>
+                        </tr>
+                      ))}
+                  </>
+                ) : (
+                  <></>
+                )}
               </tbody>
             </div>
             <div className="flex justify-center">
@@ -175,17 +190,23 @@ const PDF = () => {
             </div>
             <table className="w-[86%] mx-auto ">
               <tbody>
-                {user.education.subjects_handled
-                  .split(",")
-                  .map((subjectHandled, index) => (
-                    <tr key={index}>
-                      <td className="text-left w-full ">
-                        <div className="text-[24px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto px-12">
-                          {subjectHandled.trim()}
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
+                {user.education.subjects_handled ? (
+                  <>
+                    {user.education.subjects_handled
+                      .split(",")
+                      .map((subjectHandled, index) => (
+                        <tr key={index}>
+                          <td className="text-left w-full ">
+                            <div className="text-[24px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto px-12">
+                              {subjectHandled.trim()}
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                  </>
+                ) : (
+                  <></>
+                )}
               </tbody>
             </table>
             <div className="flex justify-center">
@@ -195,17 +216,23 @@ const PDF = () => {
             </div>
             <table className="w-[86%] mx-auto">
               <tbody>
-                {user.education.past_designation
-                  .split(",")
-                  .map((pastDesignation, index) => (
-                    <tr key={index}>
-                      <td className="text-left mb-[0px] w-full p-0">
-                        <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto px-12">
-                          {pastDesignation.trim()}
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
+                {user.education.past_designation ? (
+                  <>
+                    {user.education.past_designation
+                      .split(",")
+                      .map((pastDesignation, index) => (
+                        <tr key={index}>
+                          <td className="text-left mb-[0px] w-full p-0">
+                            <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto px-12">
+                              {pastDesignation.trim()}
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                  </>
+                ) : (
+                  <></>
+                )}
               </tbody>
             </table>
             <div className="flex justify-center">
@@ -235,39 +262,46 @@ const PDF = () => {
               </thead>
 
               <tbody>
-                {user.education.presented_papers_completed
-                  .split(",")
-                  .map((completedPaper, index) => (
-                    <tr key={index}>
-                      <td className="text-left mb-[0px] w-1/3">
-                        <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto px-6">
-                          {completedPaper.trim()}
-                        </div>
-                      </td>
-                      <td className="text-left mb-[0px] w-1/3 p-0">
-                        <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto px-6">
-                          {user.education.presented_papers_published.split(",")[
-                            index
-                          ]
-                            ? user.education.presented_papers_published
-                                .split(",")
-                                [index].trim()
-                            : ""}
-                        </div>
-                      </td>
-                      <td className="text-left mb-[0px] w-1/3 p-0">
-                        <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto px-6">
-                          {user.education.presented_papers_presented.split(",")[
-                            index
-                          ]
-                            ? user.education.presented_papers_presented
-                                .split(",")
-                                [index].trim()
-                            : ""}
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
+                {user.education.presented_papers_completed ? (
+                  <>
+                    {" "}
+                    {user.education.presented_papers_completed
+                      .split(",")
+                      .map((completedPaper, index) => (
+                        <tr key={index}>
+                          <td className="text-left mb-[0px] w-1/3">
+                            <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto px-6">
+                              {completedPaper.trim()}
+                            </div>
+                          </td>
+                          <td className="text-left mb-[0px] w-1/3 p-0">
+                            <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto px-6">
+                              {user.education.presented_papers_published.split(
+                                ","
+                              )[index]
+                                ? user.education.presented_papers_published
+                                    .split(",")
+                                    [index].trim()
+                                : ""}
+                            </div>
+                          </td>
+                          <td className="text-left mb-[0px] w-1/3 p-0">
+                            <div className="text-[25px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto px-6">
+                              {user.education.presented_papers_presented.split(
+                                ","
+                              )[index]
+                                ? user.education.presented_papers_presented
+                                    .split(",")
+                                    [index].trim()
+                                : ""}
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                  </>
+                ) : (
+                  <></>
+                )}
               </tbody>
             </table>
             <div className="flex justify-center">
@@ -278,17 +312,23 @@ const PDF = () => {
             <div className="pb-24">
               <table className="w-[86%] mx-auto">
                 <tbody>
-                  {user.education.extension_projs
-                    .split(",")
-                    .map((extensionProj, index) => (
-                      <tr key={index}>
-                        <td className="text-left mb-8 w-full">
-                          <div className="text-[24px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto px-12">
-                            {extensionProj.trim()}
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
+                  {user.education.extension_projs ? (
+                    <>
+                      {user.education.extension_projs
+                        .split(",")
+                        .map((extensionProj, index) => (
+                          <tr key={index}>
+                            <td className="text-left mb-8 w-full">
+                              <div className="text-[24px] font-[Century Gothic] text-black border-[1px] border-black h-[3em] mx-auto px-12">
+                                {extensionProj.trim()}
+                              </div>
+                            </td>
+                          </tr>
+                        ))}
+                    </>
+                  ) : (
+                    <></>
+                  )}
                 </tbody>
               </table>
             </div>{" "}
