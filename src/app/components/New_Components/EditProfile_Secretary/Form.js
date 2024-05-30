@@ -4,10 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
+import { useSession } from "next-auth/react";
 import React from "react";
 
 export default function Form({ user }) {
   const { toast } = useToast();
+  const { data: session, status, update } = useSession();
 
   const url =
     "https://files.edgestore.dev/kovz7t43lyztl989/publicImages/_public/5f9be7e5-b3fd-475f-86ce-eeb481696847.png";
@@ -17,7 +19,7 @@ export default function Form({ user }) {
 
   // The last segment contains the file name
   const fileName = segments[segments.length - 1];
-  console.log(fileName);
+  console.log();
 
   return (
     <>
@@ -30,10 +32,19 @@ export default function Form({ user }) {
               description: `${updateData}.`,
               variant: "destructive",
             });
-          } else if (updateData === "Successful") {
+          } else if (updateData.message === "Successful") {
+            if (session) {
+              await update({
+                ...session,
+                user: {
+                  ...session.user,
+                  picture: updateData.user.profile_photo_path,
+                },
+              });
+            }
             toast({
               title: "Success",
-              description: `${updateData}ly Updated Data.`,
+              description: `${updateData.message}ly Updated Data.`,
               variant: "default",
             });
           }

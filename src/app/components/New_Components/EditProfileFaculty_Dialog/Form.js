@@ -4,11 +4,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { userAgent } from "next/server";
 
+async function updateSession(isUpdated) {}
+
 export default function Form({ user }) {
   const { toast } = useToast();
+  const { data: session, status, update } = useSession();
+
   return (
     <>
       <form
@@ -16,11 +21,27 @@ export default function Form({ user }) {
           const isUpdated = await updateUser(formData);
           console.log("Wieee: ", isUpdated);
           if (isUpdated) {
+            console.log("Wieee: ", isUpdated);
+
+            if (session) {
+              await update({
+                ...session,
+                user: {
+                  ...session.user,
+                  picture: isUpdated.profile_photo_path,
+                },
+              });
+            }
+
             toast({
               description: "You have successfully updated your profile.",
               type: "success",
               variant: "default",
             });
+
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
           }
         }}
       >
@@ -88,7 +109,11 @@ export default function Form({ user }) {
                 >
                   Role:
                 </Label>
-                <input type="hidden" name="updRole" defaultValue={user ?user.position : ""} />
+                <input
+                  type="hidden"
+                  name="updRole"
+                  defaultValue={user ? user.position : ""}
+                />
               </div>
               <div className="flex items-center gap-4">
                 <Label
@@ -101,7 +126,7 @@ export default function Form({ user }) {
                 <input
                   type="hidden"
                   name="updDesignation"
-                  defaultValue={user ?user.position : ""}
+                  defaultValue={user ? user.position : ""}
                 />
               </div>
               <div className="flex items-center">
@@ -399,7 +424,9 @@ export default function Form({ user }) {
                   name="ppc"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
-                  defaultValue={user ? user.education.presented_papers_completed : ""}
+                  defaultValue={
+                    user ? user.education.presented_papers_completed : ""
+                  }
                 />
               </div>
             </div>
@@ -436,7 +463,9 @@ export default function Form({ user }) {
                   name="ppp"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
-                  defaultValue={user ? user.education.presented_papers_published : ""}
+                  defaultValue={
+                    user ? user.education.presented_papers_published : ""
+                  }
                 />
               </div>
             </div>
@@ -480,7 +509,9 @@ export default function Form({ user }) {
                   name="pppresent"
                   type="text"
                   className="bg-slate-300 w-[650px] h-[90px] font-semibold text-[20px]"
-                  defaultValue={user ? user.education.presented_papers_presented : ""}
+                  defaultValue={
+                    user ? user.education.presented_papers_presented : ""
+                  }
                 />
               </div>
             </div>

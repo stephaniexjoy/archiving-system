@@ -142,6 +142,6 @@ model CompletedTask {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   // Define the relationship to the Tasks model
-  task Tasks  @relation(fields: [taskId], references: [id])
+  task  Tasks  @relation(fields: [taskId], references: [id])
   Files File[]
 }

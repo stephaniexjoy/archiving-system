@@ -611,6 +611,8 @@ export default async function profile() {
   const session = await getServerSession(AuthOptions);
   const sessionPhoto = session.user.image;
 
+  console.log("session ko now", session);
+
   const user = await db.user.findUnique({
     where: { id: session.user.id },
     include: {

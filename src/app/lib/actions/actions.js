@@ -1004,7 +1004,7 @@ export async function editProfile_Secretary(formData) {
 
           console.log(updateUser);
           if (updateUser) {
-            return "Successful";
+            return { message: "Successful", user: updateUser };
           }
         } catch (error) {
           console.log(error);
