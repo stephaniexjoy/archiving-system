@@ -22,8 +22,8 @@ const Edit_button = ({ filePath, fileOwner }) => {
       {session.user.id === fileOwner ? (
         <div className="">
           <Dialog>
-            <DialogTrigger className="focus:outline-none h-10 font-bold">
-              <Button>Edit</Button>
+            <DialogTrigger className="bg-slate-800 text-slate-200 rounded p-2 px-4 w-auto border focus:outline-none h-10 font-bold">
+              Edit
             </DialogTrigger>
             <DialogContent className="bg-white max-w-[1000px] max-h-[800px] h-auto py-4 px-6 overflow-y-auto">
               <DialogHeader>
@@ -55,18 +55,20 @@ const Edit_button = ({ filePath, fileOwner }) => {
           </Dialog>
         </div>
       ) : (
-        <Button
-          variant="outline"
-          onClick={() => {
-            toast({
-              title: "Cannot Edit File ",
-              variant: "destructive",
-              description: "You do not own this file.",
-            });
-          }}
-        >
-          Edit
-        </Button>
+        <>
+          <Button
+            variant="outline"
+            onClick={() => {
+              toast({
+                title: "Cannot Edit File ",
+                variant: "destructive",
+                description: "You do not own this file.",
+              });
+            }}
+          >
+            Edit
+          </Button>
+        </>
       )}
     </>
   );

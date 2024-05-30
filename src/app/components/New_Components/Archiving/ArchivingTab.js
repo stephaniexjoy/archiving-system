@@ -105,9 +105,14 @@ function filterTasks(tasks) {
     laterThanNextWeek: [],
     pastDue: [],
     noDeadline: [],
+    archived: [],
   };
 
   tasks.forEach((task) => {
+    if (task.isActive === false) {
+      filteredTasks.archived.push(task);
+      return;
+    }
     if (!task.setDeadline) {
       filteredTasks.noDeadline.push(task);
       return; // Skip further processing for tasks with no deadline
@@ -137,10 +142,12 @@ function ArchivingTab({
   programs,
   tasks,
   completedTasks,
+  archivedTasks
 }) {
   const { data: session, status } = useSession();
   console.log(tasks);
   console.log(completedTasks);
+  console.log("Atrc",archivedTasks);
 
   const filteredTasks = filterTasksByDate(tasks, completedTasks);
   console.log("Filtered ", filteredTasks);
@@ -286,7 +293,7 @@ function ArchivingTab({
         {session?.user?.position === "Secretary" && (
           <>
             <TabsContent value="archivedtask">
-              <ArchivedTask_Archiving_tabs tasks={filteredTasks.archived} />
+              <ArchivedTask_Archiving_tabs tasks={archivedTasks} />
             </TabsContent>
             <TabsContent value="monitor">
               <>

@@ -463,7 +463,20 @@ export async function getPrograms() {
 }
 
 export async function getTasks() {
-  const tasks = await db.tasks.findMany();
+  const tasks = await db.tasks.findMany({
+    where: {
+      isActive: true,
+    },
+  });
+  if (tasks) return tasks;
+}
+
+export async function getArchivedTasks() {
+  const tasks = await db.tasks.findMany({
+    where: {
+      isActive: false,
+    },
+  });
   if (tasks) return tasks;
 }
 

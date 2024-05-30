@@ -7,6 +7,7 @@ import {
   getTasks,
   getCompletedTasks,
   getPrograms,
+  getArchivedTasks,
 } from "@/app/lib/actions/actions";
 import { revalidatePath } from "next/cache";
 import Image from "next/image";
@@ -42,8 +43,9 @@ export default async function archiving({ searchParams }) {
 
   const tasks = await getTasks();
   const completedTasks = await getCompletedTasks();
+  const archivedTask = await getArchivedTasks();
 
- /*  if (searchParams) {
+  /*  if (searchParams) {
     const { query } = searchParams;
 
     const searchedData = await getSearchData(query);
@@ -86,6 +88,7 @@ export default async function archiving({ searchParams }) {
 
   // const fetchMaterials = await getMaterials()
   console.log(fetchFileTypes);
+  console.log("Arc", archivedTask);
 
   return (
     <>
@@ -98,6 +101,7 @@ export default async function archiving({ searchParams }) {
           filetype={mappedFileTypes}
           tasks={tasks}
           completedTasks={completedTasks}
+          archivedTasks={archivedTask}
           programs={fetchPrograms}
         />
       </div>
