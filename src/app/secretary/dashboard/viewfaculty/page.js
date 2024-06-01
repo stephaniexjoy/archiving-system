@@ -1,10 +1,7 @@
-
-import React from 'react'
-import { FaSearch } from "react-icons/fa";
-import CreateModal from "@/app/components/Modal/CreateModal";
-import DeleteModal from "@/app/components/Modal/DeleteModal";
+import ViewFaculty_Secretary from "@/app/components/NewTable/ViewFaculty_Table_Secretary/ViewFaculty_Secretary";
+import { getAllUsers } from "@/app/lib/actions/actions";
 import { revalidatePath } from "next/cache";
-import Link from "next/link";
+import Image from "next/image";
 
 async function page() {
   async function getEmptyData() {
@@ -12,86 +9,68 @@ async function page() {
   }
 
   async function getUsers() {
-    "use server"
-    const res = await fetch('http://localhost:3000/api/users/fetch-users',)
+    "use server";
+    const res = await fetch("http://localhost:3000/api/users/fetch-users");
     if (!res.ok) {
-      return getEmptyData()
+      return getEmptyData();
     }
-    revalidatePath('/secretary/dashboard/viewfaculty/')
-    return res.json()
+    revalidatePath("/secretary/dashboard/viewfaculty/");
+    return res.json();
   }
-  const users = await getUsers()
+  const users = await getAllUsers();
+  console.log(users);
   return (
-    <div className="flex flex-col w-screen h-screen">
-      <div className="bg-[#5B0505] w-full h-[12%] flex items-center justify-center">
-        <img
-          className="w-[27%] h-[100%] object-cover flex items-center justify-center"
-          alt="E-Archiving System"
-          src="/photos/E-Archiving System.png"
-        />
-      </div>
-
-      <div className="bg-[#AD5606] flex flex-row mt-0 mb-5 md:h-20">
-        <h1 className="text-[#DABB9C] mt-2 w-auto text-[45px] font-semibold md:shadow-zinc-400 ml-[3%]">
-          FIND
-        </h1>
-        <div className="flex items-center">
-          <input
-            type="search"
-            name="find"
-            placeholder=""
-            className="mt-1 ml-2 mr-3 text-md text-[#242323] bg-[#D9D9D9] w-[1300px] h-[60px] md:text-shadow-inner"
-          />
-          <div className="mt-1 ml-4 text-white bg-[#6A6A6A] p-2 h-[60px] w-auto">
-            <FaSearch size="50" />
-          </div>
-        </div>
-        <div className="mt-3 bg-[#6A6A6A] p-2 h-[60px] w-[100px] ml-[1%]">
-          <button className="mt-2 ml-1 text-white text-[20px]">
-            CREATE
-          </button>
-        </div>
-        <div className="mt-3 bg-[#6A6A6A] p-2 h-[60px] w-[70px] ml-[1%]">
-          <img
-            className="h-auto w-auto mt-0 ml-0 object-cover"
-            alt="Notification Logo"
-            src="/photos/Notificationlogo.png"
-          />
-        </div>
-      </div>
-
-      <div className=" text-[50px] mt-5 mb-5 font-semibold text-[#5B0505] text-center ">
+    <div className="flex flex-col w-screen h-screen overflow-y-auto bg-slate-50">
+      <div
+        className="
+      text-[30px] mt-5 mb-3 font-semibold text-[#5B0505] text-center
+      sm:text-[33px] sm:mt-5 sm:mb-3 sm:font-semibold sm:text-[#5B0505] sm:text-center
+      md:text-[36px] md:mt-5 md:mb-3 md:font-semibold md:text-[#5B0505] md:text-center
+      lg:text-[39px] lg:mt-5 lg:mb-3 lg:font-semibold lg:text-[#5B0505] lg:text-center
+      xl:text-[42px] xl:mt-5 xl:mb-3 xl:font-semibold xl:text-[#5B0505] xl:text-center
+      2xl:text-[50px] 2xl:mt-5 2xl:mb-5 2xl:font-semibold 2xl:text-[#5B0505] 2xl:text-center
+      "
+      >
         VIEW FACULTY
       </div>
-      <div>
-        <div className="container flex justify-center mx-auto">
+      {/*  <div>
+        <div className="container flex justify-center mx-auto drop-shadow-2xl">
           <div className="flex flex-col">
             <div className="w-full">
-              <table className="w-[1300px] divide-y divide-gray-300" style={{ borderCollapse: 'separate', borderSpacing: '0 30px' }}>
-                <tbody className="bg-[#837979] divide-y divide-gray-300">
+              <Table
+                className="w-[1300px] divide-y divide-gray-300"
+                style={{ borderCollapse: "separate", borderSpacing: "0 30px" }}
+              >
+                <Table className="bg-[#837979] divide-y divide-gray-300">
                   {users.map((user) => (
-                    <tr key={user.id} className="whitespace-nowrap">
-                      <td className="px-3 py-4">
+                    <TableRow key={user.id} className="whitespace-nowrap">
+                      <TableCell className="px-3 py-4">
                         <div className="mr-[700px] text-xl font-semibold text-white">
                           {user.name}
                         </div>
-                      </td>
-                      <td></td>
-                      <td></td>
-                      <td className="px-1 py-4">
-                        <Link href={`/secretary/dashboard/viewfaculty/view-user/${user.id}/`} className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md">VIEW</Link>
-                      </td>
-                    </tr>
-                  ))}
+                      </TableCell>
 
-                </tbody>
-              </table>
+                      <TableCell className="px-1 py-4">
+                        <Link
+                          href={`/secretary/dashboard/viewfaculty/view-user/${user.id}/`}
+                          className="px-4 py-1 text-base font-semibold text-white bg-[#675454] rounded-md"
+                        >
+                          VIEW
+                        </Link>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </Table>
+              </Table>
             </div>
           </div>
         </div>
+      </div> */}
+      <div>
+        <ViewFaculty_Secretary data={users} />
       </div>
     </div>
   );
 }
 
-export default page
+export default page;

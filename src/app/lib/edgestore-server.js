@@ -24,7 +24,9 @@ const edgeStoreRouter = es.router({
         .fileBucket()
 
     ,
-    publicImages: es.imageBucket()
+    publicImages: es.imageBucket({
+        accept: ['image/jpeg', 'image/png', 'image/jpg']
+    })
 
     /*  .input(z.object({ type: z.enum(['post', 'article']) })) */
     /* .path(({ ctx, input }) => [{ type: input.type }, { author: ctx.userId }])
